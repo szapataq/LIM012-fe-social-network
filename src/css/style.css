@@ -23,98 +23,133 @@
 @font-face {
     font-family: sans-pro-regular;
     src: url(../fonts/SourceSansPro-Regular.ttf);
+    box-sizing: border-box;
 }
-
 main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    padding: 22px;
 }
 
-.index-img-message {
-    width: 800px;
+.index-img-message{
+    display: block;
+    text-align: center;
+    padding: 10px 60px;
+    max-width: 600px;  
 }
 
 .index-img-message img {
-    max-width: 700px;
+    max-width: 600px;
 }
-
 .index-img-message h1 {
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
 }
 
 .card-login {
-    width: 540px;
-    height: 840px;
     background: #FFFFFF;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25), -1px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 10px;
+    margin: 10px;
+    padding: 40px 50px;
 }
 
 .card-login img {
     width: 100px;
-    margin: 30px 0;
+    margin: 10px;
 }
 
 .card-login h1 {
-    font-size: 34px;
-    margin: 0 0 24px;
+    font-size: 30px;
+    margin: 10px;
     font-family: code-pro-bold, sans-serif;
 }
 
 .card-login h4 {
     font-size: 20px;
+    margin: 10px;
 }
 
 .container-inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 0px;
+    /* margin: 50px 0px; */
 }
-
+.container-inputs>*{
+    margin: 5px;
+}
 .input-login {
-    width: 364px;
-    height: 50px;
+    min-width: 200px;
+    height: 35px;
     border-radius: 25px;
     outline: none;
-    margin: 20px 0px;
+    border: none;
+    border: solid 1px #9F00FF;
+    padding: 0px 10px;
 }
-
 .btn-card {
     width: 150px;
-    height: 45px;
-    left: 1033px;
-    top: 608px;
+    height: 35px;
     background: linear-gradient(282.92deg, rgba(186, 12, 223, 0.8) 4.97%, rgba(6, 242, 193, 0.8) 98.41%);
     border-radius: 40px;
     border: none;
     outline: none;
     cursor: pointer;
-    margin: 30px 0;
     color: #FFFFFF;
     font-weight: bold;
 }
 
 .rrss img {
-    width: 50px;
-    margin: 0 10px;
+    width: 35px;
     cursor: pointer;
 }
 
 .card-login p {
-    font-size: 18px;
-    margin: 20px 0;
+    font-size: 15px;
     font-weight: 600;
+    margin: 10px;
 }
+.register{
+    border-top: solid 1px rgb(124, 121, 120);
+    width: 100%;
+    text-align: center;
 
+}
 .card-login span {
-    font-size: 18px;
+    font-size: 14px;
     color: #9F00FF;
+    cursor: pointer;
+}
+.terms{
+    font-size: 14px;
+    margin: 1em;
+    max-width: 300px;
+}
+.terms label{
+    cursor: pointer;
+}
+@media (max-width:768px){
+    .index-img-message{
+        display: none;
+    }
+}
+@media (max-width:320px){
+    .index-img-message{
+        display: none;
+    }
+    .card-login{
+        max-width: 310px;
+        box-shadow: none;
+        padding:0;
+    }
+    main{
+        margin: 0;
+        padding: 0;
+    }
 }

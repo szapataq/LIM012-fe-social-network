@@ -25,6 +25,110 @@
     src: url(../fonts/SourceSansPro-Regular.ttf);
     box-sizing: border-box;
 }
+
+/* ESTILOS DEL MENU DESPLEGABLE */
+
+header {
+    width: 100%;
+    background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%);
+    position: fixed;
+    z-index: 1;
+}
+
+#btnMenu {
+    display: none;
+}
+
+header label {
+    display: none;
+    height: 20px;
+    width: 16px;
+    padding: 10px 15px 18px;
+    border-right: 1.5px solid rgba(51, 51, 51, 0.3);
+    color: #333;
+    font-size: 20px;
+}
+
+header label:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.menu section {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.itemsHover:hover {
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.menu div span {
+    display: block;
+    padding: 20px 0px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.menu div i {
+    margin-left: 10px;
+}
+
+.items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 170px;
+}
+
+.itemsHover {
+    border-left: 1.5px solid rgba(51, 51, 51, 0.3);
+    /* border-right: 1.5px solid rgba(51, 51, 51, 0.3); */
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.icons-cp {
+    margin: 0 15px 0 15px;
+}
+
+.separator {
+    justify-content: space-between;
+}
+
+.userLogged {
+    width: 100%;
+}
+
+.userLogged>span {
+    padding-top: 26px !important;
+}
+
+.userImage {
+    width: 60px;
+    margin: 8px 8px 8px 20px;
+}
+
+.userName {
+    text-transform: uppercase;
+}
+
+.coderPlace {
+    display: none;
+}
+
+.coderPlaceDesktop {
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-right: 50px;
+}
+
+/*FIN DE ESTILOS MENU DESPLEGABLE */
+
 main {
     display: flex;
     flex-direction: row;
@@ -33,16 +137,17 @@ main {
     padding: 22px;
 }
 
-.index-img-message{
+.index-img-message {
     display: block;
     text-align: center;
     padding: 10px 60px;
-    max-width: 600px;  
+    max-width: 600px;
 }
 
 .index-img-message img {
     max-width: 600px;
 }
+
 .index-img-message h1 {
     font-size: 20px;
     text-align: center;
@@ -81,9 +186,11 @@ main {
     align-items: center;
     /* margin: 50px 0px; */
 }
-.container-inputs>*{
+
+.container-inputs>* {
     margin: 5px;
 }
+
 .input-login {
     min-width: 200px;
     height: 35px;
@@ -93,6 +200,7 @@ main {
     border: solid 1px #9F00FF;
     padding: 0px 10px;
 }
+
 .btn-card {
     width: 150px;
     height: 35px;
@@ -115,40 +223,120 @@ main {
     font-weight: 600;
     margin: 10px;
 }
-.register{
+
+.register {
     border-top: solid 1px rgb(124, 121, 120);
     width: 100%;
     text-align: center;
 
 }
+
 .card-login span {
     font-size: 14px;
     color: #9F00FF;
     cursor: pointer;
 }
-.terms{
+
+.terms {
     font-size: 14px;
     margin: 1em;
     max-width: 300px;
 }
-.terms label{
+
+.terms label {
     cursor: pointer;
 }
-@media (max-width:768px){
-    .index-img-message{
+
+@media (max-width:768px) {
+    .index-img-message {
+        display: none;
+    }
+
+    header label {
+        display: block;
+    }
+
+    .coderPlace {
+        display: block;
+        position: absolute;
+        left: 110px;
+        top: 10px;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .menu {
+        position: absolute;
+        width: 180px;
+        background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%);
+        width: 40%;
+        margin-left: -70%;
+        transition: all 0.7s;
+        z-index: 1;
+    }
+
+    .menu section {
+        flex-direction: column;
+    }
+
+    .menu div {
+        border-top: 1.5px solid rgba(51, 51, 51, 0.3);
+    }
+
+    #btnMenu:checked~.menu {
+        margin: 0;
+        width: 100%;
+    }
+
+    .menu div i {
+        position: absolute;
+        right: 20px;
+    }
+
+    .menu div span {
+        font-size: 14px;
+    }
+
+    .icons-cp {
+        width: 20px;
+    }
+
+    .usercp {
+        width: 25px !important;
+    }
+
+    .userImage {
+        width: 50px;
+        margin: 1px 7px 1px 7px;
+    }
+
+    .items {
+        width: 100%;
+    }
+
+    .itemsHover {
+        border: none;
+        justify-content: unset;
+        padding-right: 0;
+    }
+
+    .coderPlaceDesktop {
         display: none;
     }
 }
-@media (max-width:320px){
-    .index-img-message{
+
+@media (max-width:320px) {
+    .index-img-message {
         display: none;
     }
-    .card-login{
+
+    .card-login {
         max-width: 310px;
         box-shadow: none;
-        padding:0;
+        padding: 0;
     }
-    main{
+
+    main {
         margin: 0;
         padding: 0;
     }

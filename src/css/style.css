@@ -119,12 +119,21 @@ main {
     border-top: solid 1px rgb(124, 121, 120);
     width: 100%;
     text-align: center;
+
 }
 .card-login span {
     font-size: 14px;
     color: #9F00FF;
+    cursor: pointer;
 }
-
+.terms{
+    font-size: 14px;
+    margin: 1em;
+    max-width: 300px;
+}
+.terms label{
+    cursor: pointer;
+}
 @media (max-width:768px){
     .index-img-message{
         display: none;
@@ -135,8 +144,9 @@ main {
         display: none;
     }
     .card-login{
-        padding: 10px;
+        max-width: 310px;
         box-shadow: none;
+        padding:0;
     }
     main{
         margin: 0;

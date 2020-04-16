@@ -194,7 +194,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 8% 0 14%;
+    margin: 8% 0 10%;
 }
 
 .container-inputs input {

@@ -365,6 +365,10 @@ main {
         font-size: 14px;
     }
 
+    .icon-coderplace img {
+        display: none;
+    }
+
     .register {
         border-top: 1.5px solid rgba(51, 51, 51, 0.12);
     }

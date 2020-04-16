@@ -134,7 +134,8 @@ main {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding: 22px;
+    margin: auto;
+    width: 90%;
 }
 
 .index-img-message {

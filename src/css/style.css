@@ -202,6 +202,7 @@ main {
 
 .container-inputs input {
     margin: 10px 20px;
+    font-weight: 600;
 }
 
 .container-inputs button {
@@ -356,12 +357,6 @@ main {
         display: none;
     }
 
-    .img-login-mobile {
-        display: block;
-        width: 75%;
-        margin: 3% auto 0;
-    }
-
     .card-login {
         background: #FFFFFF;
         box-shadow: none;
@@ -378,21 +373,57 @@ main {
         font-size: 14px;
     }
 
+    .icon-coderplace {
+        margin: 0 0 5%;
+    }
+
     .icon-coderplace img {
         display: none;
     }
 
-    .icon-coderplace {
-        margin: 0 0 5%;
+    .img-login-mobile {
+        display: block;
+        width: 75%;
+        margin: 3% auto 0;
+    }
+
+    .container-inputs {
+        margin: 6% 0 10%;
+    }
+
+    .input-login {
+        width: 65%;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .btn-card {
+        width: 130px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .register {
+        position: fixed;
+        bottom: 0;
+        padding: 4% 0;
+    }
+
+    .card-login p {
+        font-size: 14px;
+        margin: 2% 0;
+    }
+
+    .rrss img {
+        width: 30px;
     }
 
     .register {
         border-top: 1.5px solid rgba(51, 51, 51, 0.12);
     }
-
 }
 
-@media (max-width:320px) {
+/* @media (max-width:320px) {
     .index-img-message {
         display: none;
     }
@@ -406,4 +437,4 @@ main {
         margin: 0;
         padding: 0;
     }
-}
+} */

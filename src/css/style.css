@@ -145,7 +145,7 @@ main {
 }
 
 .index-img-message img {
-    max-width: 600px;
+    width: 100%;
 }
 
 .index-img-message h1 {

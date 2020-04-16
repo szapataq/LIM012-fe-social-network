@@ -129,16 +129,12 @@ header label:hover {
 
 /*FIN DE ESTILOS MENU DESPLEGABLE */
 
-body {
-    height: 90vh;
-}
-
 main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin: 10px auto;
+    margin: 1% auto;
     width: 90%;
     height: 100%;
 }
@@ -154,7 +150,7 @@ main {
 
 .index-img-message img {
     width: 90%;
-    margin: 0 0 10px;
+    margin: 0 0 3%;
 }
 
 .index-img-message h1 {
@@ -167,15 +163,16 @@ main {
     background: #FFFFFF;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25), -1px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    margin: 40px 30px 0;
-    width: 30%;
+    margin: 2% 3%;
+    /* width: 30%; */
+    max-width: 360px;
 }
 
 .icon-coderplace {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px 0;
+    margin: 10% 0;
 }
 
 .icon-coderplace img {
@@ -198,7 +195,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 30px 0 3em;
+    margin: 8% 0 14%;
 }
 
 .container-inputs input {
@@ -242,6 +239,12 @@ main {
     font-size: 15px;
     font-weight: 600;
     margin: 0 0 20px;
+}
+
+.card-login p {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 5% 0;
 }
 
 .register {
@@ -343,6 +346,10 @@ main {
     .coderPlaceDesktop {
         display: none;
     }
+
+    .card-login {
+        max-width: none;
+    }
 }
 
 @media (max-width:320px) {
@@ -351,7 +358,7 @@ main {
     }
 
     .card-login {
-        max-width: 310px;
+        max-width: none;
         box-shadow: none;
         padding: 0;
     }

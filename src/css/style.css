@@ -211,13 +211,13 @@ main {
 }
 
 .input-login {
-    min-width: 200px;
-    height: 35px;
+    width: 250px;
+    height: 40px;
     border-radius: 25px;
     outline: none;
-    border: none;
-    border: solid 1px #9F00FF;
+    border: solid 1.5px #9F00FF;
     padding: 0px 10px;
+    font-size: 16px;
 }
 
 .btn-card {

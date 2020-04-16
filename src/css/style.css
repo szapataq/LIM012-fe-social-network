@@ -139,6 +139,10 @@ main {
     height: 100%;
 }
 
+.img-login-mobile {
+    display: none;
+}
+
 .index-img-message {
     text-align: center;
     width: 60%;
@@ -352,6 +356,12 @@ main {
         display: none;
     }
 
+    .img-login-mobile {
+        display: block;
+        width: 75%;
+        margin: 3% auto;
+    }
+
     .card-login {
         background: #FFFFFF;
         box-shadow: none;
@@ -366,6 +376,10 @@ main {
 
     .icon-coderplace img {
         display: none;
+    }
+
+    .icon-coderplace {
+        margin: 0 0 5%;
     }
 
     .register {

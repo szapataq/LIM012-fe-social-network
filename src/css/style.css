@@ -359,7 +359,7 @@ main {
     .img-login-mobile {
         display: block;
         width: 75%;
-        margin: 3% auto;
+        margin: 3% auto 0;
     }
 
     .card-login {
@@ -368,6 +368,10 @@ main {
         border-radius: 15px;
         margin: 0;
         max-width: none;
+    }
+
+    .icon-coderplace h1 {
+        margin: 0;
     }
 
     .card-login h4 {

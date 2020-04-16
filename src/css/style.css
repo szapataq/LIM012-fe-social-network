@@ -141,8 +141,7 @@ main {
 .index-img-message {
     display: block;
     text-align: center;
-    padding: 10px 60px;
-    max-width: 600px;
+    width: 50%;
 }
 
 .index-img-message img {

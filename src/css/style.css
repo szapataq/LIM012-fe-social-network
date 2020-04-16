@@ -4,6 +4,10 @@
     color: #333333;
     font-family: sans-pro-regular, sans-serif;
 }
+html, body{
+    margin: 0;
+    height: 100%;
+}
 
 @font-face {
     font-family: code-pro-bold;
@@ -131,6 +135,7 @@ header label:hover {
 
 main {
     display: flex;
+    height: 100%;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;

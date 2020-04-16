@@ -383,7 +383,7 @@ main {
 
     .img-login-mobile {
         display: block;
-        width: 75%;
+        width: 90%;
         margin: 6% auto 0;
     }
 
@@ -403,10 +403,8 @@ main {
         font-size: 14px;
     }
 
-    .register {
-        position: fixed;
-        bottom: 0;
-        padding: 4% 0;
+    .rrss img {
+        width: 30px;
     }
 
     .card-login p {
@@ -414,11 +412,10 @@ main {
         margin: 2% 0;
     }
 
-    .rrss img {
-        width: 30px;
-    }
-
     .register {
+        /* position: fixed;
+        bottom: 0; */
+        padding: 4% 0;
         border-top: 1.5px solid rgba(51, 51, 51, 0.12);
     }
 }

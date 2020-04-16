@@ -3,7 +3,6 @@
     padding: 0;
     color: #333333;
     font-family: sans-pro-regular, sans-serif;
-    height: 90vh;
 }
 
 @font-face {
@@ -130,6 +129,10 @@ header label:hover {
 
 /*FIN DE ESTILOS MENU DESPLEGABLE */
 
+body {
+    height: 90vh;
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -169,7 +172,7 @@ main {
     align-items: center;
     margin: 50px 20px 0 100px;
     width: 30%;
-    height: 680px;
+    height: 100%;
 }
 
 .card-login img {

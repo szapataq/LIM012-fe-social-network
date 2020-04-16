@@ -225,7 +225,7 @@ main {
 
 .btn-card {
     width: 150px;
-    height: 35px;
+    height: 40px;
     background: linear-gradient(282.92deg, rgba(186, 12, 223, 0.8) 4.97%, rgba(6, 242, 193, 0.8) 98.41%);
     border-radius: 40px;
     border: none;
@@ -233,6 +233,7 @@ main {
     cursor: pointer;
     color: #FFFFFF;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .rrss img {

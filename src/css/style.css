@@ -153,8 +153,9 @@ main {
 }
 
 .index-img-message h1 {
-    font-size: 20px;
+    font-size: 2em;
     text-align: center;
+    width: 80%;
 }
 
 .card-login {

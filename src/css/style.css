@@ -243,14 +243,13 @@ main {
 .card-login p {
     font-size: 15px;
     font-weight: 600;
-    margin: 5% 0;
+    margin: 5% 0 8%;
 }
 
 .register {
-    border-top: 1.5px solid rgba(51, 51, 51, 0.12);
+    /* border-top: 1.5px solid rgba(51, 51, 51, 0.12); */
     width: 100%;
     text-align: center;
-
 }
 
 .card-login span {
@@ -270,10 +269,8 @@ main {
 }
 
 @media (max-width:768px) {
-    .index-img-message {
-        display: none;
-    }
 
+    /* ESTILOS PARA EL MENÚ DESPLEGABLE*/
     header label {
         display: block;
     }
@@ -346,9 +343,32 @@ main {
         display: none;
     }
 
+    /* FIN DE ESTILOS DEL MENU DESPLEGABLE*/
+
+    main {
+        width: 100%;
+    }
+
+    .index-img-message {
+        display: none;
+    }
+
     .card-login {
+        background: #FFFFFF;
+        box-shadow: none;
+        border-radius: 15px;
+        margin: 0;
         max-width: none;
     }
+
+    .card-login h4 {
+        font-size: 14px;
+    }
+
+    .register {
+        border-top: 1.5px solid rgba(51, 51, 51, 0.12);
+    }
+
 }
 
 @media (max-width:320px) {
@@ -357,7 +377,6 @@ main {
     }
 
     .card-login {
-        max-width: none;
         box-shadow: none;
         padding: 0;
     }

@@ -183,7 +183,7 @@ main {
 }
 
 .icon-coderplace h1 {
-    font-size: 30px;
+    font-size: 35px;
     margin: 10px;
     font-family: code-pro-bold, sans-serif;
     letter-spacing: -0.05em;
@@ -201,16 +201,12 @@ main {
     margin: 30px 0 3em;
 }
 
-/* .container-inputs>* {
-    margin: 10px;
-} */
-
 .container-inputs input {
     margin: 10px 20px;
 }
 
 .container-inputs button {
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .input-login {
@@ -242,10 +238,10 @@ main {
     cursor: pointer;
 }
 
-.card-login p {
+.container-inputs p {
     font-size: 15px;
     font-weight: 600;
-    margin: 10px;
+    margin: 0 0 20px;
 }
 
 .register {

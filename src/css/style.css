@@ -5,6 +5,7 @@
     font-family: sans-pro-regular, sans-serif;
 }
 
+
 @font-face {
     font-family: code-pro-bold;
     src: url(../fonts/SourceCodePro-Bold.ttf);
@@ -31,7 +32,7 @@
 header {
     width: 100%;
     background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%);
-    position: fixed;
+    /*position: fixed;*/
     z-index: 1;
 }
 
@@ -194,7 +195,6 @@ main {
     font-family: code-pro-bold, sans-serif;
     letter-spacing: -0.05em;
 }
-
 .card-login h4 {
     font-size: 18px;
     text-align: center;
@@ -228,8 +228,6 @@ main {
     background-origin: border-box;
     box-shadow: 2px 1000px 1px #fff inset
 }
-
-
 
 .btn-card {
     width: 150px;
@@ -284,13 +282,231 @@ main {
     cursor: pointer;
 }
 
+/*--------------Estilo muro de usuario----------------*/
+.container-main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    justify-content: space-around;
+    margin: 2em 7em;
+}
+.general-information{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*display: none;*/
+}
+.user-logged{
+    text-align: center;
+    width: 80%;
+}
+.user-data{
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+}
+.container-info{
+    margin: 0px 20px;
+}
+.container-info> div{
+    display: flex;
+    flex-direction: row;
+}
+.name p{
+    font-weight: bold;
+    font-size: 18px;
+}
+.container-info> p{
+    margin: 5px;
+}
+.photo{
+    width: 100px;
+}
+.coder-information{
+    width: 80%;
+    margin-top: 40px;
+    border: solid 1px rgb(185, 184, 184);
+}
+.coder-header{
+    font-weight: bold;
+    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+.container-coders{
+    padding: 10px 20px ;
+}
+.container-coders .info-coder{
+    display: grid;
+    grid-template-columns: 20% 50% 40%;
+    align-items: center;
+    text-align: start;
+    margin: 10px;
+}
+.container-coders img{
+    width: 50px;
+}
+.container-post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.new-post{
+    width: 80%;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 20px 20px 10px 20px;
+}
+.container-post button{
+    width: 110px;
+    height: 35px;
+    background: linear-gradient(280.72deg, rgba(186, 12, 223, 0.8) 4.97%, rgba(6, 242, 193, 0.8) 98.41%);
+    border-radius: 20px;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+.new-post textarea{
+    width: 100%;
+    margin: auto;
+    height: 127px;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+    resize: none;
+}
+.container-functions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.camera-privacity{
+    display: flex;
+    align-items: center;
+}
+.camera-privacity div{
+    margin: 0px 20px;
+}
+.privacidad img{
+    width: 25px;
+}
+.camera{
+    width: 40px;
+    height: auto;
+}
+.privacidad{
+    display: flex;
+    align-items: center;
+}
+.container-new-post{
+    width: 80%;
+    text-align: center;
+    margin-top: 20px;
+}
+.each-post{
+    width: 100%;
+    border: 1px solid #CCCCCC;
+    margin-top: 20px;
+}
+
+.title-new-post{
+    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.time{
+    display: flex;
+    flex-direction: row;
+}
+.time>*{
+    padding: 5px;
+    font-size: 15px;
+    color:#757575;
+}
+.time img{
+    width: 18px;
+    height: 18px;
+}
+.user-foto{
+    width: 60px;
+    height: 60px;
+    margin: 3px 10px;
+}
+
+.body-post{
+    padding: 20px;
+    text-align: justify;
+}
+.like-comment{
+    padding: 5px 20px;
+    border-top: solid 1px #CCCCCC;
+    border-bottom: solid 1px #CCCCCC;
+}
+
+.like-comment div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.like-comment p{
+    font-size: 14px;
+    color: #333333;
+    text-align: left;
+}
+.icon-like{
+    width: 34px;
+    height: auto;
+    margin-right: 10px;
+}
+.icon-comment{
+    width: 26px;
+    height: 26px;
+}
+
+.new-comment{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #F2F2F2;
+    padding: 10px;
+}
+
+.new-comment input{
+    width: 70%;
+    padding: 0px 10px;
+}
+
+.new-comment input{
+    outline: none;
+    height: 42px;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.user-comment{
+    width: 50px;
+}
+
+.icon-send{
+    width: 28px;
+    height: 28px;
+}
+
 @media (max-width:768px) {
 
     /* ESTILOS PARA EL MENÚ DESPLEGABLE*/
     header label {
         display: block;
     }
-
     .coderPlace {
         display: block;
         position: absolute;
@@ -358,8 +574,33 @@ main {
     .coderPlaceDesktop {
         display: none;
     }
+  /* FIN DE ESTILOS DEL MENU DESPLEGABLE*/
+  
+    .img-general {
+        width: 100%;
+    }
+    .container-main{
+        margin:10px;
+        
+    }
+}
 
-    /* FIN DE ESTILOS DEL MENU DESPLEGABLE*/
+@media (max-width:425px) {
+    .container-main{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: space-around;
+        margin: 5px;
+    }
+  
+    .general-information{
+        display: none;
+    }
+  
+    .new-post{
+        width: 95%;
+        padding: 10px; 
 
     main {
         width: 100%;
@@ -435,9 +676,8 @@ main {
         box-shadow: none;
         padding: 0;
     }
-
-    main {
+    .container-new-post{
+        width: 95%;
         margin: 0;
-        padding: 0;
     }
 } */

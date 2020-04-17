@@ -27,12 +27,12 @@
     box-sizing: border-box;
 }
 
-/* ESTILOS DEL MENU DESPLEGABLE */
+/*----------------ESTILOS DEL MENU DESPLEGABLE----------------*/
 
 header {
     width: 100%;
     background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%);
-    /*position: fixed;*/
+    /*position: fixed; ??*/
     z-index: 1;
 }
 
@@ -128,7 +128,7 @@ header label:hover {
     margin-right: 50px;
 }
 
-/*FIN DE ESTILOS MENU DESPLEGABLE */
+/*----------------FIN DE ESTILOS MENU DESPLEGABLE----------------*/
 
 main {
     display: flex;
@@ -182,7 +182,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10% 0 0;
+    /* margin: 10% 0 0; */
 }
 
 .icon-coderplace img {
@@ -191,9 +191,9 @@ main {
 
 .icon-coderplace h1 {
     font-size: 35px;
-    margin: 10px;
     font-family: code-pro-bold, sans-serif;
     letter-spacing: -0.05em;
+    /* margin: 10px; */
 }
 
 .card-login h4 {
@@ -205,16 +205,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 8% 0 10%;
-}
-
-.container-inputs input {
-    margin: 10px 20px;
-    font-weight: 600;
-}
-
-.container-inputs button {
-    margin: 5% 0;
+    /* margin: 8% 0 10%; */
 }
 
 .input-login {
@@ -230,7 +221,28 @@ main {
     box-shadow: 2px 1000px 1px #fff inset
 }
 
-.btn-card {
+.container-inputs p {
+    font-size: 15px;
+    font-weight: 600;
+    /* margin: 0 0 20px; */
+}
+
+.terms {
+    font-size: 14px;
+    max-width: 300px;
+    /* margin: 1em; */
+}
+
+/* .termConditions {
+    margin: 10px 20px;
+    font-weight: 600;
+} */
+
+.terms label {
+    cursor: pointer;
+}
+
+.container-inputs button {
     width: 150px;
     height: 40px;
     background: linear-gradient(282.92deg, rgba(186, 12, 223, 0.8) 4.97%, rgba(6, 242, 193, 0.8) 98.41%);
@@ -243,22 +255,20 @@ main {
     font-size: 14px;
 }
 
+/* .container-inputs button {
+    margin: 5% 0;
+} */
+
 .rrss img {
     width: 45px;
     margin: 0 14px;
     cursor: pointer;
 }
 
-.container-inputs p {
-    font-size: 15px;
-    font-weight: 600;
-    margin: 0 0 20px;
-}
-
 .card-login p {
     font-size: 15px;
     font-weight: 600;
-    margin: 5% 0 8%;
+    /* margin: 5% 0 8%; */
 }
 
 .register {
@@ -267,23 +277,14 @@ main {
     text-align: center;
 }
 
-.card-login span {
+.card-login a {
     font-size: 14px;
     color: #9F00FF;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.terms {
-    font-size: 14px;
-    margin: 1em;
-    max-width: 300px;
-}
-
-.terms label {
-    cursor: pointer;
-}
-
-/*--------------Estilo muro de usuario----------------*/
+/*----------------ESTILO MURO DE USUARIO----------------*/
 .container-main {
     width: 100%;
     display: grid;
@@ -538,7 +539,7 @@ main {
 
 @media (max-width:768px) {
 
-    /* ESTILOS PARA EL MENÚ DESPLEGABLE*/
+    /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/
     header label {
         display: block;
     }
@@ -611,7 +612,7 @@ main {
         display: none;
     }
 
-    /* FIN DE ESTILOS DEL MENU DESPLEGABLE*/
+    /*----------------FIN DE ESTILOS DEL MENU DESPLEGABLE----------------*/
 
     .img-general {
         width: 100%;

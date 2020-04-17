@@ -131,79 +131,107 @@ header label:hover {
 /*FIN DE ESTILOS MENU DESPLEGABLE */
 
 main {
-    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    margin: 1% auto;
+    width: 90%;
+    height: 100%;
+}
+
+.img-login-mobile {
+    display: none;
 }
 
 .index-img-message {
-    display: block;
     text-align: center;
-    padding: 10px 60px;
-    max-width: 600px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .index-img-message img {
-    max-width: 600px;
+    width: 90%;
+    margin: 0 0 3%;
 }
 
 .index-img-message h1 {
-    font-size: 20px;
+    font-size: 1.6em;
     text-align: center;
+    width: 90%;
 }
 
 .card-login {
     background: #FFFFFF;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25), -1px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+    margin: 1% 0 1% 3%;
+    max-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+.icon-coderplace {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
-    padding: 40px 50px;
+    margin: 10% 0 5%;
 }
 
-.card-login img {
-    width: 100px;
-    margin: 10px;
+.icon-coderplace img {
+    width: 25%;
 }
 
-.card-login h1 {
-    font-size: 30px;
+.icon-coderplace h1 {
+    font-size: 35px;
     margin: 10px;
     font-family: code-pro-bold, sans-serif;
+    letter-spacing: -0.05em;
 }
 .card-login h4 {
-    font-size: 20px;
-    margin: 10px;
+    font-size: 18px;
+    text-align: center;
 }
 
 .container-inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin: 50px 0px; */
+    margin: 8% 0 10%;
 }
 
-.container-inputs>* {
-    margin: 5px;
+.container-inputs input {
+    margin: 10px 20px;
+    font-weight: 600;
+}
+
+.container-inputs button {
+    margin: 5% 0;
 }
 
 .input-login {
-    min-width: 200px;
-    height: 35px;
+    width: 70%;
+    height: 40px;
     border-radius: 25px;
     outline: none;
-    border: none;
-    border: solid 1px #9F00FF;
     padding: 0px 10px;
+    font-size: 16px;
+    border: solid 1.5px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(273.56deg, #C83DE5 4.97%, #3AF1CE 98.41%);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px #fff inset
 }
 
 .btn-card {
     width: 150px;
-    height: 35px;
+    height: 40px;
     background: linear-gradient(282.92deg, rgba(186, 12, 223, 0.8) 4.97%, rgba(6, 242, 193, 0.8) 98.41%);
     border-radius: 40px;
     border: none;
@@ -211,24 +239,31 @@ main {
     cursor: pointer;
     color: #FFFFFF;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .rrss img {
-    width: 35px;
+    width: 45px;
+    margin: 0 14px;
     cursor: pointer;
+}
+
+.container-inputs p {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 20px;
 }
 
 .card-login p {
     font-size: 15px;
     font-weight: 600;
-    margin: 10px;
+    margin: 5% 0 8%;
 }
 
 .register {
-    border-top: solid 1px rgb(124, 121, 120);
+    /* border-top: 1.5px solid rgba(51, 51, 51, 0.12); */
     width: 100%;
     text-align: center;
-
 }
 
 .card-login span {
@@ -246,6 +281,7 @@ main {
 .terms label {
     cursor: pointer;
 }
+
 /*--------------Estilo muro de usuario----------------*/
 .container-main{
     width: 100%;
@@ -441,6 +477,7 @@ main {
     background-color: #F2F2F2;
     padding: 10px;
 }
+
 .new-comment input{
     width: 70%;
     padding: 0px 10px;
@@ -454,19 +491,19 @@ main {
     box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
+
 .user-comment{
     width: 50px;
 }
+
 .icon-send{
     width: 28px;
     height: 28px;
 }
 
 @media (max-width:768px) {
-    .index-img-message {
-        display: none;
-    }
 
+    /* ESTILOS PARA EL MENÚ DESPLEGABLE*/
     header label {
         display: block;
     }
@@ -537,7 +574,9 @@ main {
     .coderPlaceDesktop {
         display: none;
     }
-    .img-general{
+  /* FIN DE ESTILOS DEL MENU DESPLEGABLE*/
+  
+    .img-general {
         width: 100%;
     }
     .container-main{
@@ -554,15 +593,91 @@ main {
         justify-content: space-around;
         margin: 5px;
     }
+  
     .general-information{
         display: none;
     }
+  
     .new-post{
         width: 95%;
-        padding: 10px;
+        padding: 10px; 
+
+    main {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .index-img-message {
+        display: none;
+    }
+
+    .card-login {
+        background: #FFFFFF;
+        box-shadow: none;
+        border-radius: 15px;
+        margin: 0;
+        max-width: none;
+    }
+
+    .card-login h4 {
+        font-size: 14px;
+    }
+
+    .icon-coderplace {
+        margin: 0 0 5%;
+    }
+
+    .icon-coderplace img {
+        display: none;
+    }
+
+    .img-login-mobile {
+        display: block;
+        width: 90%;
+        margin: 6% auto 0;
+    }
+
+    .container-inputs {
+        margin: 0;
+    }
+
+    .input-login {
+        width: 65%;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .btn-card {
+        width: 130px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .rrss img {
+        width: 30px;
+    }
+
+    .card-login p {
+        font-size: 14px;
+        margin: 2% 0;
+    }
+
+    .register {
+        padding: 2% 0;
+    }
+}
+
+/* @media (max-width:320px) {
+    .index-img-message {
+        display: none;
+    }
+
+    .card-login {
+        box-shadow: none;
+        padding: 0;
     }
     .container-new-post{
         width: 95%;
         margin: 0;
     }
-}
+} */

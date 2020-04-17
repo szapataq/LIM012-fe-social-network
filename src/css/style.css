@@ -182,7 +182,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10% 0 5%;
+    margin: 10% 0 0;
 }
 
 .icon-coderplace img {

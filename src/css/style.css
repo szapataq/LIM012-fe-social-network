@@ -195,6 +195,7 @@ main {
     font-family: code-pro-bold, sans-serif;
     letter-spacing: -0.05em;
 }
+
 .card-login h4 {
     font-size: 18px;
     text-align: center;
@@ -283,51 +284,61 @@ main {
 }
 
 /*--------------Estilo muro de usuario----------------*/
-.container-main{
+.container-main {
     width: 100%;
     display: grid;
     grid-template-columns: 45% 55%;
     justify-content: space-around;
     margin: 2em 7em;
 }
-.general-information{
+
+.general-information {
     display: flex;
     flex-direction: column;
     align-items: center;
     /*display: none;*/
 }
-.user-logged{
+
+.user-logged {
     text-align: center;
     width: 80%;
 }
-.user-data{
+
+.user-data {
     display: flex;
-    align-items: center;  
+    align-items: center;
     justify-content: center;
 }
-.container-info{
+
+.container-info {
     margin: 0px 20px;
 }
-.container-info> div{
+
+.container-info>div {
     display: flex;
     flex-direction: row;
 }
-.name p{
+
+.name p {
     font-weight: bold;
     font-size: 18px;
 }
-.container-info> p{
+
+.container-info>p {
     margin: 5px;
 }
-.photo{
+
+.photo {
     width: 100px;
 }
-.coder-information{
+
+.coder-information {
     width: 80%;
     margin-top: 40px;
     border: solid 1px rgb(185, 184, 184);
 }
-.coder-header{
+
+.coder-header {
     font-weight: bold;
     background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
     height: 40px;
@@ -335,33 +346,39 @@ main {
     align-items: center;
     padding: 0px 20px;
 }
-.container-coders{
-    padding: 10px 20px ;
+
+.container-coders {
+    padding: 10px 20px;
 }
-.container-coders .info-coder{
+
+.container-coders .info-coder {
     display: grid;
     grid-template-columns: 20% 50% 40%;
     align-items: center;
     text-align: start;
     margin: 10px;
 }
-.container-coders img{
+
+.container-coders img {
     width: 50px;
 }
-.container-post{
+
+.container-post {
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
-.new-post{
+
+.new-post {
     width: 80%;
     border: 1px solid #CCCCCC;
     box-sizing: border-box;
     border-radius: 8px;
     padding: 20px 20px 10px 20px;
 }
-.container-post button{
+
+.container-post button {
     width: 110px;
     height: 35px;
     background: linear-gradient(280.72deg, rgba(186, 12, 223, 0.8) 4.97%, rgba(6, 242, 193, 0.8) 98.41%);
@@ -371,7 +388,8 @@ main {
     font-size: 14px;
     font-weight: bold;
 }
-.new-post textarea{
+
+.new-post textarea {
     width: 100%;
     margin: auto;
     height: 127px;
@@ -382,95 +400,112 @@ main {
     outline: none;
     resize: none;
 }
-.container-functions{
+
+.container-functions {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.camera-privacity{
+
+.camera-privacity {
     display: flex;
     align-items: center;
 }
-.camera-privacity div{
+
+.camera-privacity div {
     margin: 0px 20px;
 }
-.privacidad img{
+
+.privacidad img {
     width: 25px;
 }
-.camera{
+
+.camera {
     width: 40px;
     height: auto;
 }
-.privacidad{
+
+.privacidad {
     display: flex;
     align-items: center;
 }
-.container-new-post{
+
+.container-new-post {
     width: 80%;
     text-align: center;
     margin-top: 20px;
 }
-.each-post{
+
+.each-post {
     width: 100%;
     border: 1px solid #CCCCCC;
     margin-top: 20px;
 }
 
-.title-new-post{
-    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);    display: flex;
+.title-new-post {
+    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
+    display: flex;
     flex-direction: row;
     align-items: center;
 }
-.time{
+
+.time {
     display: flex;
     flex-direction: row;
 }
-.time>*{
+
+.time>* {
     padding: 5px;
     font-size: 15px;
-    color:#757575;
+    color: #757575;
 }
-.time img{
+
+.time img {
     width: 18px;
     height: 18px;
 }
-.user-foto{
+
+.user-foto {
     width: 60px;
     height: 60px;
     margin: 3px 10px;
 }
 
-.body-post{
+.body-post {
     padding: 20px;
     text-align: justify;
 }
-.like-comment{
+
+.like-comment {
     padding: 5px 20px;
     border-top: solid 1px #CCCCCC;
     border-bottom: solid 1px #CCCCCC;
 }
 
-.like-comment div{
+.like-comment div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.like-comment p{
+
+.like-comment p {
     font-size: 14px;
     color: #333333;
     text-align: left;
 }
-.icon-like{
+
+.icon-like {
     width: 34px;
     height: auto;
     margin-right: 10px;
 }
-.icon-comment{
+
+.icon-comment {
     width: 26px;
     height: 26px;
 }
 
-.new-comment{
+.new-comment {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -478,12 +513,12 @@ main {
     padding: 10px;
 }
 
-.new-comment input{
+.new-comment input {
     width: 70%;
     padding: 0px 10px;
 }
 
-.new-comment input{
+.new-comment input {
     outline: none;
     height: 42px;
     border: 1px solid #CCCCCC;
@@ -492,11 +527,11 @@ main {
     border-radius: 20px;
 }
 
-.user-comment{
+.user-comment {
     width: 50px;
 }
 
-.icon-send{
+.icon-send {
     width: 28px;
     height: 28px;
 }
@@ -507,6 +542,7 @@ main {
     header label {
         display: block;
     }
+
     .coderPlace {
         display: block;
         position: absolute;
@@ -574,33 +610,36 @@ main {
     .coderPlaceDesktop {
         display: none;
     }
-  /* FIN DE ESTILOS DEL MENU DESPLEGABLE*/
-  
+
+    /* FIN DE ESTILOS DEL MENU DESPLEGABLE*/
+
     .img-general {
         width: 100%;
     }
-    .container-main{
-        margin:10px;
-        
+
+    .container-main {
+        margin: 10px;
+
     }
 }
 
 @media (max-width:425px) {
-    .container-main{
+    .container-main {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
         justify-content: space-around;
         margin: 5px;
     }
-  
-    .general-information{
+
+    .general-information {
         display: none;
     }
-  
-    .new-post{
+
+    .new-post {
         width: 95%;
-        padding: 10px; 
+        padding: 10px;
+    }
 
     main {
         width: 100%;

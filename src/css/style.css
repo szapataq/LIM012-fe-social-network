@@ -214,10 +214,17 @@ main {
     height: 40px;
     border-radius: 25px;
     outline: none;
-    border: solid 1.5px #9F00FF;
     padding: 0px 10px;
     font-size: 16px;
+    border: solid 1.5px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(273.56deg, #C83DE5 4.97%, #3AF1CE 98.41%);
+    background-origin: border-box;
+    box-shadow: 2px 1000px 1px #fff inset
+        /* box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5); */
+        /* background-clip: content-box, border-box; */
 }
+
+
 
 .btn-card {
     width: 150px;

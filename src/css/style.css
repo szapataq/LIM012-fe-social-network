@@ -204,7 +204,7 @@ header label:hover {
 .welcome {
     font-size: 1.25vw;
     text-align: center;
-    margin: 3vw 0 0;
+    margin: 2vw 0;
 }
 
 .reg {
@@ -217,6 +217,7 @@ header label:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 0 2vw;
 }
 
 .input-login {
@@ -241,7 +242,7 @@ header label:hover {
     margin: 0.6vw 0 0.85vw;
     display: flex;
     align-items: center;
-    margin: 0 0.3vw 0.7vw;
+    margin: 1vw 0 2vw;
 }
 
 .terms input {
@@ -271,7 +272,7 @@ header label:hover {
 }
 
 .log-in {
-    margin: 2vh 0;
+    margin: 2vh 0 2.5vw;
 }
 
 .card-login p {

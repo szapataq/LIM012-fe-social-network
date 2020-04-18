@@ -129,8 +129,12 @@ header label:hover {
 }
 
 /*----------------ESTILOS INICIO DE SESIÓN Y REGISTRO----------------*/
-main {
-    height: 90vh;
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 }
 
 .main {
@@ -161,23 +165,23 @@ main {
 }
 
 .index-img-message h1 {
-    font-size: 1.6em;
+    font-size: 2vw;
     text-align: center;
     width: 90%;
 }
 
 .card-login {
     background: #FFFFFF;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25), -1px 0px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    max-width: 28%;
+    box-shadow: 0.13vw 0.25vw 0.25vw rgba(0, 0, 0, 0.25), -1px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0.95vw;
+    max-width: 25vw;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     top: 0;
     bottom: 0;
-    height: 100%;
+    height: 90%;
 }
 
 .icon-coderplace {
@@ -188,25 +192,25 @@ main {
 
 .icon-coderplace img {
     width: 25%;
-    margin: 30px 0 2vh;
+    margin: 3vw 0 1vw;
 }
 
 .icon-coderplace h1 {
-    font-size: 1.8rem;
+    font-size: 2.18vw;
     font-family: code-pro-bold, sans-serif;
     letter-spacing: -0.05em;
 }
 
 .welcome {
-    font-size: 16px;
+    font-size: 1.25vw;
     text-align: center;
-    margin: 6vh 0 0;
+    margin: 3vw 0 0;
 }
 
 .reg {
-    font-size: 16px;
+    font-size: 1.25vw;
     text-align: center;
-    margin: 2vh 0;
+    margin: 1vw 0;
 }
 
 .container-inputs {
@@ -217,34 +221,32 @@ main {
 
 .input-login {
     width: 70%;
-    height: 35px;
+    height: 2vw;
     border-radius: 25px;
     outline: none;
-    padding: 0px 10px;
+    padding: 0 10px;
     border: solid 1.5px transparent;
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(273.56deg, #C83DE5 4.97%, #3AF1CE 98.41%);
     background-origin: border-box;
     box-shadow: 2px 1000px 1px #fff inset;
-    margin: 1vh 0;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.container-inputs p {
-    font-size: 14px;
+    margin: 0.5vw 0;
+    font-size: 0.88vw;
     font-weight: 600;
 }
 
 .terms {
     max-width: 70%;
-    font-size: 12px;
+    font-size: 0.75vw;
     font-weight: 600;
-    margin: 10px 0 20px;
+    margin: 0.6vw 0 0.85vw;
+    display: flex;
+    align-items: center;
+    margin: 0 0.3vw 0.7vw;
 }
 
 .terms input {
     cursor: pointer;
-    margin: 0 6px;
+    margin: 0 0.3vw;
 }
 
 .terms label {
@@ -253,7 +255,7 @@ main {
 
 .container-inputs button {
     width: 40%;
-    height: 35px;
+    height: 2.5vw;
     background: linear-gradient(273.56deg, #C83DE5 4.97%, #3AF1CE 98.41%);
     border-radius: 40px;
     border: none;
@@ -261,7 +263,7 @@ main {
     cursor: pointer;
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 0.9vw;
 }
 
 .container-inputs button:hover {
@@ -273,13 +275,13 @@ main {
 }
 
 .card-login p {
-    font-size: 14px;
+    font-size: 0.9vw;
     font-weight: 600;
     margin: 0 0 2vh;
 }
 
 .rrss img {
-    width: 35px;
+    width: 2.2vw;
     margin: 0 14px;
     cursor: pointer;
 }
@@ -287,16 +289,16 @@ main {
 .register {
     width: 100%;
     text-align: center;
-    margin: 20px 0;
+    margin: 0.8vw 0;
 }
 
 .register p {
-    font-size: 14px;
+    font-size: 0.9vw;
     font-weight: 600;
 }
 
 .card-login a {
-    font-size: 14px;
+    font-size: 0.9vw;
     color: #9F00FF;
     cursor: pointer;
     text-decoration: none;
@@ -375,5 +377,97 @@ main {
 
     .coderPlaceDesktop {
         display: none;
+    }
+
+    /*----------------ESTILOS INICIO DE SESIÓN Y REGISTRO----------------*/
+    .main {
+        margin: 0;
+    }
+
+    .index-img-message {
+        display: none;
+    }
+
+    .card-login {
+        background: #FFFFFF;
+        box-shadow: none;
+        margin: 0;
+        max-width: none;
+        justify-content: space-evenly;
+    }
+
+    .img-login-mobile {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .icon-coderplace h1 {
+        font-size: 7vw;
+    }
+
+    .card-login h4 {
+        font-size: 4vw;
+        margin: 6vw 0 0;
+    }
+
+    .icon-coderplace img {
+        display: none;
+    }
+
+    .container-inputs {
+        margin: 3vw 0 0;
+    }
+
+    .input-login {
+        width: 70%;
+        height: 8vw;
+        font-size: 100%;
+        margin: 1.5vw 0;
+        border-radius: 40px;
+        padding: 0 20px;
+    }
+
+    .container-inputs button {
+        width: 30%;
+        height: 8.1vw;
+        font-size: 4vw;
+    }
+
+    .terms {
+        margin: 4vw 0;
+    }
+
+    .terms label {
+        font-size: 3vw;
+    }
+
+    .terms input {
+        width: 10%;
+        margin: 0 1vw 2.5vw;
+    }
+
+    .rrss img {
+        width: 7.5vw;
+        margin: 0 3vw;
+    }
+
+    .card-login p {
+        font-size: 3.3vw;
+        margin: 2% 0;
+    }
+
+    .register a {
+        font-size: 3.3vw;
+    }
+
+    .register {
+        padding: 2% 0;
+    }
+}
+
+@media (max-width:1024px) and (min-width:768px) {
+    .card-login {
+        max-height: 460px;
     }
 }

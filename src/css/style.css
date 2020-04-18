@@ -421,7 +421,7 @@ header label:hover {
 
     .input-login {
         width: 70%;
-        height: 8vw;
+        height: 40px;
         font-size: 100%;
         margin: 1.5vw 0;
         border-radius: 40px;
@@ -430,8 +430,13 @@ header label:hover {
 
     .container-inputs button {
         width: 30%;
-        height: 8.1vw;
+        height: 8vw;
         font-size: 4vw;
+    }
+
+    .card-login p {
+        font-size: 3.3vw;
+        margin: 2% 0 6%;
     }
 
     .terms {
@@ -452,7 +457,7 @@ header label:hover {
         margin: 0 3vw;
     }
 
-    .card-login p {
+    .register p {
         font-size: 3.3vw;
         margin: 2% 0;
     }
@@ -471,3 +476,10 @@ header label:hover {
         max-height: 460px;
     }
 }
+
+/* @media (max-width:425px) and (min-width:375px) {
+
+    .img-login-mobile {
+        margin: 74% auto 0;
+    }
+} */

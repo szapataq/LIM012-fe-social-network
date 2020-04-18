@@ -476,10 +476,3 @@ header label:hover {
         max-height: 460px;
     }
 }
-
-/* @media (max-width:425px) and (min-width:375px) {
-
-    .img-login-mobile {
-        margin: 74% auto 0;
-    }
-} */

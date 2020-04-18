@@ -409,7 +409,7 @@ header label:hover {
 
     .card-login h4 {
         font-size: 4vw;
-        margin: 6vw 0 0;
+        margin: 4vw 0 0;
     }
 
     .icon-coderplace img {
@@ -475,5 +475,11 @@ header label:hover {
 @media (max-width:1024px) and (min-width:768px) {
     .card-login {
         max-height: 460px;
+    }
+}
+
+@media (max-height:320px) {
+    .center {
+        height: auto;
     }
 }

@@ -153,7 +153,7 @@ header label:hover {
 
 .index-img-message {
     text-align: center;
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -192,7 +192,7 @@ header label:hover {
 
 .icon-coderplace img {
     width: 25%;
-    margin: 3vw 0 1vw;
+    margin: 2vw 0 1vw;
 }
 
 .icon-coderplace h1 {
@@ -247,7 +247,7 @@ header label:hover {
 
 .terms input {
     cursor: pointer;
-    margin: 0 0.3vw;
+    margin: 0 0.3vw 0.7vw;
 }
 
 .terms label {

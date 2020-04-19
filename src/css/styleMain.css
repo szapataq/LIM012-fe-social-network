@@ -3,6 +3,8 @@
     padding: 0;
     color: #333333;
     font-family: sans-pro-regular, sans-serif;
+    box-sizing: border-box;
+
 }
 @font-face {
     font-family: code-pro-bold;
@@ -32,15 +34,19 @@ header {
     /*position: fixed;*/
     z-index: 1;
 }
+header>*{
+    padding: 0;
+}
 #btnMenu {
     display: none;
 }
 
 header label {
+    text-align: center;
     display: none;
-    height: 20px;
-    width: 16px;
-    padding: 10px 15px 18px;
+    height: 45px;
+    width: 40px;
+    padding: 6px 4px;
     border-right: 1.5px solid rgba(51, 51, 51, 0.3);
     color: #333;
     font-size: 20px;
@@ -64,7 +70,6 @@ header label:hover {
 
 .menu div span {
     display: block;
-    padding: 20px 0px;
     font-weight: bold;
     color: #333;
     text-align: center;
@@ -89,7 +94,7 @@ header label:hover {
 }
 
 .icons-cp {
-    margin: 0 15px 0 15px;
+    margin: 0 15px;
 }
 
 .separator {
@@ -99,14 +104,24 @@ header label:hover {
 .userLogged {
     width: 100%;
 }
-
-.userLogged>span {
-    padding-top: 26px !important;
+.main-title{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.main-title h1{
+    font-family: code-pro-regular;
+    letter-spacing:-1px;
 }
 
+/*.userLogged>span {
+    padding-top: 26px !important;
+}*/
+
 .userImage {
-    width: 60px;
-    margin: 8px 8px 8px 20px;
+    width: 50px;
+    margin: 5px 8px 5px 20px;
 }
 
 .userName {
@@ -118,48 +133,48 @@ header label:hover {
 }
 
 .coderPlaceDesktop {
-    font-size: 45px;
+    font-size: 35px;
     font-weight: bold;
-    margin-top: 12px;
-    margin-right: 50px;
 }
 
 /*FIN DE ESTILOS MENU DESPLEGABLE */
 
-.section-main{
-    background-color: darkblue;
-    margin: 0;
-}
-
-
 /*--------------Estilo muro de usuario----------------*/
-.container-main {
+.section-main{
+    margin: 20px 0px;
+    min-width: 60px;
+}
+.container-main2 {
+    padding: 0px 50px;
     width: 100%;
-    display: grid;
-    grid-template-columns: 45% 55%;
-    justify-content: space-around;
-    margin: 0px;
-    background-color: crimson;
+    display: flex;
+
+    max-width: 1300px;
+    margin: 20px auto;
 }
 
 .general-information {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 10px 20px auto 50px;
+    width: 600px;
     /*display: none;*/
+
 }
 
 .user-logged {
+    width: 100%;
     text-align: center;
-    width: 80%;
-}
 
+}
+.img-general{
+    width: 100%;
+    height: 100%;
+}
 .user-data {
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
+}
 .container-info {
     margin: 0px 20px;
 }
@@ -171,7 +186,7 @@ header label:hover {
 
 .name p {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .container-info>p {
@@ -183,7 +198,7 @@ header label:hover {
 }
 
 .coder-information {
-    width: 80%;
+    width: 100%;
     margin-top: 40px;
     border: solid 1px rgb(185, 184, 184);
 }
@@ -198,33 +213,49 @@ header label:hover {
 }
 
 .container-coders {
-    padding: 10px 20px;
-}
+    padding: 10px 10px;
 
-.container-coders .info-coder {
-    display: grid;
-    grid-template-columns: 20% 50% 40%;
+}
+.info-coder {
+    display: flex;
     align-items: center;
     text-align: start;
     margin: 10px;
 }
-
+.info-coder p, .info-coder span{
+    font-size: 15px;
+    color: #757575;
+}
+.comun-coders{
+    font-weight: bold;
+    width: 200px;
+}
+.comun-coders >p {
+    color: #333333;
+}
+.name-ocupation{
+    display: flex;
+    flex-direction:row;
+}
+.name-ocupation div{
+    padding: 0px 5px;
+}
 .container-coders img {
     width: 50px;
 }
-
 .container-post {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    margin: 10px 50px auto 20px;
+    width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
-
 .new-post {
-    width: 80%;
+    width: 100%;
     border: 1px solid #CCCCCC;
-    box-sizing: border-box;
-    border-radius: 8px;
     padding: 20px 20px 10px 20px;
 }
 
@@ -237,6 +268,7 @@ header label:hover {
     color: #ffffff;
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .new-post textarea {
@@ -249,6 +281,7 @@ header label:hover {
     padding: 10px;
     outline: none;
     resize: none;
+    font-size: 16px;
 }
 
 .container-functions {
@@ -266,13 +299,27 @@ header label:hover {
     margin: 0px 20px;
 }
 
-.privacidad img {
+/*.privacidad img {
     width: 25px;
+}*/
+.privacidad select{
+    font-size: 15px;
+    border: none;
+    outline: none;
+    appearance: none;
+    -moz-appearance:none;
+	-webkit-appearance:none;
+	-ms-appearance:none;
+	-o-appearance:none;
+	appearance:none;
+    cursor:pointer;
+    padding: 0px 10px;
 }
 
 .camera {
     width: 40px;
     height: auto;
+    cursor: pointer;
 }
 
 .privacidad {
@@ -281,9 +328,11 @@ header label:hover {
 }
 
 .container-new-post {
-    width: 80%;
+
+    width: 100%;
     text-align: center;
     margin-top: 20px;
+
 }
 
 .each-post {
@@ -311,8 +360,9 @@ header label:hover {
 }
 
 .time img {
-    width: 18px;
-    height: 18px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
 }
 
 .user-foto {
@@ -348,11 +398,13 @@ header label:hover {
     width: 34px;
     height: auto;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .icon-comment {
     width: 26px;
     height: 26px;
+    cursor: pointer;
 }
 
 .new-comment {
@@ -363,12 +415,10 @@ header label:hover {
     padding: 10px;
 }
 
-.new-comment input {
-    width: 70%;
-    padding: 0px 10px;
-}
 
 .new-comment input {
+    min-width: 80%;
+    padding: 0px 10px;
     outline: none;
     height: 42px;
     border: 1px solid #CCCCCC;
@@ -376,14 +426,65 @@ header label:hover {
     box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
-
-.user-comment {
+.user-comment{
     width: 50px;
 }
+.name-comment{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 5px 20px;
+    text-align: left;
+    font-size: 15px;
+    position: relative;
+}
 
+.simulator-select{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7em;
+
+}
+.simulator-select span{
+    margin-left: 0;
+    background:none;
+
+    padding-left:5em ;
+
+}
+
+
+.simulator-select> ul {
+    display: none; 
+    list-style: none;
+}
+.simulator-select:hover > ul {
+    display: block;
+    background: red;
+    padding: 5px; 
+    border-radius: 0.5em;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25), 0px -1px 4px rgba(0, 0, 0, 0.25);
+}
+.simulator-select:hover > ul > li:hover {
+    background:rgba(186, 12, 223, 0.5);
+}
+.simulator-select a{
+    text-decoration: none;
+}
+/*.simulator-select:hover > ul > li:hover > a {  }*/
+
+
+.name-comment div{
+    text-align: justify;
+    padding: 5px 10px;
+    
+}
 .icon-send {
     width: 28px;
     height: 28px;
+    cursor: pointer;
 }
 
 @media (max-width:768px) {
@@ -395,8 +496,8 @@ header label:hover {
     .coderPlace {
         display: block;
         position: absolute;
-        left: 110px;
-        top: 10px;
+        left: calc(50% - 73px);
+        top: 4px;
         font-size: 24px;
         color: #333;
     }
@@ -431,8 +532,8 @@ header label:hover {
 
     .menu div span {
         font-size: 14px;
+        padding: 10px 0px;
     }
-
     .icons-cp {
         width: 20px;
     }
@@ -456,58 +557,78 @@ header label:hover {
         padding-right: 0;
     }
 
-    .coderPlaceDesktop {
+    .main-title {
         display: none;
     }
 
-    /* FIN DE ESTILOS DEL MENU DESPLEGABLE*/
-    /* Estilos de post*/
-    .img-general {
+    .container-main2 {
         width: 100%;
+        display: grid;
+        grid-template-columns: 45% 55% ;
+        justify-content: space-around;
+        padding: 5px;
     }
-
-    .container-main {
-        margin: 10px;
-
+    .general-information{
+        width: 90%;
+        margin: 0px 20px;
+    }
+    .container-post{
+        width: 90%;
+        margin: 0px 20px;
+    }
+    .info-coder{
+        display: flex;
+    }
+    .comun-coders{
+        width: auto;
+    }
+    .name-ocupation{
+        display: flex;
+        flex-direction: column;
     }
 }
-
 @media (max-width:425px) {
-    .container-main {
+    .container-main2 {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
-        justify-content: space-around;
-        margin: 5px;
+        justify-items: center;
+        padding: 0;
     }
 
     .general-information {
         display: none;
     }
-
-    .new-post {
-        width: 95%;
-        padding: 10px;
-    }
-    .container-new-post{
+    .container-post{
+        text-align: center;
         width: 95%;
         margin: 0;
+    }
+    .new-post{
+        padding: 7px;
+    }
+    .container-new-post{
+        margin-top: 0;
+    }
+    .commentname-{
+        padding: 5px 20px;
+        text-align: left;
+    }
+    .name-comment{
+        padding: 5px 10px;
+
     }
 }
-
-@media (max-width:320px) {
-
-    .card-login {
-        box-shadow: none;
-        padding: 0;
-    }
-    .section-main{
-        margin: 0;
-        padding: 0;
-    }
-    .container-new-post{
-        width: 95%;
-        margin: 0;
-        padding: 0;
-    }
-} 
+/* estilos de seccion oculta, de cuando el usuario ingresaa su perfil*/
+.own-post{
+    background-color: lightyellow;
+    width: 100%;
+    display: none;
+}
+.title-new-post-own {
+    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}

@@ -5,6 +5,7 @@
     font-family: sans-pro-regular, sans-serif;
     box-sizing: border-box;
 }
+
 @font-face {
     font-family: code-pro-bold;
     src: url(../fonts/SourceCodePro-Bold.ttf);
@@ -31,12 +32,14 @@ header {
     width: 100%;
     background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%);
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 1;
 }
-header>*{
+
+header>* {
     padding: 0;
 }
+
 #btnMenu {
     display: none;
 }
@@ -104,15 +107,17 @@ header label:hover {
 .userLogged {
     width: 100%;
 }
-.main-title{
-    
+
+.main-title {
+
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.main-title h1{
+
+.main-title h1 {
     font-family: code-pro-regular;
-    letter-spacing:-1px;
+    letter-spacing: -1px;
 }
 
 /*.userLogged>span {
@@ -140,10 +145,11 @@ header label:hover {
 /*FIN DE ESTILOS MENU DESPLEGABLE */
 
 /*--------------Estilo muro de usuario----------------*/
-.section-main{
+.section-main {
     margin: 20px 0px;
     min-width: 60px;
 }
+
 .container-main {
     padding: 0px 50px;
     width: 100%;
@@ -160,7 +166,7 @@ header label:hover {
     position: -webkit-sticky;
     position: sticky;*/
     position: sticky;
-    top:89.69px;
+    top: 89.69px;
 }
 
 .user-logged {
@@ -168,16 +174,19 @@ header label:hover {
     text-align: center;
 
 }
-.img-general{
+
+.img-general {
     width: 100%;
     height: 100%;
 }
+
 .user-data {
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
+
 .container-info {
     margin: 0px 20px;
 }
@@ -187,7 +196,8 @@ header label:hover {
     flex-direction: row;
     align-items: center;
 }
-.container-info img{
+
+.container-info img {
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -224,37 +234,47 @@ header label:hover {
 .container-coders {
     padding: 10px 10px;
 }
-.comun-ocupation{
+
+.comun-ocupation {
     display: flex;
     flex-direction: row;
 }
+
 .info-coder {
     display: flex;
     align-items: center;
     text-align: start;
     margin: 10px;
 }
-.info-coder p, .info-coder span{
+
+.info-coder p,
+.info-coder span {
     font-size: 15px;
     color: #757575;
 }
-.comun-coders{
+
+.comun-coders {
     font-weight: bold;
     width: 200px;
 }
-.comun-coders >p {
+
+.comun-coders>p {
     color: #333333;
 }
-.name-ocupation{
+
+.name-ocupation {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
 }
-.name-ocupation div{
+
+.name-ocupation div {
     padding: 0px 5px;
 }
+
 .container-coders img {
     width: 50px;
 }
+
 .container-post {
     margin-left: auto;
     margin-right: auto;
@@ -265,6 +285,7 @@ header label:hover {
     flex-direction: column;
     align-items: center;
 }
+
 .new-post {
     width: 100%;
     border: 1px solid #CCCCCC;
@@ -314,18 +335,18 @@ header label:hover {
 /*.privacidad img {
     width: 25px;
 }*/
-.privacidad select{
+.privacidad select {
     font-size: 15px;
     border: none;
     outline: none;
     background: none;
     appearance: none;
-    -moz-appearance:none;
-	-webkit-appearance:none;
-	-ms-appearance:none;
-	-o-appearance:none;
-	appearance:none;
-    cursor:pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    cursor: pointer;
     padding: 0px 10px;
 }
 
@@ -439,10 +460,12 @@ header label:hover {
     box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
-.user-comment{
+
+.user-comment {
     width: 50px;
 }
-.name-comment{
+
+.name-comment {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -452,52 +475,84 @@ header label:hover {
     position: relative;
 }
 
-.simulator-select{
+.simulator-select {
     position: absolute;
     top: 0;
     right: 0;
     width: 7em;
 
 }
-.simulator-select span{
-    margin-left: 0;
-    background:none;
 
-    padding-left:5em ;
+.simulator-select span {
+    margin-left: 0;
+    background: none;
+
+    padding-left: 5em;
 
 }
 
 
-.simulator-select> ul {
-    display: none; 
+.simulator-select>ul {
+    display: none;
     list-style: none;
 }
-.simulator-select:hover > ul {
+
+.simulator-select:hover>ul {
     display: block;
     background: red;
-    padding: 5px; 
+    padding: 5px;
     border-radius: 0.3em;
     background: #FFFFFF;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25), 0px -1px 4px rgba(0, 0, 0, 0.25);
 }
-.simulator-select:hover > ul > li:hover {
-    background:rgba(186, 12, 223, 0.5);
+
+.simulator-select:hover>ul>li:hover {
+    background: rgba(186, 12, 223, 0.5);
 }
-.simulator-select a{
+
+.simulator-select a {
     text-decoration: none;
 }
+
 /*.simulator-select:hover > ul > li:hover > a {  }*/
 
 
-.name-comment div{
+.name-comment div {
     text-align: justify;
     padding: 5px 10px;
-    
+
 }
+
 .icon-send {
     width: 28px;
     height: 28px;
     cursor: pointer;
+}
+
+
+body::-webkit-scrollbar {
+    width: 15px;
+    /* Estilos scroll en vertical */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(138, 136, 136);
+    border-radius: 15px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(95, 94, 94);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+body::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
 }
 
 @media (max-width:768px) {
@@ -506,6 +561,7 @@ header label:hover {
     header label {
         display: block;
     }
+
     .coderPlace {
         display: block;
         position: absolute;
@@ -547,6 +603,7 @@ header label:hover {
         font-size: 14px;
         padding: 10px 0px;
     }
+
     .icons-cp {
         width: 20px;
     }
@@ -577,47 +634,58 @@ header label:hover {
     .container-main {
         width: 100%;
         display: grid;
-        grid-template-columns: 45% 55% ;
+        grid-template-columns: 45% 55%;
         justify-content: space-around;
         padding: 5px;
     }
-    .general-information{
+
+    .general-information {
         width: 90%;
         margin: 0px 20px;
     }
-    .user-data{
+
+    .user-data {
         position: relative;
     }
-    .photo{
+
+    .photo {
         position: absolute;
         margin-top: -50px;
     }
-    .container-info{
+
+    .container-info {
         margin-top: 40px;
     }
-    .container-post{
+
+    .container-post {
         width: 90%;
         margin: 0px 20px;
     }
-    .info-coder{
+
+    .info-coder {
         display: flex;
         margin: 10px 0px;
     }
-    .info-coder img{
+
+    .info-coder img {
         display: none;
     }
-    .comun-coders{
+
+    .comun-coders {
         width: auto;
     }
-    .name-ocupation{
+
+    .name-ocupation {
         display: flex;
         flex-direction: column;
     }
-    .comun-ocupation{
+
+    .comun-ocupation {
         display: flex;
         flex-direction: row;
     }
 }
+
 @media (max-width:425px) {
     .container-main {
         width: 100%;
@@ -630,32 +698,39 @@ header label:hover {
     .general-information {
         display: none;
     }
-    .container-post{
+
+    .container-post {
         text-align: center;
         width: 95%;
         margin: 0;
     }
-    .new-post{
+
+    .new-post {
         padding: 7px;
     }
-    .container-new-post{
+
+    .container-new-post {
         margin-top: 0;
     }
-    .commentname-{
+
+    .commentname- {
         padding: 5px 20px;
         text-align: left;
     }
-    .name-comment{
+
+    .name-comment {
         padding: 5px 10px;
 
     }
 }
+
 /* estilos de seccion oculta, de cuando el usuario ingresaa su perfil*/
-.own-post{
+.own-post {
     background-color: lightyellow;
     width: 100%;
     display: none;
 }
+
 .title-new-post-own {
     background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
     display: flex;

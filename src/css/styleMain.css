@@ -224,7 +224,10 @@ header label:hover {
 
 .container-coders {
     padding: 10px 10px;
-
+}
+.comun-ocupation{
+    display: flex;
+    flex-direction: row;
 }
 .info-coder {
     display: flex;
@@ -583,12 +586,26 @@ header label:hover {
         width: 90%;
         margin: 0px 20px;
     }
+    .user-data{
+        position: relative;
+    }
+    .photo{
+        position: absolute;
+        margin-top: -50px;
+    }
+    .container-info{
+        margin-top: 40px;
+    }
     .container-post{
         width: 90%;
         margin: 0px 20px;
     }
     .info-coder{
         display: flex;
+        margin: 10px 0px;
+    }
+    .info-coder img{
+        display: none;
     }
     .comun-coders{
         width: auto;
@@ -596,6 +613,10 @@ header label:hover {
     .name-ocupation{
         display: flex;
         flex-direction: column;
+    }
+    .comun-ocupation{
+        display: flex;
+        flex-direction: row;
     }
 }
 @media (max-width:425px) {

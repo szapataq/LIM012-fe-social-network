@@ -306,6 +306,17 @@ header label:hover {
     text-decoration: none;
 }
 
+/*------------------PROVISIONAL-------------------------*/
+.confirm {
+    width: 63%;
+    margin: 3% 0 !important;
+    color: #1eaf61;
+}
+
+.registro {
+    color: #FFFFFF !important;
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

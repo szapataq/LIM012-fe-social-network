@@ -560,6 +560,10 @@ body::-webkit-scrollbar-track:active {
     background: #d4d4d4;
 }
 
+.salir {
+    text-decoration: none !important;
+}
+
 @media (max-width:768px) {
 
     /* ESTILOS PARA EL MENÚ DESPLEGABLE*/

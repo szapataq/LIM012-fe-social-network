@@ -154,7 +154,7 @@ header label:hover {
 
 .index-img-message {
     text-align: center;
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,7 +182,7 @@ header label:hover {
     justify-content: space-between;
     top: 0;
     bottom: 0;
-    height: 90%;
+    height: 95%;
 }
 
 .icon-coderplace {
@@ -193,7 +193,7 @@ header label:hover {
 
 .icon-coderplace img {
     width: 25%;
-    margin: 3vw 0 1vw;
+    margin: 2vw 0 1vw;
 }
 
 .icon-coderplace h1 {
@@ -248,7 +248,7 @@ header label:hover {
 
 .terms input {
     cursor: pointer;
-    margin: 0 0.3vw;
+    margin: 0 0.3vw 0.7vw;
 }
 
 .terms label {
@@ -304,6 +304,17 @@ header label:hover {
     color: #9F00FF;
     cursor: pointer;
     text-decoration: none;
+}
+
+/*------------------PROVISIONAL-------------------------*/
+.confirm {
+    width: 63%;
+    margin: 3% 0 !important;
+    color: #1eaf61;
+}
+
+.registro {
+    color: #FFFFFF !important;
 }
 
 @media (max-width:768px) {

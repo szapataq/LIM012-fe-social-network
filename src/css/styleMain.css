@@ -462,9 +462,7 @@ header label:hover {
 .simulator-select span{
     margin-left: 0;
     background:none;
-
     padding-left:5em ;
-
 }
 
 
@@ -474,7 +472,6 @@ header label:hover {
 }
 .simulator-select:hover > ul {
     display: block;
-    background: red;
     padding: 5px; 
     border-radius: 0.3em;
     background: #FFFFFF;
@@ -488,7 +485,6 @@ header label:hover {
 }
 /*.simulator-select:hover > ul > li:hover > a {  }*/
 
-
 .name-comment div{
     text-align: justify;
     padding: 5px 10px;
@@ -498,6 +494,31 @@ header label:hover {
     width: 28px;
     height: 28px;
     cursor: pointer;
+}
+
+body::-webkit-scrollbar {
+    width: 15px;
+    /* Estilos scroll en vertical */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(138, 136, 136);
+    border-radius: 15px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(95, 94, 94);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+body::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
 }
 
 @media (max-width:768px) {

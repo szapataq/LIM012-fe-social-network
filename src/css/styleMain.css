@@ -490,10 +490,8 @@ header label:hover {
 
 .simulator-select span {
     margin-left: 0;
-    background: none;
-
-    padding-left: 5em;
-
+    background:none;
+    padding-left:5em ;
 }
 
 
@@ -504,8 +502,7 @@ header label:hover {
 
 .simulator-select:hover>ul {
     display: block;
-    background: red;
-    padding: 5px;
+    padding: 5px; 
     border-radius: 0.3em;
     background: #FFFFFF;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25), 0px -1px 4px rgba(0, 0, 0, 0.25);
@@ -521,11 +518,9 @@ header label:hover {
 
 /*.simulator-select:hover > ul > li:hover > a {  }*/
 
-
 .name-comment div {
     text-align: justify;
     padding: 5px 10px;
-
 }
 
 .icon-send {
@@ -533,7 +528,6 @@ header label:hover {
     height: 28px;
     cursor: pointer;
 }
-
 
 body::-webkit-scrollbar {
     width: 15px;

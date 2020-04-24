@@ -10,7 +10,7 @@ export const optionsMobile = `
   <div class="items itemsHover">${homeHeader}</div>
   <div class="items itemsHover">${profile}</div>`;
 
-export const postHome = `
+export const postProfile = `
 <div class="new-post">
 <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?"></textarea>
 <div class="container-functions">
@@ -28,7 +28,7 @@ export const postHome = `
 </div>
 </div>`;
 
-export const postProfile = `
+export const postHome = `
   <div class="own-post">
     <div class="title-new-post-own">
       <img src="./img/user.png" alt="" class="user-foto">

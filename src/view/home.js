@@ -34,6 +34,16 @@ const changeMenu = () => {
   return menu;
 };
 
+const changeViewPost = () => {
+  let post = '';
+  if (device() === 'Desktop') {
+    post = postProfile;
+  } else {
+    post = (/profile/.test(window.location.hash)) ? postProfile : postHome;
+  }
+  return post;
+};
+
 export default () => {
   const headerHome = `<input type="checkbox" id="btnMenu">
   <label for="btnMenu">&#9776;</label>
@@ -97,7 +107,7 @@ export default () => {
       </div>
     </div>
     <div class="container-post">
-      <div class = "change-post">${(/profile/.test(window.location.hash)) ? postHome : postProfile}</div>
+      <div class = "change-post">${changeViewPost()}</div>
       <div class="container-new-post">
         <div class="each-post">
           <div class="title-new-post">

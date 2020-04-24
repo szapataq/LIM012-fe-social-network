@@ -20,7 +20,7 @@ export const postProfile = `
       <!--<img src="img/public.png">-->
       <select>
         <option value="1"> 🌐 Público</option>
-        <option value="1"> 🔓 Privado </option>
+        <option value="1"> 🔓 Solo yo </option>
       </select>
     </div>
   </div>
@@ -40,7 +40,7 @@ export const postHome = `
         <span><i class="fas fa-ellipsis-v"></i></span>
         <ul>
           <li>🌐 Público</li>
-          <li>🔓 Privado</li>
+          <li>🔓 Solo yo</li>
         </ul>
       </div>
     </div>

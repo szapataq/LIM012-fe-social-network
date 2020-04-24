@@ -1,3 +1,14 @@
+
+import { changeView } from './view-controller/index-route.js';
+
+const init = () => {
+  changeView(window.location.hash);
+  window.addEventListener('hashchange', () => changeView(window.location.hash));
+};
+
+init();
+
+
 /* import { example } from './example.js';
 example(); */
 
@@ -17,14 +28,14 @@ const firebaseConfig = {
 const proyect = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 console.log(proyect);
-
 */
+/* import login from './view/login.js'; */
 
-import login from './view/login.js';
 
-const main = document.querySelector('main');
-main.appendChild(login());
+/* const main = document.querySelector('main');
+main.appendChild(login()); */
 
+/*
 const getRandomImage = (num) => {
   const ranImage = Math.round(Math.random() * num);
   return ranImage;
@@ -44,6 +55,6 @@ const arrImage = ['image_1.png',
   'image_10.png',
   'image_11.png'];
 const figure = document.querySelector('figure');
-const imageRandom = `<img src="./img/ImgRandom/${arrImage[randomNumber]}" 
+const imageRandom = `<img src="./img/ImgRandom/${arrImage[randomNumber]}"
   alt="Image Gereral" class="img-general">`;
-figure.innerHTML = imageRandom;
+figure.innerHTML = imageRandom; */

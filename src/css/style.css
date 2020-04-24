@@ -304,6 +304,7 @@ header label:hover {
     color: #9F00FF;
     cursor: pointer;
     text-decoration: none;
+    margin: 0 5px;
 }
 
 /*------------------PROVISIONAL-------------------------*/

@@ -5,7 +5,7 @@ import {
   inputSignUp,
   enter,
   bookIn,
-} from './signUp.js';
+} from './templateSingUpLogin.js';
 
 export default () => {
   const viewLogin = `
@@ -24,10 +24,10 @@ export default () => {
           <img src="./img/icono-coderplace.png" alt="Ícono CoderPlace">
           <h1>&lt;CoderPlace/&gt;</h1>
         </div>
-        <h4 class="welcome">${(/login/.test(window.location.href)) ? register : welcome}</h4>
+        <h4 class="welcome">${(/signup/.test(window.location.hash)) ? register : welcome}</h4>
       </div>
-      <div class="container-inputs">${(/login/.test(window.location.href)) ? inputSignUp : inputWelcome}</div>
-      <div class="register">${(/login/.test(window.location.href)) ? enter : bookIn}</div>
+      <div class="container-inputs">${(/signup/.test(window.location.hash)) ? inputSignUp : inputWelcome}</div>
+      <div class="register">${(/signup/.test(window.location.hash)) ? enter : bookIn}</div>
     </section>
   </div>`;
 

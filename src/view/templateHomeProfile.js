@@ -6,6 +6,10 @@ export const profile = `
   <a href="#/profile"><img src="./img/profile.png" alt="Profile" class="icons-cp usercp">
   <span>Perfil</span></a>`;
 
+export const optionsMobile = `
+  <div class="items itemsHover">${homeHeader}</div>
+  <div class="items itemsHover">${profile}</div>`;
+
 export const postHome = `
 <div class="new-post">
 <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?"></textarea>

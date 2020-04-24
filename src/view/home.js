@@ -3,10 +3,12 @@ import {
   profile,
   postHome,
   postProfile,
+  optionsMobile,
   userLoggedIn,
 }
   from './templateHomeProfile.js';
 
+// FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
 const device = () => {
   const dv = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|SymbianOS|Windows Phone/i.test(window.navigator.userAgent) ? 'Mobile' : 'Desktop';
   return dv;
@@ -22,6 +24,16 @@ const changeUserLogged = () => {
   return userData;
 };
 
+const changeMenu = () => {
+  let menu = '';
+  if (device() === 'Mobile') {
+    menu = optionsMobile;
+  } else {
+    menu = `<div class="items itemsHover">${(/profile/.test(window.location.hash)) ? homeHeader : profile}</div>`;
+  }
+  return menu;
+};
+
 export default () => {
   const headerHome = `<input type="checkbox" id="btnMenu">
   <label for="btnMenu">&#9776;</label>
@@ -33,7 +45,7 @@ export default () => {
           <img src="./img/user.png" alt="Profile" class="userImage">
           <span class="userName">Nombre y Apellido </span>
         </div>
-        <div class="items itemsHover">${(/profile/.test(window.location.hash)) ? homeHeader : profile}</div>
+       ${changeMenu()}
       </section>
       <div class="main-title">
         <h1 class="coderPlaceDesktop">&lt;CoderPlace/&gt;</h1>

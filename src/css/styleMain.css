@@ -387,6 +387,7 @@ body::-webkit-scrollbar-track:active {
 }
 
 @media (max-width:768px) {
+  
     .container-main {
         width: 100%;
         display: grid;

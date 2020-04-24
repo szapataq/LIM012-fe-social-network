@@ -566,9 +566,9 @@ body::-webkit-scrollbar-track:active {
 @media (max-width:768px) {
 
     /* ESTILOS PARA EL MENÚ DESPLEGABLE*/
-    header label {
+    /* header label {
         display: block;
-    }
+    } */
 
     /* .coderPlace {
         display: block;

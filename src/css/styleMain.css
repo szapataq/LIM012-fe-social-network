@@ -397,8 +397,10 @@ body::-webkit-scrollbar-track:active {
     }
 
     .general-information {
+        position: unset;
         width: 90%;
         margin: 0px 20px;
+        margin-bottom: 1.5em !important;
     }
     
     .container-post {

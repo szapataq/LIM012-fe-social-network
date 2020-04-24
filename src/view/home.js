@@ -3,8 +3,24 @@ import {
   profile,
   postHome,
   postProfile,
+  userLoggedIn,
 }
   from './templateHomeProfile.js';
+
+const device = () => {
+  const dv = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|SymbianOS|Windows Phone/i.test(window.navigator.userAgent) ? 'Mobile' : 'Desktop';
+  return dv;
+};
+
+const changeUserLogged = () => {
+  let userData = '';
+  if (device() === 'Mobile' && /home/.test(window.location.hash)) {
+    userData = '';
+  } else {
+    userData = userLoggedIn;
+  }
+  return userData;
+};
 
 export default () => {
   const headerHome = `<input type="checkbox" id="btnMenu">
@@ -32,27 +48,7 @@ export default () => {
   const mainHome = `
   <div class="container-main">
     <div class="general-information">
-      <div class="user-logged">
-        <figure>
-          <img src="./img/ImgRandom/image_3.png" alt="cover image" class="img-general">
-        </figure>
-        <div class="user-data">
-          <img src="./img/user.png" class="photo">
-          <div class="container-info">
-            <div class="name">
-              <p>Sandra Zapata Quentasi</p>
-              <img src="./img/edit.png">
-            </div>
-            <div>
-              <div class="comun-ocupation"><span>&lt;/&gt; </span>
-                <p>Developer</p>
-              </div>
-              <img src="./img/edit.png">
-            </div>
-
-          </div>
-        </div>
-      </div>
+      <div class="user-logged">${changeUserLogged()}</div>
       <div class="coder-information">
         <div class="coder-header">
           <p>&lt; Coders /&gt;</p>
@@ -64,52 +60,32 @@ export default () => {
               <div class="comun-coders">
                 <p>Isabel Angelica Lucia Paredes Apaza</p>
               </div>
-              <div class="comun-ocupation"><span>&lt;/&gt; </span>
-                <p>Developer</p>
-              </div>
+              <p>&lt;/&gt;Developer</p>
             </div>
           </div>
           <div class="info-coder">
             <img src="./img/user.png">
             <div class="name-ocupation">
               <div class="comun-coders">
-                <p>Veria Villagra Garcia Merino</p>
+                <p>Juan Jose Gallegos Valdivia</p>
               </div>
-              <div class="comun-ocupation"><span>&lt;/&gt; </span>
-                <p>Developer</p>
-              </div>
+              <p>&lt;/&gt;Developer</p>
             </div>
           </div>
           <div class="info-coder">
             <img src="./img/user.png">
             <div class="name-ocupation">
               <div class="comun-coders">
-                <p>Juan Jose Gaallegos Valdivia</p>
-              </div>
-              <div class="comun-ocupation"><span>&lt;/&gt; </span>
-                <p>Developer</p>
-              </div>
+              <p>Isabel Angelica Lucia Paredes Apaza</p>
             </div>
-          </div>
-          <div class="info-coder">
-            <img src="./img/user.png">
-            <div class="name-ocupation">
-              <div class="comun-coders">
-                <p>Juan Jose Gaallegos Valdivia</p>
-              </div>
-              <div class="comun-ocupation"><span>&lt;/&gt; </span>
-                <p>Developer</p>
-              </div>
-            </div>
-          </div>
+            <p>&lt;/&gt;Developer</p>
+        </div>
+      </div>
         </div>
       </div>
     </div>
     <div class="container-post">
       <div class = "change-post">${(/profile/.test(window.location.hash)) ? postHome : postProfile}</div>
-      <!--------------------------nuevo post a ocultar------------------------------------------------------------------->
-      
-      <!---------------------------seccion a ocultar---------------------------------------------------------------------------->
       <div class="container-new-post">
         <div class="each-post">
           <div class="title-new-post">
@@ -149,7 +125,7 @@ export default () => {
               </p>
             </div>
               <div class="simulator-select">
-                <span>...</span>
+                <span><i class="fas fa-ellipsis-v"></i></span>
                   <ul>
                     <li>✎ Editar</li>
                     <li>✖ Eliminar</li>

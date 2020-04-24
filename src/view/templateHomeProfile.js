@@ -48,5 +48,4 @@ export const postProfile = `<div class="own-post">
     <button> Compartir</button>
   </div>
 </div>
-
 </div>`;

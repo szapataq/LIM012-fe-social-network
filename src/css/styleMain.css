@@ -1,134 +1,109 @@
 /*--------------Estilo muro de usuario----------------*/
 .section-main {
     margin: 20px 0px;
-    min-width: 60px;
 }
 
 .container-main {
-    padding: 0px 50px;
-    width: 100%;
     display: flex;
-
+    width: 100%;
     max-width: 1300px;
+    padding: 0px 50px;
     margin: 20px auto;
 }
-
 .general-information {
-    margin: 10px 20px auto 50px;
-    width: 600px;
-    /*display: none;
-    position: -webkit-sticky;
-    position: sticky;*/
     position: sticky;
     top: 89.69px;
+    width: 600px;
+    margin: 10px 20px auto 50px;
 }
-
 .user-logged {
     width: 100%;
     text-align: center;
-
 }
-
-.img-general {
+figure img{
     width: 100%;
     height: 100%;
 }
-
-.user-data {
+.flex-comun{
+    background-color: tomato;
+}
+.user-data{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-
 }
-
-.container-info {
-    margin: 0px 20px;
+.photo{
+    width: 10em;
+    height: 10em;
+    margin-top:-5em;
+    border-radius: 200px;
+    border: solid 5px #ffffff;
 }
-
-.container-info>div {
+.container-info div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
-.container-info img {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
 .name p {
     font-weight: bold;
     font-size: 22px;
 }
-
-.container-info>p {
-    margin: 5px;
+.edit{
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
 }
-
-.photo {
-    width: 100px;
-}
-
 .coder-information {
     width: 100%;
-    margin-top: 40px;
     border: solid 1px rgb(185, 184, 184);
+    margin-top: 40px;
 }
-
 .coder-header {
-    font-weight: bold;
-    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
-    height: 40px;
     display: flex;
     align-items: center;
+    height: 40px;
     padding: 0px 20px;
+    font-weight: bold;
+    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
 }
-
 .container-coders {
     padding: 10px 10px;
 }
-
 .comun-ocupation {
     display: flex;
     flex-direction: row;
 }
-
-.info-coder {
+.info-coder{
     display: flex;
     align-items: center;
     text-align: start;
     margin: 10px;
 }
-
 .info-coder p,
 .info-coder span {
     font-size: 15px;
     color: #757575;
 }
-
 .comun-coders {
     font-weight: bold;
-    width: 200px;
+    width: 220px;
 }
-
 .comun-coders>p {
     color: #333333;
 }
-
 .name-ocupation {
     display: flex;
     flex-direction: row;
 }
-
 .name-ocupation div {
     padding: 0px 5px;
 }
-
+.name-ocupation p{
+    padding: 0 5px;
+}
 .container-coders img {
     width: 50px;
 }
-
 .container-post {
     margin-left: auto;
     margin-right: auto;
@@ -221,19 +196,15 @@
 }
 
 .container-new-post {
-
     width: 100%;
     text-align: center;
     margin-top: 20px;
-
 }
-
 .each-post {
     width: 100%;
     border: 1px solid #CCCCCC;
     margin-top: 20px;
 }
-
 .title-new-post {
     background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
     display: flex;
@@ -339,13 +310,16 @@
     top: 0;
     right: 0;
     width: 7em;
-
 }
 
 .simulator-select span {
     margin-left: 0;
     background:none;
     padding-left:5em ;
+
+}
+.simulator-select i {
+    transform: rotate(-90deg);
 }
 
 
@@ -413,7 +387,7 @@ body::-webkit-scrollbar-track:active {
 }
 
 @media (max-width:768px) {
-
+  
     .container-main {
         width: 100%;
         display: grid;
@@ -426,20 +400,7 @@ body::-webkit-scrollbar-track:active {
         width: 90%;
         margin: 0px 20px;
     }
-
-    .user-data {
-        position: relative;
-    }
-
-    .photo {
-        position: absolute;
-        margin-top: -50px;
-    }
-
-    .container-info {
-        margin-top: 40px;
-    }
-
+    
     .container-post {
         width: 90%;
         margin: 0px 20px;
@@ -477,17 +438,18 @@ body::-webkit-scrollbar-track:active {
         justify-items: center;
         padding: 0;
     }
-
     .general-information {
+        display: block;
+        margin-bottom: 3em;
+    }
+    .coder-information{
         display: none;
     }
-
     .container-post {
         text-align: center;
         width: 95%;
         margin: 0;
     }
-
     .new-post {
         padding: 7px;
     }
@@ -495,15 +457,17 @@ body::-webkit-scrollbar-track:active {
     .container-new-post {
         margin-top: 0;
     }
-
-    .commentname- {
-        padding: 5px 20px;
-        text-align: left;
-    }
-
     .name-comment {
         padding: 5px 10px;
 
+    }
+    .coder-information{
+        display: none;
+    }
+    .photo{
+        width: 8em;
+        height: 8em;
+        margin-top: -4em;
     }
 }
 

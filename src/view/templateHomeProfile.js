@@ -55,7 +55,15 @@ export const postHome = `
     </div>
   </div>`;
 
-export const userLoggedIn = `
+const iconEdit = () => {
+  let icon = '';
+  if (/profile/.test(window.location.hash)) {
+    icon = '<img src="./img/edit.png" class="edit">';
+  }
+  return icon;
+};
+
+export const userLoggedIn = () => `
 <figure>
 <img src="./img/ImgRandom/image_3.png" alt="cover image" class="img-general">
 </figure>
@@ -64,13 +72,13 @@ export const userLoggedIn = `
 <div class="container-info">
   <div class="name">
     <p>Sandra Zapata Quentasi</p>
-    <img src="./img/edit.png" class="edit">
+    ${iconEdit()}
   </div>
   <div>
     <div class="comun-ocupation"><span></span>
       <p>&lt;/&gt;Developer</p>
     </div>
-    <img src="./img/edit.png" class="edit">
+    ${iconEdit()}
   </div>
 </div>
 </div>`;

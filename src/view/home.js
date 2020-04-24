@@ -19,7 +19,7 @@ const changeUserLogged = () => {
   if (device() === 'Mobile' && /home/.test(window.location.hash)) {
     userData = '';
   } else {
-    userData = userLoggedIn;
+    userData = userLoggedIn();
   }
   return userData;
 };

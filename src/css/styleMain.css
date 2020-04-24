@@ -425,8 +425,7 @@ body::-webkit-scrollbar-track:active {
         position: unset;
         width: 90%;
         margin: 0px 20px;
-        margin-bottom: 1.5em !important;
-    }
+    } 
 
     .container-post {
         width: 90%;

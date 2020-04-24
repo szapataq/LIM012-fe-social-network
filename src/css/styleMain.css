@@ -10,54 +10,65 @@
     padding: 0px 50px;
     margin: 20px auto;
 }
+
 .general-information {
     position: sticky;
     top: 89.69px;
     width: 600px;
     margin: 10px 20px auto 50px;
 }
+
 .user-logged {
     width: 100%;
     text-align: center;
 }
-figure img{
+
+figure img {
     width: 100%;
     height: 100%;
 }
-.flex-comun{
+
+.flex-comun {
     background-color: tomato;
 }
-.user-data{
+
+.user-data {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.photo{
+
+.photo {
     width: 10em;
     height: 10em;
-    margin-top:-5em;
+    margin-top: -5em;
     border-radius: 200px;
     border: solid 5px #ffffff;
 }
+
 .container-info div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 .name p {
     font-weight: bold;
     font-size: 22px;
 }
-.edit{
+
+.edit {
     width: 1.5em;
     height: 1.5em;
     cursor: pointer;
 }
+
 .coder-information {
     width: 100%;
     border: solid 1px rgb(185, 184, 184);
     margin-top: 40px;
 }
+
 .coder-header {
     display: flex;
     align-items: center;
@@ -66,44 +77,55 @@ figure img{
     font-weight: bold;
     background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
 }
+
 .container-coders {
     padding: 10px 10px;
 }
+
 .comun-ocupation {
     display: flex;
     flex-direction: row;
 }
-.info-coder{
+
+.info-coder {
     display: flex;
     align-items: center;
     text-align: start;
     margin: 10px;
 }
+
 .info-coder p,
 .info-coder span {
     font-size: 15px;
     color: #757575;
 }
+
 .comun-coders {
     font-weight: bold;
     width: 220px;
 }
+
 .comun-coders>p {
     color: #333333;
 }
+
 .name-ocupation {
     display: flex;
     flex-direction: row;
 }
+
 .name-ocupation div {
     padding: 0px 5px;
 }
-.name-ocupation p{
+
+.name-ocupation p {
     padding: 0 5px;
 }
+
 .container-coders img {
     width: 50px;
 }
+
 .container-post {
     margin-left: auto;
     margin-right: auto;
@@ -200,11 +222,13 @@ figure img{
     text-align: center;
     margin-top: 20px;
 }
+
 .each-post {
     width: 100%;
     border: 1px solid #CCCCCC;
     margin-top: 20px;
 }
+
 .title-new-post {
     background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
     display: flex;
@@ -314,10 +338,11 @@ figure img{
 
 .simulator-select span {
     margin-left: 0;
-    background:none;
-    padding-left:5em ;
+    background: none;
+    padding-left: 5em;
 
 }
+
 .simulator-select i {
     transform: rotate(-90deg);
 }
@@ -330,7 +355,7 @@ figure img{
 
 .simulator-select:hover>ul {
     display: block;
-    padding: 5px; 
+    padding: 5px;
     border-radius: 0.3em;
     background: #FFFFFF;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25), 0px -1px 4px rgba(0, 0, 0, 0.25);
@@ -387,7 +412,7 @@ body::-webkit-scrollbar-track:active {
 }
 
 @media (max-width:768px) {
-  
+
     .container-main {
         width: 100%;
         display: grid;
@@ -402,7 +427,7 @@ body::-webkit-scrollbar-track:active {
         margin: 0px 20px;
         margin-bottom: 1.5em !important;
     }
-    
+
     .container-post {
         width: 90%;
         margin: 0px 20px;
@@ -430,6 +455,12 @@ body::-webkit-scrollbar-track:active {
         display: flex;
         flex-direction: row;
     }
+
+    .photo {
+        width: 8em;
+        height: 8em;
+        margin-top: -4em;
+    }
 }
 
 @media (max-width:425px) {
@@ -440,18 +471,22 @@ body::-webkit-scrollbar-track:active {
         justify-items: center;
         padding: 0;
     }
+
     .general-information {
         display: block;
         margin-bottom: 3em;
     }
-    .coder-information{
+
+    .coder-information {
         display: none;
     }
+
     .container-post {
         text-align: center;
         width: 95%;
         margin: 0;
     }
+
     .new-post {
         padding: 7px;
     }
@@ -459,18 +494,21 @@ body::-webkit-scrollbar-track:active {
     .container-new-post {
         margin-top: 0;
     }
+
     .name-comment {
         padding: 5px 10px;
 
     }
-    .coder-information{
+
+    .coder-information {
         display: none;
     }
-    .photo{
+
+    /* .photo{
         width: 8em;
         height: 8em;
         margin-top: -4em;
-    }
+    } */
 }
 
 /* estilos de seccion oculta, de cuando el usuario ingresaa su perfil*/
@@ -485,6 +523,7 @@ body::-webkit-scrollbar-track:active {
     align-items: center;
     position: relative;
 }
-.change-post{
+
+.change-post {
     width: 100%;
 }

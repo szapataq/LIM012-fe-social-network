@@ -89,13 +89,16 @@ header label:hover {
     width: 170px;
 }
 
-.itemsHover {
+.itemsHover{
     border-left: 1.5px solid rgba(51, 51, 51, 0.3);
-    /* border-right: 1.5px solid rgba(51, 51, 51, 0.3); */
+    border-right: 1.5px solid rgba(51, 51, 51, 0.3);
     justify-content: center;
-    padding-right: 20px;
 }
-
+.items a {
+    width: 100%;
+    background-color: lawngreen;
+    padding: 0 !important; 
+}
 .icons-cp {
     margin: 0 15px;
 }
@@ -141,6 +144,7 @@ header label:hover {
     font-size: 35px;
     font-weight: bold;
 }
+
 
 /*FIN DE ESTILOS MENU DESPLEGABLE */
 
@@ -729,9 +733,7 @@ body::-webkit-scrollbar-track:active {
 
 /* estilos de seccion oculta, de cuando el usuario ingresaa su perfil*/
 .own-post {
-    background-color: lightyellow;
     width: 100%;
-    display: none;
 }
 
 .title-new-post-own {
@@ -740,4 +742,7 @@ body::-webkit-scrollbar-track:active {
     flex-direction: row;
     align-items: center;
     position: relative;
+}
+.change-post{
+    width: 100%;
 }

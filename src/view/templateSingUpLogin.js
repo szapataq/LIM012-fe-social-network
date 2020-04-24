@@ -23,8 +23,7 @@ export const inputSignUp = `
           <button class="sign-up id=">Registrarse</button>`;
 
 export const enter = `
-    <p>¿Ya tienes una cuenta? <span>
-    <a href="./index.html">Inicia Sesión</a></span></p>`;
+    <p>¿Ya tienes una cuenta?<a href='#/login'>Inicia Sesión</a></p>`;
 
 export const bookIn = `
-<p>¿No tienes una cuenta? <span><a href="./register.html">Regístrate</a></span></p>`;
+    <p>¿No tienes una cuenta?<a href='#/signup'>Regístrate</a></p>`;

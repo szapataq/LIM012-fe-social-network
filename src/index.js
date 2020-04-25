@@ -1,5 +1,5 @@
 import { changeView } from './view-controller/index-route.js';
-import { createAccount } from './controller/createUser.js';
+// import { createAccount } from './controller/createUser.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB7XXICckIQmK-SiDWZBagzx8GVU3unSSE',
@@ -13,9 +13,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const proyect = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-console.log(proyect);
 
 const init = () => {
   changeView(window.location.hash);

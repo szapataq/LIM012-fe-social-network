@@ -22,12 +22,10 @@
     width: 100%;
     text-align: center;
 }
-
 figure img {
     width: 100%;
     height: 100%;
 }
-
 .flex-comun {
     background-color: tomato;
 }
@@ -36,7 +34,8 @@ figure img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1em 0;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 }
 
 .photo {
@@ -118,15 +117,9 @@ figure img {
 .name-ocupation div {
     padding: 0px 5px;
 }
-
 .name-ocupation p {
     padding: 0 5px;
 }
-
-.container-coders img {
-    width: 50px;
-}
-
 .container-post {
     margin-left: auto;
     margin-right: auto;
@@ -221,27 +214,24 @@ figure img {
 .container-new-post {
     width: 100%;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
 }
-
+/*estilos de cada post*/
 .each-post {
     width: 100%;
     border: 1px solid #CCCCCC;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
-
 .title-new-post {
     background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
 .time {
     display: flex;
     flex-direction: row;
 }
-
 .time>* {
     padding: 5px;
     font-size: 15px;
@@ -261,52 +251,46 @@ figure img {
 }
 
 .body-post {
-    padding: 20px;
+    padding: 15px 20px;
     text-align: justify;
 }
-
 .like-comment {
     padding: 5px 20px;
     border-top: solid 1px #CCCCCC;
-    border-bottom: solid 1px #CCCCCC;
 }
-
 .like-comment div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
 .like-comment p {
     font-size: 14px;
     color: #333333;
     text-align: left;
 }
-
 .icon-like {
     width: 34px;
     height: auto;
     margin-right: 10px;
     cursor: pointer;
 }
-
 .icon-comment {
     width: 26px;
     height: 26px;
     cursor: pointer;
 }
-
 .new-comment {
+    padding: 7px 10px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: #F2F2F2;
-    padding: 10px;
+    width: 100%;
+    border-top: solid 1px #CCCCCC;
+    border-bottom: solid 1px #CCCCCC;
 }
-
-
 .new-comment input {
-    min-width: 80%;
+    width: 85%;
     padding: 0px 10px;
     outline: none;
     height: 42px;
@@ -315,39 +299,37 @@ figure img {
     box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
-
 .user-comment {
     width: 50px;
+    height: 50%;
+    border-radius: 5em;
 }
-
 .name-comment {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 5px 20px;
+    padding: 5px 10px;
     text-align: left;
     font-size: 15px;
+    border-bottom: solid 1px #CCCCCC;
     position: relative;
 }
 
 .simulator-select {
     position: absolute;
-    top: 0;
+    top: 0px;
     right: 0;
     width: 7em;
 }
 
 .simulator-select span {
-    margin-left: 0;
     background: none;
     padding-left: 5em;
-
 }
 
 .simulator-select i {
     transform: rotate(-90deg);
 }
-
 
 .simulator-select>ul {
     display: none;
@@ -363,7 +345,7 @@ figure img {
 }
 
 .simulator-select:hover>ul>li:hover {
-    background: rgba(186, 12, 223, 0.5);
+    background-color: #f2f2f2;
 }
 
 .simulator-select a {
@@ -382,10 +364,26 @@ figure img {
     height: 28px;
     cursor: pointer;
 }
+.own-post {
+    width: 100%;
+}
 
+.title-new-post-own {
+    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.icon-own{
+    width: 20px;
+    margin: 0 5px;
+}
+.change-post {
+    width: 100%;
+}
 body::-webkit-scrollbar {
     width: 15px;
-    /* Estilos scroll en vertical */
 }
 
 body::-webkit-scrollbar-thumb {
@@ -426,7 +424,7 @@ body::-webkit-scrollbar-track:active {
         position: unset;
         width: 90%;
         margin: 0px 20px;
-        margin-bottom: 1em !important;
+        /*margin-bottom: 1em !important;*/
     } 
 
     .container-post {
@@ -472,20 +470,21 @@ body::-webkit-scrollbar-track:active {
         justify-items: center;
         padding: 0;
     }
-
     .general-information {
         display: block;
-        margin-bottom: 3em;
     }
-
     .coder-information {
         display: none;
     }
-
     .container-post {
         text-align: center;
         width: 95%;
         margin: 0;
+    }
+    figure img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px 10px 0 0;
     }
 
     .new-post {
@@ -493,38 +492,22 @@ body::-webkit-scrollbar-track:active {
     }
 
     .container-new-post {
-        margin-top: 0;
+        margin-top: 20px;
     }
 
     .name-comment {
         padding: 5px 10px;
-
     }
 
     .coder-information {
         display: none;
     }
-
-    /* .photo{
-        width: 8em;
-        height: 8em;
-        margin-top: -4em;
-    } */
+    .user-data{
+        margin-top: 0em;
+    }
+    .user-data{
+        margin-bottom: 2em;
+    }
 }
 
 /* estilos de seccion oculta, de cuando el usuario ingresaa su perfil*/
-.own-post {
-    width: 100%;
-}
-
-.title-new-post-own {
-    background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-}
-
-.change-post {
-    width: 100%;
-}

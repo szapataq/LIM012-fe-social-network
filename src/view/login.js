@@ -27,6 +27,7 @@ export default () => {
         <h4 class="welcome">${(/signup/.test(window.location.hash)) ? register : welcome}</h4>
       </div>
       <div class="container-inputs">${(/signup/.test(window.location.hash)) ? inputSignUp : inputWelcome}</div>
+      <p class="confirm" id="errorSignUp"></p>
       <div class="register">${(/signup/.test(window.location.hash)) ? enter : bookIn}</div>
     </section>
   </div>`;

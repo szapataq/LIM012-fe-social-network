@@ -1,18 +1,6 @@
-
 import { changeView } from './view-controller/index-route.js';
+import { createAccount } from './controller/createUser.js';
 
-const init = () => {
-  changeView(window.location.hash);
-  window.addEventListener('hashchange', () => changeView(window.location.hash));
-};
-
-init();
-
-
-/* import { example } from './example.js';
-example(); */
-
-/*
 const firebaseConfig = {
   apiKey: 'AIzaSyB7XXICckIQmK-SiDWZBagzx8GVU3unSSE',
   authDomain: 'coderplace-5d71e.firebaseapp.com',
@@ -28,7 +16,17 @@ const firebaseConfig = {
 const proyect = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 console.log(proyect);
-*/
+
+const init = () => {
+  changeView(window.location.hash);
+  window.addEventListener('hashchange', () => changeView(window.location.hash));
+};
+
+init();
+
+/* import { example } from './example.js';
+example(); */
+
 /* import login from './view/login.js'; */
 
 

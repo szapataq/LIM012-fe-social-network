@@ -1,4 +1,5 @@
 import { components } from '../view/index-components.js';
+import { validateBtnSignUp, validateBtnLogIn } from '../controller/createUser.js';
 
 const changeView = (route) => {
   const mainContainer = document.querySelector('main');
@@ -8,8 +9,11 @@ const changeView = (route) => {
   switch (route) {
     case '':
     case '#/login': mainContainer.appendChild(components.login());
+      validateBtnLogIn();
       break;
-    case '#/signup': mainContainer.appendChild(components.login());
+    case '#/signup':
+      mainContainer.appendChild(components.login());
+      validateBtnSignUp();
       break;
     case '#/home': mainContainer.appendChild(components.home());
       break;

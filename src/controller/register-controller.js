@@ -1,7 +1,22 @@
-const createUser = (email, password) => {
+const createUser = (email, password, names) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => {
+    .then((res) => {
+      res.user.updateProfile({
+        displayName: names,
+      });
+
       const errorSignUp = document.querySelector('#errorSignUp');
+
+      const configuration = {
+        url: 'http://localhost:5501/src/',
+      };
+
+      res.user.sendEmailVerification(configuration).catch(() => {
+        errorSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
+      });
+
+      firebase.auth().signOut();
+
       errorSignUp.innerHTML = 'Cuenta creada satisfactoriamente';
     })
     .catch((error) => {
@@ -29,12 +44,13 @@ const createUser = (email, password) => {
 };
 
 export const createAccount = () => {
-  // const varNameUser = document.querySelector('#names');
+  const varNameUser = document.querySelector('#names');
   const varEmailUser = document.querySelector('#email');
   const varPasswordUser = document.querySelector('#password');
+  const nameUser = varNameUser.value;
   const emailUser = varEmailUser.value;
   const passwordUser = varPasswordUser.value;
-  createUser(emailUser, passwordUser);
+  createUser(emailUser, passwordUser, nameUser);
 };
 
 export const validateBtnSignUp = () => {

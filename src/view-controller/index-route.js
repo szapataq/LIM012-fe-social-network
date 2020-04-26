@@ -1,5 +1,6 @@
 import { components } from '../view/index-components.js';
-import { validateBtnSignUp, validateBtnLogIn } from '../controller/createUser.js';
+import { validateBtnLogIn } from '../controller/login-controller.js';
+import { validateBtnSignUp } from '../controller/register-controller.js';
 
 const changeView = (route) => {
   const mainContainer = document.querySelector('main');

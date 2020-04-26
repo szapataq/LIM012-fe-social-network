@@ -1,5 +1,5 @@
-
 import { changeView } from './view-controller/index-route.js';
+// import { createAccount } from './controller/createUser.js';
 
 const init = () => {
   changeView(window.location.hash);

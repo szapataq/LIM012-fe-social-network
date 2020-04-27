@@ -17,6 +17,7 @@ const init = () => {
     measurementId: 'G-765SHE11K7',
   };
   firebase.initializeApp(firebaseConfig);
+  firebase.performance();
   initRoute();
 };
 

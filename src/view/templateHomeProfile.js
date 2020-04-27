@@ -33,7 +33,7 @@ export const postHome = `
     <div class="title-new-post-own">
       <img src="./img/user.png" alt="" class="user-foto">
       <div class="comun-ocupation">
-        <h4>Laura Zapata Quentasi</h4>
+        <h4>${localStorage.getItem('userName')}</h4>
         <img src="./img/public.png" alt="" class="icon-own">
       </div>
       <div class="simulator-select">
@@ -71,7 +71,7 @@ export const userLoggedIn = () => `
 <div class="user-data">
 <div class="container-info">
   <div class="name">
-    <p>Sandra Zapata Quentasi</p>
+    <p>${localStorage.getItem('userName')}</p>
     ${iconEdit()}
   </div>
   <div>

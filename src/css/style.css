@@ -144,7 +144,7 @@ header label:hover {
     margin-top: 7px;
     margin-right: 50px;
     font-family: code-pro-bold;
-    letter-spacing: -2px;    
+    letter-spacing: -2px;
 }
 
 /*----------------ESTILOS INICIO DE SESIÓN Y REGISTRO----------------*/
@@ -326,14 +326,17 @@ header label:hover {
 }
 
 /*------------------PROVISIONAL-------------------------*/
-.confirm {
-    width: 63%;
-    margin: 3% 0 !important;
-    color: #1eaf61;
+.alertLogInSignUp {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    color: #e43a3a;
+    text-align: center;
+    padding: 0 10%;
 }
 
-.registro {
-    color: #FFFFFF !important;
+.alertSignUpOk {
+    color: #1eaf61 !important;
 }
 
 @media (max-width:768px) {
@@ -507,6 +510,10 @@ header label:hover {
 
     .register {
         padding: 2% 0;
+    }
+
+    .alertLogInSignUp {
+        margin: 3% 0 !important;
     }
 }
 

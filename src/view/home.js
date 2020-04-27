@@ -58,7 +58,7 @@ export default () => {
       <section>
         <div class="items userLogged">
           <img src="./img/user.png" alt="Profile" class="userImage">
-          <span class="userName">Nombre y Apellido </span>
+          <span class="userName"> ${localStorage.getItem('userName') || 'Nombre y Apellido '}</span>
         </div>
         ${changeMenu()}
       </section>

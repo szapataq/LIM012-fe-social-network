@@ -467,8 +467,10 @@ header label:hover {
 
     .container-inputs button {
         width: 30%;
-        height: 8vw;
-        font-size: 4vw;
+        height: 35px;
+        font-size: 14px;
+        /* height: 8vw; */
+        /* font-size: 4vw; */
     }
 
     .card-login p {

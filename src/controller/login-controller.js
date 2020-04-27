@@ -42,8 +42,68 @@ const authEmailPass = (email, password) => {
     });
 };
 
-export const validateBtnLogIn = () => {
+const authAccountGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then((res) => {
+      localStorage.setItem('userName', res.user.displayName);
+      localStorage.setItem('userImg', res.user.photoURL);
+      window.location.hash = '#/home';
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      // const errorMessage = error.message;
+      const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
+      switch (errorCode) {
+        case 'auth/account-exists-with-different-credential':
+          alertLogInSignUp.innerHTML = 'Ya existe una cuenta con esta dirección de correo';
+          break;
+        case 'auth/credential-already-in-use':
+          alertLogInSignUp.innerHTML = 'La cuenta corresponde a una credencial existente';
+          break;
+        case 'auth/email-already-in-use':
+          alertLogInSignUp.innerHTML = 'El correo corresponde a una credencial existente';
+          break;
+        default:
+          alertLogInSignUp.innerHTML = 'Error al autenticar con Google';
+          break;
+      }
+    });
+};
+
+const authAccountFacebook = () => {
+  const provider = new firebase.auth.FacebookAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then((res) => {
+      localStorage.setItem('userName', res.user.displayName);
+      localStorage.setItem('userImg', res.user.photoURL);
+      window.location.hash = '#/home';
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      // const errorMessage = error.message;
+      const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
+      switch (errorCode) {
+        case 'auth/account-exists-with-different-credential':
+          alertLogInSignUp.innerHTML = 'Ya existe una cuenta con esta dirección de correo';
+          break;
+        case 'auth/credential-already-in-use':
+          alertLogInSignUp.innerHTML = 'La cuenta corresponde a una credencial existente';
+          break;
+        case 'auth/email-already-in-use':
+          alertLogInSignUp.innerHTML = 'El correo corresponde a una credencial existente';
+          break;
+        default:
+          alertLogInSignUp.innerHTML = 'Error al autenticar con Facebook';
+          break;
+      }
+    });
+};
+
+export const validateBtnEvenListener = () => {
   const btnLogIn = document.querySelector('#btnLogIn');
+  const btnGoogle = document.querySelector('#btnGoogle');
+  const btnFacebook = document.querySelector('#btnFacebook');
   if (btnLogIn) {
     btnLogIn.addEventListener(('click'), () => {
       const varEmailUser = document.querySelector('#email');
@@ -51,6 +111,16 @@ export const validateBtnLogIn = () => {
       const emailUser = varEmailUser.value;
       const passwordUser = varPasswordUser.value;
       authEmailPass(emailUser, passwordUser);
+    });
+  }
+  if (btnGoogle) {
+    btnGoogle.addEventListener(('click'), () => {
+      authAccountGoogle();
+    });
+  }
+  if (btnFacebook) {
+    btnFacebook.addEventListener(('click'), () => {
+      authAccountFacebook();
     });
   }
 };

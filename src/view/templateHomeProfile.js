@@ -28,10 +28,12 @@ export const postProfile = `
 </div>
 </div>`;
 
+export const imgUserDefault = './img/user.png';
+
 export const postHome = `
   <div class="own-post">
     <div class="title-new-post-own">
-      <img src="./img/user.png" alt="" class="user-foto">
+      <img src="${localStorage.getItem('userImg') || imgUserDefault}" alt="" class="user-foto">
       <div class="comun-ocupation">
         <h4>${localStorage.getItem('userName')}</h4>
         <img src="./img/public.png" alt="" class="icon-own">
@@ -65,9 +67,9 @@ const iconEdit = () => {
 
 export const userLoggedIn = () => `
 <figure>
-<img src="./img/ImgRandom/image_3.png" alt="cover image" class="img-general">
+  <img src="./img/ImgRandom/image_3.png" alt="cover image" class="img-general">
 </figure>
-<img src="./img/ImgRandom/image_11.png" class="photo">
+<img src="${localStorage.getItem('userImg') || imgUserDefault}" class="photo">
 <div class="user-data">
 <div class="container-info">
   <div class="name">

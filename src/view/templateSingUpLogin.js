@@ -8,8 +8,8 @@ export const inputWelcome = `
   <button class="log-in" id="btnLogIn">Iniciar Sesión</button>
   <p>O bien ingresa con...</p>
   <div class="rrss">
-    <img src="./img/facebook.png" alt="Ícono Facebook">
-    <img src="./img/google.png" alt="Ícono google">
+    <img src="./img/facebook.png" alt="Ícono Facebook" id="btnFacebook">
+    <img src="./img/google.png" alt="Ícono google" id="btnGoogle">
   </div>`;
 
 export const inputSignUp = `      

@@ -9,7 +9,7 @@ const createUser = (email, password, names) => {
         url: 'http://localhost:5501/src/',
       };
       res.user.sendEmailVerification(configuration).catch(() => {
-        // eslint-disable-next-line no-undef
+        const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
         alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
       });
       firebase.auth().signOut();
@@ -17,7 +17,6 @@ const createUser = (email, password, names) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      // const errorMessage = error.message;
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {
         case 'auth/email-already-in-use':

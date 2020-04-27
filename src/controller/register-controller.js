@@ -4,19 +4,14 @@ const createUser = (email, password, names) => {
       res.user.updateProfile({
         displayName: names,
       });
-
       const errorSignUp = document.querySelector('#errorSignUp');
-
       const configuration = {
         url: 'http://localhost:5501/src/',
       };
-
       res.user.sendEmailVerification(configuration).catch(() => {
         errorSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
       });
-
       firebase.auth().signOut();
-
       errorSignUp.innerHTML = 'Cuenta creada satisfactoriamente';
     })
     .catch((error) => {
@@ -57,7 +52,6 @@ export const validateBtnSignUp = () => {
   const btnSignUp = document.querySelector('#btnSignUp');
   if (btnSignUp) {
     btnSignUp.addEventListener(('click'), () => {
-      console.log('creando cuenta');
       createAccount();
     });
   }

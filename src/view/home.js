@@ -239,5 +239,6 @@ export default () => {
   const header = document.querySelector('header');
   sectionMain.innerHTML = mainHome;
   header.innerHTML = headerHome;
+
   return sectionMain;
 };

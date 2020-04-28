@@ -34,7 +34,9 @@ const changeView = (route) => {
         window.location.hash = '#/login';
       }
       break;
-    default: break;
+    default:
+      mainContainer.appendChild(components.different());
+      break;
   }
 };
 export { changeView };

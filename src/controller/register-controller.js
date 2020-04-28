@@ -16,6 +16,7 @@ const createUser = (email, password, names) => {
       errorSignUp.innerHTML = 'Cuenta creada satisfactoriamente';
     })
     .catch((error) => {
+      console.error(error);
       const errorCode = error.code;
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {

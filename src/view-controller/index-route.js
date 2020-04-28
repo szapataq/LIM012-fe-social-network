@@ -1,27 +1,37 @@
 import { components } from '../view/index-components.js';
-import { validateBtnLogIn } from '../controller/login-controller.js';
+import { validateBtnEvenListener } from '../controller/login-controller.js';
 import { validateBtnSignUp } from '../controller/register-controller.js';
 
 const changeView = (route) => {
   const mainContainer = document.querySelector('main');
   const header = document.querySelector('header');
+  const currentUser = firebase.auth().currentUser;
   mainContainer.innerHTML = '';
   header.innerHTML = '';
   switch (route) {
     case '':
     case '#/login': mainContainer.appendChild(components.login());
-      validateBtnLogIn();
+      validateBtnEvenListener();
       break;
     case '#/signup':
       mainContainer.appendChild(components.login());
       validateBtnSignUp();
       break;
-    case '#/home': mainContainer.appendChild(components.home());
+    case '#/home':
+      if (currentUser) {
+        mainContainer.appendChild(components.home());
+      } else {
+        window.location.hash = '#/login';
+      }
       break;
-    case '#/profile': mainContainer.appendChild(components.home());
+    case '#/profile':
+      if (currentUser) {
+        mainContainer.appendChild(components.home());
+      } else {
+        window.location.hash = '#/login';
+      }
       break;
     default: break;
   }
 };
-
 export { changeView };

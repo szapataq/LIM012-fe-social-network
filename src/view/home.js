@@ -5,8 +5,10 @@ import {
   postProfile,
   optionsMobile,
   userLoggedIn,
+  imgUserDefault,
 }
   from './templateHomeProfile.js';
+
 
 // FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
 const device = () => {
@@ -57,7 +59,7 @@ export default () => {
     <section class="separator">
       <section>
         <div class="items userLogged">
-          <img src="./img/user.png" alt="Profile" class="userImage">
+          <img src="${localStorage.getItem('userImg') || imgUserDefault}" alt="Profile" class="userImage">
           <span class="userName"> ${localStorage.getItem('userName') || 'Nombre y Apellido '}</span>
         </div>
         ${changeMenu()}
@@ -65,7 +67,7 @@ export default () => {
       <div class="main-title">
         <h1 class="coderPlaceDesktop">&lt;CoderPlace/&gt;</h1>
       </div>
-      <div class="items itemsHover">
+      <div class="items itemsHover" id="log-out">
         <img src="./img/log-out.png" alt="Log Out" class="icons-cp">
         <span><a href="./index.html" class="salir">Cerrar Sesión</a></span>
       </div>
@@ -239,5 +241,6 @@ export default () => {
   const header = document.querySelector('header');
   sectionMain.innerHTML = mainHome;
   header.innerHTML = headerHome;
+
   return sectionMain;
 };

@@ -7,7 +7,11 @@ const logOut = () => {
     });
 };
 
-const btnLogOut = document.querySelector('#log-out');
-btnLogOut.addEventListener(('click'), () => {
-  logOut();
-});
+export const listenersMain = () => {
+  const btnLogOut = document.querySelector('#log-out');
+  if (btnLogOut) {
+    btnLogOut.addEventListener('click', () => {
+      logOut();
+    });
+  }
+};

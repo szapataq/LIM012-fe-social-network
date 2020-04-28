@@ -12,7 +12,8 @@ const createUser = (email, password, names) => {
         alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
       });
       firebase.auth().signOut();
-      alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente';
+      alertLogInSignUp.classList.add('alertSignUpOk');
+      alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
     })
     .catch((error) => {
       console.error(error);

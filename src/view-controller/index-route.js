@@ -1,6 +1,7 @@
 import { components } from '../view/index-components.js';
 import { validateBtnEvenListener } from '../controller/login-controller.js';
 import { validateBtnSignUp } from '../controller/register-controller.js';
+import { listenersMain } from '../controller/main-controller.js';
 
 const changeView = (route) => {
   const mainContainer = document.querySelector('main');
@@ -20,6 +21,7 @@ const changeView = (route) => {
     case '#/home':
       if (currentUser) {
         mainContainer.appendChild(components.home());
+        listenersMain();
       } else {
         window.location.hash = '#/login';
       }
@@ -27,6 +29,7 @@ const changeView = (route) => {
     case '#/profile':
       if (currentUser) {
         mainContainer.appendChild(components.home());
+        listenersMain();
       } else {
         window.location.hash = '#/login';
       }

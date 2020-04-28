@@ -69,7 +69,7 @@ export default () => {
       </div>
       <div class="items itemsHover" id="log-out">
         <img src="./img/log-out.png" alt="Log Out" class="icons-cp">
-        <span><a href="./index.html" class="salir">Cerrar Sesión</a></span>
+        <span>Cerrar Sesión</span>
       </div>
     </section>
   </nav>`;

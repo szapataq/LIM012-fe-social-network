@@ -110,7 +110,15 @@ export const validateBtnEvenListener = () => {
       const varPasswordUser = document.querySelector('#password');
       const emailUser = varEmailUser.value;
       const passwordUser = varPasswordUser.value;
-      authEmailPass(emailUser, passwordUser);
+      const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
+      alertLogInSignUp.classList.remove('alertSignUpOk');
+      if (emailUser === '') {
+        alertLogInSignUp.innerText = 'Debe ingresar su email';
+      } else if (passwordUser === '') {
+        alertLogInSignUp.innerText = 'Debe ingresar su contraseña';
+      } else {
+        authEmailPass(emailUser, passwordUser);
+      }
     });
   }
   if (btnGoogle) {

@@ -524,6 +524,10 @@ header label:hover {
     .alertLogInSignUp {
         margin: 3% 0 !important;
     }
+
+    .terms a {
+        font-size: 3vw;
+    }
 }
 
 @media (max-width:1024px) and (min-width:768px) {

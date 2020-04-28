@@ -131,6 +131,7 @@ header label:hover {
     margin: 5px 8px 5px 20px;
     border-radius: 5em;
 }
+
 .userName {
     text-transform: uppercase;
 }
@@ -324,6 +325,12 @@ header label:hover {
     cursor: pointer;
     text-decoration: none;
     margin: 0 5px;
+}
+
+.terms a {
+    color: #9F00FF;
+    margin: 0;
+    font-size: 0.75vw;
 }
 
 .alertLogInSignUp {

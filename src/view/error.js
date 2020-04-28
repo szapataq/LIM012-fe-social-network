@@ -2,7 +2,7 @@ export default () => {
   const viewDifferent = `
     <div class="error">
       <figure class="container-img-error">
-        <img src="./img/error2.png" alt="" class="img-error">
+        <img src="./img/error.png" alt="" class="img-error">
       </figure>
       <div class="body-error">
         <h2>Oops!, page not found...</h4>

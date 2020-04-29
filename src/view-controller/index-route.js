@@ -1,6 +1,6 @@
 import { components } from '../view/index-components.js';
 import { validateBtnEvenListener } from '../controller/login-controller.js';
-import { validateBtnSignUp } from '../controller/register-controller.js';
+import { validateBtnSignUp } from '../controller/signup-controller.js';
 import { listenersMain } from '../controller/main-controller.js';
 
 const changeView = (route) => {

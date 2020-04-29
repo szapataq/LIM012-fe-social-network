@@ -78,7 +78,7 @@ export const userLoggedIn = () => `
   </div>
   <div>
     <div class="comun-ocupation"><span></span>
-      <p>&lt;/&gt;Developer</p>
+      <p>&lt;/&gt;Estuadiante de la univeridad nacional de san agustion -arsssssssssssssequipar</p>
     </div>
     ${iconEdit()}
   </div>

@@ -122,8 +122,8 @@ figure img {
     padding: 0 5px;
 }
 .container-post {
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
     border-radius: 8px;
     margin: 10px 50px auto 20px;
     width: 800px;
@@ -196,7 +196,6 @@ figure img {
     -webkit-appearance: none;
     -ms-appearance: none;
     -o-appearance: none;
-    appearance: none;
     cursor: pointer;
     padding: 0px 10px;
 }
@@ -393,14 +392,14 @@ body::-webkit-scrollbar-thumb {
     border-radius: 15px;
 }
 
-body::-webkit-scrollbar-thumb:hover {
-    background: rgb(95, 94, 94);
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-
 body::-webkit-scrollbar-track {
     background: #e1e1e1;
     border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(95, 94, 94);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 body::-webkit-scrollbar-track:hover,
@@ -533,14 +532,13 @@ body::-webkit-scrollbar-track:active {
         padding: 5px 10px;
     }
 
-    .coder-information {
+    /* .coder-information {
         display: none;
-    }
-    .user-data{
-        margin-top: 0em;
-    }
+    } */
+   
     .user-data{
         margin-bottom: 2em;
+        margin-top: 0em;
     }
 }
 

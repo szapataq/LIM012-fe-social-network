@@ -18,7 +18,7 @@ export const inputSignUp = `
   <input type="password" placeholder="Contraseña" class="input-login" id="password">
   <div class="terms">
     <input type="checkbox" id="termConditions" class="termConditions" />
-    <label for="termConditions">Acepto los Términos, Condiciones y Política de Privacidad.</label>
+    <label for="termConditions">Acepto los <a href="./docs/terms-and-conditions.pdf" target="_blank">Términos, Condiciones y Política de Privacidad.</a></label>
   </div>
   <button class="sign-up" id="btnSignUp">Registrarse</button>`;
 

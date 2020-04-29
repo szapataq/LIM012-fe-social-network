@@ -1,4 +1,4 @@
-const createUser = (email, password, names) => {
+export const createUser = (email, password, names) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((res) => {
       res.user.updateProfile({

@@ -17,7 +17,7 @@ global.firebase = firebasemock.MockFirebaseSdk(
   () => mockauth,
 );
 
-// test crear un usuario
+// test crear un nuevo usuario
 describe('Crear un usuario', () => {
   it('Debería poder registrarse con email szapata013@gmail.com y password 12345678', () => createNewUser('szapata013@gmail.com', '12345678')
     .then((user) => {

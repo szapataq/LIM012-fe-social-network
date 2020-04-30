@@ -52,7 +52,6 @@ export const authAccountGoogle = () => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      // const errorMessage = error.message;
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {
         case 'auth/account-exists-with-different-credential':
@@ -80,7 +79,6 @@ export const authAccountFacebook = () => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      // const errorMessage = error.message;
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {
         case 'auth/account-exists-with-different-credential':
@@ -100,7 +98,6 @@ export const authAccountFacebook = () => {
 };
 
 // FUNCIÓN CREAR USUARIO
-
 export const createUser = (email, password, names) => {
   createNewUser(email, password)
     .then((res) => {
@@ -109,13 +106,13 @@ export const createUser = (email, password, names) => {
       });
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       const configuration = {
-        url: 'http://localhost:5501/src/',
+        url: 'https://argierdfj.github.io/LIM012-fe-social-network/src/',
       };
       res.user.sendEmailVerification(configuration)
         .catch(() => {
           alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
         });
-      firebase.auth().signOut();
+      // firebase.auth().signOut();
       alertLogInSignUp.classList.add('alertSignUpOk');
       alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
     })

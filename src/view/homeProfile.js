@@ -8,7 +8,7 @@ import {
   imgUserDefault,
 }
   from './templateHomeProfile.js';
-
+import { signOutUser } from '../controller/main-controller.js';
 
 // FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
 const device = () => {
@@ -233,13 +233,20 @@ export default () => {
         </div>
       </div>
     </div>
-  </div>
+  </div>`;
 
-   `;
   const sectionMain = document.createElement('section');
   sectionMain.className = 'section-main';
-  const header = document.querySelector('header');
   sectionMain.innerHTML = mainHome;
+  const header = document.querySelector('header');
   header.innerHTML = headerHome;
+
+  const btnLogOut = header.querySelector('#log-out');
+
+  if (btnLogOut) {
+    btnLogOut.addEventListener('click', () => {
+      signOutUser();
+    });
+  }
   return sectionMain;
 };

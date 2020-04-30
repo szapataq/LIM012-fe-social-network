@@ -66,17 +66,6 @@ export default () => {
     });
   }
 
-  if (btnGoogle) {
-    btnGoogle.addEventListener(('click'), () => {
-      authAccountGoogle();
-    });
-  }
-  if (btnFacebook) {
-    btnFacebook.addEventListener(('click'), () => {
-      authAccountFacebook();
-    });
-  }
-
   if (btnSignUp) {
     btnSignUp.addEventListener(('click'), () => {
       const varNameUser = divCenter.querySelector('#names');
@@ -102,5 +91,17 @@ export default () => {
       }
     });
   }
+
+  if (btnGoogle) {
+    btnGoogle.addEventListener(('click'), () => {
+      authAccountGoogle();
+    });
+  }
+  if (btnFacebook) {
+    btnFacebook.addEventListener(('click'), () => {
+      authAccountFacebook();
+    });
+  }
+
   return divCenter;
 };

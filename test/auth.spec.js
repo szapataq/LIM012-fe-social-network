@@ -1,6 +1,9 @@
 import {
   signIn,
   createNewUser,
+  signInWithGoogle,
+  signInWithFacebook,
+  signOut,
 } from '../src/model/authentication-model.js';
 
 // configurando firebase mock
@@ -13,6 +16,7 @@ global.firebase = firebasemock.MockFirebaseSdk(
   () => null,
   () => mockauth,
 );
+
 // test crear un usuario
 describe('Crear un usuario', () => {
   it('Debería poder registrarse con email szapata013@gmail.com y password 12345678', () => createNewUser('szapata013@gmail.com', '12345678')
@@ -21,12 +25,40 @@ describe('Crear un usuario', () => {
       expect(user.password).toBe('12345678');
     }));
 });
+
 // funcion de firebase de iniciar sesion
-describe('signIn', () => {
+describe('Iniciar sesion', () => {
   it('Debería poder iniciar sesión', () => {
     signIn('soyuncacahuate@gmail.com', '12345678').then((user) => {
       expect(user.email).toBe('soyuncacahuate@gmail.com');
       expect(user.password).toBe('12345678');
+    });
+  });
+});
+
+// funcion de iniciar sesion con google
+describe('Iniciar sesion con google', () => {
+  it('Deberia iniciar sesion con Google', () => {
+    signInWithGoogle().then((user) => {
+      expect(user.isAnonymous).toBe(false);
+    });
+  });
+});
+
+// funcion de iniciar sesion con google
+describe('Iniciar sesion con facebook', () => {
+  it('Deberia iniciar sesion con Google', () => {
+    signInWithFacebook().then((user) => {
+      expect(user.isAnonymous).toBe(false);
+    });
+  });
+});
+
+// funcion de cerrar asesion
+describe('Cerrar sesion', () => {
+  it('Deberia cerrar sesion', () => {
+    signOut().then((user) => {
+      expect(user).toBe(null);
     });
   });
 });

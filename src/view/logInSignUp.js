@@ -6,7 +6,7 @@ import {
   enter,
   bookIn,
 } from './templateSingUpLogin.js';
-import { authEmailPass, authAccountGoogle, authAccountFacebook } from '../controller/login-controller.js';
+/* import { authEmailPass } from '../controller/login-controller.js'; */
 
 export default () => {
   const viewLogin = `
@@ -37,9 +37,7 @@ export default () => {
   divCenter.className = 'center';
   divCenter.innerHTML = viewLogin;
 
-  const btnLogIn = divCenter.querySelector('#btnLogIn');
-  const btnGoogle = divCenter.querySelector('#btnGoogle');
-  const btnFacebook = divCenter.querySelector('#btnFacebook');
+  /* const btnLogIn = divCenter.querySelector('#btnLogIn');
 
   btnLogIn.addEventListener(('click'), () => {
     const varEmailUser = divCenter.querySelector('#email');
@@ -55,15 +53,7 @@ export default () => {
     } else {
       authEmailPass(emailUser, passwordUser);
     }
-  });
-
-  btnGoogle.addEventListener(('click'), () => {
-    authAccountGoogle();
-  });
-
-  btnFacebook.addEventListener(('click'), () => {
-    authAccountFacebook();
-  });
+  }); */
 
   return divCenter;
 };

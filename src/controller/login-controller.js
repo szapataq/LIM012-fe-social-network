@@ -5,37 +5,46 @@ export const authEmailPass = (email, password) => {
     .then((res) => {
       if (!res.user.emailVerified) {
         const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
-        alertLogInSignUp.innerText = 'Debe Validar su correo para Iniciar Sesión';
+        alertLogInSignUp.innerHTML = 'Debe Validar su correo para Iniciar Sesión';
         firebase.auth().signOut();
       } else {
+        // localStorage tiene el metodo setItem('nombre del campo', 'valor del campo')
+        // que guarda en el navegador el 'valor del campo' bajo el 'nombre del campo'
+        // y que se puede recuperar con el metodo getItem('nombre del campo')
+        // los 2 metodos existen tambien en el sessionStorage
+        // pero el sessionStorage se elimina al cerrar la pestaña,
+        // mientras que el LocalStorage es persistente.
+        // ? Deberiamos escoger cual es la mejor opción
+        // ! SOLO PARA PRUEBAS
         localStorage.setItem('userName', res.user.displayName);
         window.location.hash = '#/home';
       }
     })
     .catch((error) => {
       const errorCode = error.code;
+      // const errorMessage = error.message;
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {
         case 'auth/invalid-email':
-          alertLogInSignUp.innerText = 'Correo inválido';
+          alertLogInSignUp.innerHTML = 'Correo inválido';
           break;
         case 'auth/user-disabled':
-          alertLogInSignUp.innerText = 'Comuníquese con el Administrador';
+          alertLogInSignUp.innerHTML = 'Comuníquese con el Administrador';
           break;
         case 'auth/user-not-found':
-          alertLogInSignUp.innerText = 'Usuario no registrado';
+          alertLogInSignUp.innerHTML = 'Usuario no registrado';
           break;
         case 'auth/wrong-password':
-          alertLogInSignUp.innerText = 'El correo o la contraseña ingresados son incorrectos';
+          alertLogInSignUp.innerHTML = 'El correo o la contraseña ingresados son incorrectos';
           break;
         default:
-          alertLogInSignUp.innerText = 'Ha ocurrido un error inesperado';
+          alertLogInSignUp.innerHTML = 'Ha ocurrido un error inesperado';
           break;
       }
     });
 };
 
-export const authAccountGoogle = () => {
+const authAccountGoogle = () => {
   signInWithGoogle()
     .then((res) => {
       localStorage.setItem('userName', res.user.displayName);
@@ -48,22 +57,22 @@ export const authAccountGoogle = () => {
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {
         case 'auth/account-exists-with-different-credential':
-          alertLogInSignUp.innerText = 'Ya existe una cuenta con esta dirección de correo';
+          alertLogInSignUp.innerHTML = 'Ya existe una cuenta con esta dirección de correo';
           break;
         case 'auth/credential-already-in-use':
-          alertLogInSignUp.innerText = 'La cuenta corresponde a una credencial existente';
+          alertLogInSignUp.innerHTML = 'La cuenta corresponde a una credencial existente';
           break;
         case 'auth/email-already-in-use':
-          alertLogInSignUp.innerText = 'El correo corresponde a una credencial existente';
+          alertLogInSignUp.innerHTML = 'El correo corresponde a una credencial existente';
           break;
         default:
-          alertLogInSignUp.innerText = 'Error al autenticar con Google';
+          alertLogInSignUp.innerHTML = 'Error al autenticar con Google';
           break;
       }
     });
 };
 
-export const authAccountFacebook = () => {
+const authAccountFacebook = () => {
   signInWithFacebook()
     .then((res) => {
       localStorage.setItem('userName', res.user.displayName);
@@ -76,17 +85,50 @@ export const authAccountFacebook = () => {
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {
         case 'auth/account-exists-with-different-credential':
-          alertLogInSignUp.innerText = 'Ya existe una cuenta con esta dirección de correo';
+          alertLogInSignUp.innerHTML = 'Ya existe una cuenta con esta dirección de correo';
           break;
         case 'auth/credential-already-in-use':
-          alertLogInSignUp.innerText = 'La cuenta corresponde a una credencial existente';
+          alertLogInSignUp.innerHTML = 'La cuenta corresponde a una credencial existente';
           break;
         case 'auth/email-already-in-use':
-          alertLogInSignUp.innerText = 'El correo corresponde a una credencial existente';
+          alertLogInSignUp.innerHTML = 'El correo corresponde a una credencial existente';
           break;
         default:
-          alertLogInSignUp.innerText = 'Error al autenticar con Facebook';
+          alertLogInSignUp.innerHTML = 'Error al autenticar con Facebook';
           break;
       }
     });
+};
+
+export const validateBtnEvenListener = () => {
+  const btnLogIn = document.querySelector('#btnLogIn');
+  const btnGoogle = document.querySelector('#btnGoogle');
+  const btnFacebook = document.querySelector('#btnFacebook');
+  if (btnLogIn) {
+    btnLogIn.addEventListener(('click'), () => {
+      const varEmailUser = document.querySelector('#email');
+      const varPasswordUser = document.querySelector('#password');
+      const emailUser = varEmailUser.value;
+      const passwordUser = varPasswordUser.value;
+      const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
+      alertLogInSignUp.classList.remove('alertSignUpOk');
+      if (emailUser === '') {
+        alertLogInSignUp.innerText = 'Debe ingresar su email';
+      } else if (passwordUser === '') {
+        alertLogInSignUp.innerText = 'Debe ingresar su contraseña';
+      } else {
+        authEmailPass(emailUser, passwordUser);
+      }
+    });
+  }
+  if (btnGoogle) {
+    btnGoogle.addEventListener(('click'), () => {
+      authAccountGoogle();
+    });
+  }
+  if (btnFacebook) {
+    btnFacebook.addEventListener(('click'), () => {
+      authAccountFacebook();
+    });
+  }
 };

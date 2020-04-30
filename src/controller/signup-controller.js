@@ -10,12 +10,13 @@ export const createUser = (email, password, names) => {
       const configuration = {
         url: 'http://localhost:5501/src/',
       };
-      res.user.sendEmailVerification(configuration).catch(() => {
-        alertLogInSignUp.innerText = 'Ha ocurrido un error al crear la cuenta';
-      });
+      res.user.sendEmailVerification(configuration)
+        .catch(() => {
+          alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
+        });
       firebase.auth().signOut();
       alertLogInSignUp.classList.add('alertSignUpOk');
-      alertLogInSignUp.innerText = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
+      alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
     })
     .catch((error) => {
       /* console.error(error); */
@@ -23,19 +24,19 @@ export const createUser = (email, password, names) => {
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {
         case 'auth/email-already-in-use':
-          alertLogInSignUp.innerText = 'Ya existe una cuenta con este correo';
+          alertLogInSignUp.innerHTML = 'Ya existe una cuenta con este correo';
           break;
         case 'auth/invalid-email':
-          alertLogInSignUp.innerText = 'Ingrese un correo válido (por ejemplo alguien@example.com)';
+          alertLogInSignUp.innerHTML = 'Ingrese un correo válido (por ejemplo alguien@example.com)';
           break;
         case 'auth/operation-not-allowed':
-          alertLogInSignUp.innerText = 'Comuníquese con el Administrador';
+          alertLogInSignUp.innerHTML = 'Comuníquese con el Administrador';
           break;
         case 'auth/weak-password':
-          alertLogInSignUp.innerText = 'La clave debe ser de mínimo 6 dígitos';
+          alertLogInSignUp.innerHTML = 'La clave debe ser de mínimo 6 dígitos';
           break;
         default:
-          alertLogInSignUp.innerText = 'Ha ocurrido un error inesperado';
+          alertLogInSignUp.innerHTML = 'Ha ocurrido un error inesperado';
           break;
       }
     });

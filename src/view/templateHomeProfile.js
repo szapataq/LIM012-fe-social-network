@@ -77,7 +77,7 @@ export const userLoggedIn = () => `
     ${iconEdit()}
   </div>
   <div class="description">
-    <p>&lt;/&gt; Developer Estudiante de la universidad nacional de san agustin Escuela profesional de ingenieria de sistemas</p>
+    <p>&lt;/&gt;Developer Ingenieria de sistemas Universidad nacional de san Agustin desarrolladora de fron End</p>
     ${iconEdit()}
   </div>
 </div>

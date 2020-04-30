@@ -1,8 +1,8 @@
-// eslint-disable-next-line max-len
-export const createNewUser = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
+export const createNewUser = (email, password) => firebase.auth()
+  .createUserWithEmailAndPassword(email, password);
 
-// eslint-disable-next-line max-len
-export const signIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
+export const signIn = (email, password) => firebase.auth()
+  .signInWithEmailAndPassword(email, password);
 
 // export const userCurrent = () => firebase.auth().currentUser;
 export const signOut = () => firebase.auth().signOut();

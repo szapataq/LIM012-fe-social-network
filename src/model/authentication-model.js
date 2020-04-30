@@ -12,5 +12,6 @@ export const signInWithFacebook = () => {
 };
 // eslint-disable-next-line max-len
 export const createNewUser = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
+
 // export const userCurrent = () => firebase.auth().currentUser;
 export const signOut = () => firebase.auth().signOut();

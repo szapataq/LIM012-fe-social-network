@@ -1,4 +1,11 @@
-import { signIn, signInWithGoogle, signInWithFacebook } from '../model/authentication-model.js';
+import {
+  signIn,
+  signInWithGoogle,
+  signInWithFacebook,
+  createNewUser,
+} from '../model/authentication-model.js';
+
+// FUNCIONES PARA INICIAR SESIÓN
 
 export const authEmailPass = (email, password) => {
   signIn(email, password)
@@ -36,7 +43,7 @@ export const authEmailPass = (email, password) => {
     });
 };
 
-const authAccountGoogle = () => {
+export const authAccountGoogle = () => {
   signInWithGoogle()
     .then((res) => {
       localStorage.setItem('userName', res.user.displayName);
@@ -64,7 +71,7 @@ const authAccountGoogle = () => {
     });
 };
 
-const authAccountFacebook = () => {
+export const authAccountFacebook = () => {
   signInWithFacebook()
     .then((res) => {
       localStorage.setItem('userName', res.user.displayName);
@@ -92,35 +99,45 @@ const authAccountFacebook = () => {
     });
 };
 
-export const validateBtnEvenListener = () => {
-  const btnLogIn = document.querySelector('#btnLogIn');
-  const btnGoogle = document.querySelector('#btnGoogle');
-  const btnFacebook = document.querySelector('#btnFacebook');
-  if (btnLogIn) {
-    btnLogIn.addEventListener(('click'), () => {
-      const varEmailUser = document.querySelector('#email');
-      const varPasswordUser = document.querySelector('#password');
-      const emailUser = varEmailUser.value;
-      const passwordUser = varPasswordUser.value;
+// FUNCIÓN CREAR USUARIO
+
+export const createUser = (email, password, names) => {
+  createNewUser(email, password)
+    .then((res) => {
+      res.user.updateProfile({
+        displayName: names,
+      });
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
-      alertLogInSignUp.classList.remove('alertSignUpOk');
-      if (emailUser === '') {
-        alertLogInSignUp.innerText = 'Debe ingresar su email';
-      } else if (passwordUser === '') {
-        alertLogInSignUp.innerText = 'Debe ingresar su contraseña';
-      } else {
-        authEmailPass(emailUser, passwordUser);
+      const configuration = {
+        url: 'http://localhost:5501/src/',
+      };
+      res.user.sendEmailVerification(configuration)
+        .catch(() => {
+          alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
+        });
+      firebase.auth().signOut();
+      alertLogInSignUp.classList.add('alertSignUpOk');
+      alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
+      switch (errorCode) {
+        case 'auth/email-already-in-use':
+          alertLogInSignUp.innerHTML = 'Ya existe una cuenta con este correo';
+          break;
+        case 'auth/invalid-email':
+          alertLogInSignUp.innerHTML = 'Ingrese un correo válido (por ejemplo alguien@example.com)';
+          break;
+        case 'auth/operation-not-allowed':
+          alertLogInSignUp.innerHTML = 'Comuníquese con el Administrador';
+          break;
+        case 'auth/weak-password':
+          alertLogInSignUp.innerHTML = 'La clave debe ser de mínimo 6 dígitos';
+          break;
+        default:
+          alertLogInSignUp.innerHTML = 'Ha ocurrido un error inesperado';
+          break;
       }
     });
-  }
-  if (btnGoogle) {
-    btnGoogle.addEventListener(('click'), () => {
-      authAccountGoogle();
-    });
-  }
-  if (btnFacebook) {
-    btnFacebook.addEventListener(('click'), () => {
-      authAccountFacebook();
-    });
-  }
 };

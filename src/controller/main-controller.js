@@ -1,19 +1,10 @@
 import { signOut } from '../model/authentication-model.js';
 
-const authSignOut = () => {
+export const signOutUser = () => {
   signOut()
     .then(() => {
       localStorage.removeItem('userName');
       localStorage.removeItem('userImg');
-      window.location.hash = '#/';
+      window.location.hash = '#/login';
     });
-};
-
-export const listenersMain = () => {
-  const btnLogOut = document.querySelector('#log-out');
-  if (btnLogOut) {
-    btnLogOut.addEventListener('click', () => {
-      authSignOut();
-    });
-  }
 };

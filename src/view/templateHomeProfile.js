@@ -11,22 +11,21 @@ export const optionsMobile = `
   <div class="items itemsHover">${profile}</div>`;
 
 export const postProfile = `
-<div class="new-post">
-<textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?"></textarea>
-<div class="container-functions">
-  <div class="camera-privacity">
-    <img src="./img/camera.png" class="camera">
-    <div class="privacidad">
-      <!--<img src="img/public.png">-->
-      <select>
-        <option value="1"> 🌐 Público</option>
-        <option value="1"> 🔓 Solo yo </option>
-      </select>
+  <div class="new-post">
+    <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?"></textarea>
+    <div class="container-functions">
+      <div class="camera-privacity">
+        <img src="./img/camera.png" class="camera">
+        <div class="privacidad">
+          <select>
+            <option value="1"> 🌐 Público</option>
+            <option value="1"> 🔓 Solo yo </option>
+          </select>
+        </div>
+      </div>
+      <button> Compartir</button>
     </div>
-  </div>
-  <button> Compartir</button>
-</div>
-</div>`;
+  </div>`;
 
 export const imgUserDefault = './img/user.png';
 
@@ -66,19 +65,19 @@ const iconEdit = () => {
 };
 
 export const userLoggedIn = () => `
-<figure>
-  <img src="./img/ImgRandom/image_3.png" alt="cover image" class="img-general">
-</figure>
-<img src="${localStorage.getItem('userImg') || imgUserDefault}" class="photo">
-<div class="user-data">
-<div class="container-info">
-  <div class="name">
-    <p>${localStorage.getItem('userName')}</p>
-    ${iconEdit()}
-  </div>
-  <div class="description">
-    <p>&lt;/&gt;Developer Ingenieria de sistemas Universidad nacional de san Agustin desarrolladora de fron End</p>
-    ${iconEdit()}
-  </div>
-</div>
-</div>`;
+  <figure>
+    <img src="./img/ImgRandom/image_3.png" alt="cover image" class="img-general">
+  </figure>
+  <img src="${localStorage.getItem('userImg') || imgUserDefault}" class="photo">
+  <div class="user-data">
+    <div class="container-info">
+      <div class="name">
+        <p>${localStorage.getItem('userName')}</p>
+        ${iconEdit()}
+      </div>
+      <div class="description">
+        <p>&lt;/&gt;Developer Ingenieria de sistemas Universidad nacional de san Agustin desarrolladora de fron End</p>
+        ${iconEdit()}
+      </div>
+    </div>
+  </div>`;

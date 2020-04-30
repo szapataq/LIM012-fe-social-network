@@ -9,6 +9,7 @@ export default () => {
         <P>Page doesn't exist or some other error occured. Go to our home page or go back to previous page.</P>
       </div>
     </div>`;
+
   const sectionError = document.createElement('section');
   sectionError.innerHTML = viewDifferent;
 

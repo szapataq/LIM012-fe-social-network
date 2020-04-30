@@ -1,5 +1,7 @@
-const authEmailPass = (email, password) => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
+import { signIn, signInWithGoogle, signInWithFacebook } from '../model/authentication-model.js';
+
+export const authEmailPass = (email, password) => {
+  signIn(email, password)
     .then((res) => {
       if (!res.user.emailVerified) {
         const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
@@ -43,8 +45,7 @@ const authEmailPass = (email, password) => {
 };
 
 const authAccountGoogle = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider)
+  signInWithGoogle()
     .then((res) => {
       localStorage.setItem('userName', res.user.displayName);
       localStorage.setItem('userImg', res.user.photoURL);
@@ -72,8 +73,7 @@ const authAccountGoogle = () => {
 };
 
 const authAccountFacebook = () => {
-  const provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(provider)
+  signInWithFacebook()
     .then((res) => {
       localStorage.setItem('userName', res.user.displayName);
       localStorage.setItem('userImg', res.user.photoURL);

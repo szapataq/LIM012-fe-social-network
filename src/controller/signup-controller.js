@@ -1,5 +1,7 @@
+import { createNewUser } from '../model/authentication-model.js';
+
 export const createUser = (email, password, names) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+  createNewUser(email, password)
     .then((res) => {
       res.user.updateProfile({
         displayName: names,
@@ -8,15 +10,16 @@ export const createUser = (email, password, names) => {
       const configuration = {
         url: 'http://localhost:5501/src/',
       };
-      res.user.sendEmailVerification(configuration).catch(() => {
-        alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
-      });
+      res.user.sendEmailVerification(configuration)
+        .catch(() => {
+          alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
+        });
       firebase.auth().signOut();
       alertLogInSignUp.classList.add('alertSignUpOk');
       alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
     })
     .catch((error) => {
-      console.error(error);
+      /* console.error(error); */
       const errorCode = error.code;
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {

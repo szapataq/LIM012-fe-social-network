@@ -22,11 +22,13 @@
     width: 100%;
     text-align: center;
 }
+
 figure img {
     width: 100%;
     height: 100%;
     border-radius: 10px 10px 0 0;
 }
+
 .flex-comun {
     background-color: tomato;
 }
@@ -46,9 +48,11 @@ figure img {
     border-radius: 200px;
     border: solid 5px #ffffff;
 }
-.container-info{
+
+.container-info {
     width: 100%;
 }
+
 .name {
     width: 100%;
     align-items: center;
@@ -58,23 +62,26 @@ figure img {
 
 }
 
-.description{
+.description {
     width: 100%;
     margin: 1em 0;
     padding: 0 1em;
     text-align: center;
     position: relative;
 }
-.description p{
+
+.description p {
     margin: 0 1em;
     text-align: center;
 }
+
 .name p {
     font-weight: bold;
     font-size: 22px;
     text-align: center;
-    text-transform:  full-width;
+    text-transform: full-width;
 }
+
 .edit {
     width: 1.5em;
     height: 1.5em;
@@ -82,7 +89,7 @@ figure img {
     position: absolute;
     top: 0;
     right: 0;
-    margin-right:0.5em; 
+    margin-right: 0.5em;
 }
 
 .coder-information {
@@ -139,9 +146,11 @@ figure img {
 .name-ocupation div {
     padding: 0px 5px;
 }
+
 .name-ocupation p {
     padding: 0 5px;
 }
+
 .container-post {
     /* margin-left: auto;
     margin-right: auto; */
@@ -237,22 +246,26 @@ figure img {
     text-align: center;
     margin-top: 30px;
 }
+
 /*estilos de cada post*/
 .each-post {
     width: 100%;
     border: 1px solid #CCCCCC;
     margin-bottom: 20px;
 }
+
 .title-new-post {
     background: linear-gradient(299.01deg, rgba(186, 12, 223, 0.5) 4.97%, rgba(6, 242, 193, 0.5) 98.41%);
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 .time {
     display: flex;
     flex-direction: row;
 }
+
 .time>* {
     padding: 5px;
     font-size: 15px;
@@ -276,31 +289,37 @@ figure img {
     padding: 15px 20px;
     text-align: justify;
 }
+
 .like-comment {
     padding: 5px 20px;
     border-top: solid 1px #CCCCCC;
 }
+
 .like-comment div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 .like-comment p {
     font-size: 14px;
     color: #333333;
     text-align: left;
 }
+
 .icon-like {
     width: 34px;
     height: auto;
     margin-right: 10px;
     cursor: pointer;
 }
+
 .icon-comment {
     width: 26px;
     height: 26px;
     cursor: pointer;
 }
+
 .new-comment {
     padding: 7px 10px;
     display: flex;
@@ -311,6 +330,7 @@ figure img {
     border-top: solid 1px #CCCCCC;
     border-bottom: solid 1px #CCCCCC;
 }
+
 .new-comment input {
     width: 85%;
     padding: 0px 10px;
@@ -321,11 +341,13 @@ figure img {
     box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
+
 .user-comment {
     width: 50px;
     height: 50%;
     border-radius: 5em;
 }
+
 .name-comment {
     display: flex;
     flex-direction: row;
@@ -386,6 +408,7 @@ figure img {
     height: 28px;
     cursor: pointer;
 }
+
 .own-post {
     width: 100%;
 }
@@ -397,13 +420,16 @@ figure img {
     align-items: center;
     position: relative;
 }
-.icon-own{
+
+.icon-own {
     width: 20px;
     margin: 0 5px;
 }
+
 .change-post {
     width: 100%;
 }
+
 body::-webkit-scrollbar {
     width: 15px;
 }
@@ -431,36 +457,41 @@ body::-webkit-scrollbar-track:active {
 .salir {
     text-decoration: none !important;
 }
+
 /*--------------ESTILOS DE PAGINA ERROR-----------*/
 
-.error{
+.error {
     position: absolute;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-.container-img-error{
 
-    min-width:300px;
+.container-img-error {
+
+    min-width: 300px;
     max-width: 500px;
 }
-.body-error{
+
+.body-error {
     padding: 0 1em 2em 1em;
 }
-.body-error h2{
+
+.body-error h2 {
     color: rgba(186, 12, 223, 0.5);
     font-weight: bold;
     padding: 1em 0.5em;
 }
-.body-error p{
+
+.body-error p {
     font-size: 3vh;
     max-width: 500px;
-    padding:0 10px;
+    padding: 0 10px;
 }
 
 @media (max-width:768px) {
@@ -478,7 +509,7 @@ body::-webkit-scrollbar-track:active {
         width: 90%;
         margin: 0px 20px;
         /*margin-bottom: 1em !important;*/
-    } 
+    }
 
     .container-post {
         width: 90%;
@@ -513,7 +544,7 @@ body::-webkit-scrollbar-track:active {
         height: 8em;
         margin-top: -4em;
     }
-    
+
 }
 
 @media (max-width:425px) {
@@ -524,21 +555,25 @@ body::-webkit-scrollbar-track:active {
         justify-items: center;
         padding: 0;
     }
+
     .general-information {
         display: block;
     }
+
     .coder-information {
         display: none;
     }
+
     .container-post {
         text-align: center;
         width: 95%;
         margin: 0;
     }
+
     figure img {
         width: 100%;
         height: 100%;
-        
+
     }
 
     .new-post {
@@ -556,8 +591,8 @@ body::-webkit-scrollbar-track:active {
     /* .coder-information {
         display: none;
     } */
-   
-    .user-data{
+
+    .user-data {
         margin-bottom: 2em;
         margin-top: 0em;
     }

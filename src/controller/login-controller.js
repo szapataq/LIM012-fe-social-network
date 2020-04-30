@@ -8,14 +8,6 @@ export const authEmailPass = (email, password) => {
         alertLogInSignUp.innerHTML = 'Debe Validar su correo para Iniciar Sesión';
         firebase.auth().signOut();
       } else {
-        // localStorage tiene el metodo setItem('nombre del campo', 'valor del campo')
-        // que guarda en el navegador el 'valor del campo' bajo el 'nombre del campo'
-        // y que se puede recuperar con el metodo getItem('nombre del campo')
-        // los 2 metodos existen tambien en el sessionStorage
-        // pero el sessionStorage se elimina al cerrar la pestaña,
-        // mientras que el LocalStorage es persistente.
-        // ? Deberiamos escoger cual es la mejor opción
-        // ! SOLO PARA PRUEBAS
         localStorage.setItem('userName', res.user.displayName);
         window.location.hash = '#/home';
       }

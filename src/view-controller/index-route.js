@@ -11,15 +11,15 @@ const changeView = (route) => {
   header.innerHTML = '';
   switch (route) {
     case '':
-    case '#/login': mainContainer.appendChild(components.login());
+    case '#/login': mainContainer.appendChild(components.logInSignUp());
       validateBtnEvenListener();
       break;
     case '#/signup':
-      mainContainer.appendChild(components.login());
+      mainContainer.appendChild(components.logInSignUp());
       validateBtnSignUp();
       break;
     case '#/home':
-    case '#/profile': mainContainer.appendChild(components.home());
+    case '#/profile': mainContainer.appendChild(components.homeProfile());
       /* if (currentUser) {
         mainContainer.appendChild(components.home());
         listenersMain();

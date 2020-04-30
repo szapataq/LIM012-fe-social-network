@@ -46,22 +46,43 @@ figure img {
     border-radius: 200px;
     border: solid 5px #ffffff;
 }
-
-.container-info div {
-    display: flex;
-    flex-direction: row;
+.container-info{
+    width: 100%;
+}
+.name {
+    width: 100%;
     align-items: center;
+    margin-top: 0.5em;
+    padding: 0 1em;
+    position: relative;
+
 }
 
+.description{
+    width: 100%;
+    margin: 1em 0;
+    padding: 0 1em;
+    text-align: center;
+    position: relative;
+}
+.description p{
+    margin: 0 0.5em;
+    text-align: center;
+}
 .name p {
     font-weight: bold;
     font-size: 22px;
+    text-align: center;
+    text-transform:  full-width;
 }
-
 .edit {
     width: 1.5em;
     height: 1.5em;
     cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right:0.5em; 
 }
 
 .coder-information {

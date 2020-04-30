@@ -1,5 +1,5 @@
 import { components } from '../view/index-components.js';
-import { validateBtnEvenListener } from '../controller/login-controller.js';
+/* import { validateBtnEvenListener } from '../controller/login-controller.js'; */
 import { validateBtnSignUp } from '../controller/signup-controller.js';
 import { listenersMain } from '../controller/main-controller.js';
 
@@ -11,21 +11,15 @@ const changeView = (route) => {
   header.innerHTML = '';
   switch (route) {
     case '':
-    case '#/login': mainContainer.appendChild(components.login());
-      validateBtnEvenListener();
+    case '#/login':
+      mainContainer.appendChild(components.login());
       break;
     case '#/signup':
-      mainContainer.appendChild(components.login());
       validateBtnSignUp();
+      mainContainer.appendChild(components.login());
+
       break;
     case '#/home':
-      if (currentUser) {
-        mainContainer.appendChild(components.home());
-        listenersMain();
-      } else {
-        window.location.hash = '#/login';
-      }
-      break;
     case '#/profile':
       if (currentUser) {
         mainContainer.appendChild(components.home());

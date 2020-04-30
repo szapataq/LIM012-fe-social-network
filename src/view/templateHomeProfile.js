@@ -76,10 +76,8 @@ export const userLoggedIn = () => `
     <p>${localStorage.getItem('userName')}</p>
     ${iconEdit()}
   </div>
-  <div>
-    <div class="comun-ocupation"><span></span>
-      <p>&lt;/&gt;Estuadiante de la univeridad nacional de san agustion -arsssssssssssssequipar</p>
-    </div>
+  <div class="description">
+    <p>&lt;/&gt; Developer Estudiante de la universidad nacional de san agustin Escuela profesional de ingenieria de sistemas</p>
     ${iconEdit()}
   </div>
 </div>

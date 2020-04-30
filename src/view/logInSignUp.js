@@ -6,6 +6,7 @@ import {
   enter,
   bookIn,
 } from './templateSingUpLogin.js';
+import { authEmailPass, authAccountGoogle, authAccountFacebook } from '../controller/login-controller.js';
 
 export default () => {
   const viewLogin = `
@@ -35,5 +36,34 @@ export default () => {
   const divCenter = document.createElement('div');
   divCenter.className = 'center';
   divCenter.innerHTML = viewLogin;
+
+  const btnLogIn = divCenter.querySelector('#btnLogIn');
+  const btnGoogle = divCenter.querySelector('#btnGoogle');
+  const btnFacebook = divCenter.querySelector('#btnFacebook');
+
+  btnLogIn.addEventListener(('click'), () => {
+    const varEmailUser = divCenter.querySelector('#email');
+    const varPasswordUser = divCenter.querySelector('#password');
+    const emailUser = varEmailUser.value;
+    const passwordUser = varPasswordUser.value;
+    const alertLogInSignUp = divCenter.querySelector('#alertLogInSignUp');
+    alertLogInSignUp.classList.remove('alertSignUpOk');
+    if (emailUser === '') {
+      alertLogInSignUp.innerText = 'Debe ingresar su email';
+    } else if (passwordUser === '') {
+      alertLogInSignUp.innerText = 'Debe ingresar su contraseña';
+    } else {
+      authEmailPass(emailUser, passwordUser);
+    }
+  });
+
+  btnGoogle.addEventListener(('click'), () => {
+    authAccountGoogle();
+  });
+
+  btnFacebook.addEventListener(('click'), () => {
+    authAccountFacebook();
+  });
+
   return divCenter;
 };

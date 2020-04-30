@@ -1,5 +1,7 @@
+import { createNewUser } from '../model/authentication-model.js';
+
 export const createUser = (email, password, names) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+  createNewUser(email, password)
     .then((res) => {
       res.user.updateProfile({
         displayName: names,
@@ -9,31 +11,31 @@ export const createUser = (email, password, names) => {
         url: 'http://localhost:5501/src/',
       };
       res.user.sendEmailVerification(configuration).catch(() => {
-        alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
+        alertLogInSignUp.innerText = 'Ha ocurrido un error al crear la cuenta';
       });
       firebase.auth().signOut();
       alertLogInSignUp.classList.add('alertSignUpOk');
-      alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
+      alertLogInSignUp.innerText = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
     })
     .catch((error) => {
-      console.error(error);
+      /* console.error(error); */
       const errorCode = error.code;
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       switch (errorCode) {
         case 'auth/email-already-in-use':
-          alertLogInSignUp.innerHTML = 'Ya existe una cuenta con este correo';
+          alertLogInSignUp.innerText = 'Ya existe una cuenta con este correo';
           break;
         case 'auth/invalid-email':
-          alertLogInSignUp.innerHTML = 'Ingrese un correo válido (por ejemplo alguien@example.com)';
+          alertLogInSignUp.innerText = 'Ingrese un correo válido (por ejemplo alguien@example.com)';
           break;
         case 'auth/operation-not-allowed':
-          alertLogInSignUp.innerHTML = 'Comuníquese con el Administrador';
+          alertLogInSignUp.innerText = 'Comuníquese con el Administrador';
           break;
         case 'auth/weak-password':
-          alertLogInSignUp.innerHTML = 'La clave debe ser de mínimo 6 dígitos';
+          alertLogInSignUp.innerText = 'La clave debe ser de mínimo 6 dígitos';
           break;
         default:
-          alertLogInSignUp.innerHTML = 'Ha ocurrido un error inesperado';
+          alertLogInSignUp.innerText = 'Ha ocurrido un error inesperado';
           break;
       }
     });

@@ -5,7 +5,7 @@ import {
   createNewUser,
 } from '../model/authentication-model.js';
 
-import { createUserDB } from '../model/firestore-model.js';
+import { createUserDB, readUserDB } from '../model/firestore-model.js';
 
 import { imgCoverUserDefault, imgProfileUserDefault } from '../view/templateHomeProfile.js';
 
@@ -21,6 +21,7 @@ export const authEmailPass = (email, password) => {
       } else {
         localStorage.setItem('userName', res.user.displayName);
         window.location.hash = '#/home';
+        readUserDB(res.user.uid);
       }
     })
     .catch((error) => {

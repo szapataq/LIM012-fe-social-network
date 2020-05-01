@@ -81,7 +81,7 @@ export const userLoggedIn = () => `
         ${iconEdit()}
       </div>
       <div class="description">
-        <p>&lt;/&gt;Developer Ingenieria de sistemas Universidad nacional de san Agustin desarrolladora de fron End</p>
+        <p>&lt;/&gt;${localStorage.getItem('userAbout') || 'Developer'}</p>
         ${iconEdit()}
       </div>
     </div>

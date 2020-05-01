@@ -8,7 +8,15 @@ import {
   imgProfileUserDefault,
 }
   from './templateHomeProfile.js';
-import { signOutUser } from '../controller/main-controller.js';
+
+import { signOutUser } from '../controller/homeProfile-controller.js';
+
+import {
+  createPostDB,
+} from '../model/posts-firestore-model.js';
+
+
+// import { datePostDB } from '../model/posts-firestore-model.js';
 
 // FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
 const device = () => {
@@ -50,6 +58,9 @@ const changeViewPost = () => {
   }
   return post;
 };
+
+// const publicPost = './img/public.png';
+// const privatePost = './img/private.png';
 
 export default () => {
   const headerHome = `<input type="checkbox" id="btnMenu">
@@ -119,13 +130,12 @@ export default () => {
       <div class="container-new-post">
         <div class="each-post">
           <div class="title-new-post">
-            <img src="./img/user.png" alt="" class="user-foto">
+            <img src="" alt="" class="user-foto">
             <div>
-              <h4>Laura Zapata Quentasi</h4>
+              <h4></h4>
               <div class="time">
-                <p>20/09/2020</p>
-                <p>23:14</p>
-                <img src="./img/public.png" alt="">
+                <p></p>
+                <img src="" alt="privacidad">
               </div>
             </div>
           </div>
@@ -235,12 +245,26 @@ export default () => {
     </div>
   </div>`;
 
+  // CREANDO EL CONTENEDOR DE LOS TEMPLATES
   const sectionMain = document.createElement('section');
   sectionMain.className = 'section-main';
   sectionMain.innerHTML = mainHome;
   const header = document.querySelector('header');
   header.innerHTML = headerHome;
 
+  // FUNCION DE COMPARTIR POST EN PERFIN E INICIO ESCRITORIO
+  const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');
+
+  if (btnSharePostProfile) {
+    btnSharePostProfile.addEventListener(('click'), () => {
+      const post = sectionMain.querySelector('#postProfile').value;
+      const privacyPostProfile = sectionMain.querySelector('#privacyPostProfile').value;
+      console.log('a ver si funciona jaja');
+      createPostDB(post, privacyPostProfile);
+    });
+  }
+
+  // FUNCIÓN PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');
 
   if (btnLogOut) {

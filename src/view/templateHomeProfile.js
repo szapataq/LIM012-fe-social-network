@@ -12,26 +12,25 @@ export const optionsMobile = `
 
 export const postProfile = `
   <div class="new-post">
-    <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?"></textarea>
+    <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postProfile"></textarea>
     <div class="container-functions">
       <div class="camera-privacity">
         <img src="./img/camera.png" class="camera">
         <div class="privacidad">
-          <select>
+          <select id="privacyPostProfile">
             <option value="1"> 🌐 Público</option>
             <option value="1"> 🔓 Solo yo </option>
           </select>
         </div>
       </div>
-      <button> Compartir</button>
+      <button id="btnSharePostProfile"> Compartir</button>
     </div>
   </div>`;
 
-// Función de número aleatorio
+// FUNCIÓN DE NÚMERO ALEATORIOS
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 5)}.png`;
-
 export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}.png`;
 
 export const postHome = `

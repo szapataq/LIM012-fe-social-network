@@ -23,7 +23,6 @@ const changeView = (route) => {
       mainContainer.appendChild(components.different());
       break;
   }
-
 };
 
 export { changeView };

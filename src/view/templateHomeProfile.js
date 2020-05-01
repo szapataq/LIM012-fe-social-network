@@ -69,7 +69,7 @@ const iconEdit = () => {
 
 export const userLoggedIn = () => `
   <figure>
-    <img src="./img/ImgRandom/image_3.png" alt="cover image" class="img-general">
+    <img src="./img/ImgRandom/image_${getRandomInt(1, 15)}.png" alt="cover image" class="img-general">
   </figure>
   <img src="${localStorage.getItem('userImg') || imgUserDefault}" class="photo">
   <div class="user-data">

@@ -27,12 +27,17 @@ export const postProfile = `
     </div>
   </div>`;
 
-export const imgUserDefault = './img/user.png';
+// Función de número aleatorio
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 5)}.png`;
+
+export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}.png`;
 
 export const postHome = `
   <div class="own-post">
     <div class="title-new-post-own">
-      <img src="${localStorage.getItem('userImg') || imgUserDefault}" alt="" class="user-foto">
+      <img src="${localStorage.getItem('userProfileImg') || imgProfileUserDefault}" alt="" class="user-foto">
       <div class="comun-ocupation">
         <h4>${localStorage.getItem('userName')}</h4>
         <img src="./img/public.png" alt="" class="icon-own">
@@ -66,9 +71,9 @@ const iconEdit = () => {
 
 export const userLoggedIn = () => `
   <figure>
-    <img src="./img/ImgRandom/image_3.png" alt="cover image" class="img-general">
+    <img src="${localStorage.getItem('userCoverImg') || imgCoverUserDefault}" alt="cover image" class="img-general">
   </figure>
-  <img src="${localStorage.getItem('userImg') || imgUserDefault}" class="photo">
+  <img src="${localStorage.getItem('userProfileImg') || imgProfileUserDefault}" class="photo">
   <div class="user-data">
     <div class="container-info">
       <div class="name">
@@ -76,7 +81,7 @@ export const userLoggedIn = () => `
         ${iconEdit()}
       </div>
       <div class="description">
-        <p>&lt;/&gt;Developer Ingenieria de sistemas Universidad nacional de san Agustin desarrolladora de fron End</p>
+        <p>&lt;/&gt;${localStorage.getItem('userAbout') || 'Developer'}</p>
         ${iconEdit()}
       </div>
     </div>

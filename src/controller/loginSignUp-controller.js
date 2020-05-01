@@ -5,6 +5,10 @@ import {
   createNewUser,
 } from '../model/authentication-model.js';
 
+import { createUserDB, readUserDB } from '../model/firestore-model.js';
+
+import { imgCoverUserDefault, imgProfileUserDefault } from '../view/templateHomeProfile.js';
+
 // FUNCIONES PARA INICIAR SESIÓN
 
 export const authEmailPass = (email, password) => {
@@ -17,6 +21,7 @@ export const authEmailPass = (email, password) => {
       } else {
         localStorage.setItem('userName', res.user.displayName);
         window.location.hash = '#/home';
+        readUserDB(res.user.uid);
       }
     })
     .catch((error) => {
@@ -47,7 +52,7 @@ export const authAccountGoogle = () => {
   signInWithGoogle()
     .then((res) => {
       localStorage.setItem('userName', res.user.displayName);
-      localStorage.setItem('userImg', res.user.photoURL);
+      localStorage.setItem('userProfileImg', res.user.photoURL);
       window.location.hash = '#/home';
     })
     .catch((error) => {
@@ -74,7 +79,7 @@ export const authAccountFacebook = () => {
   signInWithFacebook()
     .then((res) => {
       localStorage.setItem('userName', res.user.displayName);
-      localStorage.setItem('userImg', res.user.photoURL);
+      localStorage.setItem('userProfileImg', res.user.photoURL);
       window.location.hash = '#/home';
     })
     .catch((error) => {
@@ -115,6 +120,8 @@ export const createUser = (email, password, names) => {
       // firebase.auth().signOut();
       alertLogInSignUp.classList.add('alertSignUpOk');
       alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
+      // FUNCIÓN QUE ALMACENA LA INFO DEL USUARIO EN LA BBDD
+      createUserDB(res.user.uid, email, imgCoverUserDefault, imgProfileUserDefault, names, 'Developer');
     })
     .catch((error) => {
       const errorCode = error.code;

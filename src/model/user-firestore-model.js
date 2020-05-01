@@ -19,7 +19,7 @@ export const createUserDB = (uid, email, coverPhoto, profilePicture, names, abou
 // ? (READ) FUNCIÓN PARA LEER USUARIOS EN LA BASE DE DATOS
 export const readUserDB = (uid) => {
   const db = firebase.firestore();
-  db.collection('users').where('uid', '==', uid)
+  return db.collection('users').where('uid', '==', uid)
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((refDoc) => {

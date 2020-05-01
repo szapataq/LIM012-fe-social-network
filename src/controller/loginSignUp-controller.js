@@ -5,7 +5,7 @@ import {
   createNewUser,
 } from '../model/authentication-model.js';
 
-import { createUserDB, readUserDB } from '../model/firestore-model.js';
+import { createUserDB, readUserDB } from '../model/user-firestore-model.js';
 
 import { imgCoverUserDefault, imgProfileUserDefault } from '../view/templateHomeProfile.js';
 

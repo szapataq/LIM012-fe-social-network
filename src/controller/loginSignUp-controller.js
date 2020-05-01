@@ -121,8 +121,7 @@ export const createUser = (email, password, names) => {
       alertLogInSignUp.classList.add('alertSignUpOk');
       alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
       // FUNCIÓN QUE ALMACENA LA INFO DEL USUARIO EN LA BBDD
-      console.log(res);
-      createUserDB(res.user.uid, email, imgCoverUserDefault, imgProfileUserDefault, names, '</>Developer');
+      createUserDB(res.user.uid, email, imgCoverUserDefault, imgProfileUserDefault, names, 'Developer');
     })
     .catch((error) => {
       const errorCode = error.code;

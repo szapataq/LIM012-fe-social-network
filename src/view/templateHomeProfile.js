@@ -27,7 +27,10 @@ export const postProfile = `
     </div>
   </div>`;
 
-export const imgUserDefault = './img/user.png';
+// Función de número aleatorio para ícono de perfil
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+export const imgUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 5)}.png`;
 
 export const postHome = `
   <div class="own-post">

@@ -5,7 +5,7 @@ import {
   postProfile,
   optionsMobile,
   userLoggedIn,
-  imgUserDefault,
+  imgProfileUserDefault,
 }
   from './templateHomeProfile.js';
 import { signOutUser } from '../controller/main-controller.js';
@@ -59,7 +59,7 @@ export default () => {
     <section class="separator">
       <section>
         <div class="items userLogged">
-          <img src="${localStorage.getItem('userImg') || imgUserDefault}" alt="Profile" class="userImage">
+          <img src="${localStorage.getItem('userProfileImg') || imgProfileUserDefault}" alt="Profile" class="userImage">
           <span class="userName"> ${localStorage.getItem('userName') || 'Nombre y Apellido '}</span>
         </div>
         ${changeMenu()}

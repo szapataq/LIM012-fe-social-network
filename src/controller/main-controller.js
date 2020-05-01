@@ -4,7 +4,7 @@ export const signOutUser = () => {
   signOut()
     .then(() => {
       localStorage.removeItem('userName');
-      localStorage.removeItem('userImg');
+      localStorage.removeItem('userProfileImg');
       window.location.hash = '#/login';
     });
 };

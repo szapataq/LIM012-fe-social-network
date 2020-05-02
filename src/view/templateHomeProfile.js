@@ -30,7 +30,7 @@ export const postProfile = `
 // FUNCIÓN DE NÚMERO ALEATORIOS
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 5)}.png`;
+export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 10)}.png`;
 export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}.png`;
 
 export const postHome = `

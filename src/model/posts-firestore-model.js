@@ -1,4 +1,4 @@
-import { templatePost } from '../view/templateHomeProfile.js';
+import { templatePost, templateCoders } from '../view/templateHomeProfile.js';
 
 export const datePostDB = () => {
   const datePost = {
@@ -55,5 +55,22 @@ export const readPostDB = () => {
         return postList;
       });
       container.innerHTML = postList;
+    });
+};
+
+// FUNCIÓN PARA LEER LOS USUARIOS REGISTRADOS
+export const readCodersDB = () => {
+  const db = firebase.firestore();
+  return db.collection('users')
+    .get()
+    .then((querySnapshot) => {
+      let codersList = '';
+      const container = document.querySelector('.container-coders');
+      querySnapshot.forEach((refDoc) => {
+        const coder = refDoc.data();
+        codersList += templateCoders(coder.profilePicture, coder.names, coder.about);
+        return codersList;
+      });
+      container.innerHTML = codersList;
     });
 };

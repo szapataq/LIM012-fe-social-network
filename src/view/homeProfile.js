@@ -14,6 +14,7 @@ import { signOutUser } from '../controller/homeProfile-controller.js';
 import {
   createPostDB,
   readPostDB,
+  readCodersDB,
 } from '../model/posts-firestore-model.js';
 
 
@@ -95,15 +96,6 @@ export default () => {
           <p>&lt; Coders /&gt;</p>
         </div>
         <div class="container-coders">
-          <div class="info-coder">
-            <img src="./img/user.png" class="user-comment">
-            <div class="name-ocupation">
-              <div class="comun-coders">
-                <p>Isabel Angelica Lucia Paredes Apaza</p>
-              </div>
-              <p>&lt;/&gt;Developer</p>
-            </div>
-          </div>
           <div class="info-coder">
             <img src="./img/user.png" class="user-comment">
             <div class="name-ocupation">
@@ -229,6 +221,9 @@ export default () => {
   const header = document.querySelector('header');
   header.innerHTML = headerHome;
 
+  readCodersDB();
+  readPostDB();
+
   // FUNCION DE COMPARTIR POST EN PERFIN E INICIO ESCRITORIO
   const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');
 
@@ -240,8 +235,6 @@ export default () => {
       createPostDB(post, privacyPostProfile);
     });
   }
-
-  readPostDB();
 
   // FUNCIÓN PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');

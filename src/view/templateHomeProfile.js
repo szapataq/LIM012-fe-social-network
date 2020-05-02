@@ -109,3 +109,14 @@ export const templatePost = (photoUrl, names, date, post, likes, comments) => `
     <p>${likes} Me Gusta ${comments.length} Comentarios</p>
   </div>
 </div>`;
+
+export const templateCoders = (photoUrl, names, about) => `
+  <div class="info-coder">
+    <img src="${photoUrl}" class="user-comment">
+    <div class="name-ocupation">
+      <div class="comun-coders">
+        <p>${names}</p>
+      </div>
+      <p>&lt;/&gt;${about}</p>
+    </div>
+  </div>`;

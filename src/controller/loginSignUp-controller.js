@@ -5,9 +5,16 @@ import {
   createNewUser,
 } from '../model/authentication-model.js';
 
-import { createUserDB, readUserDB } from '../model/firestore-model.js';
+import {
+  createUserDB,
+  readUserDB,
+  readCreateUserDB,
+} from '../model/user-firestore-model.js';
 
-import { imgCoverUserDefault, imgProfileUserDefault } from '../view/templateHomeProfile.js';
+import {
+  imgCoverUserDefault,
+  imgProfileUserDefault,
+} from '../view/templateHomeProfile.js';
 
 // FUNCIONES PARA INICIAR SESIÓN
 
@@ -54,6 +61,7 @@ export const authAccountGoogle = () => {
       localStorage.setItem('userName', res.user.displayName);
       localStorage.setItem('userProfileImg', res.user.photoURL);
       window.location.hash = '#/home';
+      readCreateUserDB(res.user.uid, res.user.email, imgCoverUserDefault, res.user.photoURL, res.user.displayName, 'Developer');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -81,6 +89,7 @@ export const authAccountFacebook = () => {
       localStorage.setItem('userName', res.user.displayName);
       localStorage.setItem('userProfileImg', res.user.photoURL);
       window.location.hash = '#/home';
+      readCreateUserDB(res.user.uid, res.user.email, imgCoverUserDefault, res.user.photoURL, res.user.displayName, 'Developer');
     })
     .catch((error) => {
       const errorCode = error.code;

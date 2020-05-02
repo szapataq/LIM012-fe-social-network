@@ -12,26 +12,25 @@ export const optionsMobile = `
 
 export const postProfile = `
   <div class="new-post">
-    <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?"></textarea>
+    <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postProfile"></textarea>
     <div class="container-functions">
       <div class="camera-privacity">
         <img src="./img/camera.png" class="camera">
         <div class="privacidad">
-          <select>
+          <select id="privacyPostProfile">
             <option value="1"> 🌐 Público</option>
             <option value="1"> 🔓 Solo yo </option>
           </select>
         </div>
       </div>
-      <button> Compartir</button>
+      <button id="btnSharePostProfile"> Compartir</button>
     </div>
   </div>`;
 
-// Función de número aleatorio
+// FUNCIÓN DE NÚMERO ALEATORIOS
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 5)}.png`;
-
+export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 10)}.png`;
 export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}.png`;
 
 export const postHome = `
@@ -84,5 +83,40 @@ export const userLoggedIn = () => `
         <p>&lt;/&gt;${localStorage.getItem('userAbout') || 'Developer'}</p>
         ${iconEdit()}
       </div>
+    </div>
+  </div>`;
+
+export const templatePost = (photoUrl, names, date, post, likes, comments) => `
+<div class="each-post">
+  <div class="title-new-post">
+    <img src="${photoUrl}" alt="" class="user-foto">
+    <div>
+      <h4>${names}</h4>
+      <div class="time">
+        <p>${date}</p>
+        <img src="./img/public.png" alt="privacidad">
+      </div>
+    </div>
+  </div>
+  <div class="body-post">
+    <p>${post}</p>
+  </div>
+  <div class="like-comment">
+    <div>
+      <img src="./img/like.png" alt="" class="icon-like">
+      <img src="./img/comment.png" alt="" class="icon-comment">
+    </div>
+    <p>${likes} Me Gusta ${comments.length} Comentarios</p>
+  </div>
+</div>`;
+
+export const templateCoders = (photoUrl, names, about) => `
+  <div class="info-coder">
+    <img src="${photoUrl}" class="user-comment">
+    <div class="name-ocupation">
+      <div class="comun-coders">
+        <p>${names}</p>
+      </div>
+      <p>&lt;/&gt;${about}</p>
     </div>
   </div>`;

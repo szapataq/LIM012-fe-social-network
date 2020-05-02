@@ -8,7 +8,19 @@ import {
   imgProfileUserDefault,
 }
   from './templateHomeProfile.js';
-import { signOutUser } from '../controller/main-controller.js';
+
+import { signOutUser } from '../controller/homeProfile-controller.js';
+
+import {
+  createPostDB,
+  readPostDB,
+} from '../model/posts-firestore-model.js';
+
+import {
+  readCodersDB,
+} from '../model/user-firestore-model.js';
+
+// import { datePostDB } from '../model/posts-firestore-model.js';
 
 // FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
 const device = () => {
@@ -51,6 +63,9 @@ const changeViewPost = () => {
   return post;
 };
 
+// const publicPost = './img/public.png';
+// const privatePost = './img/private.png';
+
 export default () => {
   const headerHome = `<input type="checkbox" id="btnMenu">
   <label for="btnMenu">&#9776;</label>
@@ -87,15 +102,6 @@ export default () => {
             <img src="./img/user.png" class="user-comment">
             <div class="name-ocupation">
               <div class="comun-coders">
-                <p>Isabel Angelica Lucia Paredes Apaza</p>
-              </div>
-              <p>&lt;/&gt;Developer</p>
-            </div>
-          </div>
-          <div class="info-coder">
-            <img src="./img/user.png" class="user-comment">
-            <div class="name-ocupation">
-              <div class="comun-coders">
                 <p>Juan Jose Gallegos Valdivia</p>
               </div>
               <p>&lt;/&gt;Developer</p>
@@ -119,13 +125,12 @@ export default () => {
       <div class="container-new-post">
         <div class="each-post">
           <div class="title-new-post">
-            <img src="./img/user.png" alt="" class="user-foto">
+            <img src="" alt="" class="user-foto">
             <div>
-              <h4>Laura Zapata Quentasi</h4>
+              <h4></h4>
               <div class="time">
-                <p>20/09/2020</p>
-                <p>23:14</p>
-                <img src="./img/public.png" alt="">
+                <p></p>
+                <img src="" alt="privacidad">
               </div>
             </div>
           </div>
@@ -207,40 +212,35 @@ export default () => {
             <p>1234 Me Gusta</p>
           </div>
         </div>
-        <div class="each-post">
-          <div class="title-new-post">
-            <img src="./img/user.png" alt="" class="user-foto">
-            <div>
-              <h4>Laura Zapata Quentasi</h4>
-              <div class="time">
-                <p>20/09/2020</p>
-                <p>23:14</p>
-                <img src="./img/public.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="body-post">
-            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta,
-            incidunt.</p>
-          </div>
-          <div class="like-comment">
-            <div>
-              <img src="./img/like.png" alt="" class="icon-like">
-              <img src="./img/comment.png" alt="" class="icon-comment">
-            </div>
-            <p>1234 Me Gusta</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>`;
 
+  // CREANDO EL CONTENEDOR DE LOS TEMPLATES
   const sectionMain = document.createElement('section');
   sectionMain.className = 'section-main';
   sectionMain.innerHTML = mainHome;
   const header = document.querySelector('header');
   header.innerHTML = headerHome;
 
+  // PARA MOSTRAR EL AREA DE CODERS
+  readCodersDB();
+  // PARA MOSTRAR TODOS LOS POSTS
+  readPostDB();
+
+  // FUNCION DE COMPARTIR POST EN PERFIN E INICIO ESCRITORIO
+  const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');
+
+  if (btnSharePostProfile) {
+    btnSharePostProfile.addEventListener(('click'), () => {
+      const post = sectionMain.querySelector('#postProfile').value;
+      const privacyPostProfile = sectionMain.querySelector('#privacyPostProfile').value;
+      console.log('a ver si funciona jaja');
+      createPostDB(post, privacyPostProfile);
+    });
+  }
+
+  // FUNCIÓN PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');
 
   if (btnLogOut) {

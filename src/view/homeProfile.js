@@ -14,9 +14,11 @@ import { signOutUser } from '../controller/homeProfile-controller.js';
 import {
   createPostDB,
   readPostDB,
-  readCodersDB,
 } from '../model/posts-firestore-model.js';
 
+import {
+  readCodersDB,
+} from '../model/user-firestore-model.js';
 
 // import { datePostDB } from '../model/posts-firestore-model.js';
 
@@ -221,7 +223,9 @@ export default () => {
   const header = document.querySelector('header');
   header.innerHTML = headerHome;
 
+  // PARA MOSTRAR EL AREA DE CODERS
   readCodersDB();
+  // PARA MOSTRAR TODOS LOS POSTS
   readPostDB();
 
   // FUNCION DE COMPARTIR POST EN PERFIN E INICIO ESCRITORIO

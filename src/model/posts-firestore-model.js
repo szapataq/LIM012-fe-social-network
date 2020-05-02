@@ -24,8 +24,8 @@ export const createPostDB = (post, privacy) => {
   const db = firebase.firestore();
   return db.collection('posts').add({
     uid: firebase.auth().currentUser.uid,
-    names: firebase.auth().currentUser.displayName,
-    profilePicture: firebase.auth().currentUser.photoURL,
+    names: localStorage.getItem('userName') || firebase.auth().currentUser.displayName,
+    profilePicture: localStorage.getItem('userProfileImg') || firebase.auth().currentUser.photoURL,
     post,
     photo: '',
     privacy,

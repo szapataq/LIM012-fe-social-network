@@ -13,6 +13,7 @@ import { signOutUser } from '../controller/homeProfile-controller.js';
 
 import {
   createPostDB,
+  readPostDB,
 } from '../model/posts-firestore-model.js';
 
 
@@ -217,30 +218,6 @@ export default () => {
             <p>1234 Me Gusta</p>
           </div>
         </div>
-        <div class="each-post">
-          <div class="title-new-post">
-            <img src="./img/user.png" alt="" class="user-foto">
-            <div>
-              <h4>Laura Zapata Quentasi</h4>
-              <div class="time">
-                <p>20/09/2020</p>
-                <p>23:14</p>
-                <img src="./img/public.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="body-post">
-            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta,
-            incidunt.</p>
-          </div>
-          <div class="like-comment">
-            <div>
-              <img src="./img/like.png" alt="" class="icon-like">
-              <img src="./img/comment.png" alt="" class="icon-comment">
-            </div>
-            <p>1234 Me Gusta</p>
-          </div>
-        </div>
       </div>
     </div>
   </div>`;
@@ -263,6 +240,8 @@ export default () => {
       createPostDB(post, privacyPostProfile);
     });
   }
+
+  readPostDB();
 
   // FUNCIÓN PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');

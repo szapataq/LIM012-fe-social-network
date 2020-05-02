@@ -1,3 +1,5 @@
+import { templatePost } from '../view/templateHomeProfile.js';
+
 export const datePostDB = () => {
   const datePost = {
     month: 'short',
@@ -17,10 +19,13 @@ export const datePostDB = () => {
   return dateTime;
 };
 
+// FUNCIÓN PARA CREAR LOS POSTS
 export const createPostDB = (post, privacy) => {
   const db = firebase.firestore();
   return db.collection('posts').add({
     uid: firebase.auth().currentUser.uid,
+    names: firebase.auth().currentUser.displayName,
+    profilePicture: firebase.auth().currentUser.photoURL,
     post,
     photo: '',
     privacy,
@@ -32,5 +37,23 @@ export const createPostDB = (post, privacy) => {
   })
     .catch((error) => {
       console.log(error);
+    });
+};
+
+// FUNCIÓN PARA LEER LOS POSTS
+export const readPostDB = () => {
+  const db = firebase.firestore();
+  return db.collection('posts')
+    .get()
+    .then((querySnapshot) => {
+      let postList = '';
+      const container = document.querySelector('.container-new-post');
+      querySnapshot.forEach((refDoc) => {
+        const post = refDoc.data();
+        postList += templatePost(post.profilePicture,
+          post.names, post.date, post.post, post.likes, post.comments);
+        return postList;
+      });
+      container.innerHTML = postList;
     });
 };

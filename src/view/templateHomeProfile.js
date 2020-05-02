@@ -85,3 +85,27 @@ export const userLoggedIn = () => `
       </div>
     </div>
   </div>`;
+
+export const templatePost = (photoUrl, names, date, post, likes, comments) => `
+<div class="each-post">
+  <div class="title-new-post">
+    <img src="${photoUrl}" alt="" class="user-foto">
+    <div>
+      <h4>${names}</h4>
+      <div class="time">
+        <p>${date}</p>
+        <img src="./img/public.png" alt="privacidad">
+      </div>
+    </div>
+  </div>
+  <div class="body-post">
+    <p>${post}</p>
+  </div>
+  <div class="like-comment">
+    <div>
+      <img src="./img/like.png" alt="" class="icon-like">
+      <img src="./img/comment.png" alt="" class="icon-comment">
+    </div>
+    <p>${likes} Me Gusta ${comments.length} Comentarios</p>
+  </div>
+</div>`;

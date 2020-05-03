@@ -63,6 +63,15 @@ export const postHome = `
   </div>`;
 
 // PLANTILLA SECCIÓN DE DATOS DEL USUARIO
+
+const iconEdit = () => {
+  let icon = '';
+  if (/profile/.test(window.location.hash)) {
+    icon = '<img src="./img/edit.png" class="edit">';
+  }
+  return icon;
+};
+
 export const userLoggedIn = () => `
   <figure>
     <img src="${localStorage.getItem('userCoverImg') || imgCoverUserDefault}" alt="cover image" class="img-general">
@@ -80,14 +89,6 @@ export const userLoggedIn = () => `
       </div>
     </div>
   </div>`;
-
-const iconEdit = () => {
-  let icon = '';
-  if (/profile/.test(window.location.hash)) {
-    icon = '<img src="./img/edit.png" class="edit">';
-  }
-  return icon;
-};
 
 // PLANTILLA POSTS EN EL MURO
 export const templatePost = (photoUrl, names, date, post, likes, comments) => `

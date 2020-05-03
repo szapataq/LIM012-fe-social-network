@@ -2,6 +2,10 @@ import {
   templatePost,
 } from '../view/templateHomeProfile.js';
 
+import {
+  btnLikes,
+} from '../controller/homeProfile-controller.js';
+
 export const datePostDB = () => {
   const datePost = {
     month: 'short',
@@ -91,6 +95,7 @@ export const readPostDB = () => {
         return postList;
       });
       container.innerHTML = postList;
+      btnLikes();
     });
 };
 

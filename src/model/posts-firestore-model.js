@@ -60,7 +60,6 @@ export const createPostDB = (post, privacy) => {
 
 export const readPostDB = () => {
   firebase.firestore().collection('posts')
-    .orderBy('posts.uid', 'asc')
     .onSnapshot((querySnapshot) => {
       let postList = '';
       const container = document.querySelector('.container-new-post');
@@ -73,4 +72,4 @@ export const readPostDB = () => {
       container.innerHTML = postList;
     });
 };
-export const deleteNote = idpost => firebase.firestore().collection('notes').doc(idpost).delete();
+export const deleteNote = idpost => firebase.firestore().collection('posts').doc(idpost).delete();

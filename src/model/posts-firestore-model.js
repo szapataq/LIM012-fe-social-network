@@ -72,4 +72,5 @@ export const readPostDB = () => {
       container.innerHTML = postList;
     });
 };
-export const deleteNote = idpost => firebase.firestore().collection('posts').doc(idpost).delete();
+
+export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();

@@ -21,6 +21,24 @@ export const datePostDB = () => {
   return dateTime;
 };
 
+// const dateformat = require('dateformat');
+
+// const orderDate = () => {
+//   const dateNow = new Date();
+//   return parseInt(dateformat(dateNow, 'yyyymmddHHMMss'), 0);
+// };
+
+const orderDate = () => {
+  const dateNow = new Date();
+  const year = dateNow.getFullYear();
+  const month = dateNow.getMonth();
+  const day = dateNow.getDay();
+  const hour = dateNow.getHours();
+  const minute = dateNow.getMinutes();
+  const second = dateNow.getSeconds();
+  return parseInt(`${year}${month}${day}${hour}${minute}${second}`, 0);
+};
+
 // FUNCIÓN PARA CREAR LOS POSTS
 export const createPostDB = (post, privacy) => {
   const db = firebase.firestore();
@@ -32,6 +50,7 @@ export const createPostDB = (post, privacy) => {
     photo: '',
     privacy,
     date: datePostDB(),
+    orderDate: orderDate(),
     likes: 0,
     comments: [],
   }).then((refDoc) => {
@@ -46,6 +65,7 @@ export const createPostDB = (post, privacy) => {
 export const readPostDB = () => {
   const db = firebase.firestore();
   return db.collection('posts')
+    .orderBy('orderDate', 'desc')
     .get()
     .then((querySnapshot) => {
       let postList = '';

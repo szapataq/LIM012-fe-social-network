@@ -346,6 +346,34 @@ header label:hover {
     color: #1eaf61 !important;
 }
 
+/*ESTILOS PARA EL LIKE*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 60%;
+    margin: auto;
+}
+
+#icon {
+    cursor: pointer;
+}
+
+#icon:hover path:nth-child(1) {
+    fill: #5C5C5C;
+    transition: 250ms ease;
+}
+
+#icon path:nth-child(2) {
+    fill: transparent;
+    transition: 350ms ease;
+}
+
+.svg-filled path:nth-child(2) {
+    fill: #ed4956 !important;  
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

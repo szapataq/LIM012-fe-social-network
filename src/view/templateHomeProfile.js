@@ -1,4 +1,4 @@
-// PLANTILLAS DEL MENU DESPLEGABLE (HEADER)
+// PLANTILLA ELEMENTOS DEL MENU DESPLEGABLE (HEADER)
 export const homeHeader = `
   <a href="#/home"><img src="./img/home.png" alt="Home" class="icons-cp">
   <span>Inicio</span></a>`;

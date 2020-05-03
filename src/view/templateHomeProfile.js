@@ -23,7 +23,8 @@ export const postProfile = `
     <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postProfile"></textarea>
     <div class="container-functions">
       <div class="camera-privacity">
-        <img src="./img/camera.png" class="camera">
+      <input type="file" id="photoPost" class="hide">
+      <label for="photoPost"><img src="./img/camera.png" class="camera"></label>        
         <div class="privacidad">
           <select id="privacyPostProfile">
             <option value="1"> 🌐 Público</option>

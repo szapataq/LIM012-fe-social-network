@@ -2,6 +2,10 @@ import {
   templatePost,
 } from '../view/templateHomeProfile.js';
 
+import {
+  btnLikes,
+} from '../controller/homeProfile-controller.js';
+
 export const datePostDB = () => {
   const datePost = {
     month: 'short',
@@ -20,6 +24,24 @@ export const datePostDB = () => {
 
   return dateTime;
 };
+
+// const dateformat = require('dateformat');
+// const orderDate = () => {
+//   const dateNow = new Date();
+//   return parseInt(dateformat(dateNow, 'yyyymmddHHMMss'), 0);
+// };
+
+const orderDate = () => {
+  const dateNow = new Date();
+  const year = dateNow.getFullYear();
+  const month = `0${dateNow.getMonth()}`.slice(-2);
+  const day = `0${dateNow.getDay()}`.slice(-2);
+  const hour = `0${dateNow.getHours()}`.slice(-2);
+  const minute = `0${dateNow.getMinutes()}`.slice(-2);
+  const second = `0${dateNow.getSeconds()}`.slice(-2);
+  return parseInt(`${year}${month}${day}${hour}${minute}${second}`, 0);
+};
+
 // FUNCIÓN PARA CREAR LOS POSTS
 export const createPostDB = (post, privacy) => {
   firebase.firestore().collection('posts').add({
@@ -30,6 +52,7 @@ export const createPostDB = (post, privacy) => {
     photo: '',
     privacy,
     date: datePostDB(),
+    orderDate: orderDate(),
     likes: 0,
     comments: [],
   }).then((refDoc) => {
@@ -44,6 +67,7 @@ export const createPostDB = (post, privacy) => {
 /* export const readPostDB = () => {
   const db = firebase.firestore();
   return db.collection('posts')
+    .orderBy('orderDate', 'desc')
     .get()
     .then((querySnapshot) => {
       let postList = '';
@@ -60,6 +84,7 @@ export const createPostDB = (post, privacy) => {
 
 export const readPostDB = () => {
   firebase.firestore().collection('posts')
+    .orderBy('orderDate', 'desc')
     .onSnapshot((querySnapshot) => {
       let postList = '';
       const container = document.querySelector('.container-new-post');
@@ -70,6 +95,7 @@ export const readPostDB = () => {
         return postList;
       });
       container.innerHTML = postList;
+      btnLikes();
     });
 };
 

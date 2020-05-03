@@ -30,11 +30,11 @@ export const datePostDB = () => {
 const orderDate = () => {
   const dateNow = new Date();
   const year = dateNow.getFullYear();
-  const month = dateNow.getMonth();
-  const day = dateNow.getDay();
-  const hour = dateNow.getHours();
-  const minute = dateNow.getMinutes();
-  const second = dateNow.getSeconds();
+  const month = `0${dateNow.getMonth()}`.slice(-2);
+  const day = `0${dateNow.getDay()}`.slice(-2);
+  const hour = `0${dateNow.getHours()}`.slice(-2);
+  const minute = `0${dateNow.getMinutes()}`.slice(-2);
+  const second = `0${dateNow.getSeconds()}`.slice(-2);
   return parseInt(`${year}${month}${day}${hour}${minute}${second}`, 0);
 };
 
@@ -80,6 +80,7 @@ export const createPostDB = (post, privacy) => {
 
 export const readPostDB = () => {
   firebase.firestore().collection('posts')
+    .orderBy('orderDate', 'desc')
     .onSnapshot((querySnapshot) => {
       let postList = '';
       const container = document.querySelector('.container-new-post');
@@ -92,4 +93,5 @@ export const readPostDB = () => {
       container.innerHTML = postList;
     });
 };
+
 export const deleteNote = idpost => firebase.firestore().collection('posts').doc(idpost).delete();

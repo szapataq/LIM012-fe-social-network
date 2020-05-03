@@ -22,8 +22,8 @@ export const btnLikes = () => {
         // eslint-disable-next-line no-undef
         const burst = new mojs.Burst({
           count: 20,
-          left: (svgIcon.getBoundingClientRect().left + (svgIcon.clientWidth / 1.4)),
-          top: (svgIcon.getBoundingClientRect().top + (svgIcon.clientHeight / 1.4)),
+          left: (svgIcon.getBoundingClientRect().left + (svgIcon.clientWidth / 2)),
+          top: (svgIcon.getBoundingClientRect().top + (svgIcon.clientHeight / 2)),
           children: {
             shape: ['circle', 'polygon', 'rect'],
             fill: ['#6886c5', '#ffe0ac', '#ffacb7'],

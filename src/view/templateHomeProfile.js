@@ -1,3 +1,4 @@
+// PLANTILLA ELEMENTOS DEL MENU DESPLEGABLE (HEADER)
 export const homeHeader = `
   <a href="#/home"><img src="./img/home.png" alt="Home" class="icons-cp">
   <span>Inicio</span></a>`;
@@ -10,6 +11,13 @@ export const optionsMobile = `
   <div class="items itemsHover">${homeHeader}</div>
   <div class="items itemsHover">${profile}</div>`;
 
+// FUNCIÓN DE NÚMERO ALEATORIO PARA ASIGNAR FOTOS DE PORTADA Y PERFIL
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 10)}.png`;
+export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}.png`;
+
+// PLANTILLA CONTENEDOR COMPARTIR POST
 export const postProfile = `
   <div class="new-post">
     <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postProfile"></textarea>
@@ -26,12 +34,6 @@ export const postProfile = `
       <button id="btnSharePostProfile"> Compartir</button>
     </div>
   </div>`;
-
-// FUNCIÓN DE NÚMERO ALEATORIOS
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
-export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 10)}.png`;
-export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}.png`;
 
 export const postHome = `
   <div class="own-post">
@@ -60,6 +62,7 @@ export const postHome = `
     </div>
   </div>`;
 
+// PLANTILLA SECCIÓN DE DATOS DEL USUARIO
 const iconEdit = () => {
   let icon = '';
   if (/profile/.test(window.location.hash)) {
@@ -86,6 +89,7 @@ export const userLoggedIn = () => `
     </div>
   </div>`;
 
+// PLANTILLA POSTS EN EL MURO
 export const templatePost = (photoUrl, names, date, post, likes, comments) => `
 <div class="each-post">
   <div class="title-new-post">
@@ -117,6 +121,7 @@ export const templatePost = (photoUrl, names, date, post, likes, comments) => `
   </div>
 </div>`;
 
+// PLANTILLA ÁREA DE CODERS
 export const templateCoders = (photoUrl, names, about) => `
   <div class="info-coder">
     <img src="${photoUrl}" class="user-comment">

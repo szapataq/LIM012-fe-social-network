@@ -234,7 +234,7 @@ export default () => {
   // FUNCIÓN ANIMACIÓN DE LIKES
   btnLikes();
 
-  // FUNCION DE COMPARTIR POST EN PERFIN E INICIO ESCRITORIO
+  // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
   const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');
 
   if (btnSharePostProfile) {

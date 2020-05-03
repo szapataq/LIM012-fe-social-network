@@ -22,7 +22,6 @@ export const datePostDB = () => {
 };
 
 // const dateformat = require('dateformat');
-
 // const orderDate = () => {
 //   const dateNow = new Date();
 //   return parseInt(dateformat(dateNow, 'yyyymmddHHMMss'), 0);
@@ -41,8 +40,7 @@ const orderDate = () => {
 
 // FUNCIÓN PARA CREAR LOS POSTS
 export const createPostDB = (post, privacy) => {
-  const db = firebase.firestore();
-  return db.collection('posts').add({
+  firebase.firestore().collection('posts').add({
     uid: firebase.auth().currentUser.uid,
     names: localStorage.getItem('userName') || firebase.auth().currentUser.displayName,
     profilePicture: localStorage.getItem('userProfileImg') || firebase.auth().currentUser.photoURL,
@@ -62,7 +60,7 @@ export const createPostDB = (post, privacy) => {
 };
 
 // FUNCIÓN PARA LEER LOS POSTS
-export const readPostDB = () => {
+/* export const readPostDB = () => {
   const db = firebase.firestore();
   return db.collection('posts')
     .orderBy('orderDate', 'desc')
@@ -78,4 +76,20 @@ export const readPostDB = () => {
       });
       container.innerHTML = postList;
     });
+}; */
+
+export const readPostDB = () => {
+  firebase.firestore().collection('posts')
+    .onSnapshot((querySnapshot) => {
+      let postList = '';
+      const container = document.querySelector('.container-new-post');
+      querySnapshot.forEach((refDoc) => {
+        const post = refDoc.data();
+        postList += templatePost(post.profilePicture,
+          post.names, post.date, post.post, post.likes, post.comments);
+        return postList;
+      });
+      container.innerHTML = postList;
+    });
 };
+export const deleteNote = idpost => firebase.firestore().collection('posts').doc(idpost).delete();

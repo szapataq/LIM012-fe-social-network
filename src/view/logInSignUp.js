@@ -33,7 +33,7 @@ export default () => {
         </div>
         <h4 class="welcome">${(/signup/.test(window.location.hash)) ? register : welcome}</h4>
       </div>
-      <div class="container-inputs">${(/signup/.test(window.location.hash)) ? inputSignUp : inputWelcome}</div>
+      <form class="container-inputs">${(/signup/.test(window.location.hash)) ? inputSignUp : inputWelcome}</form>
       <span class="alertLogInSignUp" id="alertLogInSignUp"></span>
       <div class="register">${(/signup/.test(window.location.hash)) ? enter : bookIn}</div>
     </section>

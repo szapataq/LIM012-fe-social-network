@@ -67,7 +67,8 @@ const changeViewPost = () => {
 // const privatePost = './img/private.png';
 
 export default () => {
-  const headerHome = `<input type="checkbox" id="btnMenu">
+  const headerHome = `
+  <input type="checkbox" id="btnMenu">
   <label for="btnMenu">&#9776;</label>
   <h1 class="coderPlace">&lt;CoderPlace/&gt;</h1>
   <nav class="menu">
@@ -235,11 +236,9 @@ export default () => {
     btnSharePostProfile.addEventListener(('click'), () => {
       const post = sectionMain.querySelector('#postProfile').value;
       const privacyPostProfile = sectionMain.querySelector('#privacyPostProfile').value;
-      console.log('a ver si funciona jaja');
       createPostDB(post, privacyPostProfile);
     });
   }
-
   // FUNCIÓN PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');
 

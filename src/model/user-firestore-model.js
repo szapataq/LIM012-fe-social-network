@@ -5,8 +5,7 @@ import {
 // * CRUD -> CREATE, READ, UPDATE, DELETE
 // ? (CREATE) FUNCIÓN PARA CREAR USUARIOS EN LA BASE DE DATOS
 export const createUserDB = (uid, email, coverPhoto, profilePicture, names, about) => {
-  const db = firebase.firestore();
-  return db.collection('users').add({
+  firebase.firestore().collection('users').add({
     uid,
     email,
     coverPhoto,

@@ -43,11 +43,26 @@ export const createPostDB = (post, privacy) => {
 };
 
 // FUNCIÓN PARA LEER LOS POSTS
-export const readPostDB = () => {
+/* export const readPostDB = () => {
   const db = firebase.firestore();
   return db.collection('posts')
     .get()
     .then((querySnapshot) => {
+      let postList = '';
+      const container = document.querySelector('.container-new-post');
+      querySnapshot.forEach((refDoc) => {
+        const post = refDoc.data();
+        postList += templatePost(post.profilePicture,
+          post.names, post.date, post.post, post.likes, post.comments);
+        return postList;
+      });
+      container.innerHTML = postList;
+    });
+}; */
+
+export const readPostDB = () => {
+  firebase.firestore().collection('posts')
+    .onSnapshot((querySnapshot) => {
       let postList = '';
       const container = document.querySelector('.container-new-post');
       querySnapshot.forEach((refDoc) => {

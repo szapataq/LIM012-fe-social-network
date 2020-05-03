@@ -20,11 +20,9 @@ export const datePostDB = () => {
 
   return dateTime;
 };
-
 // FUNCIÓN PARA CREAR LOS POSTS
 export const createPostDB = (post, privacy) => {
-  const db = firebase.firestore();
-  return db.collection('posts').add({
+  firebase.firestore().collection('posts').add({
     uid: firebase.auth().currentUser.uid,
     names: localStorage.getItem('userName') || firebase.auth().currentUser.displayName,
     profilePicture: localStorage.getItem('userProfileImg') || firebase.auth().currentUser.photoURL,
@@ -62,6 +60,7 @@ export const createPostDB = (post, privacy) => {
 
 export const readPostDB = () => {
   firebase.firestore().collection('posts')
+    .orderBy('posts.uid', 'asc')
     .onSnapshot((querySnapshot) => {
       let postList = '';
       const container = document.querySelector('.container-new-post');
@@ -74,3 +73,4 @@ export const readPostDB = () => {
       container.innerHTML = postList;
     });
 };
+export const deleteNote = idpost => firebase.firestore().collection('notes').doc(idpost).delete();

@@ -19,6 +19,7 @@ export const btnLikes = () => {
     if (svgIcons.length) {
       clearInterval(interval);
       svgIcons.forEach((svgIcon) => {
+        // eslint-disable-next-line no-undef
         const burst = new mojs.Burst({
           count: 20,
           left: (svgIcon.getBoundingClientRect().left + (svgIcon.clientWidth / 1.4)),

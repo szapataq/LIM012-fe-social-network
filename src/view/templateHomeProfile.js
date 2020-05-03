@@ -63,7 +63,6 @@ export const postHome = `
   </div>`;
 
 // PLANTILLA SECCIÓN DE DATOS DEL USUARIO
-
 const iconEdit = () => {
   let icon = '';
   if (/profile/.test(window.location.hash)) {

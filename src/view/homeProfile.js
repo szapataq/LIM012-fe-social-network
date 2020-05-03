@@ -11,7 +11,6 @@ import {
 
 import {
   signOutUser,
-  btnLikes,
 } from '../controller/homeProfile-controller.js';
 
 import {

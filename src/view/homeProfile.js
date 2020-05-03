@@ -9,7 +9,10 @@ import {
 }
   from './templateHomeProfile.js';
 
-import { signOutUser } from '../controller/homeProfile-controller.js';
+import {
+  signOutUser,
+  btnLikes,
+} from '../controller/homeProfile-controller.js';
 
 import {
   createPostDB,
@@ -228,6 +231,8 @@ export default () => {
   readCodersDB();
   // PARA MOSTRAR TODOS LOS POSTS
   readPostDB();
+  // FUNCIÓN ANIMACIÓN DE LIKES
+  btnLikes();
 
   // FUNCION DE COMPARTIR POST EN PERFIN E INICIO ESCRITORIO
   const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');

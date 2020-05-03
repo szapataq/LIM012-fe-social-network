@@ -232,7 +232,7 @@ export default () => {
   // PARA MOSTRAR TODOS LOS POSTS
   readPostDB();
   // FUNCIÓN ANIMACIÓN DE LIKES
-  btnLikes();
+  // btnLikes();
 
   // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
   const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');

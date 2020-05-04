@@ -251,7 +251,7 @@ export default () => {
         emptyPostMessage.innerText = '👀 Parece que tu post está vacío. 👆';
         setTimeout(() => {
           emptyPostMessage.classList.add('hide');
-        }, 3000);
+        }, 1500);
       } else {
         createNewPost(postContent, privacyPost);
         post.value = '';

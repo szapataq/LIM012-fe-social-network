@@ -390,7 +390,7 @@ header label:hover {
 .progress {
     width: 0%;
     height: 15px;
-    background-color: teal;
+    background-color: #1eaf61;
     text-align: center;
     color: white;
     font-size: 11px;
@@ -405,7 +405,7 @@ header label:hover {
 .emptyPost {
     font-size: 12px;
     font-weight: 600;
-    color: #e43a3a;
+    color: #5C5C5C;
     margin: 1% 3%;
 }
 

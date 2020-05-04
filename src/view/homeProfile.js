@@ -1,8 +1,8 @@
 import {
   homeHeader,
   profile,
-  postHome,
-  postProfile,
+  postHomeMobile,
+  postArea,
   optionsMobile,
   userLoggedIn,
   imgProfileUserDefault,
@@ -62,9 +62,9 @@ const changeMenu = () => {
 const changeViewPost = () => {
   let post = '';
   if (device() === 'Desktop') {
-    post = postProfile;
+    post = postArea;
   } else {
-    post = (/profile/.test(window.location.hash)) ? postProfile : postHome;
+    post = (/profile/.test(window.location.hash)) ? postArea : postHomeMobile;
   }
   return post;
 };
@@ -236,15 +236,29 @@ export default () => {
   readPostDB(readingPosts);
 
   // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
-  const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');
+  const btnSharePost = sectionMain.querySelector('#btnSharePost');
 
-  if (btnSharePostProfile) {
-    btnSharePostProfile.addEventListener(('click'), () => {
-      const post = sectionMain.querySelector('#postProfile').value;
-      const privacyPostProfile = sectionMain.querySelector('#privacyPostProfile').value;
-      createNewPost(post, privacyPostProfile);
+  if (btnSharePost) {
+    btnSharePost.addEventListener(('click'), () => {
+      const post = sectionMain.querySelector('#postArea');
+      const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
+      const postContent = post.value;
+      const privacyPost = privacyPostArea.value;
+
+      if (!postContent && !sessionStorage.getItem('imgNewPost')) {
+        const emptyPostMessage = document.querySelector('#emptyPost');
+        emptyPostMessage.classList.remove('hide');
+        emptyPostMessage.innerText = '👀 Parece que tu post está vacío. 👆';
+        setTimeout(() => {
+          emptyPostMessage.classList.add('hide');
+        }, 3000);
+      } else {
+        createNewPost(postContent, privacyPost);
+        post.value = '';
+      }
     });
   }
+
   // FUNCIÓN PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');
 

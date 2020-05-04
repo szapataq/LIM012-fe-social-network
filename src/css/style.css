@@ -402,6 +402,13 @@ header label:hover {
     display: block !important;
 }
 
+.emptyPost {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e43a3a;
+    margin: 1% 3%;
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

@@ -1,7 +1,3 @@
-import {
-  templateCoders,
-} from '../view/templateHomeProfile.js';
-
 // * CRUD -> CREATE, READ, UPDATE, DELETE
 // ? (CREATE) FUNCIÓN PARA CREAR USUARIOS EN LA BASE DE DATOS
 export const createUserDB = (uid, email, coverPhoto, profilePicture, names, about) => firebase.firestore().collection('users').add({
@@ -19,17 +15,4 @@ export const readUserDB = uid => firebase.firestore().collection('users')
   .get();
 
 // FUNCIÓN PARA LEER LOS USUARIOS REGISTRADOS (ÁREA DE CODERS)
-export const readCodersDB = () => {
-  firebase.firestore().collection('users')
-    .get()
-    .then((querySnapshot) => {
-      let codersList = '';
-      const container = document.querySelector('.container-coders');
-      querySnapshot.forEach((refDoc) => {
-        const coder = refDoc.data();
-        codersList += templateCoders(coder.profilePicture, coder.names, coder.about);
-        return codersList;
-      });
-      container.innerHTML = codersList;
-    });
-};
+export const readCodersDB = () => firebase.firestore().collection('users').get();

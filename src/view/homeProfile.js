@@ -10,16 +10,13 @@ import {
 
 import {
   signOutUser,
+  codersArea,
 } from '../controller/homeProfile-controller.js';
 
 import {
   createPostDB,
   readPostDB,
 } from '../model/posts-firestore-model.js';
-
-import {
-  readCodersDB,
-} from '../model/user-firestore-model.js';
 
 import {
   shareImgPost,
@@ -230,7 +227,7 @@ export default () => {
   header.innerHTML = headerHome;
 
   // PARA MOSTRAR EL AREA DE CODERS
-  readCodersDB();
+  codersArea();
   // PARA MOSTRAR TODOS LOS POSTS
   readPostDB();
 

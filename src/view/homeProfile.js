@@ -279,5 +279,21 @@ export default () => {
     });
   }
 
+  // SIMULATOR SELECT PRIVACY
+  const priv = sectionMain.querySelector('#private');
+  const pub = sectionMain.querySelector('#public');
+
+  if (priv) {
+    pub.addEventListener('click', () => {
+      sessionStorage.setItem('privacy', 1);
+    });
+  }
+
+  if (pub) {
+    priv.addEventListener('click', () => {
+      sessionStorage.setItem('privacy', 2);
+    });
+  }
+
   return sectionMain;
 };

@@ -11,22 +11,6 @@ import {
   deletePostsOnClick,
 } from './homeProfile-controller.js';
 
-const priv = document.querySelector('#private');
-const pub = document.querySelector('#public');
-
-if (priv) {
-  pub.addEventListener('click', () => {
-    sessionStorage.setItem('privacy', 1);
-  });
-}
-
-if (pub) {
-  priv.addEventListener('click', () => {
-    sessionStorage.setItem('privacy', 2);
-  });
-}
-
-
 export const createNewPost = (post, privacyPostArea) => {
   const uid = firebase.auth().currentUser.uid;
   const names = localStorage.getItem('userName');

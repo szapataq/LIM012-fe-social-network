@@ -51,8 +51,8 @@ export const postHomeMobile = `
       <div class="simulator-select" id="privacyPostArea">
         <span><i class="fas fa-ellipsis-v"></i></span>
         <ul>
-          <li>🌐 Público</li>
-          <li>🔓 Solo yo</li>
+          <li data-value="1" id="public">🌐 Público</li>
+          <li data-value="2" id="private">🔓 Solo yo</li>
         </ul>
       </div>
     </div>

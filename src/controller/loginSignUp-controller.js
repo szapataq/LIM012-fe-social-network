@@ -8,7 +8,6 @@ import {
 import {
   createUserDB,
   readUserDB,
-  readCreateUserDB,
 } from '../model/user-firestore-model.js';
 
 import {
@@ -28,7 +27,16 @@ export const authEmailPass = (email, password) => {
       } else {
         localStorage.setItem('userName', res.user.displayName);
         window.location.hash = '#/home';
-        readUserDB(res.user.uid);
+        readUserDB(res.user.uid)
+          .then((querySnapshot) => {
+            querySnapshot.forEach((refDoc) => {
+              const user = refDoc.data();
+              localStorage.setItem('userCoverImg', user.coverPhoto);
+              localStorage.setItem('userProfileImg', user.profilePicture);
+              localStorage.setItem('userName', user.names);
+              localStorage.setItem('userAbout', user.about);
+            });
+          });
       }
     })
     .catch((error) => {
@@ -54,7 +62,26 @@ export const authEmailPass = (email, password) => {
       }
     });
 };
-
+const readCreateUserDB = (uid, email, coverPhoto, profilePicture, names, about) => {
+  readUserDB(uid)
+    .then((querySnapshot) => {
+      if (querySnapshot.empty) {
+        createUserDB(uid, email, coverPhoto, profilePicture, names, about);
+        localStorage.setItem('userCoverImg', coverPhoto);
+        localStorage.setItem('userProfileImg', profilePicture);
+        localStorage.setItem('userName', names);
+        localStorage.setItem('userAbout', about);
+      } else {
+        querySnapshot.forEach((refDoc) => {
+          const user = refDoc.data();
+          localStorage.setItem('userCoverImg', user.coverPhoto);
+          localStorage.setItem('userProfileImg', user.profilePicture);
+          localStorage.setItem('userName', user.names);
+          localStorage.setItem('userAbout', user.about);
+        });
+      }
+    });
+};
 export const authAccountGoogle = () => {
   signInWithGoogle()
     .then((res) => {
@@ -126,11 +153,16 @@ export const createUser = (email, password, names) => {
         .catch(() => {
           alertLogInSignUp.innerHTML = 'Ha ocurrido un error al crear la cuenta';
         });
-      // firebase.auth().signOut();
       alertLogInSignUp.classList.add('alertSignUpOk');
       alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
       // FUNCIÓN QUE ALMACENA LA INFO DEL USUARIO EN LA BBDD
-      createUserDB(res.user.uid, email, imgCoverUserDefault, imgProfileUserDefault, names, 'Developer');
+      createUserDB(res.user.uid, email, imgCoverUserDefault, imgProfileUserDefault, names, 'Developer')
+        .then((refDoc) => {
+          console.log(`Id del usuario => ${refDoc.id}`);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     })
     .catch((error) => {
       const errorCode = error.code;

@@ -22,6 +22,5 @@ export const shareImgPost = (file, uid) => {
         console.log(err.message);
       });
   };
-
   taskStorage.on('state_changed', stateSnapshot, catchError, fileReady);
 };

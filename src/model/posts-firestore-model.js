@@ -2,8 +2,10 @@ import {
   templatePost,
 } from '../view/templateHomeProfile.js';
 
+// eslint-disable-next-line import/no-cycle
 import {
   btnLikes,
+  deletePostsOnClick,
 } from '../controller/homeProfile-controller.js';
 
 export const datePostDB = () => {
@@ -55,10 +57,11 @@ export const createPostDB = (post, privacy) => {
     orderDate: orderDate(),
     likes: 0,
     comments: [],
-  }).then((refDoc) => {
-    sessionStorage.removeItem('imgNewPost');
-    console.log(`Id del usuario => ${refDoc.id}`);
   })
+    .then((docRef) => {
+      sessionStorage.removeItem('imgNewPost');
+      console.log('Document written with ID: ', docRef.id);
+    })
     .catch((error) => {
       console.log(error);
     });
@@ -92,12 +95,21 @@ export const readPostDB = () => {
       querySnapshot.forEach((refDoc) => {
         const post = refDoc.data();
         postList += templatePost(post.profilePicture,
-          post.names, post.date, post.post, post.photo, post.likes, post.comments);
+          post.names, post.date, post.post, post.photo, post.likes, post.comments, refDoc.id);
         return postList;
       });
       container.innerHTML = postList;
+      deletePostsOnClick();
       btnLikes();
     });
 };
 
-export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();
+export const deletePosts = (idpost) => {
+  firebase.firestore().collection('posts').doc(idpost).delete()
+    .then(() => {
+      console.log('eliminado satisfactoriamente');
+    })
+    .catch((error) => {
+      console.error('error al eliminar', error);
+    });
+};

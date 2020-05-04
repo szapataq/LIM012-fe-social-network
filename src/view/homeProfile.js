@@ -6,8 +6,7 @@ import {
   optionsMobile,
   userLoggedIn,
   imgProfileUserDefault,
-}
-  from './templateHomeProfile.js';
+} from './templateHomeProfile.js';
 
 import {
   signOutUser,
@@ -21,6 +20,10 @@ import {
 import {
   readCodersDB,
 } from '../model/user-firestore-model.js';
+
+import {
+  shareImgPost,
+} from '../model/storage-firestore-model.js';
 
 // import { datePostDB } from '../model/posts-firestore-model.js';
 
@@ -230,8 +233,6 @@ export default () => {
   readCodersDB();
   // PARA MOSTRAR TODOS LOS POSTS
   readPostDB();
-  // FUNCIÓN ANIMACIÓN DE LIKES
-  // btnLikes();
 
   // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
   const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');
@@ -251,5 +252,17 @@ export default () => {
       signOutUser();
     });
   }
+
+  // FUNCIÓN PARA SUBIR LAS IMAGENES EN LOS POSTS
+  const bntImgPost = sectionMain.querySelector('#photoPost');
+
+  if (bntImgPost) {
+    bntImgPost.addEventListener(('change'), (e) => {
+      const file = e.target.files[0];
+      const userPost = firebase.auth().currentUser;
+      shareImgPost(file, userPost.uid);
+    });
+  }
+
   return sectionMain;
 };

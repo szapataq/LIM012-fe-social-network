@@ -90,8 +90,21 @@ export const userLoggedIn = () => `
     </div>
   </div>`;
 
+const validateImgPost = (imgPost, textPost) => {
+  let post = '';
+  if (imgPost) {
+    post = `
+    <p>${textPost}</p>
+    <img src="${imgPost}" alt="Imagen del post">
+    `;
+  } else {
+    post = `<p>${textPost}</p>`;
+  }
+  return post;
+};
+
 // PLANTILLA POSTS EN EL MURO
-export const templatePost = (photoUrl, names, date, post, likes, comments) => `
+export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, comments) => `
 <div class="each-post">
   <div class="title-new-post">
     <img src="${photoUrl}" alt="" class="user-foto">
@@ -104,7 +117,7 @@ export const templatePost = (photoUrl, names, date, post, likes, comments) => `
     </div>
   </div>
   <div class="body-post">
-    <p>${post}</p>
+   ${validateImgPost(imgPost, textPost)}
   </div>
   <div class="like-comment">
     <div>

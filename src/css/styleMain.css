@@ -291,6 +291,10 @@ figure img {
     /* max-width: 100vw; */
 }
 
+.imgPost {
+    width: 30vw;
+}
+
 .like-comment {
     padding: 5px 20px;
     border-top: solid 1px #CCCCCC;

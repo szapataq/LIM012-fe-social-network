@@ -96,7 +96,7 @@ const validateImgPost = (imgPost, textPost) => {
   if (imgPost) {
     post = `
     <p>${textPost}</p>
-    <img src="${imgPost}" alt="Imagen del post">
+    <img src="${imgPost}" alt="Imagen del post" class="imgPost">
     `;
   } else {
     post = `<p>${textPost}</p>`;

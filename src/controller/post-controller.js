@@ -11,6 +11,9 @@ import {
   deletePostsOnClick,
 } from './homeProfile-controller.js';
 
+// const priv = document.querySelector('#private');
+// const pub = document.querySelector('public');
+
 export const createNewPost = (post, privacyPostArea) => {
   const uid = firebase.auth().currentUser.uid;
   const names = localStorage.getItem('userName');

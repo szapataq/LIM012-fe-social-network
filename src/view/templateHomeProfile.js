@@ -23,7 +23,8 @@ export const postProfile = `
     <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postProfile"></textarea>
     <div class="container-functions">
       <div class="camera-privacity">
-        <img src="./img/camera.png" class="camera">
+      <input type="file" id="photoPost" class="hide" accept="image/*">
+      <label for="photoPost"><img src="./img/camera.png" class="camera"></label>        
         <div class="privacidad">
           <select id="privacyPostProfile">
             <option value="1"> 🌐 Público</option>
@@ -89,8 +90,22 @@ export const userLoggedIn = () => `
     </div>
   </div>`;
 
+// FUNCIÓN PARA VALIDAR SI HAY UNA IMG EN EL POST
+const validateImgPost = (imgPost, textPost) => {
+  let post = '';
+  if (imgPost) {
+    post = `
+    <p>${textPost}</p>
+    <img src="${imgPost}" alt="Imagen del post" class="imgPost">
+    `;
+  } else {
+    post = `<p>${textPost}</p>`;
+  }
+  return post;
+};
+
 // PLANTILLA POSTS EN EL MURO
-export const templatePost = (photoUrl, names, date, post, likes, comments) => `
+export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, comments) => `
 <div class="each-post">
   <div class="title-new-post">
     <img src="${photoUrl}" alt="" class="user-foto">
@@ -103,7 +118,7 @@ export const templatePost = (photoUrl, names, date, post, likes, comments) => `
     </div>
   </div>
   <div class="body-post">
-    <p>${post}</p>
+   ${validateImgPost(imgPost, textPost)}
   </div>
   <div class="like-comment">
     <div>

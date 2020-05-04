@@ -49,13 +49,14 @@ export const createPostDB = (post, privacy) => {
     names: localStorage.getItem('userName') || firebase.auth().currentUser.displayName,
     profilePicture: localStorage.getItem('userProfileImg') || firebase.auth().currentUser.photoURL,
     post,
-    photo: '',
+    photo: sessionStorage.getItem('imgNewPost') || '',
     privacy,
     date: datePostDB(),
     orderDate: orderDate(),
     likes: 0,
     comments: [],
   }).then((refDoc) => {
+    sessionStorage.removeItem('imgNewPost');
     console.log(`Id del usuario => ${refDoc.id}`);
   })
     .catch((error) => {
@@ -91,7 +92,7 @@ export const readPostDB = () => {
       querySnapshot.forEach((refDoc) => {
         const post = refDoc.data();
         postList += templatePost(post.profilePicture,
-          post.names, post.date, post.post, post.likes, post.comments);
+          post.names, post.date, post.post, post.photo, post.likes, post.comments);
         return postList;
       });
       container.innerHTML = postList;

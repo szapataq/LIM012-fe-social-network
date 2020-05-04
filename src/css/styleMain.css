@@ -288,6 +288,11 @@ figure img {
     padding: 15px 20px;
     text-align: justify;
     word-wrap: break-word;
+    /* max-width: 100vw; */
+}
+
+.imgPost {
+    width: 30vw;
 }
 
 .like-comment {

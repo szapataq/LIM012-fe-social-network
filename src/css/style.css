@@ -374,6 +374,10 @@ header label:hover {
     fill: #ed4956 !important;  
 }
 
+.hide {
+    display: none;
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

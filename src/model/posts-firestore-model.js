@@ -49,4 +49,4 @@ export const readPostDB = (callback) => {
     .onSnapshot(callback);
 };
 
-export const deletePosts = (idpost) => firebase.firestore().collection('posts').doc(idpost).delete();
+export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();

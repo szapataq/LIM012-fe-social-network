@@ -1,13 +1,3 @@
-import {
-  templatePost,
-} from '../view/templateHomeProfile.js';
-
-// eslint-disable-next-line import/no-cycle
-import {
-  btnLikes,
-  deletePostsOnClick,
-} from '../controller/homeProfile-controller.js';
-
 export const datePostDB = () => {
   const datePost = {
     month: 'short',
@@ -27,12 +17,6 @@ export const datePostDB = () => {
   return dateTime;
 };
 
-// const dateformat = require('dateformat');
-// const orderDate = () => {
-//   const dateNow = new Date();
-//   return parseInt(dateformat(dateNow, 'yyyymmddHHMMss'), 0);
-// };
-
 const orderDate = () => {
   const dateNow = new Date();
   const year = dateNow.getFullYear();
@@ -45,71 +29,24 @@ const orderDate = () => {
 };
 
 // FUNCIÓN PARA CREAR LOS POSTS
-export const createPostDB = (post, privacy) => {
-  firebase.firestore().collection('posts').add({
-    uid: firebase.auth().currentUser.uid,
-    names: localStorage.getItem('userName') || firebase.auth().currentUser.displayName,
-    profilePicture: localStorage.getItem('userProfileImg') || firebase.auth().currentUser.photoURL,
-    post,
-    photo: sessionStorage.getItem('imgNewPost') || '',
-    privacy,
-    date: datePostDB(),
-    orderDate: orderDate(),
-    likes: 0,
-    comments: [],
-  })
-    .then((docRef) => {
-      sessionStorage.removeItem('imgNewPost');
-      console.log('Document written with ID: ', docRef.id);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+export const createPostDB = (uid, names, profilePicture, post, imgPost, privacy) => firebase.firestore().collection('posts').add({
+  uid,
+  names,
+  profilePicture,
+  post,
+  photo: imgPost,
+  privacy,
+  date: datePostDB(),
+  orderDate: orderDate(),
+  likes: 0,
+  comments: [],
+});
 
 // FUNCIÓN PARA LEER LOS POSTS
-/* export const readPostDB = () => {
-  const db = firebase.firestore();
-  return db.collection('posts')
-    .orderBy('orderDate', 'desc')
-    .get()
-    .then((querySnapshot) => {
-      let postList = '';
-      const container = document.querySelector('.container-new-post');
-      querySnapshot.forEach((refDoc) => {
-        const post = refDoc.data();
-        postList += templatePost(post.profilePicture,
-          post.names, post.date, post.post, post.likes, post.comments);
-        return postList;
-      });
-      container.innerHTML = postList;
-    });
-}; */
-
-export const readPostDB = () => {
+export const readPostDB = (callback) => {
   firebase.firestore().collection('posts')
     .orderBy('orderDate', 'desc')
-    .onSnapshot((querySnapshot) => {
-      let postList = '';
-      const container = document.querySelector('.container-new-post');
-      querySnapshot.forEach((refDoc) => {
-        const post = refDoc.data();
-        postList += templatePost(post.profilePicture,
-          post.names, post.date, post.post, post.photo, post.likes, post.comments, refDoc.id);
-        return postList;
-      });
-      container.innerHTML = postList;
-      deletePostsOnClick();
-      btnLikes();
-    });
+    .onSnapshot(callback);
 };
 
-export const deletePosts = (idpost) => {
-  firebase.firestore().collection('posts').doc(idpost).delete()
-    .then(() => {
-      console.log('eliminado satisfactoriamente');
-    })
-    .catch((error) => {
-      console.error('error al eliminar', error);
-    });
-};
+export const deletePosts = (idpost) => firebase.firestore().collection('posts').doc(idpost).delete();

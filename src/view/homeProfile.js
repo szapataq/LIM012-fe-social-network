@@ -14,7 +14,11 @@ import {
 } from '../controller/homeProfile-controller.js';
 
 import {
-  createPostDB,
+  createNewPost,
+  readingPosts,
+} from '../controller/post-controller.js';
+
+import {
   readPostDB,
 } from '../model/posts-firestore-model.js';
 
@@ -229,7 +233,7 @@ export default () => {
   // PARA MOSTRAR EL AREA DE CODERS
   codersArea();
   // PARA MOSTRAR TODOS LOS POSTS
-  readPostDB();
+  readPostDB(readingPosts);
 
   // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
   const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');
@@ -238,7 +242,7 @@ export default () => {
     btnSharePostProfile.addEventListener(('click'), () => {
       const post = sectionMain.querySelector('#postProfile').value;
       const privacyPostProfile = sectionMain.querySelector('#privacyPostProfile').value;
-      createPostDB(post, privacyPostProfile);
+      createNewPost(post, privacyPostProfile);
     });
   }
   // FUNCIÓN PARA CERRAR SESIÓN

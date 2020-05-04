@@ -258,6 +258,7 @@ figure img {
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: relative;
 }
 
 .time {
@@ -497,6 +498,51 @@ body::-webkit-scrollbar-track:active {
     font-size: 3vh;
     max-width: 500px;
     padding: 0 10px;
+}
+/*--------------------ESTILOS DEL MODAL DEL HOME-------------------*/
+.modal{
+	display: block;
+	position: fixed;
+	z-index:3;
+	overflow: auto;
+	left: 0;
+	top:0;
+	width: 100%;
+	height:100%;
+	background: rgba(0, 0, 0, 0.452);
+}
+.modal-flex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-modal{
+	position: relative;
+	background-color: #fefefe;
+    margin: auto;
+    width: 90%;
+    border-radius: 0.4em;
+	box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+}
+.comun-card{
+    background-size: 100%;
+}
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.5em;
+    color: red;
+    display: grid;
+    justify-content: end;
+    cursor: pointer;
+}
+.modal-info{
+    background-color: yellow;
+    border-radius: 0.4em;
+    padding: 1em;
 }
 
 @media (max-width:768px) {

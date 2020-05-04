@@ -1,6 +1,10 @@
 import {
   signOut,
 } from '../model/authentication-model.js';
+// eslint-disable-next-line import/no-cycle
+import {
+  deletePosts,
+} from '../model/posts-firestore-model.js';
 
 export const signOutUser = () => {
   signOut()
@@ -34,7 +38,6 @@ export const btnLikes = () => {
           },
           duration: 400,
         });
-
         svgIcon.addEventListener('click', (e) => {
           e.currentTarget.classList.toggle('svg-filled');
           burst.replay();
@@ -42,4 +45,22 @@ export const btnLikes = () => {
       });
     }
   }, 1000);
+};
+
+export const deletePostsOnClick = () => {
+  const iconDelete = document.querySelectorAll('.delete-post');
+  if (iconDelete.length) {
+    iconDelete.forEach((objPosts) => {
+      objPosts.addEventListener('click', () => {
+        const idPosts = objPosts.getAttribute('idpost');
+        deletePosts(idPosts)
+          .then(() => {
+            console.log('eliminado satisfactoriamente');
+          })
+          .catch((error) => {
+            console.error('error al eliminar', error);
+          });
+      });
+    });
+  }
 };

@@ -90,6 +90,7 @@ export const userLoggedIn = () => `
     </div>
   </div>`;
 
+// FUNCIÓN PARA VALIDAR SI HAY UNA IMG EN EL POST
 const validateImgPost = (imgPost, textPost) => {
   let post = '';
   if (imgPost) {

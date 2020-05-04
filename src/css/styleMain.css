@@ -380,6 +380,7 @@ figure img {
 
 .simulator-select i {
     transform: rotate(-90deg);
+    margin: 8px;
 }
 
 .simulator-select>ul {

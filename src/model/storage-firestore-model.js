@@ -4,11 +4,16 @@ export const shareImgPost = (file, uid) => {
 
   const stateSnapshot = (snapshot) => {
     const percent = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+    const progress = document.querySelector('.progress');
+    progress.parentNode.classList.add('showProgress');
+    progress.innerText = `${percent.toFixed(0)}%`;
+    progress.style.width = `${percent}%`;
     console.log(percent);
-    // $('.determinate').attr('style', `width: ${percent}%`);
   };
 
   const catchError = (err) => {
+    const progress = document.querySelector('.progress');
+    progress.parentNode.innerText = 'Error al cargar foto';
     console.log(err.message);
   };
 
@@ -21,6 +26,10 @@ export const shareImgPost = (file, uid) => {
       .catch((err) => {
         console.log(err.message);
       });
+    setTimeout(() => {
+      const progress = document.querySelector('.progress');
+      progress.parentNode.classList.remove('showProgress');
+    }, 5000);
   };
   taskStorage.on('state_changed', stateSnapshot, catchError, fileReady);
 };

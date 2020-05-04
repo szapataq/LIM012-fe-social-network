@@ -74,15 +74,14 @@ export const deletePostsOnClick = () => {
 };
 
 export const codersArea = () => {
-  readCodersDB()
-    .then((querySnapshot) => {
-      let codersList = '';
-      const container = document.querySelector('.container-coders');
-      querySnapshot.forEach((refDoc) => {
-        const coder = refDoc.data();
-        codersList += templateCoders(coder.profilePicture, coder.names, coder.about);
-        return codersList;
-      });
-      container.innerHTML = codersList;
+  readCodersDB((querySnapshot) => {
+    let codersList = '';
+    const container = document.querySelector('.container-coders');
+    querySnapshot.forEach((refDoc) => {
+      const coder = refDoc.data();
+      codersList += templateCoders(coder.profilePicture, coder.names, coder.about);
+      return codersList;
     });
+    container.innerHTML = codersList;
+  });
 };

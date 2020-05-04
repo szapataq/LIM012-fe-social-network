@@ -21,6 +21,9 @@ export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}
 export const postProfile = `
   <div class="new-post">
     <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postProfile"></textarea>
+    <div class="containerProgress">
+        <div class="progress"></div>
+    </div>
     <div class="container-functions">
       <div class="camera-privacity">
       <input type="file" id="photoPost" class="hide" accept="image/*">

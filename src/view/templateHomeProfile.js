@@ -21,13 +21,13 @@ export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}
 export const postArea = `
   <div class="new-post">
     <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
-    <div class="hide divImg">
-    <span class="deleteImg">❌</span>
-    <img class="picPost"/>
-    </div>
     <p class="hide emptyPost" id="emptyPost"></p>
     <div class="containerProgress">
-        <div class="progress"></div>
+      <div class="progress"></div>
+    </div>
+    <div class="hide divImg">
+      <span class="deleteImg">❌</span>
+      <img class="picPost"/>
     </div>
     <div class="container-functions">
       <div class="camera-privacity">

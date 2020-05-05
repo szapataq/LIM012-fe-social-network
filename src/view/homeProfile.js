@@ -235,6 +235,15 @@ export default () => {
   // PARA MOSTRAR TODOS LOS POSTS
   readPostDB(readingPosts);
 
+  // PARA ELIMINAR LA IMG CARGADA EN EL POST
+  const btnDeleteImg = sectionMain.querySelector('.deleteImg');
+  if (btnDeleteImg) {
+    btnDeleteImg.addEventListener('click', () => {
+      sessionStorage.removeItem('imgNewPost');
+      btnDeleteImg.parentNode.classList.add('hide');
+    });
+  }
+
   // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
   const btnSharePost = sectionMain.querySelector('#btnSharePost');
 
@@ -254,6 +263,7 @@ export default () => {
         }, 1500);
       } else {
         createNewPost(postContent, privacyPost);
+        if (btnDeleteImg) btnDeleteImg.parentNode.classList.add('hide');
         post.value = '';
       }
     });
@@ -292,14 +302,6 @@ export default () => {
   if (pub) {
     priv.addEventListener('click', () => {
       sessionStorage.setItem('privacy', 2);
-    });
-  }
-
-  const btnDeleteImg = sectionMain.querySelector('.deleteImg');
-  if (btnDeleteImg) {
-    btnDeleteImg.addEventListener('click', () => {
-      sessionStorage.removeItem('imgNewPost');
-      btnDeleteImg.parentNode.classList.add('hide');
     });
   }
 

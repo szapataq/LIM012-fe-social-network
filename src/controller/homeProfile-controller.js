@@ -25,6 +25,18 @@ export const signOutUser = () => {
     });
 };
 
+export const codersArea = () => {
+  readCodersDB((querySnapshot) => {
+    let codersList = '';
+    const container = document.querySelector('.container-coders');
+    querySnapshot.forEach((refDoc) => {
+      const coder = refDoc.data();
+      codersList += templateCoders(coder.profilePicture, coder.names, coder.about);
+      return codersList;
+    });
+    container.innerHTML = codersList;
+  });
+};
 export const btnLikes = () => {
   const interval = setInterval(() => {
     const svgIcons = document.querySelectorAll('.iconLike');
@@ -69,17 +81,4 @@ export const deletePostsOnClick = () => {
       });
     });
   }
-};
-
-export const codersArea = () => {
-  readCodersDB((querySnapshot) => {
-    let codersList = '';
-    const container = document.querySelector('.container-coders');
-    querySnapshot.forEach((refDoc) => {
-      const coder = refDoc.data();
-      codersList += templateCoders(coder.profilePicture, coder.names, coder.about);
-      return codersList;
-    });
-    container.innerHTML = codersList;
-  });
 };

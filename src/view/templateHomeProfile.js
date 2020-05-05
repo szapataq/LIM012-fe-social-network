@@ -62,6 +62,7 @@ export const postHomeMobile = `
     </div>
     <div class="new-post">
       <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
+      <p class="hide emptyPost" id="emptyPost"></p>
       <div class="hide divImg">
       <span class="deleteImg">❌</span>
       <img class="picPost"/>
@@ -121,7 +122,7 @@ const validateImgPost = (imgPost, textPost) => {
 };
 
 // PLANTILLA POSTS EN EL MURO
-export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, comments, id) => `
+export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, comments, id, uididUser, uidPost) => `
 <div class="each-post">
   <div class="title-new-post">
     <img src="${photoUrl}" alt="" class="user-foto">
@@ -132,13 +133,14 @@ export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, co
         <img src="./img/public.png" alt="privacidad">
       </div>
     </div>
+    ${uididUser === uidPost ? `
     <div class="simulator-select">
       <span><i class="fas fa-ellipsis-v"></i></span>
       <ul>
         <li>✎ Editar</li>
         <li class="delete-post" idpost="${id}">✖ Eliminar</li>
       </ul>
-    </div>
+    </div>` : ''}
   </div>
 
   <div class="body-post">
@@ -172,3 +174,10 @@ export const templateCoders = (photoUrl, names, about) => `
       <p>&lt;/&gt;${about}</p>
     </div>
   </div>`;
+
+// PLANTILLA TODAVÍA NO HAY PUBLICACIONES
+export const notYetPost = `
+<div class="containerNoPost">
+  <p class="noPost">Todavía no hay publicaciones</p>
+  <img src="./img/not-yet-post.png" alt="No hay ningún post" class="noPostImg">
+</div>`;

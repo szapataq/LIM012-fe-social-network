@@ -44,3 +44,14 @@ export const readingPosts = (querySnapshot) => {
   deletePostsOnClick();
   btnLikes();
 };
+
+// EVENTOS DEL MODAL
+const close = document.querySelector('.close');
+const modal = document.querySelector('.modal');
+const cancel = document.querySelector('.cancel');
+const modalFlex = document.querySelector('.modal-flex');
+window.addEventListener('click', (evento) => {
+  if (evento.target === modalFlex || close || cancel) {
+    modal.classList.add('ocultar');
+  }
+});

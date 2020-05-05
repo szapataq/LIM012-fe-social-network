@@ -536,29 +536,85 @@ body::-webkit-scrollbar-track:active {
     margin: auto;
     width: 90%;
     border-radius: 0.4em;
-	box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
+    max-width: 500px;
 }
 .comun-card{
     background-size: 100%;
 }
 .close{
     position: absolute;
-    right: 0;
+    right: 4px;
     top: 0;
     font-size: 1.5em;
-    color: red;
+    color: #ababab;
     display: grid;
     justify-content: end;
     cursor: pointer;
 }
 .modal-info{
-    background-color: yellow;
     border-radius: 0.4em;
-    padding: 1em;
+    padding: 1.5em 1em 1em 1em;
+    text-align: center;
+    background-color: #fafafa;
 }
-
-@media (max-width:768px) {
-
+.modal-info h3{
+    text-align: left;
+}
+.ocultar{
+    display: none;
+}
+.delete-post-alert{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7em;
+    margin: 0.7em 0;
+    background-color: #fbe9e7;
+}
+.delete-post-alert p{
+    padding: 0 0 0 0.5em;
+    font-size: 16px;
+}
+.icon-alert{
+    font-size: 2em;
+    color:#d32f2f
+}
+.delete{
+    width: 110px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    font-size: 16px;
+    background-color: #d32f2f;
+}
+.delete:hover{
+    background-color: #a72727;
+}
+.cancel{
+    width: 110px;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    outline: none;
+    font-size: 16px;
+    background-color: #f1efef;
+}
+.cancel:hover{
+    background-color: #cccccc;
+}
+@media (min-width: 768px) {
+    .container-modal{
+        width: 50%;
+    }
+}
+@media (max-width: 768px) {
     .container-main {
         width: 100%;
         display: grid;

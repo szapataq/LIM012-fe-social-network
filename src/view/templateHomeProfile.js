@@ -121,7 +121,7 @@ const validateImgPost = (imgPost, textPost) => {
 };
 
 // PLANTILLA POSTS EN EL MURO
-export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, comments, id) => `
+export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, comments, id, uididUser, uidPost) => `
 <div class="each-post">
   <div class="title-new-post">
     <img src="${photoUrl}" alt="" class="user-foto">
@@ -132,13 +132,14 @@ export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, co
         <img src="./img/public.png" alt="privacidad">
       </div>
     </div>
+    ${uididUser === uidPost ? `
     <div class="simulator-select">
       <span><i class="fas fa-ellipsis-v"></i></span>
       <ul>
         <li>✎ Editar</li>
         <li class="delete-post" idpost="${id}">✖ Eliminar</li>
       </ul>
-    </div>
+    </div>` : ''}
   </div>
 
   <div class="body-post">

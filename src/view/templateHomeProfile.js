@@ -177,9 +177,7 @@ export const templateCoders = (photoUrl, names, about) => `
 
 // PLANTILLA TODAVÍA NO HAY PUBLICACIONES
 export const notYetPost = `
-<div class="each-post" style="
-  display: flex;
-  flex-direction: column;">
-  <p>Todavía no hay publicaciones</p>
-  <img src="./img/not-yet-post.png" alt="privacidad" style="width: 60%;">
+<div class="containerNoPost">
+  <p class="noPost">Todavía no hay publicaciones</p>
+  <img src="./img/not-yet-post.png" alt="No hay ningún post" class="noPostImg">
 </div>`;

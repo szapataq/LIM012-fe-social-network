@@ -22,6 +22,9 @@ export const shareImgPost = (file, uid) => {
       .then((url) => {
         console.log(url);
         sessionStorage.setItem('imgNewPost', url);
+        const pic = document.querySelector('.picPost');
+        pic.classList.remove('hide');
+        pic.setAttribute('src', url);
       })
       .catch((err) => {
         console.log(err.message);

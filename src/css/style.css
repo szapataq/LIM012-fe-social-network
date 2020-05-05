@@ -410,6 +410,15 @@ header label:hover {
     margin: 1% 3%;
 }  
 
+.picPost {
+    width: 20%;
+    height: 65px;
+    padding: 2%;
+    margin: 2% 0 1%;
+    border: solid 1px #c5c5c5;
+    border-radius: 8px;
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

@@ -295,5 +295,13 @@ export default () => {
     });
   }
 
+  const btnDeleteImg = sectionMain.querySelector('.deleteImg');
+  if (btnDeleteImg) {
+    btnDeleteImg.addEventListener('click', () => {
+      sessionStorage.removeItem('imgNewPost');
+      btnDeleteImg.parentNode.classList.add('hide');
+    });
+  }
+
   return sectionMain;
 };

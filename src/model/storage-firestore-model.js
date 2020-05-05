@@ -8,7 +8,7 @@ export const shareImgPost = (file, uid) => {
     progress.parentNode.classList.add('showProgress');
     progress.innerText = `${percent.toFixed(0)}%`;
     progress.style.width = `${percent}%`;
-    console.log(percent);
+    // console.log(percent);
   };
 
   const catchError = (err) => {
@@ -20,10 +20,10 @@ export const shareImgPost = (file, uid) => {
   const fileReady = () => {
     taskStorage.snapshot.ref.getDownloadURL()
       .then((url) => {
-        console.log(url);
+        // console.log(url);
         sessionStorage.setItem('imgNewPost', url);
         const pic = document.querySelector('.picPost');
-        pic.classList.remove('hide');
+        pic.parentNode.classList.remove('hide');
         pic.setAttribute('src', url);
       })
       .catch((err) => {
@@ -32,7 +32,7 @@ export const shareImgPost = (file, uid) => {
     setTimeout(() => {
       const progress = document.querySelector('.progress');
       progress.parentNode.classList.remove('showProgress');
-    }, 5000);
+    }, 2500);
   };
   taskStorage.on('state_changed', stateSnapshot, catchError, fileReady);
 };

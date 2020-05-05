@@ -27,10 +27,8 @@ export const signOutUser = () => {
 
 export const btnLikes = () => {
   const interval = setInterval(() => {
-    console.log('intento');
     const svgIcons = document.querySelectorAll('.iconLike');
     if (svgIcons.length) {
-      console.log('termina');
       clearInterval(interval);
       svgIcons.forEach((svgIcon) => {
         // eslint-disable-next-line no-undef

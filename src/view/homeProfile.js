@@ -1,8 +1,8 @@
 import {
   homeHeader,
   profile,
-  postHome,
-  postProfile,
+  postHomeMobile,
+  postArea,
   optionsMobile,
   userLoggedIn,
   imgProfileUserDefault,
@@ -62,9 +62,9 @@ const changeMenu = () => {
 const changeViewPost = () => {
   let post = '';
   if (device() === 'Desktop') {
-    post = postProfile;
+    post = postArea;
   } else {
-    post = (/profile/.test(window.location.hash)) ? postProfile : postHome;
+    post = (/profile/.test(window.location.hash)) ? postArea : postHomeMobile;
   }
   return post;
 };
@@ -235,16 +235,40 @@ export default () => {
   // PARA MOSTRAR TODOS LOS POSTS
   readPostDB(readingPosts);
 
-  // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
-  const btnSharePostProfile = sectionMain.querySelector('#btnSharePostProfile');
-
-  if (btnSharePostProfile) {
-    btnSharePostProfile.addEventListener(('click'), () => {
-      const post = sectionMain.querySelector('#postProfile').value;
-      const privacyPostProfile = sectionMain.querySelector('#privacyPostProfile').value;
-      createNewPost(post, privacyPostProfile);
+  // PARA ELIMINAR LA IMG CARGADA EN EL POST
+  const btnDeleteImg = sectionMain.querySelector('.deleteImg');
+  if (btnDeleteImg) {
+    btnDeleteImg.addEventListener('click', () => {
+      sessionStorage.removeItem('imgNewPost');
+      btnDeleteImg.parentNode.classList.add('hide');
     });
   }
+
+  // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
+  const btnSharePost = sectionMain.querySelector('#btnSharePost');
+
+  if (btnSharePost) {
+    btnSharePost.addEventListener(('click'), () => {
+      const post = sectionMain.querySelector('#postArea');
+      const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
+      const postContent = post.value;
+      const privacyPost = privacyPostArea.value;
+
+      if (!postContent && !sessionStorage.getItem('imgNewPost')) {
+        const emptyPostMessage = document.querySelector('#emptyPost');
+        emptyPostMessage.classList.remove('hide');
+        emptyPostMessage.innerText = '👀 Parece que tu post está vacío. 👆';
+        setTimeout(() => {
+          emptyPostMessage.classList.add('hide');
+        }, 1500);
+      } else {
+        createNewPost(postContent, privacyPost);
+        if (btnDeleteImg) btnDeleteImg.parentNode.classList.add('hide');
+        post.value = '';
+      }
+    });
+  }
+
   // FUNCIÓN PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');
 
@@ -262,6 +286,22 @@ export default () => {
       const file = e.target.files[0];
       const userPost = firebase.auth().currentUser;
       shareImgPost(file, userPost.uid);
+    });
+  }
+
+  // SIMULATOR SELECT PRIVACY
+  const priv = sectionMain.querySelector('#private');
+  const pub = sectionMain.querySelector('#public');
+
+  if (priv) {
+    pub.addEventListener('click', () => {
+      sessionStorage.setItem('privacy', 1);
+    });
+  }
+
+  if (pub) {
+    priv.addEventListener('click', () => {
+      sessionStorage.setItem('privacy', 2);
     });
   }
 

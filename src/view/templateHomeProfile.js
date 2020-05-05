@@ -18,25 +18,33 @@ export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getR
 export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}.png`;
 
 // PLANTILLA CONTENEDOR COMPARTIR POST
-export const postProfile = `
+export const postArea = `
   <div class="new-post">
-    <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postProfile"></textarea>
+    <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
+    <p class="hide emptyPost" id="emptyPost"></p>
+    <div class="containerProgress">
+      <div class="progress"></div>
+    </div>
+    <div class="hide divImg">
+      <span class="deleteImg">❌</span>
+      <img class="picPost"/>
+    </div>
     <div class="container-functions">
       <div class="camera-privacity">
       <input type="file" id="photoPost" class="hide" accept="image/*">
       <label for="photoPost"><img src="./img/camera.png" class="camera"></label>        
         <div class="privacidad">
-          <select id="privacyPostProfile">
+          <select id="privacyPostArea">
             <option value="1"> 🌐 Público</option>
-            <option value="1"> 🔓 Solo yo </option>
+            <option value="2"> 🔓 Solo yo </option>
           </select>
         </div>
       </div>
-      <button id="btnSharePostProfile"> Compartir</button>
+      <button id="btnSharePost"> Compartir</button>
     </div>
   </div>`;
 
-export const postHome = `
+export const postHomeMobile = `
   <div class="own-post">
     <div class="title-new-post-own">
       <img src="${localStorage.getItem('userProfileImg') || imgProfileUserDefault}" alt="" class="user-foto">
@@ -44,21 +52,29 @@ export const postHome = `
         <h4>${localStorage.getItem('userName')}</h4>
         <img src="./img/public.png" alt="" class="icon-own">
       </div>
-      <div class="simulator-select">
+      <div class="simulator-select" id="privacyPostArea">
         <span><i class="fas fa-ellipsis-v"></i></span>
         <ul>
-          <li>🌐 Público</li>
-          <li>🔓 Solo yo</li>
+          <li data-value="1" id="public">🌐 Público</li>
+          <li data-value="2" id="private">🔓 Solo yo</li>
         </ul>
       </div>
     </div>
     <div class="new-post">
-      <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?"></textarea>
+      <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
+      <div class="hide divImg">
+      <span class="deleteImg">❌</span>
+      <img class="picPost"/>
+      </div>
       <div class="container-functions">
-        <div class="camera-privacity">
-          <img src="./img/camera.png" class="camera">
+        <div class="containerProgress">
+          <div class="progress"></div>
         </div>
-        <button> Compartir</button>
+        <div class="camera-privacity">
+        <input type="file" id="photoPost" class="hide" accept="image/*">
+        <label for="photoPost"><img src="./img/camera.png" class="camera"></label>
+        </div>
+        <button id="btnSharePost"> Compartir</button>
       </div>
     </div>
   </div>`;

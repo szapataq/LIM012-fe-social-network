@@ -15,4 +15,6 @@ export const readUserDB = uid => firebase.firestore().collection('users')
   .get();
 
 // FUNCIÓN PARA LEER LOS USUARIOS REGISTRADOS (ÁREA DE CODERS)
-export const readCodersDB = () => firebase.firestore().collection('users').get();
+export const readCodersDB = (callback) => {
+  firebase.firestore().collection('users').onSnapshot(callback);
+};

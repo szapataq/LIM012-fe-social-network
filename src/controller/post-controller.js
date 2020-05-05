@@ -11,13 +11,14 @@ import {
   deletePostsOnClick,
 } from './homeProfile-controller.js';
 
-export const createNewPost = (post, privacyPostProfile) => {
+export const createNewPost = (post, privacyPostArea) => {
   const uid = firebase.auth().currentUser.uid;
   const names = localStorage.getItem('userName');
   const profilePic = localStorage.getItem('userProfileImg');
   const photo = sessionStorage.getItem('imgNewPost');
+  const privacyPost = sessionStorage.getItem('privacy') || privacyPostArea || 1;
 
-  createPostDB(uid, names, profilePic, post, photo, privacyPostProfile)
+  createPostDB(uid, names, profilePic, post, photo, privacyPost)
     .then((docRef) => {
       sessionStorage.removeItem('imgNewPost');
       console.log('Document written with ID: ', docRef.id);

@@ -29,12 +29,15 @@ export const createNewPost = (post, privacyPostArea) => {
 };
 
 export const readingPosts = (querySnapshot) => {
+  // const uid = firebase.auth().currentUser.uid;
+  // console.log(uid);
   let postList = '';
   const container = document.querySelector('.container-new-post');
   querySnapshot.forEach((refDoc) => {
     const post = refDoc.data();
     postList += templatePost(post.profilePicture,
       post.names, post.date, post.post, post.photo, post.likes, post.comments, refDoc.id);
+    // console.log(refDoc.uid);
     return postList;
   });
   container.innerHTML = postList;

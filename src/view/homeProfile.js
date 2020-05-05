@@ -1,14 +1,32 @@
 import {
   homeHeader,
   profile,
-  postHome,
-  postProfile,
+  postHomeMobile,
+  postArea,
   optionsMobile,
   userLoggedIn,
-  imgUserDefault,
-}
-  from './templateHomeProfile.js';
+  imgProfileUserDefault,
+} from './templateHomeProfile.js';
 
+import {
+  signOutUser,
+  codersArea,
+} from '../controller/homeProfile-controller.js';
+
+import {
+  createNewPost,
+  readingPosts,
+} from '../controller/post-controller.js';
+
+import {
+  readPostDB,
+} from '../model/posts-firestore-model.js';
+
+import {
+  shareImgPost,
+} from '../model/storage-firestore-model.js';
+
+// import { datePostDB } from '../model/posts-firestore-model.js';
 
 // FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
 const device = () => {
@@ -44,22 +62,26 @@ const changeMenu = () => {
 const changeViewPost = () => {
   let post = '';
   if (device() === 'Desktop') {
-    post = postProfile;
+    post = postArea;
   } else {
-    post = (/profile/.test(window.location.hash)) ? postProfile : postHome;
+    post = (/profile/.test(window.location.hash)) ? postArea : postHomeMobile;
   }
   return post;
 };
 
+// const publicPost = './img/public.png';
+// const privatePost = './img/private.png';
+
 export default () => {
-  const headerHome = `<input type="checkbox" id="btnMenu">
+  const headerHome = `
+  <input type="checkbox" id="btnMenu">
   <label for="btnMenu">&#9776;</label>
   <h1 class="coderPlace">&lt;CoderPlace/&gt;</h1>
   <nav class="menu">
     <section class="separator">
       <section>
         <div class="items userLogged">
-          <img src="${localStorage.getItem('userImg') || imgUserDefault}" alt="Profile" class="userImage">
+          <img src="${localStorage.getItem('userProfileImg') || imgProfileUserDefault}" alt="Profile" class="userImage">
           <span class="userName"> ${localStorage.getItem('userName') || 'Nombre y Apellido '}</span>
         </div>
         ${changeMenu()}
@@ -87,15 +109,6 @@ export default () => {
             <img src="./img/user.png" class="user-comment">
             <div class="name-ocupation">
               <div class="comun-coders">
-                <p>Isabel Angelica Lucia Paredes Apaza</p>
-              </div>
-              <p>&lt;/&gt;Developer</p>
-            </div>
-          </div>
-          <div class="info-coder">
-            <img src="./img/user.png" class="user-comment">
-            <div class="name-ocupation">
-              <div class="comun-coders">
                 <p>Juan Jose Gallegos Valdivia</p>
               </div>
               <p>&lt;/&gt;Developer</p>
@@ -119,13 +132,12 @@ export default () => {
       <div class="container-new-post">
         <div class="each-post">
           <div class="title-new-post">
-            <img src="./img/user.png" alt="" class="user-foto">
+            <img src="" alt="" class="user-foto">
             <div>
-              <h4>Laura Zapata Quentasi</h4>
+              <h4></h4>
               <div class="time">
-                <p>20/09/2020</p>
-                <p>23:14</p>
-                <img src="./img/public.png" alt="">
+                <p></p>
+                <img src="" alt="privacidad">
               </div>
             </div>
           </div>
@@ -207,40 +219,91 @@ export default () => {
             <p>1234 Me Gusta</p>
           </div>
         </div>
-        <div class="each-post">
-          <div class="title-new-post">
-            <img src="./img/user.png" alt="" class="user-foto">
-            <div>
-              <h4>Laura Zapata Quentasi</h4>
-              <div class="time">
-                <p>20/09/2020</p>
-                <p>23:14</p>
-                <img src="./img/public.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="body-post">
-            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta,
-            incidunt.</p>
-          </div>
-          <div class="like-comment">
-            <div>
-              <img src="./img/like.png" alt="" class="icon-like">
-              <img src="./img/comment.png" alt="" class="icon-comment">
-            </div>
-            <p>1234 Me Gusta</p>
-          </div>
-        </div>
       </div>
     </div>
-  </div>
+  </div>`;
 
-   `;
+  // CREANDO EL CONTENEDOR DE LOS TEMPLATES
   const sectionMain = document.createElement('section');
   sectionMain.className = 'section-main';
-  const header = document.querySelector('header');
   sectionMain.innerHTML = mainHome;
+  const header = document.querySelector('header');
   header.innerHTML = headerHome;
+
+  // PARA MOSTRAR EL AREA DE CODERS
+  codersArea();
+  // PARA MOSTRAR TODOS LOS POSTS
+  readPostDB(readingPosts);
+
+  // PARA ELIMINAR LA IMG CARGADA EN EL POST
+  const btnDeleteImg = sectionMain.querySelector('.deleteImg');
+  if (btnDeleteImg) {
+    btnDeleteImg.addEventListener('click', () => {
+      sessionStorage.removeItem('imgNewPost');
+      btnDeleteImg.parentNode.classList.add('hide');
+    });
+  }
+
+  // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
+  const btnSharePost = sectionMain.querySelector('#btnSharePost');
+
+  if (btnSharePost) {
+    btnSharePost.addEventListener(('click'), () => {
+      const post = sectionMain.querySelector('#postArea');
+      const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
+      const postContent = post.value;
+      const privacyPost = privacyPostArea.value;
+
+      if (!postContent && !sessionStorage.getItem('imgNewPost')) {
+        const emptyPostMessage = document.querySelector('#emptyPost');
+        emptyPostMessage.classList.remove('hide');
+        emptyPostMessage.innerText = '👀 Parece que tu post está vacío. 👆';
+        setTimeout(() => {
+          emptyPostMessage.classList.add('hide');
+        }, 1500);
+      } else {
+        createNewPost(postContent, privacyPost);
+        if (btnDeleteImg) btnDeleteImg.parentNode.classList.add('hide');
+        post.value = '';
+      }
+    });
+  }
+
+  // FUNCIÓN PARA CERRAR SESIÓN
+  const btnLogOut = header.querySelector('#log-out');
+
+  if (btnLogOut) {
+    btnLogOut.addEventListener('click', () => {
+      signOutUser();
+    });
+  }
+
+  // FUNCIÓN PARA SUBIR LAS IMAGENES EN LOS POSTS
+  const bntImgPost = sectionMain.querySelector('#photoPost');
+
+  if (bntImgPost) {
+    bntImgPost.addEventListener(('change'), (e) => {
+      const file = e.target.files[0];
+      const userPost = firebase.auth().currentUser;
+      shareImgPost(file, userPost.uid);
+    });
+  }
+
+  // SIMULATOR SELECT PRIVACY
+  const priv = sectionMain.querySelector('#private');
+  const pub = sectionMain.querySelector('#public');
+
+  if (priv) {
+    pub.addEventListener('click', () => {
+      sessionStorage.setItem('privacy', 1);
+    });
+  }
+
+  if (pub) {
+    priv.addEventListener('click', () => {
+      sessionStorage.setItem('privacy', 2);
+    });
+  }
 
   return sectionMain;
 };

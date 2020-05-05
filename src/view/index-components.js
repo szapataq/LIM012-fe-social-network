@@ -1,7 +1,9 @@
-import login from './logInSignUp.js';
-import home from './home.js';
+import logInSignUp from './logInSignUp.js';
+import homeProfile from './homeProfile.js';
+import different from './error.js';
 
 export const components = {
-  login,
-  home,
+  logInSignUp,
+  homeProfile,
+  different,
 };

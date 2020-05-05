@@ -62,6 +62,7 @@ export const postHomeMobile = `
     </div>
     <div class="new-post">
       <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
+      <p class="hide emptyPost" id="emptyPost"></p>
       <div class="hide divImg">
       <span class="deleteImg">❌</span>
       <img class="picPost"/>

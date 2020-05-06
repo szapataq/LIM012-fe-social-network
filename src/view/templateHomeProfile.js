@@ -36,7 +36,7 @@ export const postArea = `
         <div class="privacidad">
           <select id="privacyPostArea">
             <option value="1"> 🌐 Público</option>
-            <option value="2"> 🔓 Solo yo </option>
+            <option value="2"> 🔒 Solo yo </option>
           </select>
         </div>
       </div>
@@ -56,7 +56,7 @@ export const postHomeMobile = `
         <span><i class="fas fa-ellipsis-v"></i></span>
         <ul>
           <li data-value="1" id="public">🌐 Público</li>
-          <li data-value="2" id="private">🔓 Solo yo</li>
+          <li data-value="2" id="private">🔒 Solo yo</li>
         </ul>
       </div>
     </div>

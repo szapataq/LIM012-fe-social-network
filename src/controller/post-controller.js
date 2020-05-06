@@ -32,6 +32,7 @@ export const updatePostsOnClick = () => {
   }
 };
 
+// FUNCIÓN PARA CREAR POST
 export const createNewPost = (post, privacyPostArea) => {
   const uid = firebase.auth().currentUser.uid;
   const names = localStorage.getItem('userName');
@@ -59,7 +60,7 @@ export const readingPosts = (querySnapshot) => {
     let postList = '';
     querySnapshot.forEach((refDoc) => {
       const post = refDoc.data();
-      postList += templatePost(post.profilePicture, post.names, post.date,
+      postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
         post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
       // console.log(refDoc.uid);
       container.innerHTML = postList;

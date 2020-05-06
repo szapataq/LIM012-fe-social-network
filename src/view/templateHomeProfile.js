@@ -121,8 +121,19 @@ const validateImgPost = (imgPost, textPost, id) => {
   return post;
 };
 
+const changePrivacyPost = (privacy) => {
+  let priv = '';
+  console.log(privacy);
+  if (privacy === '1') {
+    priv = './img/public.png';
+  } else {
+    priv = './img/private.png';
+  }
+  return priv;
+};
+
 // PLANTILLA POSTS EN EL MURO
-export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, comments, id, uididUser, uidPost) => `
+export const templatePost = (photoUrl, names, privacy, date, textPost, imgPost, likes, comments, id, uididUser, uidPost) => `
 <div class="each-post">
   <div class="title-new-post">
     <img src="${photoUrl}" alt="" class="user-foto">
@@ -130,7 +141,7 @@ export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, co
       <h4>${names}</h4> 
       <div class="time">
         <p>${date}</p>
-        <img src="./img/public.png" alt="privacidad">
+        <img src="${changePrivacyPost(privacy)}" alt="privacidad">
       </div>
     </div>
     ${uididUser === uidPost ? `

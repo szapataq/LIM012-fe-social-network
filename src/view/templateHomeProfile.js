@@ -62,6 +62,7 @@ export const postHomeMobile = `
     </div>
     <div class="new-post">
       <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
+      <p class="hide emptyPost" id="emptyPost"></p>
       <div class="hide divImg">
       <span class="deleteImg">❌</span>
       <img class="picPost"/>
@@ -173,3 +174,10 @@ export const templateCoders = (photoUrl, names, about) => `
       <p>&lt;/&gt;${about}</p>
     </div>
   </div>`;
+
+// PLANTILLA TODAVÍA NO HAY PUBLICACIONES
+export const notYetPost = `
+<div class="containerNoPost">
+  <p class="noPost">Todavía no hay publicaciones</p>
+  <img src="./img/not-yet-post.png" alt="No hay ningún post" class="noPostImg">
+</div>`;

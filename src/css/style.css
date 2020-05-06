@@ -360,9 +360,8 @@ header label:hover {
     cursor: pointer;
 }
 
-#icon:hover path:nth-child(1) {
-    fill: #5C5C5C;
-    transition: 250ms ease;
+.svg-filled path:nth-child(2) {
+    fill: #ed4956 !important;
 }
 
 #icon path:nth-child(2) {
@@ -370,8 +369,9 @@ header label:hover {
     transition: 350ms ease;
 }
 
-.svg-filled path:nth-child(2) {
-    fill: #ed4956 !important;
+#icon:hover path:nth-child(1) {
+    fill: #5C5C5C;
+    transition: 250ms ease;
 }
 
 .hide {

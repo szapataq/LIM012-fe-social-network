@@ -1,5 +1,6 @@
 import {
   createPostDB,
+  updatePosts,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -11,6 +12,25 @@ import {
   btnLikes,
   deletePostsOnClick,
 } from './homeProfile-controller.js';
+
+// FUNCIÓN PARA ACTUALIZAR EL TEXTO DEL POST
+export const updatePostsOnClick = () => {
+  const iconUpdate = document.querySelectorAll('.update-post');
+  if (iconUpdate.length) {
+    iconUpdate.forEach((objPosts) => {
+      objPosts.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        const idPosts = objPosts.getAttribute('idpost');
+        const textPost = document.querySelector(`#textPost-${idPosts}`);
+        textPost.contentEditable = 'true';
+        textPost.focus();
+        updatePosts(idPosts, textPost.innerText)
+          .then(() => {})
+          .catch(() => {});
+      });
+    });
+  }
+};
 
 export const createNewPost = (post, privacyPostArea) => {
   const uid = firebase.auth().currentUser.uid;
@@ -30,9 +50,6 @@ export const createNewPost = (post, privacyPostArea) => {
 };
 
 export const readingPosts = (querySnapshot) => {
-  const uid = firebase.auth().currentUser.uid;
-  // console.log('uid del user', uid);
-  let postList = '';
   const container = document.querySelector('.container-new-post');
   if (querySnapshot.empty) {
     container.innerHTML = notYetPost;
@@ -49,6 +66,7 @@ export const readingPosts = (querySnapshot) => {
       return postList;
     });
   }
+  updatePostsOnClick();
   deletePostsOnClick();
   btnLikes();
 };

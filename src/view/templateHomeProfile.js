@@ -108,15 +108,15 @@ export const userLoggedIn = () => `
   </div>`;
 
 // FUNCIÓN PARA VALIDAR SI HAY UNA IMG EN EL POST
-const validateImgPost = (imgPost, textPost) => {
+const validateImgPost = (imgPost, textPost, id) => {
   let post = '';
   if (imgPost) {
     post = `
-    <p>${textPost}</p>
+    <p id="textPost-${id}" class="textPost">${textPost}</p>
     <img src="${imgPost}" alt="Imagen del post" class="imgPost">
     `;
   } else {
-    post = `<p>${textPost}</p>`;
+    post = `<p id="textPost-${id}" class="textPost">${textPost}</p>`;
   }
   return post;
 };
@@ -137,14 +137,14 @@ export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, co
     <div class="simulator-select">
       <span><i class="fas fa-ellipsis-v"></i></span>
       <ul>
-        <li>✎ Editar</li>
+        <li class="update-post" idpost="${id}">✎ Editar</li>
         <li class="delete-post" idpost="${id}">✖ Eliminar</li>
       </ul>
     </div>` : ''}
   </div>
 
   <div class="body-post">
-   ${validateImgPost(imgPost, textPost)}
+   ${validateImgPost(imgPost, textPost, id)}
   </div>
   <div class="like-comment">
     <div>

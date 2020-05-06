@@ -20,16 +20,19 @@ export const createNewPost = (post, privacyPostArea) => {
   const privacyPost = sessionStorage.getItem('privacy') || privacyPostArea || 1;
 
   createPostDB(uid, names, profilePic, post, photo, privacyPost)
-    .then((docRef) => {
+    .then(() => {
       sessionStorage.removeItem('imgNewPost');
-      console.log('Document written with ID: ', docRef.id);
+      // console.log('Document written with ID: ', docRef.id);
     })
-    .catch((error) => {
-      console.log(error);
+    .catch(() => {
+      // console.log(error);
     });
 };
 
 export const readingPosts = (querySnapshot) => {
+  const uid = firebase.auth().currentUser.uid;
+  // console.log('uid del user', uid);
+  let postList = '';
   const container = document.querySelector('.container-new-post');
   if (querySnapshot.empty) {
     container.innerHTML = notYetPost;

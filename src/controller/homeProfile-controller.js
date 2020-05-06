@@ -1,7 +1,6 @@
 import {
   signOut,
 } from '../model/authentication-model.js';
-// eslint-disable-next-line import/no-cycle
 import {
   deletePosts,
 } from '../model/posts-firestore-model.js';
@@ -37,6 +36,7 @@ export const codersArea = () => {
     container.innerHTML = codersList;
   });
 };
+
 export const btnLikes = () => {
   const interval = setInterval(() => {
     const svgIcons = document.querySelectorAll('.iconLike');
@@ -73,10 +73,8 @@ export const deletePostsOnClick = () => {
         const idPosts = objPosts.getAttribute('idpost');
         deletePosts(idPosts)
           .then(() => {
-            console.log('eliminado satisfactoriamente');
           })
-          .catch((error) => {
-            console.error('error al eliminar', error);
+          .catch(() => {
           });
       });
     });

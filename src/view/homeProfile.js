@@ -296,12 +296,16 @@ export default () => {
   if (priv) {
     pub.addEventListener('click', () => {
       sessionStorage.setItem('privacy', 1);
+      const privPost = document.querySelector('#privPost');
+      if (privPost) privPost.setAttribute('src', './img/public.png');
     });
   }
 
   if (pub) {
     priv.addEventListener('click', () => {
       sessionStorage.setItem('privacy', 2);
+      const privPost = document.querySelector('#privPost');
+      if (privPost) privPost.setAttribute('src', './img/private.png');
     });
   }
 

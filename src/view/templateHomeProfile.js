@@ -50,7 +50,7 @@ export const postHomeMobile = `
       <img src="${localStorage.getItem('userProfileImg') || imgProfileUserDefault}" alt="" class="user-foto">
       <div class="comun-ocupation">
         <h4>${localStorage.getItem('userName')}</h4>
-        <img src="./img/public.png" alt="" class="icon-own">
+        <img src="./img/public.png" alt="privacidad" id="privPost">
       </div>
       <div class="simulator-select" id="privacyPostArea">
         <span><i class="fas fa-ellipsis-v"></i></span>
@@ -121,9 +121,9 @@ const validateImgPost = (imgPost, textPost, id) => {
   return post;
 };
 
+// FUNCIÓN QUE ENLAZA EL ÍCONO DE PRIV CON EL SELECT
 const changePrivacyPost = (privacy) => {
   let priv = '';
-  console.log(privacy);
   if (privacy === '1') {
     priv = './img/public.png';
   } else {

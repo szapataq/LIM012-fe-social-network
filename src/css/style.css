@@ -450,6 +450,10 @@ header label:hover {
     margin: auto;
 }
 
+/* .textPost:focus {
+    outline: darkgreen;
+    border: solid 3px #C83DE5;
+} */
 
 @media (max-width:768px) {
 

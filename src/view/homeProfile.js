@@ -309,5 +309,17 @@ export default () => {
     });
   }
 
+  // FUNCIÓN PARA TOMAR EL VALOR DEL SELECT PRIVACIDAD
+  const selectPrivacy = sectionMain.querySelector('#privacyPostArea');
+  if (selectPrivacy) {
+    selectPrivacy.addEventListener(('change'), () => {
+      if (selectPrivacy.value === '1') {
+        sessionStorage.setItem('privacy', '1');
+      } else {
+        sessionStorage.setItem('privacy', '2');
+      }
+    });
+  }
+
   return sectionMain;
 };

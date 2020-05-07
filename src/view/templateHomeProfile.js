@@ -144,18 +144,19 @@ export const templatePost = (photoUrl, names, privacy, date, textPost, imgPost, 
         <img src="${changePrivacyPost(privacy)}" alt="privacidad">
       </div>
     </div>
+    
     ${uididUser === uidPost ? `
     <div class="simulator-select">
       <span><i class="fas fa-ellipsis-v"></i></span>
       <ul>
-        <li class="update-post" idpost="${id}">✎ Editar</li>
+        <li class="icon-edit" idpost="${id}">✎ Editar</li>
         <li class="delete-post" idpost="${id}">✖ Eliminar</li>
       </ul>
-    </div>` : ''}
+    </div>
+    <i class="far fa-save icon-save hide update-post" idpost="${id}"></i>` : ''}
   </div>
-
   <div class="body-post">
-   ${validateImgPost(imgPost, textPost, id)}
+  ${validateImgPost(imgPost, textPost, id)}
   </div>
   <div class="like-comment">
     <div>

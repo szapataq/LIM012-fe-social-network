@@ -3,10 +3,6 @@ import {
 } from '../model/authentication-model.js';
 
 import {
-  deletePosts,
-} from '../model/posts-firestore-model.js';
-
-import {
   readCodersDB,
 } from '../model/user-firestore-model.js';
 
@@ -66,18 +62,3 @@ export const btnLikes = () => {
   }, 1000);
 };
 
-export const deletePostsOnClick = () => {
-  const iconDelete = document.querySelectorAll('.delete-post');
-  if (iconDelete.length) {
-    iconDelete.forEach((objPosts) => {
-      objPosts.addEventListener('click', () => {
-        const idPosts = objPosts.getAttribute('idpost');
-        deletePosts(idPosts)
-          .then(() => {
-          })
-          .catch(() => {
-          });
-      });
-    });
-  }
-};

@@ -68,6 +68,16 @@ const changeViewPost = () => {
   return post;
 };
 
+const changeContainerPosts = () => {
+  let containerPosts = '';
+  if (/home/.test(window.location.hash)) {
+    containerPosts = '<div class="container-new-post-home">';
+  } else {
+    containerPosts = '<div class="container-new-post">';
+  }
+  return containerPosts;
+};
+
 export default () => {
   const headerHome = `
   <input type="checkbox" id="btnMenu">
@@ -125,7 +135,7 @@ export default () => {
 
     <div class="container-post">
       <div class = "change-post">${changeViewPost()}</div>
-      <div class="container-new-post">
+      ${changeContainerPosts()}
         <div class="each-post">
           <div class="title-new-post">
             <img src="" alt="" class="user-foto">

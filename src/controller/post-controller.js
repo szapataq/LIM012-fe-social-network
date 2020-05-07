@@ -64,8 +64,18 @@ export const createNewPost = (post, privacyPostArea) => {
     });
 };
 
+// FUNCIÓN PARA LEER LOS POSTS
 export const readingPosts = (querySnapshot) => {
-  const container = document.querySelector('.container-new-post');
+  const containerHome = document.querySelector('.container-new-post-home');
+  const containerProfile = document.querySelector('.container-new-post');
+
+  let container;
+  if (/home/.test(window.location.hash)) {
+    container = containerHome;
+  } else {
+    container = containerProfile;
+  }
+
   if (querySnapshot.empty) {
     container.innerHTML = notYetPost;
   } else {

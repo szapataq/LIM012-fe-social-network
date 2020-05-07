@@ -42,10 +42,18 @@ export const createPostDB = (uid, names, profilePicture, post, imgPost, privacy)
   comments: [],
 });
 
-// FUNCIÓN PARA LEER LOS POSTS
+// FUNCIÓN PARA LEER LOS POSTS EN PERFIL
 export const readPostDB = (callback) => {
   firebase.firestore().collection('posts')
     .orderBy('orderDate', 'desc')
+    .onSnapshot(callback);
+};
+
+// FUNCIÓN PARA LEER LOS POSTS EN EL HOME
+export const readPostDBToHome = (callback) => {
+  firebase.firestore().collection('posts')
+    .orderBy('orderDate', 'desc')
+    .where('privacy', '==', '1')
     .onSnapshot(callback);
 };
 

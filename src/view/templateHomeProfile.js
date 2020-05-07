@@ -35,8 +35,8 @@ export const postArea = `
       <label for="photoPost"><img src="./img/camera.png" class="camera"></label>        
         <div class="privacidad">
           <select id="privacyPostArea">
-            <option value="1"> 🌐 Público</option>
-            <option value="2"> 🔒 Solo yo </option>
+            <option value="1">🌐 Público</option>
+            <option value="2">🔒 Solo yo </option>
           </select>
         </div>
       </div>

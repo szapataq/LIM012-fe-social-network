@@ -262,6 +262,7 @@ export default () => {
         createNewPost(postContent, privacyPost);
         if (btnDeleteImg) btnDeleteImg.parentNode.classList.add('hide');
         post.value = '';
+        sessionStorage.removeItem('privacy');
       }
     });
   }

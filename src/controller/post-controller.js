@@ -1,6 +1,7 @@
 import {
   createPostDB,
   updatePosts,
+  deletePosts,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -10,7 +11,6 @@ import {
 
 import {
   btnLikes,
-  deletePostsOnClick,
 } from './homeProfile-controller.js';
 
 // FUNCIÓN PARA ACTUALIZAR EL TEXTO DEL POST
@@ -31,7 +31,21 @@ export const updatePostsOnClick = () => {
     });
   }
 };
-
+const deletePostsOnClick = () => {
+  const iconDelete = document.querySelectorAll('.delete-post');
+  if (iconDelete.length) {
+    iconDelete.forEach((objPosts) => {
+      objPosts.addEventListener('click', () => {
+        const idPosts = objPosts.getAttribute('idpost');
+        deletePosts(idPosts)
+          .then(() => {
+          })
+          .catch(() => {
+          });
+      });
+    });
+  }
+};
 // FUNCIÓN PARA CREAR POST
 export const createNewPost = (post, privacyPostArea) => {
   const uid = firebase.auth().currentUser.uid;

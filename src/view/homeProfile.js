@@ -69,9 +69,6 @@ const changeViewPost = () => {
   return post;
 };
 
-// const publicPost = './img/public.png';
-// const privatePost = './img/private.png';
-
 export default () => {
   const headerHome = `
   <input type="checkbox" id="btnMenu">

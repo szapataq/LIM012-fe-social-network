@@ -452,6 +452,7 @@ header label:hover {
 
 #privPost {
     width: 24px;
+    margin: 0 10px;
 }
 
 /* .textPost:focus {

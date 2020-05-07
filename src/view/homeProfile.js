@@ -247,7 +247,7 @@ export default () => {
       const post = sectionMain.querySelector('#postArea');
       const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
       const postContent = post.value;
-      const privacyPost = privacyPostArea.value || '1';
+      const privacyPost = privacyPostArea.value;
 
       if (!postContent && !sessionStorage.getItem('imgNewPost')) {
         const emptyPostMessage = document.querySelector('#emptyPost');

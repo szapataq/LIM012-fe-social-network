@@ -38,7 +38,7 @@ export const createNewPost = (post, privacyPostArea) => {
   const names = localStorage.getItem('userName');
   const profilePic = localStorage.getItem('userProfileImg');
   const photo = sessionStorage.getItem('imgNewPost');
-  const privacyPost = sessionStorage.getItem('privacy') || privacyPostArea || 1;
+  const privacyPost = privacyPostArea || sessionStorage.getItem('privacy') || '1';
 
   createPostDB(uid, names, profilePic, post, photo, privacyPost)
     .then(() => {

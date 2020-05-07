@@ -26,8 +26,6 @@ import {
   shareImgPost,
 } from '../model/storage-firestore-model.js';
 
-// import { datePostDB } from '../model/posts-firestore-model.js';
-
 // FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
 const device = () => {
   const dv = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|SymbianOS|Windows Phone/i.test(window.navigator.userAgent) ? 'Mobile' : 'Desktop';
@@ -262,7 +260,6 @@ export default () => {
         createNewPost(postContent, privacyPost);
         if (btnDeleteImg) btnDeleteImg.parentNode.classList.add('hide');
         post.value = '';
-        sessionStorage.removeItem('privacy');
       }
     });
   }

@@ -51,3 +51,6 @@ export const readPostDB = (callback) => {
 
 // FUNCIÓN PARA BORRAR LOS POSTS
 export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();
+
+// FUNCIÓN PARA ACTUALIZAR LOS POSTS
+export const updatePosts = (idpost, textPost) => firebase.firestore().collection('posts').doc(idpost).update({ post: textPost });

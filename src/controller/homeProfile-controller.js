@@ -1,6 +1,7 @@
 import {
   signOut,
 } from '../model/authentication-model.js';
+
 import {
   deletePosts,
 } from '../model/posts-firestore-model.js';

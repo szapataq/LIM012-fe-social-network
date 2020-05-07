@@ -36,7 +36,7 @@ export const postArea = `
         <div class="privacidad">
           <select id="privacyPostArea">
             <option value="1"> 🌐 Público</option>
-            <option value="2"> 🔓 Solo yo </option>
+            <option value="2"> 🔒 Solo yo </option>
           </select>
         </div>
       </div>
@@ -50,13 +50,13 @@ export const postHomeMobile = `
       <img src="${localStorage.getItem('userProfileImg') || imgProfileUserDefault}" alt="" class="user-foto">
       <div class="comun-ocupation">
         <h4>${localStorage.getItem('userName')}</h4>
-        <img src="./img/public.png" alt="" class="icon-own">
+        <img src="./img/public.png" alt="privacidad" id="privPost">
       </div>
       <div class="simulator-select" id="privacyPostArea">
         <span><i class="fas fa-ellipsis-v"></i></span>
         <ul>
           <li data-value="1" id="public">🌐 Público</li>
-          <li data-value="2" id="private">🔓 Solo yo</li>
+          <li data-value="2" id="private">🔒 Solo yo</li>
         </ul>
       </div>
     </div>
@@ -108,21 +108,32 @@ export const userLoggedIn = () => `
   </div>`;
 
 // FUNCIÓN PARA VALIDAR SI HAY UNA IMG EN EL POST
-const validateImgPost = (imgPost, textPost) => {
+const validateImgPost = (imgPost, textPost, id) => {
   let post = '';
   if (imgPost) {
     post = `
-    <p>${textPost}</p>
+    <p id="textPost-${id}" class="textPost">${textPost}</p>
     <img src="${imgPost}" alt="Imagen del post" class="imgPost">
     `;
   } else {
-    post = `<p>${textPost}</p>`;
+    post = `<p id="textPost-${id}" class="textPost">${textPost}</p>`;
   }
   return post;
 };
 
+// FUNCIÓN QUE ENLAZA EL ÍCONO DE PRIV CON EL SELECT
+const changePrivacyPost = (privacy) => {
+  let priv = '';
+  if (privacy === '1') {
+    priv = './img/public.png';
+  } else {
+    priv = './img/private.png';
+  }
+  return priv;
+};
+
 // PLANTILLA POSTS EN EL MURO
-export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, comments, id, uididUser, uidPost) => `
+export const templatePost = (photoUrl, names, privacy, date, textPost, imgPost, likes, comments, id, uididUser, uidPost) => `
 <div class="each-post">
   <div class="title-new-post">
     <img src="${photoUrl}" alt="" class="user-foto">
@@ -130,21 +141,21 @@ export const templatePost = (photoUrl, names, date, textPost, imgPost, likes, co
       <h4>${names}</h4> 
       <div class="time">
         <p>${date}</p>
-        <img src="./img/public.png" alt="privacidad">
+        <img src="${changePrivacyPost(privacy)}" alt="privacidad">
       </div>
     </div>
     ${uididUser === uidPost ? `
     <div class="simulator-select">
       <span><i class="fas fa-ellipsis-v"></i></span>
       <ul>
-        <li>✎ Editar</li>
+        <li class="update-post" idpost="${id}">✎ Editar</li>
         <li class="delete-post" idpost="${id}">✖ Eliminar</li>
       </ul>
     </div>` : ''}
   </div>
 
   <div class="body-post">
-   ${validateImgPost(imgPost, textPost)}
+   ${validateImgPost(imgPost, textPost, id)}
   </div>
   <div class="like-comment">
     <div>

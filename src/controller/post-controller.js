@@ -1,5 +1,6 @@
 import {
   createPostDB,
+  updatePosts,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -12,6 +13,26 @@ import {
   deletePostsOnClick,
 } from './homeProfile-controller.js';
 
+// FUNCIÓN PARA ACTUALIZAR EL TEXTO DEL POST
+export const updatePostsOnClick = () => {
+  const iconUpdate = document.querySelectorAll('.update-post');
+  if (iconUpdate.length) {
+    iconUpdate.forEach((objPosts) => {
+      objPosts.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        const idPosts = objPosts.getAttribute('idpost');
+        const textPost = document.querySelector(`#textPost-${idPosts}`);
+        textPost.contentEditable = 'true';
+        textPost.focus();
+        updatePosts(idPosts, textPost.innerText)
+          .then(() => {})
+          .catch(() => {});
+      });
+    });
+  }
+};
+
+// FUNCIÓN PARA CREAR POST
 export const createNewPost = (post, privacyPostArea) => {
   const uid = firebase.auth().currentUser.uid;
   const names = localStorage.getItem('userName');
@@ -38,12 +59,13 @@ export const readingPosts = (querySnapshot) => {
     let postList = '';
     querySnapshot.forEach((refDoc) => {
       const post = refDoc.data();
-      postList += templatePost(post.profilePicture, post.names, post.date,
+      postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
         post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
       container.innerHTML = postList;
       return postList;
     });
   }
+  updatePostsOnClick();
   deletePostsOnClick();
   btnLikes();
 };

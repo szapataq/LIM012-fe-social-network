@@ -49,14 +49,6 @@ export const readPostDB = (callback) => {
     .onSnapshot(callback);
 };
 
-// FUNCIÓN PARA LEER LOS POSTS EN EL HOME
-export const readPostDBToHome = (callback) => {
-  firebase.firestore().collection('posts')
-    .orderBy('orderDate', 'desc')
-    .where('privacy', '==', '1')
-    .onSnapshot(callback);
-};
-
 // FUNCIÓN PARA BORRAR LOS POSTS
 export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();
 

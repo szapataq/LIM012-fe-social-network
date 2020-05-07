@@ -20,7 +20,6 @@ import {
 
 import {
   readPostDB,
-  readPostDBToHome,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -240,11 +239,7 @@ export default () => {
   codersArea();
 
   // PARA MOSTRAR TODOS LOS POSTS
-  if (/home/.test(window.location.hash)) {
-    readPostDBToHome(readingPosts);
-  } else {
-    readPostDB(readingPosts);
-  }
+  readPostDB(readingPosts);
 
   // PARA ELIMINAR LA IMG CARGADA EN EL POST
   const btnDeleteImg = sectionMain.querySelector('.deleteImg');

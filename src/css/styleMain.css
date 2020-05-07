@@ -246,6 +246,11 @@ figure img {
     margin-top: 30px;
 }
 
+.container-new-post-home {
+    width: 100%;
+    margin-top: 30px;
+}
+
 /*estilos de cada post*/
 .each-post {
     width: 100%;
@@ -717,6 +722,10 @@ body::-webkit-scrollbar-track:active {
     }
 
     .container-new-post {
+        margin-top: 20px;
+    }
+
+    .container-new-post-home {
         margin-top: 20px;
     }
 

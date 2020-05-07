@@ -30,21 +30,16 @@ export const createNewPost = (post, privacyPostArea) => {
 };
 
 export const readingPosts = (querySnapshot) => {
-  const uid = firebase.auth().currentUser.uid;
-  // console.log('uid del user', uid);
-  let postList = '';
   const container = document.querySelector('.container-new-post');
   if (querySnapshot.empty) {
     container.innerHTML = notYetPost;
   } else {
     const uid = firebase.auth().currentUser.uid;
-    // console.log('uid del user', uid);
     let postList = '';
     querySnapshot.forEach((refDoc) => {
       const post = refDoc.data();
       postList += templatePost(post.profilePicture, post.names, post.date,
         post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
-      // console.log(refDoc.uid);
       container.innerHTML = postList;
       return postList;
     });

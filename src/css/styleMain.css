@@ -689,7 +689,7 @@ body::-webkit-scrollbar-track:active {
     }   
 
     .coder-information {
-        display: block;
+        display: none;
     }
 
     .container-post {

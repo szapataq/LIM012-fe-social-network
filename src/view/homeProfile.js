@@ -62,7 +62,7 @@ const changeViewPost = () => {
   if (device() === 'Desktop') {
     post = postArea;
   } else {
-    post = (/profile/.test(window.location.hash)) ? postArea : postHomeMobile;
+    post = (/profile/.test(window.location.hash)) ? postArea : postHomeMobile();
   }
   return post;
 };

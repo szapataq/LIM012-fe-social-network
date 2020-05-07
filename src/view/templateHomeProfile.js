@@ -44,7 +44,7 @@ export const postArea = `
     </div>
   </div>`;
 
-export const postHomeMobile = `
+export const postHomeMobile = () => `
   <div class="own-post">
     <div class="title-new-post-own">
       <img src="${localStorage.getItem('userProfileImg') || imgProfileUserDefault}" alt="" class="user-foto">

@@ -55,14 +55,8 @@ export const readingPosts = (querySnapshot) => {
   const containerHome = document.querySelector('.container-new-post-home');
   const containerProfile = document.querySelector('.container-new-post');
 
-  let container;
-  if (/home/.test(window.location.hash)) {
-    container = containerHome;
-  } else {
-    container = containerProfile;
-  }
-
   if (querySnapshot.empty) {
+    const container = containerHome || containerProfile;
     container.innerHTML = notYetPost;
   } else {
     const uid = firebase.auth().currentUser.uid;
@@ -72,11 +66,11 @@ export const readingPosts = (querySnapshot) => {
       if (/home/.test(window.location.hash) && post.privacy === '1') {
         postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
           post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
-        container.innerHTML = postList;
+        containerHome.innerHTML = postList;
       } else if (/profile/.test(window.location.hash)) {
         postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
           post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
-        container.innerHTML = postList;
+        containerProfile.innerHTML = postList;
       }
     });
   }

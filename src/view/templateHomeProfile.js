@@ -112,11 +112,18 @@ const validateImgPost = (imgPost, textPost, id) => {
   let post = '';
   if (imgPost) {
     post = `
-    <p id="textPost-${id}" class="textPost">${textPost}</p>
+    <div class="text-post"> 
+      <p id="textPost-${id}" class="textPost">${textPost}</p>
+      <div class="save hide" idpost="${id}"><i class="far fa-save"></i></div>
+    </div>
     <img src="${imgPost}" alt="Imagen del post" class="imgPost">
     `;
   } else {
-    post = `<p id="textPost-${id}" class="textPost">${textPost}</p>`;
+    post = `
+    <div class="text-post"> 
+      <p id="textPost-${id}" class="textPost">${textPost}</p>
+      <div class="save hide" idpost="${id}"><i class="far fa-save"></i></div>
+    </div>`;
   }
   return post;
 };
@@ -149,11 +156,11 @@ export const templatePost = (photoUrl, names, privacy, date, textPost, imgPost, 
     <div class="simulator-select">
       <span><i class="fas fa-ellipsis-v"></i></span>
       <ul>
-        <li class="icon-edit" idpost="${id}">✎ Editar</li>
+        <li class="icon-edit update-post" idpost="${id}">✎ Editar</li>
         <li class="delete-post" idpost="${id}">✖ Eliminar</li>
       </ul>
-    </div>
-    <i class="far fa-save icon-save hide update-post" idpost="${id}"></i>` : ''}
+    </div>`
+    : ''}
   </div>
   <div class="body-post">
   ${validateImgPost(imgPost, textPost, id)}

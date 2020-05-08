@@ -13,6 +13,7 @@ import {
   btnLikes,
 } from './homeProfile-controller.js';
 
+// FUNCIÓN PARA BORRAR EL TEXTO DEL POST
 const deletePostsOnClick = () => {
   const iconDelete = document.querySelectorAll('.delete-post');
   if (iconDelete.length) {
@@ -33,14 +34,30 @@ const deletePostsOnClick = () => {
 // FUNCIÓN PARA ACTUALIZAR EL TEXTO DEL POST
 export const updatePostsOnClick = () => {
   const iconUpdate = document.querySelectorAll('.update-post');
+
   if (iconUpdate.length) {
     iconUpdate.forEach((objPosts) => {
       objPosts.addEventListener('click', (evento) => {
         evento.preventDefault();
         const idPosts = objPosts.getAttribute('idpost');
         const textPost = document.querySelector(`#textPost-${idPosts}`);
+        const iconSave = textPost.parentNode.querySelector('.save');
         textPost.contentEditable = 'true';
         textPost.focus();
+        iconSave.classList.remove('hide');
+        updatePosts(idPosts, textPost.innerText)
+          .then(() => {})
+          .catch(() => {});
+      });
+    });
+  }
+  const iconSave = document.querySelectorAll('.save');
+  if (iconSave.length) {
+    iconSave.forEach((objPosts) => {
+      objPosts.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        const idPosts = objPosts.getAttribute('idpost');
+        const textPost = document.querySelector(`#textPost-${idPosts}`);
         updatePosts(idPosts, textPost.innerText)
           .then(() => {})
           .catch(() => {});

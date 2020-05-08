@@ -309,6 +309,7 @@ figure img {
 }
 .body-post p{
     text-align: justify;
+    width: 100%;
 }
 
 .imgPost {

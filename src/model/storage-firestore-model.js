@@ -8,7 +8,6 @@ export const shareImgPost = (file, uid) => {
     progress.parentNode.classList.add('showProgress');
     progress.innerText = `${percent.toFixed(0)}%`;
     progress.style.width = `${percent}%`;
-    // console.log(percent);
   };
 
   const catchError = () => {

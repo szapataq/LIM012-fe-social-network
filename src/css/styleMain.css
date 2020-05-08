@@ -280,7 +280,7 @@ figure img {
 .time img {
     width: 28px;
     height: 28px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .user-foto {

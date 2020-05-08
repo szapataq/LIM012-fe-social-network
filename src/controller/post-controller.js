@@ -2,6 +2,7 @@ import {
   createPostDB,
   updatePosts,
   deletePosts,
+  createCommentsDB,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -66,6 +67,25 @@ export const updatePostsOnClick = () => {
   }
 };
 
+// FUNCIÓN PARA AÑADIR COMENTARIOS
+const addCommentOnClick = () => {
+  const iconComment = document.querySelectorAll('.icon-comment');
+  if (iconComment.length) {
+    console.log(iconComment.length);
+    iconComment.forEach((objPosts) => {
+      objPosts.addEventListener('click', () => {
+        const idpost = objPosts.getAttribute('idpost');
+        createCommentsDB(idpost, 'str', 'str', 'str', 'holaaa')
+          .then((res) => {
+            console.log(res);
+          })
+          .catch(() => {
+          });
+      });
+    });
+  }
+};
+
 export const readingPosts = (querySnapshot) => {
   const containerHome = document.querySelector('.container-new-post-home');
   const containerProfile = document.querySelector('.container-new-post-profile');
@@ -92,6 +112,7 @@ export const readingPosts = (querySnapshot) => {
   }
   updatePostsOnClick();
   deletePostsOnClick();
+  addCommentOnClick();
   btnLikes();
   return container;
 };

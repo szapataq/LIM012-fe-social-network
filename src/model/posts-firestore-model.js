@@ -28,7 +28,7 @@ const orderDate = () => {
   return parseInt(`${year}${month}${day}${hour}${minute}${second}`, 0);
 };
 
-// FUNCIÓN PARA CREAR LOS POSTS
+// CREATE POSTS
 export const createPostDB = (uid, names, profilePicture, post, imgPost, privacy) => firebase.firestore().collection('posts').add({
   uid,
   names,
@@ -42,15 +42,25 @@ export const createPostDB = (uid, names, profilePicture, post, imgPost, privacy)
   comments: [],
 });
 
-// FUNCIÓN PARA LEER LOS POSTS EN PERFIL
+// READ POSTS
 export const readPostDB = (callback) => {
   firebase.firestore().collection('posts')
     .orderBy('orderDate', 'desc')
     .onSnapshot(callback);
 };
 
-// FUNCIÓN PARA BORRAR LOS POSTS
+// UPDATE POSTS
+export const updatePosts = (idpost, textPost) => firebase.firestore().collection('posts').doc(idpost).update({ post: textPost });
+
+// DELETE POSTS
 export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();
 
-// FUNCIÓN PARA ACTUALIZAR LOS POSTS
-export const updatePosts = (idpost, textPost) => firebase.firestore().collection('posts').doc(idpost).update({ post: textPost });
+// CREATE COMMENTS
+export const createCommentsDB = (idPost, uid, names, profilePicture, comment) => firebase.firestore().collection('posts').doc(idPost).update({
+  comments: firebase.firestore.FieldValue.arrayUnion({
+    uid,
+    names,
+    profilePicture,
+    comment,
+  }),
+});

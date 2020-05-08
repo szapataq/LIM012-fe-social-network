@@ -66,12 +66,10 @@ export const readingPosts = (querySnapshot) => {
         postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
           post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
         containerHome.innerHTML = postList;
-      } else if (/profile/.test(window.location.hash)) {
-        if (post.uid === uid) {
-          postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
-            post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
-          containerProfile.innerHTML = postList;
-        }
+      } else if (/profile/.test(window.location.hash) && post.uid === uid) {
+        postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
+          post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
+        containerProfile.innerHTML = postList;
       }
     });
   }

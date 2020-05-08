@@ -1,6 +1,7 @@
 import {
   createPostDB,
   updatePosts,
+  deletePosts,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -10,8 +11,24 @@ import {
 
 import {
   btnLikes,
-  deletePostsOnClick,
 } from './homeProfile-controller.js';
+
+const deletePostsOnClick = () => {
+  const iconDelete = document.querySelectorAll('.delete-post');
+  if (iconDelete.length) {
+    console.log(iconDelete.length);
+    iconDelete.forEach((objPosts) => {
+      objPosts.addEventListener('click', () => {
+        const idPosts = objPosts.getAttribute('idpost');
+        deletePosts(idPosts)
+          .then(() => {
+          })
+          .catch(() => {
+          });
+      });
+    });
+  }
+};
 
 // FUNCIÓN PARA ACTUALIZAR EL TEXTO DEL POST
 export const updatePostsOnClick = () => {
@@ -48,6 +65,38 @@ export const updatePostsOnClick = () => {
   }
 };
 
+export const readingPosts = (querySnapshot) => {
+  const containerHome = document.querySelector('.container-new-post-home');
+  const containerProfile = document.querySelector('.container-new-post-profile');
+  let container = '';
+  if (querySnapshot.empty) {
+    container = containerHome || containerProfile;
+    container.innerHTML = notYetPost;
+  } else {
+    const uid = firebase.auth().currentUser.uid;
+    let postList = '';
+    querySnapshot.forEach((refDoc) => {
+      console.log(querySnapshot);
+      const post = refDoc.data();
+      if (/home/.test(window.location.hash) && post.privacy === '1') {
+        postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
+          post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
+        containerHome.innerHTML = postList;
+      } else if (/profile/.test(window.location.hash)) {
+        if (post.uid === uid) {
+          postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
+            post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
+          containerProfile.innerHTML = postList;
+        }
+      }
+    });
+  }
+  updatePostsOnClick();
+  deletePostsOnClick();
+  btnLikes();
+  return container;
+};
+
 // FUNCIÓN PARA CREAR POST
 export const createNewPost = (post, privacyPostArea) => {
   const uid = firebase.auth().currentUser.uid;
@@ -64,35 +113,6 @@ export const createNewPost = (post, privacyPostArea) => {
     .catch(() => {
       // console.log(error);
     });
-};
-
-// FUNCIÓN PARA LEER LOS POSTS
-export const readingPosts = (querySnapshot) => {
-  const containerHome = document.querySelector('.container-new-post-home');
-  const containerProfile = document.querySelector('.container-new-post');
-
-  if (querySnapshot.empty) {
-    const container = containerHome || containerProfile;
-    container.innerHTML = notYetPost;
-  } else {
-    const uid = firebase.auth().currentUser.uid;
-    let postList = '';
-    querySnapshot.forEach((refDoc) => {
-      const post = refDoc.data();
-      if (/home/.test(window.location.hash) && post.privacy === '1') {
-        postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
-          post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
-        containerHome.innerHTML = postList;
-      } else if (/profile/.test(window.location.hash)) {
-        postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
-          post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
-        containerProfile.innerHTML = postList;
-      }
-    });
-  }
-  updatePostsOnClick();
-  deletePostsOnClick();
-  btnLikes();
 };
 
 // EVENTOS DEL MODAL

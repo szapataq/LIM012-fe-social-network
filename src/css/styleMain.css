@@ -241,7 +241,7 @@ figure img {
     align-items: center;
 }
 
-.container-new-post {
+.container-new-post-profile {
     width: 100%;
     margin-top: 30px;
 }
@@ -722,7 +722,7 @@ body::-webkit-scrollbar-track:active {
         padding: 7px;
     }
 
-    .container-new-post {
+    .container-new-post-profile {
         margin-top: 20px;
     }
 

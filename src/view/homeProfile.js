@@ -139,7 +139,7 @@ export default () => {
     </div>
   </div>`;
 
-  const commentPost = `
+  /* const commentPost = `
   <div class="each-post">
   <div class="title-new-post">
     <img src="" alt="" class="user-foto">
@@ -164,29 +164,29 @@ export default () => {
   </div>
 </div>
   <div class="new-comment">
-  <img src="./img/user.png" alt="" class="user-comment">
-  <input type="text" placeholder="Agrega un comentario...">
-  <img src="./img/icon-send.png" alt="" class="icon-send">
-</div>
-  <div class="container-comments">
-  <div class="name-comment">
     <img src="./img/user.png" alt="" class="user-comment">
-    <div>
-      <h4>Juan Jose Gallegos Valdivia</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem autem illo fugit, voluptate
-      laborum possimus in quia, aut nesciunt alias voluptatem? Animi amet dolorum labore! Exercitationem
-      rem asperiores quo maxime.
-      </p>
-    </div>
-    <div class="simulator-select">
-      <span><i class="fas fa-ellipsis-v"></i></span>
-      <ul>
-        <li>✎ Editar</li>
-        <li>✖ Eliminar</li>
-      </ul>
-    </div>
+    <input type="text" placeholder="Agrega un comentario...">
+    <img src="./img/icon-send.png" alt="" class="icon-send">
   </div>
-</div>`;
+  <div class="container-comments">
+    <div class="name-comment">
+       <img src="./img/user.png" alt="" class="user-comment">
+         <div>
+           <h4>Juan Jose Gallegos Valdivia</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem autem illo fugit, voluptate
+  laborum possimus in quia, aut nesciunt alias voluptatem? Animi amet dolorum labore! Exercitationem
+           rem asperiores quo maxime.
+           </p>
+         </div>
+         <div class="simulator-select">
+           <span><i class="fas fa-ellipsis-v"></i></span>
+           <ul>
+             <li>✎ Editar</li>
+             <li>✖ Eliminar</li>
+           </ul>
+         </div>
+   </div>
+</div>`; */
 
   // CREANDO EL CONTENEDOR DE LOS TEMPLATES
   const sectionMain = document.createElement('section');

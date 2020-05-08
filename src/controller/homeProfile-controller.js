@@ -61,4 +61,3 @@ export const btnLikes = () => {
     }
   }, 1000);
 };
-

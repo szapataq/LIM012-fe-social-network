@@ -455,10 +455,15 @@ header label:hover {
     margin: 0 10px;
 }
 
-/* .textPost:focus {
-    outline: darkgreen;
-    border: solid 3px #C83DE5;
-} */
+.text-post {
+    display: flex;
+    flex-direction: row;
+}
+
+.save {
+    margin: auto auto 0 12px;
+    cursor: pointer;
+}
 
 @media (max-width:768px) {
 

@@ -13,6 +13,7 @@ import {
   btnLikes,
 } from './homeProfile-controller.js';
 
+// FUNCIÓN PARA BORRAR EL TEXTO DEL POST
 const deletePostsOnClick = () => {
   const iconDelete = document.querySelectorAll('.delete-post');
   if (iconDelete.length) {

@@ -110,26 +110,7 @@ export default () => {
         <div class="coder-header">
           <p>&lt; Coders /&gt;</p>
         </div>
-        <div class="container-coders">
-          <div class="info-coder">
-            <img src="./img/user.png" class="user-comment">
-            <div class="name-ocupation">
-              <div class="comun-coders">
-                <p>Juan Jose Gallegos Valdivia</p>
-              </div>
-              <p>&lt;/&gt;Developer</p>
-            </div>
-          </div>
-          <div class="info-coder">
-            <img src="./img/user.png" class="user-comment">
-            <div class="name-ocupation">
-              <div class="comun-coders">
-                <p>Isabel Angelica Lucia Paredes Apaza</p>
-              </div>
-              <p>&lt;/&gt;Developer</p>
-            </div>
-          </div>
-        </div>
+        <div class="container-coders"></div>
       </div>
     </div>
 
@@ -187,7 +168,7 @@ export default () => {
     </div>
   </div>
 </div>`;
-
+  const comentario = document.querySelector('.each-post');
   // CREANDO EL CONTENEDOR DE LOS TEMPLATES
   const sectionMain = document.createElement('section');
   sectionMain.className = 'section-main';

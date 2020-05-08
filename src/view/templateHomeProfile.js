@@ -195,8 +195,56 @@ export const templateCoders = (photoUrl, names, about) => `
   </div>`;
 
 // PLANTILLA TODAVÍA NO HAY PUBLICACIONES
-export const notYetPost = `
+/* export const notYetPost = `
 <div class="containerNoPost">
   <p class="noPost">Todavía no hay publicaciones</p>
   <img src="./img/not-yet-post.png" alt="No hay ningún post" class="noPostImg">
+</div>`; */
+export const notYetPost = `
+<div class="each-post">
+  <div class="title-new-post">
+    <img src="" alt="" class="user-foto">
+    <div>
+      <h4></h4>
+      <div class="time">
+        <p></p>
+        <img src="" alt="privacidad">
+      </div>
+    </div>
+  </div>
+  <div class="body-post">
+    <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta,
+      incidunt.</p>
+  </div>
+  <div class="like-comment">
+    <div>
+      <img src="./img/like.png" alt="" class="icon-like">
+      <img src="./img/comment.png" alt="" class="icon-comment">
+    </div>
+    <p>1234 Me Gusta</p>
+  </div>
+</div>
+  <div class="new-comment">
+  <img src="./img/user.png" alt="" class="user-comment">
+  <input type="text" placeholder="Agrega un comentario...">
+  <img src="./img/icon-send.png" alt="" class="icon-send">
+</div>
+  <div class="container-comments">
+  <div class="name-comment">
+    <img src="./img/user.png" alt="" class="user-comment">
+    <div>
+      <h4>Juan Jose Gallegos Valdivia</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem autem illo fugit, voluptate
+      laborum possimus in quia, aut nesciunt alias voluptatem? Animi amet dolorum labore! Exercitationem
+      rem asperiores quo maxime.
+      </p>
+    </div>
+    <div class="simulator-select">
+      <span><i class="fas fa-ellipsis-v"></i></span>
+      <ul>
+        <li>✎ Editar</li>
+        <li>✖ Eliminar</li>
+      </ul>
+    </div>
+  </div>
 </div>`;

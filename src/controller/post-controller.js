@@ -2,17 +2,12 @@ import {
   createPostDB,
   updatePosts,
   deletePosts,
-  createCommentsDB,
 } from '../model/posts-firestore-model.js';
 
 import {
   templatePost,
   notYetPost,
 } from '../view/templateHomeProfile.js';
-
-import {
-  btnLikes,
-} from './homeProfile-controller.js';
 
 // FUNCIÓN PARA BORRAR EL TEXTO DEL POST
 const deletePostsOnClick = () => {
@@ -23,10 +18,8 @@ const deletePostsOnClick = () => {
       objPosts.addEventListener('click', () => {
         const idPosts = objPosts.getAttribute('idpost');
         deletePosts(idPosts)
-          .then(() => {
-          })
-          .catch(() => {
-          });
+          .then(() => {})
+          .catch(() => {});
       });
     });
   }
@@ -67,54 +60,64 @@ export const updatePostsOnClick = () => {
   }
 };
 
-// FUNCIÓN PARA AÑADIR COMENTARIOS
-const addCommentOnClick = () => {
-  const iconComment = document.querySelectorAll('.icon-comment');
-  if (iconComment.length) {
-    console.log(iconComment.length);
-    iconComment.forEach((objPosts) => {
-      objPosts.addEventListener('click', () => {
-        const idpost = objPosts.getAttribute('idpost');
-        createCommentsDB(idpost, 'str', 'str', 'str', 'holaaa')
-          .then((res) => {
-            console.log(res);
-          })
-          .catch(() => {
-          });
+const btnLikes = () => {
+  const interval = setInterval(() => {
+    const svgIcons = document.querySelectorAll('.iconLike');
+    if (svgIcons.length) {
+      clearInterval(interval);
+      svgIcons.forEach((svgIcon) => {
+        // eslint-disable-next-line no-undef
+        const burst = new mojs.Burst({
+          count: 20,
+          left: (svgIcon.getBoundingClientRect().left + (svgIcon.clientWidth / 2)),
+          top: (svgIcon.getBoundingClientRect().top + (svgIcon.clientHeight / 2)),
+          children: {
+            shape: ['circle', 'polygon', 'rect'],
+            fill: ['#6886c5', '#ffe0ac', '#ffacb7'],
+            degreeShift: 'rand(-360, 360)',
+            delay: 'stagger(0,30)',
+          },
+          duration: 400,
+        });
+        svgIcon.addEventListener('click', (e) => {
+          e.currentTarget.classList.toggle('svg-filled');
+          burst.replay();
+        });
       });
-    });
-  }
+    }
+  }, 1000);
 };
 
 export const readingPosts = (querySnapshot) => {
-  const containerHome = document.querySelector('.container-new-post-home');
-  const containerProfile = document.querySelector('.container-new-post-profile');
-  let container = '';
+  const container = document.querySelector('.container-new-post-home') || document.querySelector('.container-new-post-profile');
   if (querySnapshot.empty) {
-    container = containerHome || containerProfile;
     container.innerHTML = notYetPost;
   } else {
     const uid = firebase.auth().currentUser.uid;
-    let postList = '';
+    container.innerHTML = '';
     querySnapshot.forEach((refDoc) => {
       console.log(querySnapshot);
       const post = refDoc.data();
       if (/home/.test(window.location.hash) && post.privacy === '1') {
-        postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
-          post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
-        containerHome.innerHTML = postList;
+        const divPost = templatePost(post.profilePicture, post.names, post.privacy, post.date,
+          post.post, post.photo, post.likes, refDoc.id, uid, post.uid);
+        container.appendChild(divPost);
       } else if (/profile/.test(window.location.hash)) {
         if (post.uid === uid) {
-          postList += templatePost(post.profilePicture, post.names, post.privacy, post.date,
-            post.post, post.photo, post.likes, post.comments, refDoc.id, uid, post.uid);
-          containerProfile.innerHTML = postList;
+          const divPost = templatePost(post.profilePicture, post.names, post.privacy, post.date,
+            post.post, post.photo, post.likes, refDoc.id, uid, post.uid);
+          container.appendChild(divPost);
         }
       }
     });
   }
+
+  if (container.innerHTML === '') {
+    container.innerHTML = notYetPost;
+  }
+
   updatePostsOnClick();
   deletePostsOnClick();
-  addCommentOnClick();
   btnLikes();
   return container;
 };

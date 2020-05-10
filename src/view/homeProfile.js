@@ -110,13 +110,22 @@ export default () => {
         <div class="coder-header">
           <p>&lt; Coders /&gt;</p>
         </div>
-        <div class="container-coders"></div>
+        <div class="container-coders">
+          <div class="charging">
+            <img src="./img/cat-charging.gif">
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="container-post">
-      <div class = "change-post">${changeViewPost()}</div>
+      <div class = "change-post">
+        ${changeViewPost()}
+      </div>
       ${changeContainerPosts()}
+      <div class="charging">
+        <img src="./img/cat-charging.gif">
+      </div>
     </div>
   </div>`;
 
@@ -133,7 +142,7 @@ export default () => {
   // PARA MOSTRAR TODOS LOS POSTS
   readPostDB(readingPosts);
 
-  // PARA ELIMINAR LA IMG CARGADA EN EL POST
+  // EVENTO PARA ELIMINAR LA IMG CARGADA EN EL POST
   const btnDeleteImg = sectionMain.querySelector('.deleteImg');
   if (btnDeleteImg) {
     btnDeleteImg.addEventListener('click', () => {
@@ -142,7 +151,7 @@ export default () => {
     });
   }
 
-  // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
+  // EVENTO COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
   const btnSharePost = sectionMain.querySelector('#btnSharePost');
 
   if (btnSharePost) {
@@ -167,7 +176,7 @@ export default () => {
     });
   }
 
-  // FUNCIÓN PARA CERRAR SESIÓN
+  // EVENTO PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');
 
   if (btnLogOut) {
@@ -176,7 +185,7 @@ export default () => {
     });
   }
 
-  // FUNCIÓN PARA SUBIR LAS IMAGENES EN LOS POSTS
+  // EVENTO PARA SUBIR LAS IMAGENES EN LOS POSTS
   const bntImgPost = sectionMain.querySelector('#photoPost');
 
   if (bntImgPost) {
@@ -207,7 +216,7 @@ export default () => {
     });
   }
 
-  // FUNCIÓN PARA TOMAR EL VALOR DEL SELECT PRIVACIDAD
+  // EVETNO PARA TOMAR EL VALOR DEL SELECT PRIVACIDAD
   const selectPrivacy = sectionMain.querySelector('#privacyPostArea');
   if (selectPrivacy) {
     selectPrivacy.addEventListener(('change'), () => {
@@ -218,5 +227,9 @@ export default () => {
       }
     });
   }
+  // EVENTO PARA AÑADIR COMENTARIOS
+  // const intComment = setInterval(() => {
+  // }, 1000);
+
   return sectionMain;
 };

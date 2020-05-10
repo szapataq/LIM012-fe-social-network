@@ -39,7 +39,6 @@ export const createPostDB = (uid, names, profilePicture, post, imgPost, privacy)
   date: datePostDB(),
   orderDate: orderDate(),
   likes: 0,
-  comments: [],
 });
 
 // READ POSTS
@@ -50,7 +49,26 @@ export const readPostDB = (callback) => {
 };
 
 // UPDATE POSTS
-export const updatePosts = (idpost, textPost) => firebase.firestore().collection('posts').doc(idpost).update({ post: textPost });
+export const updatePosts = (idpost, textPost) => firebase.firestore().collection('posts').doc(idpost).update({
+  post: textPost,
+});
 
 // DELETE POSTS
 export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();
+
+// CREATE COMMENTS
+export const createCommentsDB = (idPost, names, profilePicture, comment) => firebase.firestore().collection('comments').add({
+  idPost,
+  names,
+  profilePicture,
+  comment,
+  date: datePostDB(),
+  orderDate: orderDate(),
+});
+
+// READ POSTS
+export const readCommentsDB = (callback) => {
+  firebase.firestore().collection('comments')
+    .orderBy('orderDate', 'desc')
+    .onSnapshot(callback);
+};

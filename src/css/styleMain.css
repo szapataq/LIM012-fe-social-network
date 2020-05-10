@@ -373,10 +373,6 @@ figure img {
     border-bottom: solid 1px #CCCCCC;
 }
 
-.noBorder {
-    border-bottom: none;
-}
-
 .new-comment input {
     width: 85%;
     padding: 0px 10px;

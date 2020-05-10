@@ -210,7 +210,6 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       const areaComments = eachPost.querySelector('.container-comments');
       if (addNewComment) {
         addNewComment.classList.toggle('hide');
-        addNewComment.classList.toggle('noBorder');
       }
       if (areaComments) areaComments.classList.toggle('hide');
     });
@@ -234,8 +233,6 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       } else {
         createNewComment(id, commentValue);
         varComment.value = '';
-        iconSendComment.classList.remove('activeSend');
-        addNewComment.classList.remove('noBorder');
       }
     });
   }

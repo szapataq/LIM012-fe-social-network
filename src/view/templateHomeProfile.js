@@ -188,11 +188,11 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
           d="M35.3 35.6c-9.2 8.2-9.8 8.9-11.3 8.9s-2.1-.7-11.3-8.9C6.5 30.1.5 25.6.5 17.8.5 9.9 6.4 3.5 13.7 3.5 20.8 3.5 24 8.8 24 8.8s3.2-5.3 10.3-5.3c7.3 0 13.2 6.4 13.2 14.3 0 7.8-6.1 12.3-12.2 17.8z"
           fill-rule="evenodd" />
        </svg>
-        <img src="./img/comment.png" alt="" class="icon-comment">
+        <img src="./img/comment.png" alt="ícono comentarios" class="icon-comment">
       </div>
-      <p>${likes} Me Gusta ${0} Comentarios</p>
+      <p>${likes} Me Gusta <span class="numComments-${id}">0</span> Comentarios</p>
     </div>
-    <div>
+    <div class="hide areaAddComment">
       <div class="new-comment">
         <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
         <input type="text" placeholder="Agrega un comentario..." class="inputComment">
@@ -202,7 +202,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
           <p></p>
         </div>
     </div>
-    <div id="containerComment-${id}" class="container-comments"></div>`;
+    <div id="containerComment-${id}" class="hide container-comments"></div>`;
 
   eachPost.innerHTML = template;
 
@@ -210,7 +210,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
   if (iconSendComment) {
     iconSendComment.addEventListener('click', () => {
       const varComment = eachPost.querySelector('.inputComment');
-      const commentValue = varComment.value;
+      const commentValue = varComment.value.trim();
       if (!commentValue) {
         const inputComment = eachPost.querySelector('.new-comment');
         const emptyComment = eachPost.querySelector('#emptyComment');
@@ -229,6 +229,17 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
   }
 
   readCommentsDB(readingComment);
+
+  // EVENTO PARA DESPLEGAR EL ÁREA DE COMENTARIOS
+  const iconComment = eachPost.querySelector('.icon-comment');
+  if (iconComment) {
+    iconComment.addEventListener('click', () => {
+      const areaAddComment = eachPost.querySelector('.areaAddComment');
+      const areaComments = eachPost.querySelector('.container-comments');
+      if (areaAddComment) areaAddComment.classList.toggle('hide');
+      if (areaComments) areaComments.classList.toggle('hide');
+    });
+  }
 
   return eachPost;
 };

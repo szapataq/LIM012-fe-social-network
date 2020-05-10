@@ -465,10 +465,6 @@ header label:hover {
     align-items: center;
 }
 
-.noBorder {
-    border-bottom: none !important;
-}
-
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

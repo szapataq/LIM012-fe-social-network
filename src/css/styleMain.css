@@ -451,11 +451,11 @@ figure img {
 .icon-send {
     width: 28px;
     height: 28px;
-    cursor: pointer;
 }
 
 .activeSend {
     fill: #333333 !important;
+    cursor: pointer;
 }
 
 .p-comment {

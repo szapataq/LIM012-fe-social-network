@@ -30,7 +30,6 @@ export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}
 export const postArea = `
   <div class="new-post">
     <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
-    <p class="hide emptyPost" id="emptyPost"></p>
     <div class="containerProgress">
       <div class="progress"></div>
     </div>
@@ -71,7 +70,6 @@ export const postHomeMobile = () => `
     </div>
     <div class="new-post">
       <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
-      <p class="hide emptyPost" id="emptyPost"></p>
       <div class="hide divImg">
       <span class="deleteImg">❌</span>
       <img class="picPost"/>
@@ -196,7 +194,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       <div class="new-comment">
         <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
         <input type="text" placeholder="Agrega un comentario..." class="inputComment">
-        <img src="./img/icon-send.png" alt="enviar" class="icon-send">
+        <svg aria-label="Compartir publicación" class="icon-send _8-yf5 " fill="#333" height="24" viewBox="0 0 48 48" width="24"><path d="M46.5 3.5h-45C.6 3.5.2 4.6.8 5.2l16 15.8 5.5 22.8c.2.9 1.4 1 1.8.3L47.4 5c.4-.7-.1-1.5-.9-1.5zm-40.1 3h33.5L19.1 18c-.4.2-.9.1-1.2-.2L6.4 6.5zm17.7 31.8l-4-16.6c-.1-.4.1-.9.5-1.1L41.5 9 24.1 38.3z"></path><path d="M14.7 48.4l2.9-.7"></path></svg>
         </div>
         <div id="emptyComment" class="hide emptyPost empCom">
           <p></p>

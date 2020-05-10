@@ -449,6 +449,7 @@ figure img {
 }
 
 .icon-send {
+    fill: #b1b1b1;
     width: 28px;
     height: 28px;
     cursor: pointer;

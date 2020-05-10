@@ -364,7 +364,7 @@ header label:hover {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .containerProgress {
@@ -463,6 +463,10 @@ header label:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.noBorder {
+    border-bottom: none !important;
 }
 
 @media (max-width:768px) {

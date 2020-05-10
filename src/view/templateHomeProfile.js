@@ -188,21 +188,33 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
        </svg>
         <img src="./img/comment.png" alt="ícono comentarios" class="icon-comment">
       </div>
-      <p>${likes} Me Gusta <span class="numComments-${id}">0</span> Comentarios</p>
+      <p>${likes} Me Gusta <span class="numComments-${id}">0 Comentarios</span></p>
     </div>
-    <div class="hide areaAddComment">
-      <div class="new-comment">
-        <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
-        <input type="text" placeholder="Agrega un comentario..." class="inputComment">
-        <svg aria-label="Compartir publicación" class="icon-send _8-yf5 " fill="#b1b1b1" height="24" viewBox="0 0 48 48" width="24"><path d="M46.5 3.5h-45C.6 3.5.2 4.6.8 5.2l16 15.8 5.5 22.8c.2.9 1.4 1 1.8.3L47.4 5c.4-.7-.1-1.5-.9-1.5zm-40.1 3h33.5L19.1 18c-.4.2-.9.1-1.2-.2L6.4 6.5zm17.7 31.8l-4-16.6c-.1-.4.1-.9.5-1.1L41.5 9 24.1 38.3z"></path><path d="M14.7 48.4l2.9-.7"></path></svg>
-        </div>
+    <div class="hide new-comment">
+      <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
+      <input type="text" placeholder="Agrega un comentario..." class="inputComment">
+      <svg aria-label="Compartir publicación" class="icon-send _8-yf5 " fill="#b1b1b1" height="24" viewBox="0 0 48 48" width="24"><path d="M46.5 3.5h-45C.6 3.5.2 4.6.8 5.2l16 15.8 5.5 22.8c.2.9 1.4 1 1.8.3L47.4 5c.4-.7-.1-1.5-.9-1.5zm-40.1 3h33.5L19.1 18c-.4.2-.9.1-1.2-.2L6.4 6.5zm17.7 31.8l-4-16.6c-.1-.4.1-.9.5-1.1L41.5 9 24.1 38.3z"></path><path d="M14.7 48.4l2.9-.7"></path></svg>
     </div>
     <div id="containerComment-${id}" class="hide container-comments"></div>`;
 
   eachPost.innerHTML = template;
 
   const varComment = eachPost.querySelector('.inputComment');
+  const addNewComment = eachPost.querySelector('.new-comment');
   const iconSendComment = eachPost.querySelector('.icon-send');
+
+  // EVENTO PARA DESPLEGAR EL ÁREA DE COMENTARIOS
+  const iconComment = eachPost.querySelector('.icon-comment');
+  if (iconComment) {
+    iconComment.addEventListener('click', () => {
+      const areaComments = eachPost.querySelector('.container-comments');
+      if (addNewComment) {
+        addNewComment.classList.toggle('hide');
+        addNewComment.classList.toggle('noBorder');
+      }
+      if (areaComments) areaComments.classList.toggle('hide');
+    });
+  }
 
   if (varComment) {
     varComment.addEventListener('keyup', () => {
@@ -214,32 +226,21 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
     });
   }
 
-
   if (iconSendComment) {
     iconSendComment.addEventListener('click', () => {
       const commentValue = varComment.value.trim();
       if (!commentValue) {
-      // iconSendComment.setAttribute('disabled', true);
+        // iconSendComment.setAttribute('disabled', true);
       } else {
         createNewComment(id, commentValue);
         varComment.value = '';
         iconSendComment.classList.remove('activeSend');
+        addNewComment.classList.remove('noBorder');
       }
     });
   }
 
   readCommentsDB(readingComment);
-
-  // EVENTO PARA DESPLEGAR EL ÁREA DE COMENTARIOS
-  const iconComment = eachPost.querySelector('.icon-comment');
-  if (iconComment) {
-    iconComment.addEventListener('click', () => {
-      const areaAddComment = eachPost.querySelector('.areaAddComment');
-      const areaComments = eachPost.querySelector('.container-comments');
-      if (areaAddComment) areaAddComment.classList.toggle('hide');
-      if (areaComments) areaComments.classList.toggle('hide');
-    });
-  }
 
   return eachPost;
 };

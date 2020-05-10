@@ -193,7 +193,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       <p>${likes} Me Gusta ${0} Comentarios</p>
     </div>
     <div class="new-comment">
-      <img src="./img/user.png" alt="" class="user-comment">
+      <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
       <input id="inputComment-${id}" type="text" placeholder="Agrega un comentario..." class="inputComment">
       <img src="./img/icon-send.png" alt="enviar" class="icon-send">
     </div>

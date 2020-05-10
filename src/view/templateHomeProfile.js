@@ -192,20 +192,39 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       </div>
       <p>${likes} Me Gusta ${0} Comentarios</p>
     </div>
-    <div class="new-comment">
-      <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
-      <input id="inputComment-${id}" type="text" placeholder="Agrega un comentario..." class="inputComment">
-      <img src="./img/icon-send.png" alt="enviar" class="icon-send">
+    <div>
+      <div class="new-comment">
+        <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
+        <input type="text" placeholder="Agrega un comentario..." class="inputComment">
+        <img src="./img/icon-send.png" alt="enviar" class="icon-send">
+        </div>
+        <div id="emptyComment" class="hide emptyPost empCom">
+          <p></p>
+        </div>
     </div>
-    <div id="containerComment-${id}" class="container-comments">
-   </div>`;
+    <div id="containerComment-${id}" class="container-comments"></div>`;
 
   eachPost.innerHTML = template;
 
   const iconSendComment = eachPost.querySelector('.icon-send');
   if (iconSendComment) {
     iconSendComment.addEventListener('click', () => {
-      createNewComment(id);
+      const varComment = eachPost.querySelector('.inputComment');
+      const commentValue = varComment.value;
+      if (!commentValue) {
+        const inputComment = eachPost.querySelector('.new-comment');
+        const emptyComment = eachPost.querySelector('#emptyComment');
+        inputComment.classList.add('noBorder');
+        emptyComment.classList.remove('hide');
+        emptyComment.innerText = '👀 Parece que tu comentario está vacío. 👆';
+        setTimeout(() => {
+          inputComment.classList.remove('noBorder');
+          emptyComment.classList.add('hide');
+        }, 1000);
+      } else {
+        createNewComment(id, commentValue);
+        varComment.value = '';
+      }
     });
   }
 
@@ -222,7 +241,7 @@ export const templateCoders = (photoUrl, names, about) => `
       <div class="comun-coders">
         <p>${names}</p>
       </div>
-      <p>&lt;/&gt;${about}</p>
+      <p class="dev">&lt;/&gt;${about}</p>
     </div>
   </div>`;
 

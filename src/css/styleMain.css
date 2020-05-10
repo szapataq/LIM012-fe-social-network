@@ -151,9 +151,11 @@ figure img {
     padding: 0 5px;
 }
 
+.dev {
+    font-weight: 600;
+}
+
 .container-post {
-    /* margin-left: auto;
-    margin-right: auto; */
     border-radius: 8px;
     margin: 10px 50px auto 20px;
     width: 800px;
@@ -389,7 +391,7 @@ figure img {
     padding: 5px 10px;
     text-align: left;
     font-size: 15px;
-    border-bottom: solid 1px #CCCCCC;
+    /* border-bottom: solid 1px #CCCCCC; */
     position: relative;
 }
 
@@ -444,6 +446,10 @@ figure img {
     width: 28px;
     height: 28px;
     cursor: pointer;
+}
+
+.p-comment {
+    margin-top: 1.2%;
 }
 
 .own-post {
@@ -751,12 +757,9 @@ body::-webkit-scrollbar-track:active {
     }
 
     .name-comment {
-        padding: 5px 10px;
+        /* padding: 5px 10px; */
+        padding: 10px;
     }
-
-    /* .coder-information {
-        display: none;
-    } */
 
     .user-data {
         margin-bottom: 2em;

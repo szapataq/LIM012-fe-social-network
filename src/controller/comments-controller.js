@@ -8,13 +8,11 @@ import {
 } from '../view/templateComment.js';
 
 // FUNCIÓN PARA CREAR COMENTARIO
-export const createNewComment = (idPost) => {
+export const createNewComment = (idPost, comment) => {
   const names = localStorage.getItem('userName');
   const profilePic = localStorage.getItem('userProfileImg');
-  const varComment = document.querySelector(`#inputComment-${idPost}`);
-  const commentValue = varComment.value;
 
-  createCommentsDB(idPost, names, profilePic, commentValue)
+  return createCommentsDB(idPost, names, profilePic, comment)
     .then((res) => {
       console.log(res.id);
     })

@@ -62,6 +62,7 @@ export const createCommentsDB = (idPost, names, profilePicture, comment) => fire
   names,
   profilePicture,
   comment,
+  date: datePostDB(),
   orderDate: orderDate(),
 });
 

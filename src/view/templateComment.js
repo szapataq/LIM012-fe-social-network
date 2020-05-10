@@ -1,4 +1,4 @@
-export const templateComment = (names, profilePicture, comment) => {
+export const templateComment = (names, profilePicture, comment, date) => {
   const containerComments = document.createElement('div');
   containerComments.className = 'name-comment';
 
@@ -6,6 +6,7 @@ export const templateComment = (names, profilePicture, comment) => {
      <img src="${profilePicture}" alt="" class="user-comment">
      <div>
        <h4 class="nameUser">${names}</h4>
+       <p class="dateComment">${date}</p>
        <p class="p-comment">${comment}</p>
      </div>
      <div class="simulator-select">

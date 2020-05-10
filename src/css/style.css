@@ -465,6 +465,11 @@ header label:hover {
     cursor: pointer;
 }
 
+.dateComment {
+    color: #757575;
+    font-size: 12px;
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

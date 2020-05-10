@@ -37,7 +37,7 @@ export const readingComment = (querySnapshot) => {
         const comment = refDoc.data();
         if (id === comment.idPost) {
           const divComment = templateComment(comment.names,
-            comment.profilePicture, comment.comment);
+            comment.profilePicture, comment.comment, comment.date);
           container.appendChild(divComment);
         }
       });

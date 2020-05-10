@@ -29,17 +29,6 @@
 
 /*----------------ESTILOS DEL MENU DESPLEGABLE----------------*/
 
-/* header {
-    width: 100%;
-    background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%); */
-/*position: fixed;*/
-/* z-index: 1;
-} */
-
-/* header>* {
-    padding: 0;
-} */
-
 header {
     width: 100%;
     background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%);

@@ -34,6 +34,9 @@ export const readingComment = (querySnapshot) => {
       querySnapshot.forEach((refDoc) => {
         const comment = refDoc.data();
         if (id === comment.idPost) {
+          const numComments = document.querySelector(`.numComments-${id}`);
+          numComments.innerText = parseInt(numComments.innerText, 0) + 1;
+          console.log(`id post ${comment.idPost} - id: ${id} - contador: ${numComments.innerText}`);
           const divComment = templateComment(comment.names,
             comment.profilePicture, comment.comment, comment.date);
           container.appendChild(divComment);

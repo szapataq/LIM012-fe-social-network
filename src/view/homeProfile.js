@@ -191,36 +191,54 @@ export default () => {
   // PARA MOSTRAR TODOS LOS POSTS
   readPostDB(readingPosts);
 
+  const photoPost = sectionMain.querySelector('#photoPost');
+  const btnSharePost = sectionMain.querySelector('#btnSharePost');
+
   // EVENTO PARA ELIMINAR LA IMG CARGADA EN EL POST
   const btnDeleteImg = sectionMain.querySelector('.deleteImg');
   if (btnDeleteImg) {
     btnDeleteImg.addEventListener('click', () => {
       sessionStorage.removeItem('imgNewPost');
       btnDeleteImg.parentNode.classList.add('hide');
+      btnSharePost.classList.remove('btnShareActive');
     });
   }
 
   // EVENTO COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
-  const btnSharePost = sectionMain.querySelector('#btnSharePost');
+  const post = sectionMain.querySelector('#postArea');
+  if (post) {
+    post.addEventListener('keyup', () => {
+      if (post.value) {
+        btnSharePost.classList.add('btnShareActive');
+      } else {
+        btnSharePost.classList.remove('btnShareActive');
+      }
+    });
+  }
+
+  if (photoPost) {
+    photoPost.addEventListener('change', (e) => {
+      if (e.target.files[0]) {
+        btnSharePost.classList.add('btnShareActive');
+      } else {
+        btnSharePost.classList.remove('btnShareActive');
+      }
+    });
+  }
 
   if (btnSharePost) {
     btnSharePost.addEventListener(('click'), () => {
-      const post = sectionMain.querySelector('#postArea');
       const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
-      const postContent = post.value;
+      const postContent = post.value.trim();
       const privacyPost = privacyPostArea.value;
 
       if (!postContent && !sessionStorage.getItem('imgNewPost')) {
-        const emptyPostMessage = document.querySelector('#emptyPost');
-        emptyPostMessage.classList.remove('hide');
-        emptyPostMessage.innerText = '👀 Parece que tu post está vacío. 👆';
-        setTimeout(() => {
-          emptyPostMessage.classList.add('hide');
-        }, 1500);
+        // btnSharePost.setAttribute('disabled', true);
       } else {
         createNewPost(postContent, privacyPost);
         if (btnDeleteImg) btnDeleteImg.parentNode.classList.add('hide');
         post.value = '';
+        btnSharePost.classList.remove('btnShareActive');
       }
     });
   }
@@ -276,10 +294,6 @@ export default () => {
       }
     });
   }
-
-  // EVENTO PARA AÑADIR COMENTARIOS
-  // const intComment = setInterval(() => {
-  // }, 1000);
 
   return sectionMain;
 };

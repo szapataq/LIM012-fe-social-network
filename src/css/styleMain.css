@@ -173,17 +173,23 @@ figure img {
 .container-post button {
     width: 110px;
     height: 35px;
-    background: linear-gradient(280.72deg, rgba(186, 12, 223, 0.8) 4.97%, rgba(6, 242, 193, 0.8) 98.41%);
+    background: linear-gradient(280.72deg, rgba(186, 12, 223, 0.30) 4.97%, rgba(6, 242, 193, 0.30) 98.41%);
     border-radius: 20px;
     border: none;
     color: #ffffff;
     font-size: 14px;
     font-weight: bold;
-    cursor: pointer;
     outline: none;
 }
 
-.container-post button:hover {
+/* .container-post button:hover {} */
+
+.btnShareActive {
+    cursor: pointer;
+    background: linear-gradient(280.72deg, rgba(186, 12, 223, 0.8) 4.97%, rgba(6, 242, 193, 0.8) 98.41%) !important;
+}
+
+.btnShareActive:hover {
     box-shadow: inset 2px 4px 4px rgba(0, 0, 0, 0.28), inset 6px 2px 4px rgba(0, 0, 0, 0.25), inset 0px 3px 4px rgba(0, 0, 0, 0.25);
 }
 

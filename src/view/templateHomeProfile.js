@@ -1,6 +1,11 @@
 import {
   createNewComment,
+  readingComment,
 } from '../controller/comments-controller.js';
+
+import {
+  readCommentsDB,
+} from '../model/posts-firestore-model.js';
 
 // PLANTILLA ELEMENTOS DEL MENU DESPLEGABLE (HEADER)
 export const homeHeader = `
@@ -191,7 +196,9 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       <img src="./img/user.png" alt="" class="user-comment">
       <input id="inputComment-${id}" type="text" placeholder="Agrega un comentario..." class="inputComment">
       <img src="./img/icon-send.png" alt="enviar" class="icon-send">
-    </div>`;
+    </div>
+    <div id="containerComment-${id}" class="container-comments">
+   </div>`;
 
   eachPost.innerHTML = template;
 
@@ -202,9 +209,10 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
     });
   }
 
+  readCommentsDB(readingComment);
+
   return eachPost;
 };
-
 
 // PLANTILLA ÁREA DE CODERS
 export const templateCoders = (photoUrl, names, about) => `

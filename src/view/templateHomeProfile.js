@@ -175,9 +175,14 @@ export const templatePost = (photoUrl, names, privacy, date, textPost, imgPost, 
         d="M35.3 35.6c-9.2 8.2-9.8 8.9-11.3 8.9s-2.1-.7-11.3-8.9C6.5 30.1.5 25.6.5 17.8.5 9.9 6.4 3.5 13.7 3.5 20.8 3.5 24 8.8 24 8.8s3.2-5.3 10.3-5.3c7.3 0 13.2 6.4 13.2 14.3 0 7.8-6.1 12.3-12.2 17.8z"
         fill-rule="evenodd" />
      </svg>
-      <img src="./img/comment.png" idpost="${id}" alt="" class="icon-comment">
+      <img src="./img/comment.png"  alt="" class="icon-comment">
     </div>
     <p>${likes} Me Gusta ${comments.length} Comentarios</p>
+  </div>
+  <div class="new-comment">
+    <img src="${photoUrl}" alt="" class="user-comment">
+    <input type="text" placeholder="Agrega un comentario...">
+    <img src="./img/icon-send.png" idpost="${id}" alt="" class="icon-send">
   </div>
 </div>`;
 
@@ -200,6 +205,7 @@ export const templateCoders = (photoUrl, names, about) => `
   <p class="noPost">Todavía no hay publicaciones</p>
   <img src="./img/not-yet-post.png" alt="No hay ningún post" class="noPostImg">
 </div>`; */
+
 export const notYetPost = `
 <div class="each-post">
   <div class="title-new-post">
@@ -225,10 +231,10 @@ export const notYetPost = `
   </div>
 </div>
   <div class="new-comment">
-  <img src="./img/user.png" alt="" class="user-comment">
-  <input type="text" placeholder="Agrega un comentario...">
-  <img src="./img/icon-send.png" alt="" class="icon-send">
-</div>
+    <img src="./img/user.png" alt="" class="user-comment">
+    <input type="text" placeholder="Agrega un comentario...">
+    <img src="./img/icon-send.png" alt="" class="icon-send">
+  </div>
   <div class="container-comments">
   <div class="name-comment">
     <img src="./img/user.png" alt="" class="user-comment">

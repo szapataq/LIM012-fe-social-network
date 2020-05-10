@@ -54,13 +54,3 @@ export const updatePosts = (idpost, textPost) => firebase.firestore().collection
 
 // DELETE POSTS
 export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();
-
-// CREATE COMMENTS
-export const createCommentsDB = (idPost, uid, names, profilePicture, comment) => firebase.firestore().collection('posts').doc(idPost).update({
-  comments: firebase.firestore.FieldValue.arrayUnion({
-    uid,
-    names,
-    profilePicture,
-    comment,
-  }),
-});

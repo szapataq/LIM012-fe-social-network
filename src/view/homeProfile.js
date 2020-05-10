@@ -218,6 +218,5 @@ export default () => {
       }
     });
   }
-
   return sectionMain;
 };

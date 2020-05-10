@@ -298,9 +298,8 @@ figure img {
     color: #333333;
 }
 .hide{
-    display:none
+    display:none;
 }
-    
 
 .body-post {
     padding: 15px 20px;
@@ -374,7 +373,8 @@ figure img {
 }
 
 .user-comment {
-    width: 50px;
+    width: 40px;
+    margin-right: 5px;
     height: 50%;
     border-radius: 5em;
 }

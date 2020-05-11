@@ -41,11 +41,30 @@ export const createPostDB = (uid, names, profilePicture, post, imgPost, privacy)
   likes: [],
 });
 
-// READ POSTS
-export const readPostDB = (callback) => {
-  firebase.firestore().collection('posts')
+// READ POSTS HOME
+export const readPostHome = (callback) => {
+  firebase.firestore().collection('posts').where('privacy', '==', '1')
     .orderBy('orderDate', 'desc')
-    .onSnapshot(callback);
+    .onSnapshot((querySanpshot) => {
+      const post = [];
+      querySanpshot.forEach((doc) => {
+        post.push({ id: doc.id, ...doc.data() });
+      });
+      callback(post);
+    });
+};
+
+// READ POSTS HOME
+export const readPostProfile = (callback, uid) => {
+  firebase.firestore().collection('posts').where('uid', '==', uid)
+    .orderBy('orderDate', 'desc')
+    .onSnapshot((querySanpshot) => {
+      const post = [];
+      querySanpshot.forEach((doc) => {
+        post.push({ id: doc.id, ...doc.data() });
+      });
+      callback(post);
+    });
 };
 
 // UPDATE POSTS

@@ -15,11 +15,15 @@ import {
 
 import {
   createNewPost,
-  readingPosts,
+  // readingPosts,
+  publicPosts,
+  postProfile,
 } from '../controller/post-controller.js';
 
 import {
-  readPostDB,
+  // readPostDB,
+  readPostProfile,
+  readPostHome,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -140,7 +144,9 @@ export default () => {
   codersArea();
 
   // PARA MOSTRAR TODOS LOS POSTS
-  readPostDB(readingPosts);
+  // readPostDB(readingPosts);
+  readPostHome(publicPosts);
+  readPostProfile(postProfile, firebase.auth().currentUser.uid);
 
   const photoPost = sectionMain.querySelector('#photoPost');
   const btnSharePost = sectionMain.querySelector('#btnSharePost');

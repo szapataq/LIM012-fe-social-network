@@ -12,10 +12,12 @@ const changeView = (route) => {
     case '#/signup': mainContainer.appendChild(components.logInSignUp());
       break;
     case '#/home':
-    case '#/profile': mainContainer.appendChild(components.homeProfile());
+    case '#/profile':
       firebase.auth().onAuthStateChanged((user) => {
         if (!user) {
           window.location.hash = '#/login';
+        } else {
+          mainContainer.appendChild(components.homeProfile());
         }
       });
       break;

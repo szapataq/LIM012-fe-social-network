@@ -82,14 +82,18 @@ figure img {
     text-transform: full-width;
 }
 
+.editName {
+    width: 95%;
+}
+
 .edit {
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.7em;
+    height: 1.7em;
     cursor: pointer;
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 0.5em;
+    margin-right: 0.4em;
 }
 
 .coder-information {

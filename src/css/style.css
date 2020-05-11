@@ -465,6 +465,18 @@ header label:hover {
     align-items: center;
 }
 
+.iconSave {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 0.5em;
+}
+
+.iconSave i {
+    font-size: 18px;
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

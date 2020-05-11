@@ -21,6 +21,10 @@ import {
 } from '../controller/post-controller.js';
 
 import {
+  updateUserName,
+} from '../controller/userData-controller.js';
+
+import {
   // readPostDB,
   readPostProfile,
   readPostHome,
@@ -250,6 +254,8 @@ export default () => {
       }
     });
   }
+
+  updateUserName(sectionMain);
 
   return sectionMain;
 };

@@ -18,3 +18,8 @@ export const readUserDB = uid => firebase.firestore().collection('users')
 export const readCodersDB = (callback) => {
   firebase.firestore().collection('users').onSnapshot(callback);
 };
+
+// UPDATE USER DATA
+export const updateUserData = (uid, names) => firebase.firestore().collection('users').doc(uid).update({
+  names,
+});

@@ -5,6 +5,8 @@ import {
 
 import {
   readCommentsDB,
+  addLikeArr,
+  removeLikeArr,
 } from '../model/posts-firestore-model.js';
 
 // PLANTILLA ELEMENTOS DEL MENU DESPLEGABLE (HEADER)
@@ -236,6 +238,22 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
         iconSendComment.classList.remove('activeSend');
       }
     });
+  }
+
+  const svgIcon = eachPost.querySelector('.iconLike');
+
+  if (svgIcon) {
+    svgIcon.addEventListener('click', () => {
+      if (likes.includes(uididUser)) {
+        removeLikeArr(id, uididUser);
+      } else {
+        addLikeArr(id, uididUser);
+      }
+    });
+
+    if (likes.includes(uididUser)) {
+      svgIcon.classList.add('svg-filled');
+    }
   }
 
   readCommentsDB(readingComment);

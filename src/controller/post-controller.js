@@ -45,6 +45,8 @@ export const updatePostsOnClick = () => {
       });
     });
   }
+
+  // FUNCIÓN PARA GUARDAR LA ACTUALIZACIÓN DEL POST
   const iconSave = document.querySelectorAll('.save');
   if (iconSave.length) {
     iconSave.forEach((objPosts) => {
@@ -52,6 +54,8 @@ export const updatePostsOnClick = () => {
         evento.preventDefault();
         const idPosts = objPosts.getAttribute('idpost');
         const textPost = document.querySelector(`#textPost-${idPosts}`);
+        textPost.contentEditable = 'false';
+        objPosts.classList.add('hide');
         updatePosts(idPosts, textPost.innerText)
           .then(() => {})
           .catch(() => {});

@@ -188,10 +188,10 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
        </svg>
         <img src="./img/comment.png" alt="ícono comentarios" class="icon-comment">
       </div>
-      <p>${likes} Me Gusta <span class="numComments-${id}">0 Comentarios</span></p>
+      <p>${likes.length} Me Gusta <span class="num numComments-${id}">0 Comentarios</span></p>
     </div>
     <div class="hide new-comment">
-      <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
+      <img src="${localStorage.getItem('userProfileImg')}" alt="usuario" class="user-comment">
       <input type="text" placeholder="Agrega un comentario..." class="inputComment">
       <svg aria-label="Compartir publicación" class="icon-send _8-yf5 " fill="#b1b1b1" height="24" viewBox="0 0 48 48" width="24"><path d="M46.5 3.5h-45C.6 3.5.2 4.6.8 5.2l16 15.8 5.5 22.8c.2.9 1.4 1 1.8.3L47.4 5c.4-.7-.1-1.5-.9-1.5zm-40.1 3h33.5L19.1 18c-.4.2-.9.1-1.2-.2L6.4 6.5zm17.7 31.8l-4-16.6c-.1-.4.1-.9.5-1.1L41.5 9 24.1 38.3z"></path><path d="M14.7 48.4l2.9-.7"></path></svg>
     </div>
@@ -233,6 +233,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       } else {
         createNewComment(id, commentValue);
         varComment.value = '';
+        iconSendComment.classList.remove('activeSend');
       }
     });
   }
@@ -255,57 +256,8 @@ export const templateCoders = (photoUrl, names, about) => `
   </div>`;
 
 // PLANTILLA TODAVÍA NO HAY PUBLICACIONES
-/* export const notYetPost = `
+export const notYetPost = `
 <div class="containerNoPost">
   <p class="noPost">Todavía no hay publicaciones</p>
   <img src="./img/not-yet-post.png" alt="No hay ningún post" class="noPostImg">
-</div>`; */
-
-export const notYetPost = `
-<div class="each-post">
-  <div class="title-new-post">
-    <img src="" alt="" class="user-foto">
-    <div>
-      <h4></h4>
-      <div class="time">
-        <p></p>
-        <img src="" alt="privacidad">
-      </div>
-    </div>
-  </div>
-  <div class="body-post">
-    <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta,
-      incidunt.</p>
-  </div>
-  <div class="like-comment">
-    <div>
-      <img src="./img/like.png" alt="" class="icon-like">
-      <img src="./img/comment.png" alt="" class="icon-comment">
-    </div>
-    <p>1234 Me Gusta</p>
-  </div>
-</div>
-  <div class="new-comment">
-    <img src="./img/user.png" alt="" class="user-comment">
-    <input type="text" placeholder="Agrega un comentario...">
-    <img src="./img/icon-send.png" alt="" class="icon-send">
-  </div>
-  <div class="container-comments">
-  <div class="name-comment">
-    <img src="./img/user.png" alt="" class="user-comment">
-    <div>
-      <h4>Juan Jose Gallegos Valdivia</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem autem illo fugit, voluptate
-      laborum possimus in quia, aut nesciunt alias voluptatem? Animi amet dolorum labore! Exercitationem
-      rem asperiores quo maxime.
-      </p>
-    </div>
-    <div class="simulator-select">
-      <span><i class="fas fa-ellipsis-v"></i></span>
-      <ul>
-        <li>✎ Editar</li>
-        <li>✖ Eliminar</li>
-      </ul>
-    </div>
-  </div>
 </div>`;

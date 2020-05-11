@@ -34,7 +34,7 @@ header {
     background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%);
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 300;
 }
 
 #btnMenu {
@@ -492,7 +492,7 @@ header label:hover {
         width: 40%;
         margin-left: -70%;
         transition: all 0.7s;
-        z-index: 1;
+        z-index: 300;
     }
 
     .menu section {

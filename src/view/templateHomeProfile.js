@@ -235,6 +235,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       } else {
         createNewComment(id, commentValue);
         varComment.value = '';
+        iconSendComment.classList.remove('activeSend');
       }
     });
   }

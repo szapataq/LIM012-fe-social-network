@@ -359,7 +359,11 @@ figure img {
     width: 26px;
     height: 26px;
     cursor: pointer;
-    margin-left: 2.5em;
+    margin-left: 4em;
+}
+
+.num {
+    margin-left: 2em;
 }
 
 .new-comment {

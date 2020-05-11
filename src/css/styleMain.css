@@ -113,6 +113,30 @@ figure img {
     overflow: auto;
 }
 
+.container-coders::-webkit-scrollbar {
+    width: 15px;
+}
+
+.container-coders::-webkit-scrollbar-thumb {
+    background: rgb(138, 136, 136);
+    border-radius: 15px;
+}
+
+.container-coders::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+.container-coders::-webkit-scrollbar-thumb:hover {
+    background: rgb(95, 94, 94);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.container-coders::-webkit-scrollbar-track:hover,
+.container-coders::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
+}
+
 .comun-ocupation {
     display: flex;
     flex-direction: row;

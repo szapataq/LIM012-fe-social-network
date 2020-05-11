@@ -109,6 +109,8 @@ figure img {
 
 .container-coders {
     padding: 10px 10px;
+    height: 210px;
+    overflow: auto;
 }
 
 .comun-ocupation {

@@ -15,8 +15,8 @@ export const templateComment = (names, profilePicture, comment, date, idComment)
      <div class="tooltip-container hide" id="show-toolTip-${idComment}">
       <div class="arrow"></div>
         <div class="tooltip">
-          <div class="opt"> <i class="fas fa-edit icon-tool"></i> <spam>Editar</spam></div>
-          <div class="opt"> <i class="fas fa-trash-alt icon-tool"></i><spam>Eliminar</spam></div>
+          <div class="opt"> <i class="fas fa-edit icon-tool"></i> <span>Editar</span></div>
+          <div idcomment="${idComment}" class="opt del"> <i class="fas fa-trash-alt icon-tool"></i><span>Eliminar</span></div>
         </div>
       </div>`;
 

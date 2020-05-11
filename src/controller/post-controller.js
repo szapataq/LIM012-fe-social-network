@@ -9,6 +9,7 @@ import {
   notYetPost,
 } from '../view/templateHomeProfile.js';
 
+
 // FUNCIÓN PARA BORRAR EL TEXTO DEL POST
 const deletePostsOnClick = () => {
   const iconDelete = document.querySelectorAll('.delete-post');

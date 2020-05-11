@@ -1,6 +1,7 @@
 import {
   createCommentsDB,
   // readCommentsDB,
+  deleteCommentsDB,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -19,6 +20,22 @@ export const createNewComment = (idPost, comment) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+// DELETE COMMENT
+export const deleteCommentOnClick = () => {
+  const iconDelete = document.querySelectorAll('.del');
+  if (iconDelete.length) {
+    iconDelete.forEach((objComment) => {
+      objComment.addEventListener('click', () => {
+        const idcomment = objComment.getAttribute('idcomment');
+        console.log(idcomment);
+        deleteCommentsDB(idcomment)
+          .then(() => {})
+          .catch(() => {});
+      });
+    });
+  }
 };
 
 export const readingComment = (querySnapshot) => {
@@ -50,6 +67,8 @@ export const readingComment = (querySnapshot) => {
       }
     }
   });
+
+  deleteCommentOnClick();
 
   return container;
 };

@@ -73,6 +73,9 @@ export const readCommentsDB = (callback) => {
     .onSnapshot(callback);
 };
 
+// DELETE COMMENTS
+export const deleteCommentsDB = idcomment => firebase.firestore().collection('comments').doc(idcomment).delete();
+
 // ADD LIKE
 export const addLikeArr = (idPost, uid) => (
   firebase.firestore().collection('posts').doc(idPost)

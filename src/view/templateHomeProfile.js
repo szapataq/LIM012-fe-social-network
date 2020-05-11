@@ -4,7 +4,7 @@ import {
 } from '../controller/comments-controller.js';
 
 import {
-  readCommentsDB,
+  readComments,
   addLikeArr,
   removeLikeArr,
 } from '../model/posts-firestore-model.js';
@@ -256,7 +256,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
     }
   }
 
-  readCommentsDB(readingComment);
+  readComments(readingComment, id);
 
   return eachPost;
 };

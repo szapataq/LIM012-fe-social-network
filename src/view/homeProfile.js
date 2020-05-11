@@ -144,7 +144,6 @@ export default () => {
   codersArea();
 
   // PARA MOSTRAR TODOS LOS POSTS
-  // readPostDB(readingPosts);
   readPostHome(publicPosts);
   readPostProfile(postProfile, firebase.auth().currentUser.uid);
 

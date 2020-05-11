@@ -86,10 +86,16 @@ export const createCommentsDB = (idPost, names, profilePicture, comment) => fire
 });
 
 // READ COMMENTS
-export const readCommentsDB = (callback) => {
+export const readComments = (callback, idPost) => {
   firebase.firestore().collection('comments')
     .orderBy('orderDate', 'desc')
-    .onSnapshot(callback);
+    .onSnapshot((querySanpshot) => {
+      const comment = [];
+      querySanpshot.forEach((doc) => {
+        comment.push({ id: doc.id, ...doc.data() });
+      });
+      callback(comment, idPost);
+    });
 };
 
 // DELETE COMMENTS

@@ -92,6 +92,7 @@ const btnLikes = () => {
   }, 1000);
 };
 
+
 export const readingPosts = (querySnapshot) => {
   const container = document.querySelector('.container-new-post-home') || document.querySelector('.container-new-post-profile');
   if (querySnapshot.empty) {
@@ -142,6 +143,7 @@ export const createNewPost = (post, privacyPostArea) => {
       // console.log(error);
     });
 };
+
 
 // EVENTOS DEL MODAL
 const close = document.querySelector('.close');

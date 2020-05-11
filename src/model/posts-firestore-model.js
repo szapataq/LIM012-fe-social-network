@@ -21,7 +21,7 @@ const orderDate = () => {
   const dateNow = new Date();
   const year = dateNow.getFullYear();
   const month = `0${dateNow.getMonth()}`.slice(-2);
-  const day = `0${dateNow.getDay()}`.slice(-2);
+  const day = `0${dateNow.getDate()}`.slice(-2);
   const hour = `0${dateNow.getHours()}`.slice(-2);
   const minute = `0${dateNow.getMinutes()}`.slice(-2);
   const second = `0${dateNow.getSeconds()}`.slice(-2);

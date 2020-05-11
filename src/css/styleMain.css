@@ -397,7 +397,7 @@ figure img {
     /* border-bottom: solid 1px #CCCCCC; */
     position: relative;
 }
-/*-----------ESTILOS PARA TOGGLE DE EDITAR Y ELIMINAR-----------*/
+/*-----------ESTILOS PARA TOGGLE DE EDITAR Y ELIMINAR de cada comentario-----------*/
 .comment{
     position: absolute;
     padding: 0;

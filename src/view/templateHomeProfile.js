@@ -5,6 +5,8 @@ import {
 
 import {
   readCommentsDB,
+  addLikeArr,
+  removeLikeArr,
 } from '../model/posts-firestore-model.js';
 
 // PLANTILLA ELEMENTOS DEL MENU DESPLEGABLE (HEADER)
@@ -188,7 +190,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
        </svg>
         <img src="./img/comment.png" alt="ícono comentarios" class="icon-comment">
       </div>
-      <p>${likes} Me Gusta <span class="numComments-${id}">0 Comentarios</span></p>
+      <p>${likes.length} Me Gusta <span class="numComments-${id}">0 Comentarios</span></p>
     </div>
     <div class="hide new-comment">
       <img src="${localStorage.getItem('userProfileImg')}" alt="" class="user-comment">
@@ -235,6 +237,22 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
         varComment.value = '';
       }
     });
+  }
+
+  const svgIcon = eachPost.querySelector('.iconLike');
+
+  if (svgIcon) {
+    svgIcon.addEventListener('click', () => {
+      if (likes.includes(uididUser)) {
+        removeLikeArr(id, uididUser);
+      } else {
+        addLikeArr(id, uididUser);
+      }
+    });
+
+    if (likes.includes(uididUser)) {
+      svgIcon.classList.add('svg-filled');
+    }
   }
 
   readCommentsDB(readingComment);

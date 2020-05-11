@@ -38,7 +38,7 @@ export const createPostDB = (uid, names, profilePicture, post, imgPost, privacy)
   privacy,
   date: datePostDB(),
   orderDate: orderDate(),
-  likes: 0,
+  likes: [],
 });
 
 // READ POSTS
@@ -66,9 +66,21 @@ export const createCommentsDB = (idPost, names, profilePicture, comment) => fire
   orderDate: orderDate(),
 });
 
-// READ POSTS
+// READ COMMENTS
 export const readCommentsDB = (callback) => {
   firebase.firestore().collection('comments')
     .orderBy('orderDate', 'desc')
     .onSnapshot(callback);
 };
+
+// ADD LIKE
+export const addLikeArr = (idPost, uid) => (
+  firebase.firestore().collection('posts').doc(idPost)
+    .update({ likes: firebase.firestore.FieldValue.arrayUnion(uid) })
+);
+
+// ELIMINAR LIKE
+export const removeLikeArr = (idPost, uid) => (
+  firebase.firestore().collection('posts').doc(idPost)
+    .update({ likes: firebase.firestore.FieldValue.arrayRemove(uid) })
+);

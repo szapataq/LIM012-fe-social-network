@@ -96,7 +96,6 @@ export const readingPosts = (querySnapshot) => {
     const uid = firebase.auth().currentUser.uid;
     container.innerHTML = '';
     querySnapshot.forEach((refDoc) => {
-      console.log(querySnapshot);
       const post = refDoc.data();
       if (/home/.test(window.location.hash) && post.privacy === '1') {
         const divPost = templatePost(post.profilePicture, post.names, post.privacy, post.date,

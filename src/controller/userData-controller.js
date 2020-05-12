@@ -1,6 +1,7 @@
 import {
-  updateUserData,
   readUserDB,
+  updateUserDataName,
+  updateUserDataAbout,
 } from '../model/user-firestore-model.js';
 
 // FUNCIÓN PARA ACTUALIZAR EL NOMBRE DEL USUARIO
@@ -28,7 +29,7 @@ export const updateUserName = (nodo) => {
           userName.contentEditable = 'false';
           iconEdit.classList.remove('hide');
           iconSave.classList.add('hide');
-          updateUserData(user.id, userName.innerText)
+          updateUserDataName(user.id, userName.innerText)
             .then(() => {
               localStorage.setItem('userName', userName.innerText);
               // console.log('Actualizado');
@@ -66,7 +67,7 @@ export const updateUserAbout = (nodo) => {
           userAbout.contentEditable = 'false';
           iconEdit.classList.remove('hide');
           iconSave.classList.add('hide');
-          updateUserData(user.id, userAbout.innerText)
+          updateUserDataAbout(user.id, userAbout.innerText)
             .then(() => {
               localStorage.setItem('userAbout', userAbout.innerText);
               // console.log('Actualizado');

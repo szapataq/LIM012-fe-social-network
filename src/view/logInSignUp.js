@@ -20,9 +20,9 @@ export default () => {
     <section class="index-img-message">
       <img src="./img/social-network.png" alt="social network" class="index-img">
       <!--cambiar por <p>-->
-      <h1 class="index-message">En CoderPlace encontrarás el contenido que está marcando tendencia en el mundo de la
+      <p class="index-message">En CoderPlace encontrarás el contenido que está marcando tendencia en el mundo de la
       programación. Además podrás comunicarte y compartir con programadores de todo el mundo.
-      ¿Qué esperas? ¡No te pierdas las novedades!</h1>
+      ¿Qué esperas? ¡No te pierdas las novedades!</p>
     </section>
     <section class="card-login">
       <div>

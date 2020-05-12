@@ -19,23 +19,25 @@ export const updateUserName = (nodo) => {
     });
   }
 
-  iconSave.addEventListener('click', () => {
-    const uid = firebase.auth().currentUser.uid;
-    readUserDB(uid).then((querySnapshot) => {
-      querySnapshot.forEach((user) => {
-        userName.classList.remove('editNameAbout');
-        userName.contentEditable = 'false';
-        iconEdit.classList.remove('hide');
-        iconSave.classList.add('hide');
-        updateUserData(user.id, userName.innerText)
-          .then(() => {
-            localStorage.setItem('userName', userName.innerText);
-            console.log('Actualizado');
-          })
-          .catch(() => {});
+  if (iconSave) {
+    iconSave.addEventListener('click', () => {
+      const uid = firebase.auth().currentUser.uid;
+      readUserDB(uid).then((querySnapshot) => {
+        querySnapshot.forEach((user) => {
+          userName.classList.remove('editNameAbout');
+          userName.contentEditable = 'false';
+          iconEdit.classList.remove('hide');
+          iconSave.classList.add('hide');
+          updateUserData(user.id, userName.innerText)
+            .then(() => {
+              localStorage.setItem('userName', userName.innerText);
+              // console.log('Actualizado');
+            })
+            .catch(() => {});
+        });
       });
     });
-  });
+  }
 };
 
 // FUNCIÓN PARA ACTUALIZAR LA DESCRIPCIÓN
@@ -55,21 +57,23 @@ export const updateUserAbout = (nodo) => {
     });
   }
 
-  iconSave.addEventListener('click', () => {
-    const uid = firebase.auth().currentUser.uid;
-    readUserDB(uid).then((querySnapshot) => {
-      querySnapshot.forEach((user) => {
-        userAbout.classList.remove('editNameAbout');
-        userAbout.contentEditable = 'false';
-        iconEdit.classList.remove('hide');
-        iconSave.classList.add('hide');
-        updateUserData(user.id, userAbout.innerText)
-          .then(() => {
-            localStorage.setItem('userAbout', userAbout.innerText);
-            console.log('Actualizado');
-          })
-          .catch(() => {});
+  if (iconSave) {
+    iconSave.addEventListener('click', () => {
+      const uid = firebase.auth().currentUser.uid;
+      readUserDB(uid).then((querySnapshot) => {
+        querySnapshot.forEach((user) => {
+          userAbout.classList.remove('editNameAbout');
+          userAbout.contentEditable = 'false';
+          iconEdit.classList.remove('hide');
+          iconSave.classList.add('hide');
+          updateUserData(user.id, userAbout.innerText)
+            .then(() => {
+              localStorage.setItem('userAbout', userAbout.innerText);
+              console.log('Actualizado');
+            })
+            .catch(() => {});
+        });
       });
     });
-  });
+  }
 };

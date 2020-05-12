@@ -53,9 +53,6 @@ export const updateCommentOnClick = () => {
         textComment.contentEditable = 'true';
         textComment.focus();
         iconSaveComment.classList.remove('hide');
-        updateCommentsDB(idComment, textComment.innerText)
-          .then(() => {})
-          .catch(() => {});
       });
     });
   }
@@ -90,8 +87,8 @@ export const readingComment = (comments, idPost) => {
         numComments.innerText = parseInt(numComments.innerText, 0) + 1;
         const divComment = templateComment(comment.names,
           comment.profilePicture, comment.comment, comment.date, comment.id, uidUser, comment.uid);
-          console.log('user', uidUser);
-          console.log('user', comment.uid);
+        console.log('user', uidUser);
+        console.log('user', comment.uid);
         container.appendChild(divComment);
       }
     });

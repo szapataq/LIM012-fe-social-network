@@ -224,6 +224,14 @@ export default () => {
     });
   }
 
+  const optiosPrivacy = sectionMain.querySelector('.comment');
+  if (optiosPrivacy) {
+    optiosPrivacy.addEventListener('click', () => {
+      const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
+      privacyPostArea.classList.toggle('hide');
+    });
+  }
+
   // SIMULATOR SELECT PRIVACY
   const priv = sectionMain.querySelector('#private');
   const pub = sectionMain.querySelector('#public');

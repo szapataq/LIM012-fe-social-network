@@ -22,6 +22,7 @@ import {
 
 import {
   updateUserName,
+  updateUserAbout,
 } from '../controller/userData-controller.js';
 
 import {
@@ -256,6 +257,7 @@ export default () => {
   }
 
   updateUserName(sectionMain);
+  updateUserAbout(sectionMain);
 
   return sectionMain;
 };

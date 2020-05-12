@@ -71,7 +71,8 @@ figure img {
 }
 
 .description p {
-    margin: 0 1em;
+    padding-top: 0.2em;
+    height: 1.8em;
     text-align: center;
 }
 
@@ -82,7 +83,7 @@ figure img {
     text-transform: full-width;
 }
 
-.editName {
+.editNameAbout {
     width: 95%;
 }
 

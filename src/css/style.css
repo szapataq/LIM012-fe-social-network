@@ -473,6 +473,10 @@ header label:hover {
     margin-right: 0.5em;
 }
 
+.iconSv {
+    margin-right: 0.69em !important;
+}
+
 .iconSave i {
     font-size: 18px;
 }

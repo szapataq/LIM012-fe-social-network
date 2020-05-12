@@ -1,6 +1,5 @@
 import {
   createCommentsDB,
-  // readCommentsDB,
   deleteCommentsDB,
   updateCommentsDB,
 } from '../model/posts-firestore-model.js';

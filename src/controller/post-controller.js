@@ -29,7 +29,6 @@ const deletePostsOnClick = () => {
 // FUNCIÓN PARA ACTUALIZAR EL TEXTO DEL POST
 export const updatePostsOnClick = () => {
   const iconUpdate = document.querySelectorAll('.update-post');
-
   if (iconUpdate.length) {
     iconUpdate.forEach((objPosts) => {
       objPosts.addEventListener('click', (evento) => {

@@ -76,8 +76,9 @@ export const updatePosts = (idpost, textPost) => firebase.firestore().collection
 export const deletePosts = idpost => firebase.firestore().collection('posts').doc(idpost).delete();
 
 // CREATE COMMENTS
-export const createCommentsDB = (idPost, names, profilePicture, comment) => firebase.firestore().collection('comments').add({
+export const createCommentsDB = (idPost, uid, names, profilePicture, comment) => firebase.firestore().collection('comments').add({
   idPost,
+  uid,
   names,
   profilePicture,
   comment,
@@ -97,6 +98,11 @@ export const readComments = (callback, idPost) => {
       callback(comment, idPost);
     });
 };
+
+// UPDATE COMMENTS
+export const updateCommentsDB = (idcomment, textComment) => firebase.firestore().collection('comments').doc(idcomment).update({
+  comment: textComment,
+});
 
 // DELETE COMMENTS
 export const deleteCommentsDB = idcomment => firebase.firestore().collection('comments').doc(idcomment).delete();

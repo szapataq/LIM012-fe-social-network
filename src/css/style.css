@@ -453,6 +453,10 @@ header label:hover {
     margin: auto auto 0 12px;
     cursor: pointer;
 }
+.save-comment{
+    margin: auto auto 0 12px;
+    cursor: pointer;
+}
 
 .dateComment {
     color: #757575;

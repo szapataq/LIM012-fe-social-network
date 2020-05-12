@@ -39,9 +39,6 @@ export const updatePostsOnClick = () => {
         textPost.contentEditable = 'true';
         textPost.focus();
         iconSave.classList.remove('hide');
-        updatePosts(idPosts, textPost.innerText)
-          .then(() => {})
-          .catch(() => {});
       });
     });
   }
@@ -143,39 +140,6 @@ export const postProfile = (posts) => {
 
   return container;
 };
-
-// export const readingPosts = (querySnapshot) => {
-//   const container = document.querySelector('.container-new-post-profile');
-//   if (querySnapshot.empty) {
-//     container.innerHTML = notYetPost;
-//   } else {
-//     const uid = firebase.auth().currentUser.uid;
-//     container.innerHTML = '';
-//     querySnapshot.forEach((refDoc) => {
-//       const post = refDoc.data();
-//       if (/home/.test(window.location.hash) && post.privacy === '1') {
-//         const divPost = templatePost(post.profilePicture, post.names, post.privacy, post.date,
-//           post.post, post.photo, post.likes, refDoc.id, uid, post.uid);
-//         container.appendChild(divPost);
-//       } else if (/profile/.test(window.location.hash)) {
-//         if (post.uid === uid) {
-//           const divPost = templatePost(post.profilePicture, post.names, post.privacy, post.date,
-//             post.post, post.photo, post.likes, refDoc.id, uid, post.uid);
-//           container.appendChild(divPost);
-//         }
-//       }
-//     });
-//   }
-
-//   if (container.innerHTML === '') {
-//     container.innerHTML = notYetPost;
-//   }
-
-//   updatePostsOnClick();
-//   deletePostsOnClick();
-//   btnLikes();
-//   return container;
-// };
 
 // FUNCIÓN PARA CREAR POST
 export const createNewPost = (post, privacyPostArea) => {

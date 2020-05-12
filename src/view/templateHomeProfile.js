@@ -62,23 +62,24 @@ export const postHomeMobile = () => `
         <h4>${localStorage.getItem('userName')}</h4>
         <img src="${sessionStorage.getItem('privacy') === '2' ? './img/private.png' : './img/public.png'}" alt="privacidad" id="privPost">
       </div>
-      <div class="simulator-select" id="privacyPostArea">
+     <!-- <div class="simulator-select" id="privacyPostArea">
         <span><i class="fas fa-ellipsis-v"></i></span>
         <ul>
           <li data-value="1" id="public">🌐 Público</li>
           <li data-value="2" id="private">🔒 Solo yo</li>
         </ul>
-      </div>
-      <!-- <spam class="comment">
+      </div> -->
+      
+      <spam class="comment">
         <i class="fas fa-ellipsis-v"></i>
       </spam>
-      <div class="tooltip-container">
+      <div id="privacyPostArea" class="hide tooltip-container">
         <div class="arrow"></div>
         <div class="tooltip">
-          <div class="opt"> <i class="fas fa-globe-americas"></i> <span>Público</span></div>
-          <div class="opt"> <i class="fas fa-unlock-alt"></i><span>Solo yo</span></div>
+          <div data-value="1" id="public" class="opt"> <i class="fas fa-globe-americas"></i> <span>Público</span></div>
+          <div data-value="2" id="private" class="opt"> <i class="fas fa-unlock-alt"></i><span>Solo yo</span></div>
         </div>
-      </div> -->
+      </div>
 
     </div>
     <div class="new-post">
@@ -101,10 +102,13 @@ export const postHomeMobile = () => `
   </div>`;
 
 // PLANTILLA SECCIÓN DE DATOS DEL USUARIO
-const iconEdit = () => {
+const iconEdit = (idEdit, idSave) => {
   let icon = '';
   if (/profile/.test(window.location.hash)) {
-    icon = '<img src="./img/edit.png" class="edit">';
+    icon = `
+    <img id="${idEdit}" src="./img/edit.png" class="edit">
+    <p id="${idSave}" class="hide iconSave"><i class="far fa-save" aria-hidden="true"></i></p>
+    `;
   }
   return icon;
 };
@@ -117,12 +121,12 @@ export const userLoggedIn = () => `
   <div class="user-data">
     <div class="container-info">
       <div class="name">
-        <p>${localStorage.getItem('userName')}</p>
-        ${iconEdit()}
+        <p id="userName">${localStorage.getItem('userName')}</p>
+        ${iconEdit('editName', 'saveName')}
       </div>
       <div class="description">
-        <p>&lt;/&gt;${localStorage.getItem('userAbout') || 'Developer'}</p>
-        ${iconEdit()}
+        <p id="userAbout">&lt;/&gt;${localStorage.getItem('userAbout') || 'Developer'}</p>
+        ${iconEdit('editAbout', 'saveAbout')}
       </div>
     </div>
   </div>`;
@@ -259,9 +263,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
   if (iconSendComment) {
     iconSendComment.addEventListener('click', () => {
       const commentValue = varComment.value.trim();
-      if (!commentValue) {
-        // iconSendComment.setAttribute('disabled', true);
-      } else {
+      if (commentValue) {
         createNewComment(id, commentValue);
         varComment.value = '';
         iconSendComment.classList.remove('activeSend');

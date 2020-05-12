@@ -69,7 +69,7 @@ export const updateUserAbout = (nodo) => {
           updateUserData(user.id, userAbout.innerText)
             .then(() => {
               localStorage.setItem('userAbout', userAbout.innerText);
-              console.log('Actualizado');
+              // console.log('Actualizado');
             })
             .catch(() => {});
         });

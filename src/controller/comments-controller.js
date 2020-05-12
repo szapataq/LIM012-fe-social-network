@@ -2,6 +2,7 @@ import {
   createCommentsDB,
   // readCommentsDB,
   deleteCommentsDB,
+  updateCommentsDB,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -12,8 +13,9 @@ import {
 export const createNewComment = (idPost, comment) => {
   const names = localStorage.getItem('userName');
   const profilePic = localStorage.getItem('userProfileImg');
+  const idCurrentUser = firebase.auth().currentUser.uid;
 
-  return createCommentsDB(idPost, names, profilePic, comment)
+  return createCommentsDB(idPost, names, profilePic, comment, idCurrentUser)
     .then((res) => {
       console.log(res.id);
     })
@@ -38,6 +40,44 @@ export const deleteCommentOnClick = () => {
   }
 };
 
+// UPDATE COMMENT
+export const updateCommentOnClick = () => {
+  const iconUpdateComment = document.querySelectorAll('.update-comment');
+  if (iconUpdateComment.length) {
+    iconUpdateComment.forEach((comments) => {
+      comments.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        const idComment = comments.getAttribute('idComment');
+        const textComment = document.querySelector(`#textComment-${idComment}`);
+        const iconSaveComment = textComment.parentNode.querySelector('.save-comment');
+        textComment.contentEditable = 'true';
+        textComment.focus();
+        iconSaveComment.classList.remove('hide');
+        updateCommentsDB(idComment, textComment.innerText)
+          .then(() => {})
+          .catch(() => {});
+      });
+    });
+  }
+
+  // FUNCIÓN PARA GUARDAR LA ACTUALIZACIÓN DEL POST
+  const iconSaveCom = document.querySelectorAll('.save-comment');
+  if (iconSaveCom.length) {
+    iconSaveCom.forEach((comments) => {
+      comments.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        const idComment = comments.getAttribute('idComment');
+        const textComment = document.querySelector(`#textComment-${idComment}`);
+        textComment.contentEditable = 'false';
+        comments.classList.add('hide');
+        updateCommentsDB(idComment, textComment.innerText)
+          .then(() => {})
+          .catch(() => {});
+      });
+    });
+  }
+};
+// READ COMMENT
 export const readingComment = (comments, idPost) => {
   const container = document.querySelector(`#containerComment-${idPost}`);
   const numComments = document.querySelector(`.numComments-${idPost}`);
@@ -61,6 +101,7 @@ export const readingComment = (comments, idPost) => {
   }
 
   deleteCommentOnClick();
+  updateCommentOnClick();
 
   return container;
 };

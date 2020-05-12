@@ -554,6 +554,7 @@ figure img {
 .info-user-comment {
     text-align: justify;
     padding: 5px 10px;
+    width: 100%;
 }
 
 .icon-send {
@@ -568,6 +569,8 @@ figure img {
 
 .p-comment {
     margin-top: 1.2%;
+    text-align: justify;
+    width: 100%;
 }
 
 .own-post {

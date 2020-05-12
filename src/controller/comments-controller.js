@@ -56,7 +56,7 @@ export const updateCommentOnClick = () => {
     });
   }
 
-  // FUNCIÓN PARA GUARDAR LA ACTUALIZACIÓN DEL POST
+  // FUNCIÓN PARA GUARDAR LA ACTUALIZACIÓN DEL COMENTARIO
   const iconSaveCom = document.querySelectorAll('.save-comment');
   if (iconSaveCom.length) {
     iconSaveCom.forEach((comments) => {
@@ -64,15 +64,34 @@ export const updateCommentOnClick = () => {
         evento.preventDefault();
         const idComment = comments.getAttribute('idComment');
         const textComment = document.querySelector(`#textComment-${idComment}`);
-        textComment.contentEditable = 'false';
-        comments.classList.add('hide');
-        updateCommentsDB(idComment, textComment.innerText)
-          .then(() => {})
-          .catch(() => {});
+        if (textComment.innerText.trim() !== '') {
+          textComment.contentEditable = 'false';
+          comments.classList.add('hide');
+          updateCommentsDB(idComment, textComment.innerText)
+            .then(() => {})
+            .catch(() => {});
+        }
+      });
+    });
+  }
+
+  const textComment = document.querySelectorAll('.p-comment');
+  if (textComment.length) {
+    textComment.forEach((objComment) => {
+      objComment.addEventListener('keyup', () => {
+        const icon = objComment.parentNode.querySelector('.save-comment');
+        if (icon) {
+          if (objComment.innerText.trim() === '') {
+            icon.classList.add('activeSave');
+          } else {
+            icon.classList.remove('activeSave');
+          }
+        }
       });
     });
   }
 };
+
 // READ COMMENT
 export const readingComment = (comments, idPost) => {
   const container = document.querySelector(`#containerComment-${idPost}`);

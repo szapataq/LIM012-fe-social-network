@@ -492,6 +492,10 @@ header label:hover {
     cursor: default !important;
 }
 
+.margin {
+    margin-top: 0 !important;
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/

@@ -15,7 +15,7 @@ export const createNewComment = (idPost, comment) => {
   const profilePic = localStorage.getItem('userProfileImg');
   const idCurrentUser = firebase.auth().currentUser.uid;
 
-  return createCommentsDB(idPost, names, profilePic, comment, idCurrentUser)
+  return createCommentsDB(idPost, idCurrentUser, names, profilePic, comment)
     .then((res) => {
       console.log(res.id);
     })
@@ -81,6 +81,7 @@ export const updateCommentOnClick = () => {
 export const readingComment = (comments, idPost) => {
   const container = document.querySelector(`#containerComment-${idPost}`);
   const numComments = document.querySelector(`.numComments-${idPost}`);
+  const uidUser = firebase.auth().currentUser.uid;
   if (container) {
     container.innerHTML = '';
     numComments.innerText = '0';
@@ -88,7 +89,9 @@ export const readingComment = (comments, idPost) => {
       if (idPost === comment.idPost) {
         numComments.innerText = parseInt(numComments.innerText, 0) + 1;
         const divComment = templateComment(comment.names,
-          comment.profilePicture, comment.comment, comment.date, comment.id);
+          comment.profilePicture, comment.comment, comment.date, comment.id, uidUser, comment.uid);
+          console.log('user', uidUser);
+          console.log('user', comment.uid);
         container.appendChild(divComment);
       }
     });

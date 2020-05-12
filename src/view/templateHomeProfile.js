@@ -172,8 +172,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
           <li class="icon-edit update-post" idpost="${id}">✎ Editar</li>
           <li class="delete-post" idpost="${id}">✖ Eliminar</li>
         </ul>
-      </div>`
-    : ''}
+      </div>` : ''}
     </div>
     <div class="body-post">
     ${validateImgPost(imgPost, textPost, id)}

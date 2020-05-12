@@ -69,6 +69,17 @@ export const postHomeMobile = () => `
           <li data-value="2" id="private">🔒 Solo yo</li>
         </ul>
       </div>
+      <!-- <spam class="comment">
+        <i class="fas fa-ellipsis-v"></i>
+      </spam>
+      <div class="tooltip-container">
+        <div class="arrow"></div>
+        <div class="tooltip">
+          <div class="opt"> <i class="fas fa-globe-americas"></i> <span>Público</span></div>
+          <div class="opt"> <i class="fas fa-unlock-alt"></i><span>Solo yo</span></div>
+        </div>
+      </div> -->
+
     </div>
     <div class="new-post">
       <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
@@ -166,13 +177,17 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       </div>
       
       ${uididUser === uidPost ? `
-      <div class="simulator-select">
-        <span><i class="fas fa-ellipsis-v"></i></span>
-        <ul>
-          <li class="icon-edit update-post" idpost="${id}">✎ Editar</li>
-          <li class="delete-post" idpost="${id}">✖ Eliminar</li>
-        </ul>
-      </div>` : ''}
+      <spam class="comment">
+        <i id="options-${id}" class="fas fa-ellipsis-v"></i>
+      </spam>
+      <div class="tooltip-container hide" id="show-toolTip-${id}">
+        <div class="arrow"></div>
+        <div class="tooltip">
+          <div idpost="${id}" class="opt icon-edit update-post edit-${id}"> <i class="fas fa-edit icon-tool"></i> <span>Editar</span></div>
+          <div idpost="${id}" class="opt delete-post"> <i class="fas fa-trash-alt icon-tool"></i><span>Eliminar</span></div>
+        </div>
+      </div>
+      ` : ''}
     </div>
     <div class="body-post">
     ${validateImgPost(imgPost, textPost, id)}
@@ -199,6 +214,21 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
     <div id="containerComment-${id}" class="hide container-comments"></div>`;
 
   eachPost.innerHTML = template;
+  // EVENTOS PARA EDITAR Y ELIMINAR
+
+  const editDelete = eachPost.querySelector(`#options-${id}`);
+  const editComment = eachPost.querySelector(`.edit-${id}`);
+  if (editDelete || editComment) {
+    editDelete.addEventListener(('click'), () => {
+      const toolContainer = document.querySelector(`#show-toolTip-${id}`);
+      toolContainer.classList.toggle('hide');
+    });
+    editComment.addEventListener(('click'), () => {
+      const toolContainer = document.querySelector(`#show-toolTip-${id}`);
+      toolContainer.classList.toggle('hide');
+    });
+  }
+
 
   const varComment = eachPost.querySelector('.inputComment');
   const addNewComment = eachPost.querySelector('.new-comment');

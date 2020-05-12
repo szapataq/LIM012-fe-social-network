@@ -98,6 +98,11 @@ export const readComments = (callback, idPost) => {
     });
 };
 
+// UPDATE COMMENTS
+export const updateCommentsDB = (idcomment, textComment) => firebase.firestore().collection('comments').doc(idcomment).update({
+  comment: textComment,
+});
+
 // DELETE COMMENTS
 export const deleteCommentsDB = idcomment => firebase.firestore().collection('comments').doc(idcomment).delete();
 

@@ -581,6 +581,7 @@ figure img {
     transform: rotate(-90deg);
     margin-right: 0.8em;
     padding: 2px;
+    cursor: pointer;
 }
 
 .title-new-post-own {

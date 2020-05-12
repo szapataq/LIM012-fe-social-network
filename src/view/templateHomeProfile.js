@@ -252,7 +252,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
 
   if (varComment) {
     varComment.addEventListener('keyup', () => {
-      if (varComment.value) {
+      if (varComment.value.trim()) {
         iconSendComment.classList.add('activeSend');
       } else {
         iconSendComment.classList.remove('activeSend');

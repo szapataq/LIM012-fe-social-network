@@ -169,7 +169,7 @@ export default () => {
   const post = sectionMain.querySelector('#postArea');
   if (post) {
     post.addEventListener('keyup', () => {
-      if (post.value) {
+      if (post.value.trim()) {
         btnSharePost.classList.add('btnShareActive');
       } else {
         btnSharePost.classList.remove('btnShareActive');

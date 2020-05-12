@@ -51,11 +51,29 @@ export const updatePostsOnClick = () => {
         evento.preventDefault();
         const idPosts = objPosts.getAttribute('idpost');
         const textPost = document.querySelector(`#textPost-${idPosts}`);
-        textPost.contentEditable = 'false';
-        objPosts.classList.add('hide');
-        updatePosts(idPosts, textPost.innerText)
-          .then(() => {})
-          .catch(() => {});
+        if (textPost.innerText.trim() !== '') {
+          textPost.contentEditable = 'false';
+          objPosts.classList.add('hide');
+          updatePosts(idPosts, textPost.innerText)
+            .then(() => {})
+            .catch(() => {});
+        }
+      });
+    });
+  }
+
+  const textPost = document.querySelectorAll('.textPost');
+  if (textPost.length) {
+    textPost.forEach((objTextPost) => {
+      objTextPost.addEventListener('keyup', () => {
+        const icon = objTextPost.parentNode.querySelector('.save');
+        if (icon) {
+          if (objTextPost.innerText.trim() === '') {
+            icon.classList.add('activeSave');
+          } else {
+            icon.classList.remove('activeSave');
+          }
+        }
       });
     });
   }

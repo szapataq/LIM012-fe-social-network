@@ -20,23 +20,37 @@ export const updateUserName = (nodo) => {
     });
   }
 
+  // FUNCIÓN PARA GUARADAR LA ACTUALIZACIÓN DEL NOMBRE
   if (iconSave) {
     iconSave.addEventListener('click', () => {
       const uid = firebase.auth().currentUser.uid;
       readUserDB(uid).then((querySnapshot) => {
         querySnapshot.forEach((user) => {
-          userName.classList.remove('editNameAbout');
-          userName.contentEditable = 'false';
-          iconEdit.classList.remove('hide');
-          iconSave.classList.add('hide');
-          updateUserDataName(user.id, userName.innerText)
-            .then(() => {
-              localStorage.setItem('userName', userName.innerText);
-              // console.log('Actualizado');
-            })
-            .catch(() => {});
+          if (userName.innerText.trim() !== '') {
+            userName.classList.remove('editNameAbout');
+            userName.contentEditable = 'false';
+            iconEdit.classList.remove('hide');
+            iconSave.classList.add('hide');
+            updateUserDataName(user.id, userName.innerText)
+              .then(() => {
+                localStorage.setItem('userName', userName.innerText);
+              })
+              .catch(() => {});
+          }
         });
       });
+    });
+  }
+
+  if (userName) {
+    userName.addEventListener('keyup', () => {
+      if (iconSave) {
+        if (userName.innerText.trim() === '') {
+          iconSave.classList.add('activeSave');
+        } else {
+          iconSave.classList.remove('activeSave');
+        }
+      }
     });
   }
 };
@@ -58,23 +72,38 @@ export const updateUserAbout = (nodo) => {
     });
   }
 
+  // FUNCIÓN PARA GUARDAR ACTUALIZACIÓN DEL ABOUT
   if (iconSave) {
     iconSave.addEventListener('click', () => {
       const uid = firebase.auth().currentUser.uid;
       readUserDB(uid).then((querySnapshot) => {
         querySnapshot.forEach((user) => {
-          userAbout.classList.remove('editNameAbout');
-          userAbout.contentEditable = 'false';
-          iconEdit.classList.remove('hide');
-          iconSave.classList.add('hide');
-          updateUserDataAbout(user.id, userAbout.innerText)
-            .then(() => {
-              localStorage.setItem('userAbout', userAbout.innerText);
-              // console.log('Actualizado');
-            })
-            .catch(() => {});
+          if (userAbout.innerText.trim() !== '') {
+            userAbout.classList.remove('editNameAbout');
+            userAbout.contentEditable = 'false';
+            iconEdit.classList.remove('hide');
+            iconSave.classList.add('hide');
+            const desc = userAbout.innerText.trim();
+            updateUserDataAbout(user.id, desc)
+              .then(() => {
+                localStorage.setItem('userAbout', desc);
+              })
+              .catch(() => {});
+          }
         });
       });
+    });
+  }
+
+  if (userAbout) {
+    userAbout.addEventListener('keyup', () => {
+      if (iconSave) {
+        if (userAbout.innerText.trim() === '') {
+          iconSave.classList.add('activeSave');
+        } else {
+          iconSave.classList.remove('activeSave');
+        }
+      }
     });
   }
 };

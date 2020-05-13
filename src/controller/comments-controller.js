@@ -67,7 +67,8 @@ export const updateCommentOnClick = () => {
         if (textComment.innerText.trim() !== '') {
           textComment.contentEditable = 'false';
           comments.classList.add('hide');
-          updateCommentsDB(idComment, textComment.innerText)
+          const comment = textComment.innerText.trim();
+          updateCommentsDB(idComment, comment)
             .then(() => {})
             .catch(() => {});
         }

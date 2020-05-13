@@ -93,6 +93,23 @@ export const updateCommentOnClick = () => {
   }
 };
 
+// DELETE COMMENT
+export const showOpt = () => {
+  const containerComment = document.querySelectorAll('.name-comment');
+  if (containerComment.length) {
+    containerComment.forEach((objComment) => {
+      objComment.addEventListener('mouseover', () => {
+        const opt = objComment.querySelector('.comment');
+        opt.classList.remove('hide');
+      });
+      objComment.addEventListener('mouseleave', () => {
+        const opt = objComment.querySelector('.comment');
+        opt.classList.add('hide');
+      });
+    });
+  }
+};
+
 // READ COMMENT
 export const readingComment = (comments, idPost) => {
   const container = document.querySelector(`#containerComment-${idPost}`);
@@ -121,6 +138,7 @@ export const readingComment = (comments, idPost) => {
 
   deleteCommentOnClick();
   updateCommentOnClick();
+  showOpt();
 
   return container;
 };

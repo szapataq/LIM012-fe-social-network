@@ -238,6 +238,8 @@ export default () => {
 
   if (priv) {
     pub.addEventListener('click', () => {
+      const containerOpctions = sectionMain.querySelector('.tooltip-container');
+      containerOpctions.classList.toggle('hide');
       sessionStorage.setItem('privacy', 1);
       const privPost = document.querySelector('#privPost');
       if (privPost) privPost.setAttribute('src', './img/public.png');
@@ -246,6 +248,8 @@ export default () => {
 
   if (pub) {
     priv.addEventListener('click', () => {
+      const containerOpctions = sectionMain.querySelector('.tooltip-container');
+      containerOpctions.classList.toggle('hide');
       sessionStorage.setItem('privacy', 2);
       const privPost = document.querySelector('#privPost');
       if (privPost) privPost.setAttribute('src', './img/private.png');

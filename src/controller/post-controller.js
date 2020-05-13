@@ -54,7 +54,8 @@ export const updatePostsOnClick = () => {
         if (textPost.innerText.trim() !== '') {
           textPost.contentEditable = 'false';
           objPosts.classList.add('hide');
-          updatePosts(idPosts, textPost.innerText)
+          const post = textPost.innerText.trim();
+          updatePosts(idPosts, post)
             .then(() => {})
             .catch(() => {});
         }

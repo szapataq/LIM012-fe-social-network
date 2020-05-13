@@ -446,6 +446,10 @@ figure img {
     margin: 8px 4px 0 0;
 }
 
+.comment>i {
+    font-size: 16px;
+}
+
 .tooltip-container {
     position: absolute;
     top: 28px;
@@ -517,7 +521,7 @@ figure img {
 }
 
 .toolTwo {
-    padding-left: 5px !important;   
+    padding-left: 5px !important;
 }
 
 .hide {

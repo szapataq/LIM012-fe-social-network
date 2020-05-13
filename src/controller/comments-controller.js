@@ -93,18 +93,18 @@ export const updateCommentOnClick = () => {
   }
 };
 
-// DELETE COMMENT
-export const showOpt = () => {
+// SHOW OPTIONS COMMENT
+const showOpt = () => {
   const containerComment = document.querySelectorAll('.name-comment');
   if (containerComment.length) {
     containerComment.forEach((objComment) => {
       objComment.addEventListener('mouseover', () => {
         const opt = objComment.querySelector('.comment');
-        opt.classList.remove('hide');
+        if (opt) opt.classList.remove('hide');
       });
       objComment.addEventListener('mouseleave', () => {
         const opt = objComment.querySelector('.comment');
-        opt.classList.add('hide');
+        if (opt) opt.classList.add('hide');
       });
     });
   }

@@ -108,6 +108,24 @@ const btnLikes = () => {
   }, 1000);
 };
 
+// SHOW OPTIONS COMMENT
+const showOpt = () => {
+  const containerPost = document.querySelectorAll('.each-post');
+  if (containerPost.length) {
+    containerPost.forEach((objPosts) => {
+      objPosts.addEventListener('mouseover', () => {
+        const opt = objPosts.querySelector('.comment');
+        if (opt) opt.classList.remove('hide');
+      });
+      objPosts.addEventListener('mouseleave', () => {
+        const opt = objPosts.querySelector('.comment');
+        if (opt) opt.classList.add('hide');
+      });
+    });
+  }
+};
+
+// FUNCIÓN PARA LEER LOS POSTS PÚBLICOS
 export const publicPosts = (posts) => {
   const container = document.querySelector('.container-new-post-home');
   if (container) {
@@ -129,6 +147,7 @@ export const publicPosts = (posts) => {
     updatePostsOnClick();
     deletePostsOnClick();
     btnLikes();
+    showOpt();
   }
 
   return container;
@@ -155,6 +174,7 @@ export const postProfile = (posts) => {
     updatePostsOnClick();
     deletePostsOnClick();
     btnLikes();
+    showOpt();
   }
 
   return container;

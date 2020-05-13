@@ -8,13 +8,12 @@ export const shareImgPost = (file, uid) => {
     progress.parentNode.classList.add('showProgress');
     progress.innerText = `${percent.toFixed(0)}%`;
     progress.style.width = `${percent}%`;
-    // console.log(percent);
   };
 
-  const catchError = (err) => {
+  const catchError = () => {
     const progress = document.querySelector('.progress');
     progress.parentNode.innerText = 'Error al cargar foto';
-    console.log(err.message);
+    // console.log(err.message);
   };
 
   const fileReady = () => {
@@ -26,8 +25,8 @@ export const shareImgPost = (file, uid) => {
         pic.parentNode.classList.remove('hide');
         pic.setAttribute('src', url);
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch(() => {
+        // console.log(err.message);
       });
     setTimeout(() => {
       const progress = document.querySelector('.progress');

@@ -157,11 +157,11 @@ export const createUser = (email, password, names) => {
       alertLogInSignUp.innerHTML = 'Cuenta creada satisfactoriamente, se le ha enviado un correo para validar su cuenta';
       // FUNCIÓN QUE ALMACENA LA INFO DEL USUARIO EN LA BBDD
       createUserDB(res.user.uid, email, imgCoverUserDefault, imgProfileUserDefault, names, 'Developer')
-        .then((refDoc) => {
-          console.log(`Id del usuario => ${refDoc.id}`);
+        .then(() => {
+          // console.log(`Id del usuario => ${refDoc.id}`);
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          // console.log(error);
         });
     })
     .catch((error) => {

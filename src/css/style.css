@@ -29,23 +29,12 @@
 
 /*----------------ESTILOS DEL MENU DESPLEGABLE----------------*/
 
-/* header {
-    width: 100%;
-    background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%); */
-/*position: fixed;*/
-/* z-index: 1;
-} */
-
-/* header>* {
-    padding: 0;
-} */
-
 header {
     width: 100%;
     background: linear-gradient(274.88deg, #C83DE5 4.97%, #3AF1CE 98.41%);
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 300;
 }
 
 #btnMenu {
@@ -360,9 +349,8 @@ header label:hover {
     cursor: pointer;
 }
 
-#icon:hover path:nth-child(1) {
-    fill: #5C5C5C;
-    transition: 250ms ease;
+.svg-filled path:nth-child(2) {
+    fill: #ed4956 !important;
 }
 
 #icon path:nth-child(2) {
@@ -370,12 +358,13 @@ header label:hover {
     transition: 350ms ease;
 }
 
-.svg-filled path:nth-child(2) {
-    fill: #ed4956 !important;
+#icon:hover path:nth-child(1) {
+    fill: #5C5C5C;
+    transition: 250ms ease;
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .containerProgress {
@@ -450,6 +439,63 @@ header label:hover {
     margin: auto;
 }
 
+#privPost {
+    width: 24px;
+    margin: 0 10px;
+}
+
+.text-post {
+    display: flex;
+    flex-direction: row;
+}
+
+.save {
+    margin: auto auto 0 12px;
+    cursor: pointer;
+}
+
+.save-comment {
+    margin: auto auto 0 12px;
+    cursor: pointer;
+}
+
+.dateComment {
+    color: #757575;
+    font-size: 12px;
+}
+
+.charging {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconSave {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 0.5em;
+}
+
+.iconSv {
+    margin-right: 0.69em !important;
+    margin-top: 0.1em;
+}
+
+.iconSave i {
+    font-size: 18px;
+}
+
+.activeSave>i {
+    color: #c5c5c5;
+    cursor: default !important;
+}
+
+.margin {
+    margin-top: 0 !important;
+}
+
 @media (max-width:768px) {
 
     /*----------------ESTILOS PARA EL MENÚ DESPLEGABLE----------------*/
@@ -477,7 +523,7 @@ header label:hover {
         width: 40%;
         margin-left: -70%;
         transition: all 0.7s;
-        z-index: 1;
+        z-index: 300;
     }
 
     .menu section {

@@ -15,18 +15,25 @@ import {
 
 import {
   createNewPost,
-  readingPosts,
+  // readingPosts,
+  publicPosts,
+  postProfile,
 } from '../controller/post-controller.js';
 
 import {
-  readPostDB,
+  updateUserName,
+  updateUserAbout,
+} from '../controller/userData-controller.js';
+
+import {
+  // readPostDB,
+  readPostProfile,
+  readPostHome,
 } from '../model/posts-firestore-model.js';
 
 import {
   shareImgPost,
 } from '../model/storage-firestore-model.js';
-
-// import { datePostDB } from '../model/posts-firestore-model.js';
 
 // FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
 const device = () => {
@@ -64,13 +71,21 @@ const changeViewPost = () => {
   if (device() === 'Desktop') {
     post = postArea;
   } else {
-    post = (/profile/.test(window.location.hash)) ? postArea : postHomeMobile;
+    post = (/profile/.test(window.location.hash)) ? postArea : postHomeMobile();
   }
   return post;
 };
 
-// const publicPost = './img/public.png';
-// const privatePost = './img/private.png';
+const changeContainerPosts = () => {
+  let containerPosts = '';
+  if (/home/.test(window.location.hash)) {
+    containerPosts = '<div class="container-new-post-home">';
+  }
+  if (/profile/.test(window.location.hash)) {
+    containerPosts = '<div class="container-new-post-profile">';
+  }
+  return containerPosts;
+};
 
 export default () => {
   const headerHome = `
@@ -105,120 +120,20 @@ export default () => {
           <p>&lt; Coders /&gt;</p>
         </div>
         <div class="container-coders">
-          <div class="info-coder">
-            <img src="./img/user.png" class="user-comment">
-            <div class="name-ocupation">
-              <div class="comun-coders">
-                <p>Juan Jose Gallegos Valdivia</p>
-              </div>
-              <p>&lt;/&gt;Developer</p>
-            </div>
-          </div>
-          <div class="info-coder">
-            <img src="./img/user.png" class="user-comment">
-            <div class="name-ocupation">
-              <div class="comun-coders">
-                <p>Isabel Angelica Lucia Paredes Apaza</p>
-              </div>
-              <p>&lt;/&gt;Developer</p>
-            </div>
+          <div class="charging">
+            <img src="./img/cat-charging.gif">
           </div>
         </div>
       </div>
     </div>
 
     <div class="container-post">
-      <div class = "change-post">${changeViewPost()}</div>
-      <div class="container-new-post">
-        <div class="each-post">
-          <div class="title-new-post">
-            <img src="" alt="" class="user-foto">
-            <div>
-              <h4></h4>
-              <div class="time">
-                <p></p>
-                <img src="" alt="privacidad">
-              </div>
-            </div>
-          </div>
-          <div class="body-post">
-            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta,
-              incidunt.</p>
-          </div>
-          <div class="like-comment">
-            <div>
-              <img src="./img/like.png" alt="" class="icon-like">
-              <img src="./img/comment.png" alt="" class="icon-comment">
-            </div>
-            <p>1234 Me Gusta</p>
-          </div>
-          <div class="new-comment">
-            <img src="./img/user.png" alt="" class="user-comment">
-            <input type="text" placeholder="Agrega un comentario...">
-            <img src="./img/icon-send.png" alt="" class="icon-send">
-          </div>
-          <div class="container-comments">
-            <div class="name-comment">
-              <img src="./img/user.png" alt="" class="user-comment">
-              <div>
-                <h4>Juan Jose Gallegos Valdivia</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem autem illo fugit, voluptate
-                laborum possimus in quia, aut nesciunt alias voluptatem? Animi amet dolorum labore! Exercitationem
-                rem asperiores quo maxime.
-                </p>
-              </div>
-              <div class="simulator-select">
-                <span><i class="fas fa-ellipsis-v"></i></span>
-                <ul>
-                  <li>✎ Editar</li>
-                  <li>✖ Eliminar</li>
-                </ul>
-              </div>
-            </div>
-            <div class="name-comment">
-            <img src="./img/user.png" alt="" class="user-comment">
-            <div>
-              <h4>Juan Jose Gallegos Valdivia</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem autem illo fugit, voluptate
-              laborum possimus in quia, aut nesciunt alias voluptatem? Animi amet dolorum labore! Exercitationem
-              rem asperiores quo maxime.
-              </p>
-            </div>
-            <div class="simulator-select">
-              <span><i class="fas fa-ellipsis-v"></i></span>
-              <ul>
-                <li>✎ Editar</li>
-                <li>✖ Eliminar</li>
-              </ul>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div class="each-post">
-          <div class="title-new-post">
-            <img src="./img/user.png" alt="" class="user-foto">
-            <div>
-              <h4>Laura Zapata Quentasi</h4>
-              <div class="time">
-                <p>20/09/2020</p>
-                <p>23:14</p>
-                <img src="./img/public.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="body-post">
-            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta,
-            incidunt.</p>
-          </div>
-          <div class="like-comment">
-            <div>
-              <img src="./img/like.png" alt="" class="icon-like">
-              <img src="./img/comment.png" alt="" class="icon-comment">
-            </div>
-            <p>1234 Me Gusta</p>
-          </div>
-        </div>
+      <div class = "change-post">
+        ${changeViewPost()}
+      </div>
+      ${changeContainerPosts()}
+      <div class="charging">
+        <img src="./img/cat-charging.gif">
       </div>
     </div>
   </div>`;
@@ -232,44 +147,64 @@ export default () => {
 
   // PARA MOSTRAR EL AREA DE CODERS
   codersArea();
-  // PARA MOSTRAR TODOS LOS POSTS
-  readPostDB(readingPosts);
 
-  // PARA ELIMINAR LA IMG CARGADA EN EL POST
+  // PARA MOSTRAR TODOS LOS POSTS
+  readPostHome(publicPosts);
+  readPostProfile(postProfile, firebase.auth().currentUser.uid);
+
+  const photoPost = sectionMain.querySelector('#photoPost');
+  const btnSharePost = sectionMain.querySelector('#btnSharePost');
+
+  // EVENTO PARA ELIMINAR LA IMG CARGADA EN EL POST
   const btnDeleteImg = sectionMain.querySelector('.deleteImg');
   if (btnDeleteImg) {
     btnDeleteImg.addEventListener('click', () => {
       sessionStorage.removeItem('imgNewPost');
       btnDeleteImg.parentNode.classList.add('hide');
+      btnSharePost.classList.remove('btnShareActive');
     });
   }
 
-  // FUNCION DE COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
-  const btnSharePost = sectionMain.querySelector('#btnSharePost');
-
-  if (btnSharePost) {
-    btnSharePost.addEventListener(('click'), () => {
-      const post = sectionMain.querySelector('#postArea');
-      const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
-      const postContent = post.value;
-      const privacyPost = privacyPostArea.value;
-
-      if (!postContent && !sessionStorage.getItem('imgNewPost')) {
-        const emptyPostMessage = document.querySelector('#emptyPost');
-        emptyPostMessage.classList.remove('hide');
-        emptyPostMessage.innerText = '👀 Parece que tu post está vacío. 👆';
-        setTimeout(() => {
-          emptyPostMessage.classList.add('hide');
-        }, 1500);
+  // EVENTO COMPARTIR POST EN PERFIL E INICIO ESCRITORIO
+  const post = sectionMain.querySelector('#postArea');
+  if (post) {
+    post.addEventListener('keyup', () => {
+      if (post.value.trim()) {
+        btnSharePost.classList.add('btnShareActive');
       } else {
-        createNewPost(postContent, privacyPost);
-        if (btnDeleteImg) btnDeleteImg.parentNode.classList.add('hide');
-        post.value = '';
+        btnSharePost.classList.remove('btnShareActive');
       }
     });
   }
 
-  // FUNCIÓN PARA CERRAR SESIÓN
+  if (photoPost) {
+    photoPost.addEventListener('change', (e) => {
+      if (e.target.files[0]) {
+        btnSharePost.classList.add('btnShareActive');
+      } else {
+        btnSharePost.classList.remove('btnShareActive');
+      }
+    });
+  }
+
+  if (btnSharePost) {
+    btnSharePost.addEventListener(('click'), () => {
+      const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
+      const postContent = post.value.trim();
+      const privacyPost = privacyPostArea.value;
+
+      if (!postContent && !sessionStorage.getItem('imgNewPost')) {
+        // btnSharePost.setAttribute('disabled', true);
+      } else {
+        createNewPost(postContent, privacyPost);
+        if (btnDeleteImg) btnDeleteImg.parentNode.classList.add('hide');
+        post.value = '';
+        btnSharePost.classList.remove('btnShareActive');
+      }
+    });
+  }
+
+  // EVENTO PARA CERRAR SESIÓN
   const btnLogOut = header.querySelector('#log-out');
 
   if (btnLogOut) {
@@ -278,7 +213,7 @@ export default () => {
     });
   }
 
-  // FUNCIÓN PARA SUBIR LAS IMAGENES EN LOS POSTS
+  // EVENTO PARA SUBIR LAS IMAGENES EN LOS POSTS
   const bntImgPost = sectionMain.querySelector('#photoPost');
 
   if (bntImgPost) {
@@ -289,6 +224,14 @@ export default () => {
     });
   }
 
+  const optiosPrivacy = sectionMain.querySelector('.comment');
+  if (optiosPrivacy) {
+    optiosPrivacy.addEventListener('click', () => {
+      const privacyPostArea = sectionMain.querySelector('#privacyPostArea');
+      privacyPostArea.classList.toggle('hide');
+    });
+  }
+
   // SIMULATOR SELECT PRIVACY
   const priv = sectionMain.querySelector('#private');
   const pub = sectionMain.querySelector('#public');
@@ -296,14 +239,33 @@ export default () => {
   if (priv) {
     pub.addEventListener('click', () => {
       sessionStorage.setItem('privacy', 1);
+      const privPost = document.querySelector('#privPost');
+      if (privPost) privPost.setAttribute('src', './img/public.png');
     });
   }
 
   if (pub) {
     priv.addEventListener('click', () => {
       sessionStorage.setItem('privacy', 2);
+      const privPost = document.querySelector('#privPost');
+      if (privPost) privPost.setAttribute('src', './img/private.png');
     });
   }
+
+  // EVETNO PARA TOMAR EL VALOR DEL SELECT PRIVACIDAD
+  const selectPrivacy = sectionMain.querySelector('#privacyPostArea');
+  if (selectPrivacy) {
+    selectPrivacy.addEventListener(('change'), () => {
+      if (selectPrivacy.value === '1') {
+        sessionStorage.setItem('privacy', '1');
+      } else {
+        sessionStorage.setItem('privacy', '2');
+      }
+    });
+  }
+
+  updateUserName(sectionMain);
+  updateUserAbout(sectionMain);
 
   return sectionMain;
 };

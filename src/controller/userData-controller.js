@@ -31,9 +31,10 @@ export const updateUserName = (nodo) => {
             userName.contentEditable = 'false';
             iconEdit.classList.remove('hide');
             iconSave.classList.add('hide');
-            updateUserDataName(user.id, userName.innerText)
+            const nam = userName.innerText.trim();
+            updateUserDataName(user.id, nam)
               .then(() => {
-                localStorage.setItem('userName', userName.innerText);
+                localStorage.setItem('userName', nam);
               })
               .catch(() => {});
           }

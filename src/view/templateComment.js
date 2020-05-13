@@ -14,7 +14,7 @@ export const templateComment = (names, profilePicture, comment,
        </div>
      </div>
      ${uidUser === uidComment ? `
-     <spam class="hide comment">
+     <spam class="comment">
      <i id="options-${idComment}" class="fas fa-ellipsis-h"></i>
     </spam>
     <div class="tooltip-container hide" id="show-toolTip-${idComment}">

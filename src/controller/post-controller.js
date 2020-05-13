@@ -51,11 +51,30 @@ export const updatePostsOnClick = () => {
         evento.preventDefault();
         const idPosts = objPosts.getAttribute('idpost');
         const textPost = document.querySelector(`#textPost-${idPosts}`);
-        textPost.contentEditable = 'false';
-        objPosts.classList.add('hide');
-        updatePosts(idPosts, textPost.innerText)
-          .then(() => {})
-          .catch(() => {});
+        if (textPost.innerText.trim() !== '') {
+          textPost.contentEditable = 'false';
+          objPosts.classList.add('hide');
+          const post = textPost.innerText.trim();
+          updatePosts(idPosts, post)
+            .then(() => {})
+            .catch(() => {});
+        }
+      });
+    });
+  }
+
+  const textPost = document.querySelectorAll('.textPost');
+  if (textPost.length) {
+    textPost.forEach((objTextPost) => {
+      objTextPost.addEventListener('keyup', () => {
+        const icon = objTextPost.parentNode.querySelector('.save');
+        if (icon) {
+          if (objTextPost.innerText.trim() === '') {
+            icon.classList.add('activeSave');
+          } else {
+            icon.classList.remove('activeSave');
+          }
+        }
       });
     });
   }
@@ -89,6 +108,24 @@ const btnLikes = () => {
   }, 1000);
 };
 
+// SHOW OPTIONS COMMENT
+const showOpt = () => {
+  const containerPost = document.querySelectorAll('.each-post');
+  if (containerPost.length) {
+    containerPost.forEach((objPosts) => {
+      objPosts.addEventListener('mouseover', () => {
+        const opt = objPosts.querySelector('.comment');
+        if (opt) opt.classList.remove('hide');
+      });
+      objPosts.addEventListener('mouseleave', () => {
+        const opt = objPosts.querySelector('.comment');
+        if (opt) opt.classList.add('hide');
+      });
+    });
+  }
+};
+
+// FUNCIÓN PARA LEER LOS POSTS PÚBLICOS
 export const publicPosts = (posts) => {
   const container = document.querySelector('.container-new-post-home');
   if (container) {
@@ -110,6 +147,7 @@ export const publicPosts = (posts) => {
     updatePostsOnClick();
     deletePostsOnClick();
     btnLikes();
+    showOpt();
   }
 
   return container;
@@ -136,6 +174,7 @@ export const postProfile = (posts) => {
     updatePostsOnClick();
     deletePostsOnClick();
     btnLikes();
+    showOpt();
   }
 
   return container;

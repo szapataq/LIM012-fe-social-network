@@ -436,33 +436,40 @@ figure img {
     /* border-bottom: solid 1px #CCCCCC; */
     position: relative;
 }
+
 /*-----------ESTILOS PARA TOGGLE DE EDITAR Y ELIMINAR de cada comentario-----------*/
-.comment{
+.comment {
     position: absolute;
     padding: 0;
     top: 0;
-    right:0;
+    right: 0;
+    margin: 8px 4px 0 0;
 }
+
+.comment>i {
+    font-size: 16px;
+}
+
 .tooltip-container {
     position: absolute;
-    top: 20px;
-    right:100px;
+    top: 28px;
+    right: 104px;
     background-color: #a72727;
-    }
-    
-    .arrow {
+}
+
+.arrow {
     position: absolute;
     width: 15px;
     height: 15px;
-    left:75px;
+    left: 75px;
     /*top: 389.95px; */
     background: #FFFFFF;
     box-shadow: 4px -4px 4px rgba(0, 0, 0, 0.15);
     transform: rotate(-45deg);
     z-index: 1;
-    }
-    
-    .tooltip {
+}
+
+.tooltip {
     position: absolute;
     top: 4px;
     left: 20px;
@@ -471,48 +478,56 @@ figure img {
     background: #FFFFFF;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.20), -1px -1px 4px rgba(0, 0, 0, 0.20);
     border-radius: 6px;
-    }
-    
-    .opt {
-      position: relative;
-      height: 20px;
-      font-size: 14px;
-      font-style: normal;
-      color: #333;
-      z-index: 2;
-      background: #FFFFFF;
-      border-radius: 6px;
-      margin: 2px;
-      padding-left: 7px;
-      display: flex;
-      flex-direction: row;
-      justify-content: start;
-      align-items: center;
-    }
-    
-    .opt:hover {
-      background: #CCCCCC;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-    
-    .icon-tool {
-      font-size: 10px;
-      cursor: pointer;
-      padding-right: 2px
-    }
-    
-    .fa-ellipsis-h {
-        font-size: 10px;
-        padding: 4px 10px 0 0;
-        height: 10px;
-        cursor: pointer;
-    }
-    
-    .hide {
-      display: none;
-    }
-    
+}
+
+.opt {
+    position: relative;
+    height: 20px;
+    font-size: 14px;
+    font-style: normal;
+    color: #333;
+    z-index: 2;
+    background: #FFFFFF;
+    border-radius: 6px;
+    margin: 2px;
+    padding-left: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.optItalic {
+    margin-right: 6px;
+}
+
+.opt:hover {
+    background: #CCCCCC;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.icon-tool {
+    font-size: 10px;
+    cursor: pointer;
+    padding-right: 2px
+}
+
+.fa-ellipsis-h {
+    font-size: 10px;
+    padding: 4px 10px 0 0;
+    height: 10px;
+    cursor: pointer;
+}
+
+.toolTwo {
+    padding-left: 5px !important;
+}
+
+.hide {
+    display: none;
+}
+
 /*----------SIMULADOR DE SELECT-----------------*/
 .simulator-select {
     position: absolute;
@@ -582,7 +597,7 @@ figure img {
     width: 100%;
 }
 
-.fa-ellipsis-v{
+.fa-ellipsis-v {
     transform: rotate(-90deg);
     margin-right: 0.8em;
     padding: 2px;

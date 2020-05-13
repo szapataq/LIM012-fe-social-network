@@ -453,7 +453,8 @@ header label:hover {
     margin: auto auto 0 12px;
     cursor: pointer;
 }
-.save-comment{
+
+.save-comment {
     margin: auto auto 0 12px;
     cursor: pointer;
 }
@@ -484,6 +485,15 @@ header label:hover {
 
 .iconSave i {
     font-size: 18px;
+}
+
+.activeSave>i {
+    color: #c5c5c5;
+    cursor: default !important;
+}
+
+.margin {
+    margin-top: 0 !important;
 }
 
 @media (max-width:768px) {

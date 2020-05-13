@@ -62,22 +62,14 @@ export const postHomeMobile = () => `
         <h4>${localStorage.getItem('userName')}</h4>
         <img src="${sessionStorage.getItem('privacy') === '2' ? './img/private.png' : './img/public.png'}" alt="privacidad" id="privPost">
       </div>
-     <!-- <div class="simulator-select" id="privacyPostArea">
-        <span><i class="fas fa-ellipsis-v"></i></span>
-        <ul>
-          <li data-value="1" id="public">🌐 Público</li>
-          <li data-value="2" id="private">🔒 Solo yo</li>
-        </ul>
-      </div> -->
-      
       <spam class="comment">
         <i class="fas fa-ellipsis-v"></i>
       </spam>
       <div id="privacyPostArea" class="hide tooltip-container">
         <div class="arrow"></div>
         <div class="tooltip">
-          <div data-value="1" id="public" class="opt"> <i class="fas fa-globe-americas"></i> <span>Público</span></div>
-          <div data-value="2" id="private" class="opt"> <i class="fas fa-unlock-alt"></i><span>Solo yo</span></div>
+          <div data-value="1" id="public" class="toolTwo  opt"> <i class="fas fa-globe-americas optItalic"></i> <span>Público</span></div>
+          <div data-value="2" id="private" class=" toolTwo opt"> <i class="fas fa-lock optItalic"></i> <span>Solo yo</span></div>
         </div>
       </div>
 
@@ -181,7 +173,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       </div>
       
       ${uididUser === uidPost ? `
-      <spam class="comment">
+      <spam class="hide comment">
         <i id="options-${id}" class="fas fa-ellipsis-v"></i>
       </spam>
       <div class="tooltip-container hide" id="show-toolTip-${id}">
@@ -211,7 +203,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       <p>${likes.length} Me Gusta <span class="num numComments-${id}">0 Comentarios</span></p>
     </div>
     <div class="hide new-comment">
-      <img src="${localStorage.getItem('userProfileImg')}" alt="usuario" class="user-comment">
+      <img src="${localStorage.getItem('userProfileImg')}" alt="usuario" class="margin user-comment">
       <input type="text" placeholder="Agrega un comentario..." class="inputComment">
       <svg aria-label="Compartir publicación" class="icon-send _8-yf5 " fill="#b1b1b1" height="24" viewBox="0 0 48 48" width="24"><path d="M46.5 3.5h-45C.6 3.5.2 4.6.8 5.2l16 15.8 5.5 22.8c.2.9 1.4 1 1.8.3L47.4 5c.4-.7-.1-1.5-.9-1.5zm-40.1 3h33.5L19.1 18c-.4.2-.9.1-1.2-.2L6.4 6.5zm17.7 31.8l-4-16.6c-.1-.4.1-.9.5-1.1L41.5 9 24.1 38.3z"></path><path d="M14.7 48.4l2.9-.7"></path></svg>
     </div>
@@ -252,7 +244,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
 
   if (varComment) {
     varComment.addEventListener('keyup', () => {
-      if (varComment.value) {
+      if (varComment.value.trim()) {
         iconSendComment.classList.add('activeSend');
       } else {
         iconSendComment.classList.remove('activeSend');

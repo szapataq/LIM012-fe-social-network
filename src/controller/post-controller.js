@@ -40,6 +40,8 @@ export const updatePostsOnClick = () => {
         const idPosts = objPosts.getAttribute('idpost');
         const textPost = document.querySelector(`#textPost-${idPosts}`);
         const iconSave = textPost.parentNode.querySelector('.save');
+        // const opt = document.querySelector('.comment');
+        // if (opt) opt.style.display = 'none';
         textPost.contentEditable = 'true';
         textPost.focus();
         iconSave.classList.remove('hide');
@@ -115,21 +117,21 @@ const btnLikes = () => {
 
 // SHOW OPTIONS COMMENT
 const showOpt = () => {
-  const containerPost = document.querySelectorAll('.each-post');
+  const containerPost = document.querySelectorAll('.title-new-post');
   if (device() === 'Desktop') {
     if (containerPost.length) {
       containerPost.forEach((objPosts) => {
         objPosts.addEventListener('mouseover', () => {
           const opt = objPosts.querySelector('.comment');
-          if (opt) opt.classList.remove('hide');
+          if (opt && !opt.classList.contains('active')) {
+            opt.classList.remove('hide');
+          }
         });
         objPosts.addEventListener('mouseleave', () => {
           const opt = objPosts.querySelector('.comment');
-          if (opt) opt.classList.add('hide');
-        });
-        objPosts.addEventListener('click', () => {
-          const opt = objPosts.querySelector('.comment');
-          if (opt) opt.classList.add('showProgress');
+          if (opt && !opt.classList.contains('active')) {
+            opt.classList.add('hide');
+          }
         });
       });
     }

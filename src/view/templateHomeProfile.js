@@ -62,9 +62,9 @@ export const postHomeMobile = () => `
         <h4>${localStorage.getItem('userName')}</h4>
         <img src="${sessionStorage.getItem('privacy') === '2' ? './img/private.png' : './img/public.png'}" alt="privacidad" id="privPost">
       </div>
-      <spam class="comment">
+      <span class="comment">
         <i class="fas fa-ellipsis-v"></i>
-      </spam>
+      </span>
       <div id="privacyPostArea" class="hide tooltip-container">
         <div class="arrow"></div>
         <div class="tooltip">
@@ -173,9 +173,9 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       </div>
       
       ${uididUser === uidPost ? `
-      <spam class="hide comment">
+      <span class="hide comment">
         <i id="options-${id}" class="fas fa-ellipsis-v"></i>
-      </spam>
+      </span>
       <div class="tooltip-container hide" id="show-toolTip-${id}">
         <div class="arrow"></div>
         <div class="tooltip">
@@ -210,21 +210,25 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
     <div id="containerComment-${id}" class="hide container-comments"></div>`;
 
   eachPost.innerHTML = template;
-  // EVENTOS PARA EDITAR Y ELIMINAR
 
+  // EVENTOS PARA EDITAR Y ELIMINAR
   const editDelete = eachPost.querySelector(`#options-${id}`);
   const editComment = eachPost.querySelector(`.edit-${id}`);
+
   if (editDelete || editComment) {
-    editDelete.addEventListener(('click'), () => {
+    editDelete.addEventListener(('click'), (e) => {
       const toolContainer = document.querySelector(`#show-toolTip-${id}`);
       toolContainer.classList.toggle('hide');
+      e.currentTarget.parentNode.classList.toggle('active');
     });
+
     editComment.addEventListener(('click'), () => {
       const toolContainer = document.querySelector(`#show-toolTip-${id}`);
       toolContainer.classList.toggle('hide');
+      const opt = toolContainer.parentNode.querySelector('span.comment');
+      opt.classList.toggle('active');
     });
   }
-
 
   const varComment = eachPost.querySelector('.inputComment');
   const addNewComment = eachPost.querySelector('.new-comment');

@@ -1,4 +1,8 @@
 import {
+  device,
+} from '../utiles/utilitarias.js';
+
+import {
   createPostDB,
   updatePosts,
   deletePosts,
@@ -63,6 +67,7 @@ export const updatePostsOnClick = () => {
     });
   }
 
+  // FUNCIÓN PARA INHABILITAR EL BTN SI EL CAMPO ESTÁ VACÍO
   const textPost = document.querySelectorAll('.textPost');
   if (textPost.length) {
     textPost.forEach((objTextPost) => {
@@ -110,22 +115,24 @@ const btnLikes = () => {
 
 // SHOW OPTIONS COMMENT
 const showOpt = () => {
-  const containerPost = document.querySelectorAll('.each-post');
-  if (containerPost.length) {
-    containerPost.forEach((objPosts) => {
-      objPosts.addEventListener('mouseover', () => {
-        const opt = objPosts.querySelector('.comment');
-        if (opt) opt.classList.remove('hide');
+  if (device() === 'Mobile') {
+    const containerPost = document.querySelectorAll('.each-post');
+    if (containerPost.length) {
+      containerPost.forEach((objPosts) => {
+        objPosts.addEventListener('mouseover', () => {
+          const opt = objPosts.querySelector('.comment');
+          if (opt) opt.classList.remove('hide');
+        });
+        objPosts.addEventListener('mouseleave', () => {
+          const opt = objPosts.querySelector('.comment');
+          if (opt) opt.classList.add('hide');
+        });
       });
-      objPosts.addEventListener('mouseleave', () => {
-        const opt = objPosts.querySelector('.comment');
-        if (opt) opt.classList.add('hide');
-      });
-    });
+    }
   }
 };
 
-// FUNCIÓN PARA LEER LOS POSTS PÚBLICOS
+// FUNCIÓN PARA LEER LOS POSTS EN INICIO (PÚBLICOS)
 export const publicPosts = (posts) => {
   const container = document.querySelector('.container-new-post-home');
   if (container) {
@@ -153,6 +160,7 @@ export const publicPosts = (posts) => {
   return container;
 };
 
+// FUNCIÓN PARA LEER LOS POSTS EN EL PERFIL
 export const postProfile = (posts) => {
   const container = document.querySelector('.container-new-post-profile');
   if (container) {

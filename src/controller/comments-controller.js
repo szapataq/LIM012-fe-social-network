@@ -30,7 +30,6 @@ export const deleteCommentOnClick = () => {
     iconDelete.forEach((objComment) => {
       objComment.addEventListener('click', () => {
         const idcomment = objComment.getAttribute('idcomment');
-        console.log(idcomment);
         deleteCommentsDB(idcomment)
           .then(() => {})
           .catch(() => {});
@@ -123,8 +122,8 @@ export const readingComment = (comments, idPost) => {
         numComments.innerText = parseInt(numComments.innerText, 0) + 1;
         const divComment = templateComment(comment.names,
           comment.profilePicture, comment.comment, comment.date, comment.id, uidUser, comment.uid);
-        console.log('user', uidUser);
-        console.log('user', comment.uid);
+        // console.log('user', uidUser);
+        // console.log('user', comment.uid);
         container.appendChild(divComment);
       }
     });

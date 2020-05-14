@@ -41,14 +41,14 @@ const device = () => {
   return dv;
 };
 
-const deviceIPad = () => {
+const deviceNoIPad = () => {
   const dv = /Android|webOS|iPhone|iPod|BlackBerry|BB|PlayBook|SymbianOS|Windows Phone/i.test(window.navigator.userAgent) ? 'Mobile' : 'Desktop';
   return dv;
 };
 
 const changeUserLogged = () => {
   let userData = '';
-  if (deviceIPad() === 'Mobile' && /home/.test(window.location.hash)) {
+  if (deviceNoIPad() === 'Mobile' && /home/.test(window.location.hash)) {
     userData = '';
   } else {
     userData = userLoggedIn();

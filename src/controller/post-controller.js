@@ -127,6 +127,10 @@ const showOpt = () => {
           const opt = objPosts.querySelector('.comment');
           if (opt) opt.classList.add('hide');
         });
+        objPosts.addEventListener('click', () => {
+          const opt = objPosts.querySelector('.comment');
+          if (opt) opt.classList.add('showProgress');
+        });
       });
     }
   } else {

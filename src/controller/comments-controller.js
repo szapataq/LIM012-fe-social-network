@@ -1,4 +1,8 @@
 import {
+  device,
+} from '../utiles/utilitarias.js';
+
+import {
   createCommentsDB,
   deleteCommentsDB,
   updateCommentsDB,
@@ -75,6 +79,7 @@ export const updateCommentOnClick = () => {
     });
   }
 
+  // FUNCIÓN PARA INHABILITAR EL BTN DE COMENTARIOS SI EL CAMPO ESTÁ VACÍO
   const textComment = document.querySelectorAll('.p-comment');
   if (textComment.length) {
     textComment.forEach((objComment) => {
@@ -95,17 +100,23 @@ export const updateCommentOnClick = () => {
 // SHOW OPTIONS COMMENT
 const showOpt = () => {
   const containerComment = document.querySelectorAll('.name-comment');
-  if (containerComment.length) {
-    containerComment.forEach((objComment) => {
-      objComment.addEventListener('mouseover', () => {
-        const opt = objComment.querySelector('.comment');
-        if (opt) opt.classList.remove('hide');
+  if (device() === 'Desktop') {
+    if (containerComment.length) {
+      containerComment.forEach((objComment) => {
+        objComment.addEventListener('mouseover', () => {
+          const opt = objComment.querySelector('.comment');
+          if (opt && !opt.classList.contains('active')) {
+            opt.classList.remove('hide');
+          }
+        });
+        objComment.addEventListener('mouseleave', () => {
+          const opt = objComment.querySelector('.comment');
+          if (opt && !opt.classList.contains('active')) {
+            opt.classList.add('hide');
+          }
+        });
       });
-      objComment.addEventListener('mouseleave', () => {
-        const opt = objComment.querySelector('.comment');
-        if (opt) opt.classList.add('hide');
-      });
-    });
+    }
   }
 };
 

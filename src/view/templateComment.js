@@ -14,7 +14,7 @@ export const templateComment = (names, profilePicture, comment,
        </div>
      </div>
      ${uidUser === uidComment ? `
-     <span class="comment">
+     <span class="hide comment">
      <i id="options-${idComment}" class="fas fa-ellipsis-h"></i>
     </span>
     <div class="tooltip-container hide" id="show-toolTip-${idComment}">
@@ -28,9 +28,10 @@ export const templateComment = (names, profilePicture, comment,
   containerComments.innerHTML = template;
   const editDelete = containerComments.querySelector(`#options-${idComment}`);
   if (editDelete) {
-    editDelete.addEventListener(('click'), () => {
+    editDelete.addEventListener(('click'), (e) => {
       const toolContainer = document.querySelector(`#show-toolTip-${idComment}`);
       toolContainer.classList.toggle('hide');
+      e.currentTarget.parentNode.classList.toggle('active');
     });
   }
   const editComment = containerComments.querySelector(`.edit-${idComment}`);
@@ -38,6 +39,8 @@ export const templateComment = (names, profilePicture, comment,
     editComment.addEventListener(('click'), () => {
       const toolContainer = document.querySelector(`#show-toolTip-${idComment}`);
       toolContainer.classList.toggle('hide');
+      const opt = toolContainer.parentNode.querySelector('span.comment');
+      opt.classList.toggle('active');
     });
   }
 

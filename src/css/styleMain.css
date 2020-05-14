@@ -336,11 +336,6 @@ figure img {
     color: #333333;
 }
 
-.hide {
-    display: none
-}
-
-
 .body-post {
     padding: 15px 20px;
     word-wrap: break-word;
@@ -522,10 +517,6 @@ figure img {
 
 .toolTwo {
     padding-left: 5px !important;
-}
-
-.hide {
-    display: none;
 }
 
 /*----------SIMULADOR DE SELECT-----------------*/

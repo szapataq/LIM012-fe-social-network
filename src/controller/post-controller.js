@@ -115,8 +115,8 @@ const btnLikes = () => {
 
 // SHOW OPTIONS COMMENT
 const showOpt = () => {
-  if (device() === 'Mobile') {
-    const containerPost = document.querySelectorAll('.each-post');
+  const containerPost = document.querySelectorAll('.each-post');
+  if (device() === 'Desktop') {
     if (containerPost.length) {
       containerPost.forEach((objPosts) => {
         objPosts.addEventListener('mouseover', () => {
@@ -129,6 +129,11 @@ const showOpt = () => {
         });
       });
     }
+  } else {
+    containerPost.forEach((objPosts) => {
+      const opt = objPosts.querySelector('.comment');
+      if (opt) opt.classList.remove('hide');
+    });
   }
 };
 

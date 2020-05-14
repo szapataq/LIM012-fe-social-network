@@ -173,7 +173,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       </div>
       
       ${uididUser === uidPost ? `
-      <spam class="comment">
+      <spam class="hide comment">
         <i id="options-${id}" class="fas fa-ellipsis-v"></i>
       </spam>
       <div class="tooltip-container hide" id="show-toolTip-${id}">

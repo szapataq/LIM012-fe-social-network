@@ -336,11 +336,6 @@ figure img {
     color: #333333;
 }
 
-.hide {
-    display: none
-}
-
-
 .body-post {
     padding: 15px 20px;
     word-wrap: break-word;
@@ -524,10 +519,6 @@ figure img {
     padding-left: 5px !important;
 }
 
-.hide {
-    display: none;
-}
-
 /*----------SIMULADOR DE SELECT-----------------*/
 .simulator-select {
     position: absolute;
@@ -587,6 +578,10 @@ figure img {
     cursor: pointer;
 }
 
+.activeSend:hover {
+    transform: rotate(24deg);
+}
+
 .p-comment {
     margin-top: 1.2%;
     text-align: justify;
@@ -601,6 +596,7 @@ figure img {
     transform: rotate(-90deg);
     margin-right: 0.8em;
     padding: 2px;
+    cursor: pointer;
 }
 
 .title-new-post-own {

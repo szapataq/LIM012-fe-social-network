@@ -147,7 +147,7 @@ export const createUser = (email, password, names) => {
       });
       const alertLogInSignUp = document.querySelector('#alertLogInSignUp');
       const configuration = {
-        url: 'https://argierdfj.github.io/LIM012-fe-social-network/src/',
+        url: 'https://szapataq.github.io/LIM012-fe-social-network/src/',
       };
       res.user.sendEmailVerification(configuration)
         .catch(() => {

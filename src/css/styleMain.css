@@ -578,6 +578,10 @@ figure img {
     cursor: pointer;
 }
 
+.activeSend:hover {
+    transform: rotate(24deg);
+}
+
 .p-comment {
     margin-top: 1.2%;
     text-align: justify;

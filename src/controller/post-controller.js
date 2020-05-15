@@ -40,8 +40,6 @@ export const updatePostsOnClick = () => {
         const idPosts = objPosts.getAttribute('idpost');
         const textPost = document.querySelector(`#textPost-${idPosts}`);
         const iconSave = textPost.parentNode.querySelector('.save');
-        // const opt = document.querySelector('.comment');
-        // if (opt) opt.style.display = 'none';
         textPost.contentEditable = 'true';
         textPost.focus();
         iconSave.classList.remove('hide');

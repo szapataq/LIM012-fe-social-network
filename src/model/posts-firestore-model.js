@@ -54,7 +54,7 @@ export const readPostHome = (callback) => {
     });
 };
 
-// READ POSTS HOME
+// READ POSTS PROFILE
 export const readPostProfile = (callback, uid) => {
   firebase.firestore().collection('posts').where('uid', '==', uid)
     .orderBy('orderDate', 'desc')
@@ -113,7 +113,7 @@ export const addLikeArr = (idPost, uid) => (
     .update({ likes: firebase.firestore.FieldValue.arrayUnion(uid) })
 );
 
-// ELIMINAR LIKE
+// REMOVE LIKE
 export const removeLikeArr = (idPost, uid) => (
   firebase.firestore().collection('posts').doc(idPost)
     .update({ likes: firebase.firestore.FieldValue.arrayRemove(uid) })

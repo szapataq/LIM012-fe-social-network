@@ -6,6 +6,8 @@ import {
   createPostDB,
   updatePosts,
   deletePosts,
+  readComments,
+  deleteCommentsDB,
 } from '../model/posts-firestore-model.js';
 
 import {
@@ -13,17 +15,26 @@ import {
   notYetPost,
 } from '../view/templateHomeProfile.js';
 
+// ELIMINAR COMENTAROS DEL POST ELIMINADO
+const deleteAllComments = (comments, idPost) => {
+  comments.forEach((comment) => {
+    if (idPost === comment.idPost) {
+      deleteCommentsDB(comment.id);
+    }
+  });
+};
 
-// FUNCIÓN PARA BORRAR EL TEXTO DEL POST
+// FUNCIÓN PARA BORRAR TEXTO DEL POST
 const deletePostsOnClick = () => {
   const iconDelete = document.querySelectorAll('.delete-post');
   if (iconDelete.length) {
-    // console.log(iconDelete.length);
     iconDelete.forEach((objPosts) => {
       objPosts.addEventListener('click', () => {
         const idPosts = objPosts.getAttribute('idpost');
         deletePosts(idPosts)
-          .then(() => {})
+          .then(() => {
+            readComments(deleteAllComments, idPosts);
+          })
           .catch(() => {});
       });
     });
@@ -59,9 +70,7 @@ export const updatePostsOnClick = () => {
           textPost.contentEditable = 'false';
           objPosts.classList.add('hide');
           const post = textPost.innerText.trim();
-          updatePosts(idPosts, post)
-            .then(() => {})
-            .catch(() => {});
+          updatePosts(idPosts, post);
         }
       });
     });

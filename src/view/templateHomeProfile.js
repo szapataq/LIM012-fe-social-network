@@ -72,7 +72,6 @@ export const postHomeMobile = () => `
           <div data-value="2" id="private" class=" toolTwo opt"> <i class="fas fa-lock optItalic"></i> <span>Solo yo</span></div>
         </div>
       </div>
-
     </div>
     <div class="new-post">
       <textarea rows="4" cols="50" placeholder="¿Qué quieres compartir?" id="postArea"></textarea>
@@ -180,7 +179,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
         <div class="arrow"></div>
         <div class="tooltip">
           <div idpost="${id}" class="opt icon-edit update-post edit-${id}"> <i class="fas fa-edit icon-tool"></i> <span>Editar</span></div>
-          <div idpost="${id}" class="opt delete-post"> <i class="fas fa-trash-alt icon-tool"></i><span>Eliminar</span></div>
+          <div class="opt modal-delet-${id}"> <i class="fas fa-trash-alt icon-tool"></i><span>Eliminar</span></div>
         </div>
       </div>
       ` : ''}
@@ -207,24 +206,71 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       <input type="text" placeholder="Agrega un comentario..." class="inputComment">
       <svg aria-label="Compartir publicación" class="icon-send _8-yf5 " fill="#b1b1b1" height="24" viewBox="0 0 48 48" width="24"><path d="M46.5 3.5h-45C.6 3.5.2 4.6.8 5.2l16 15.8 5.5 22.8c.2.9 1.4 1 1.8.3L47.4 5c.4-.7-.1-1.5-.9-1.5zm-40.1 3h33.5L19.1 18c-.4.2-.9.1-1.2-.2L6.4 6.5zm17.7 31.8l-4-16.6c-.1-.4.1-.9.5-1.1L41.5 9 24.1 38.3z"></path><path d="M14.7 48.4l2.9-.7"></path></svg>
     </div>
-    <div id="containerComment-${id}" class="hide container-comments"></div>`;
+    <div id="containerComment-${id}" class="hide container-comments"></div>
+    <div class="modal-${id} modal hide">
+      <div class="modal-flex"> 
+        <div class="container-modal comun-card">
+          <i class="fas fa-times close close-${id}"></i>
+          <div class="modal-info">
+            <h3>Eliminar Publicacion</h3>
+            <div class="delete-post-alert">
+              <i class="fas fa-exclamation-triangle icon-alert"></i>
+              <p class="messaje-alert">Si elimina esta publicación no podrá recuperar su contenido.</p>
+            </div>
+            <button class="cancel cancel-${id}">Cancelar</button>               
+            <button idpost="${id}" class="delete delete-post">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
 
   eachPost.innerHTML = template;
-  // EVENTOS PARA EDITAR Y ELIMINAR
+  // EVENTO PARA ABRIR MODAL CON EL BOTON ELIMINAR
+  const modalDelet = eachPost.querySelector(`.modal-delet-${id}`);
+  const modalId = eachPost.querySelector(`.modal-${id}`);
+  if (modalDelet) {
+    modalDelet.addEventListener('click', () => {
+      const toolContainer = eachPost.querySelector(`#show-toolTip-${id}`);
+      toolContainer.classList.toggle('hide');
+      if (modalId) {
+        modalId.classList.remove('hide');
+      }
+    });
+  }
 
+  // EVENTOS PARA CERRAR DEL MODAL
+  const close = eachPost.querySelector(`.close-${id}`);
+  close.addEventListener('click', () => {
+    modalId.classList.add('hide');
+  });
+
+  const cancel = eachPost.querySelector(`.cancel-${id}`);
+  cancel.addEventListener('click', () => {
+    modalId.classList.add('hide');
+  });
+
+  const modalFlex = eachPost.querySelector('.modal-flex');
+  window.addEventListener('click', (evento) => {
+    if (evento.target === modalFlex) {
+      modalId.classList.add('hide');
+    }
+  });
+
+
+  // EVENTOS TOGLE PARA EDITAR Y ELIMINAR
   const editDelete = eachPost.querySelector(`#options-${id}`);
   const editComment = eachPost.querySelector(`.edit-${id}`);
   if (editDelete || editComment) {
     editDelete.addEventListener(('click'), () => {
-      const toolContainer = document.querySelector(`#show-toolTip-${id}`);
+      const toolContainer = eachPost.querySelector(`#show-toolTip-${id}`);
       toolContainer.classList.toggle('hide');
     });
     editComment.addEventListener(('click'), () => {
-      const toolContainer = document.querySelector(`#show-toolTip-${id}`);
+      const toolContainer = eachPost.querySelector(`#show-toolTip-${id}`);
       toolContainer.classList.toggle('hide');
     });
   }
-
 
   const varComment = eachPost.querySelector('.inputComment');
   const addNewComment = eachPost.querySelector('.new-comment');

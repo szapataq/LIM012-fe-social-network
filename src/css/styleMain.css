@@ -580,6 +580,7 @@ figure img {
 
 .activeSend:hover {
     transform: rotate(24deg);
+    transition: 350ms ease;
 }
 
 .p-comment {

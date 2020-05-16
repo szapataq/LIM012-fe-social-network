@@ -1,4 +1,9 @@
 import {
+  device,
+  deviceNoIPad,
+} from '../utiles/utilitarias.js';
+
+import {
   homeHeader,
   profile,
   postHomeMobile,
@@ -26,7 +31,6 @@ import {
 } from '../controller/userData-controller.js';
 
 import {
-  // readPostDB,
   readPostProfile,
   readPostHome,
 } from '../model/posts-firestore-model.js';
@@ -35,20 +39,9 @@ import {
   shareImgPost,
 } from '../model/storage-firestore-model.js';
 
-// FUNCIÓN UTILITARIA PARA DETECTAR EL DISPOSITIVO
-const device = () => {
-  const dv = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|SymbianOS|Windows Phone/i.test(window.navigator.userAgent) ? 'Mobile' : 'Desktop';
-  return dv;
-};
-
-const deviceIPad = () => {
-  const dv = /Android|webOS|iPhone|iPod|BlackBerry|BB|PlayBook|SymbianOS|Windows Phone/i.test(window.navigator.userAgent) ? 'Mobile' : 'Desktop';
-  return dv;
-};
-
 const changeUserLogged = () => {
   let userData = '';
-  if (deviceIPad() === 'Mobile' && /home/.test(window.location.hash)) {
+  if (deviceNoIPad() === 'Mobile' && /home/.test(window.location.hash)) {
     userData = '';
   } else {
     userData = userLoggedIn();

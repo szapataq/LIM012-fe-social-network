@@ -336,11 +336,6 @@ figure img {
     color: #333333;
 }
 
-.hide {
-    display: none
-}
-
-
 .body-post {
     padding: 15px 20px;
     word-wrap: break-word;
@@ -524,10 +519,6 @@ figure img {
     padding-left: 5px !important;
 }
 
-.hide {
-    display: none;
-}
-
 /*----------SIMULADOR DE SELECT-----------------*/
 .simulator-select {
     position: absolute;
@@ -585,6 +576,10 @@ figure img {
 .activeSend {
     fill: #333333 !important;
     cursor: pointer;
+}
+
+.activeSend:hover {
+    transform: rotate(24deg);
 }
 
 .p-comment {

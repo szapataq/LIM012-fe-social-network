@@ -131,7 +131,7 @@ const validateImgPost = (imgPost, textPost, id) => {
       <p id="textPost-${id}" class="textPost">${textPost}</p>
       <div class="save hide" idpost="${id}"><i class="far fa-save"></i></div>
     </div>
-    <img src="${imgPost}" alt="Imagen del post" class="imgPost">
+    <img src="${imgPost}" alt="Imagen del post" class="imgPost ${id}">
     `;
   } else {
     post = `

@@ -35,3 +35,5 @@ export const shareImgPost = (file, uid) => {
   };
   taskStorage.on('state_changed', stateSnapshot, catchError, fileReady);
 };
+
+export const delFileStorage = (file, uid) => firebase.storage().ref().child(`imgPosts/${uid}/${file}`).delete();

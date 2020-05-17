@@ -11,6 +11,10 @@ import {
 } from '../model/posts-firestore-model.js';
 
 import {
+  delFileStorage,
+} from '../model/storage-firestore-model.js';
+
+import {
   templatePost,
   notYetPost,
 } from '../view/templateHomeProfile.js';
@@ -24,6 +28,17 @@ const deleteAllComments = (comments, idPost) => {
   });
 };
 
+// PARA TRAER EL UID Y EL NOMBRE DE LA FOTO
+const cutURL = (url) => {
+  const urlDecode = decodeURIComponent(url);
+  const urlA = urlDecode.split('?');
+  const urlB = urlA[0].split('/');
+  return {
+    uid: urlB[8],
+    photoURL: urlB[9],
+  };
+};
+
 // FUNCIÓN PARA BORRAR TEXTO DEL POST
 const deletePostsOnClick = () => {
   const iconDelete = document.querySelectorAll('.delete-post');
@@ -31,9 +46,14 @@ const deletePostsOnClick = () => {
     iconDelete.forEach((objPosts) => {
       objPosts.addEventListener('click', () => {
         const idPosts = objPosts.getAttribute('idpost');
+        const imgElement = document.querySelector(`.${idPosts}`);
         deletePosts(idPosts)
           .then(() => {
             readComments(deleteAllComments, idPosts);
+            if (imgElement) {
+              const objFile = cutURL(imgElement.src);
+              delFileStorage(objFile.photoURL, objFile.uid);
+            }
           })
           .catch(() => {});
       });

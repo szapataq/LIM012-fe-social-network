@@ -4,6 +4,18 @@ import {
   updateUserDataAbout,
 } from '../model/user-firestore-model.js';
 
+import {
+  readPostProfile,
+  updatePersonalData,
+} from '../model/posts-firestore-model.js';
+
+
+const updateDataUser = (posts) => {
+  posts.forEach((post) => {
+    updatePersonalData(post.id, localStorage.getItem('userName'));
+  });
+};
+
 // FUNCIÓN PARA ACTUALIZAR EL NOMBRE DEL USUARIO
 export const updateUserName = (nodo) => {
   const iconEdit = nodo.querySelector('#editName');
@@ -35,6 +47,7 @@ export const updateUserName = (nodo) => {
             updateUserDataName(user.id, nam)
               .then(() => {
                 localStorage.setItem('userName', nam);
+                readPostProfile(updateDataUser, firebase.auth().currentUser.uid);
               })
               .catch(() => {});
           }

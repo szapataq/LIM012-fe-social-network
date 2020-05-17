@@ -67,6 +67,11 @@ export const readPostProfile = (callback, uid) => {
     });
 };
 
+// UPDATE PERSONAL DATA
+export const updatePersonalData = (idpost, userNames) => firebase.firestore().collection('posts').doc(idpost).update({
+  names: userNames,
+});
+
 // UPDATE POSTS
 export const updatePosts = (idpost, textPost) => firebase.firestore().collection('posts').doc(idpost).update({
   post: textPost,

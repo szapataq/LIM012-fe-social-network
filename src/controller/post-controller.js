@@ -189,6 +189,7 @@ export const publicPosts = (posts) => {
     if (container.innerHTML === '') {
       container.innerHTML = notYetPost;
     }
+
     updatePostsOnClick();
     deletePostsOnClick();
     btnLikes();
@@ -217,6 +218,7 @@ export const postProfile = (posts) => {
     if (container.innerHTML === '') {
       container.innerHTML = notYetPost;
     }
+
     updatePostsOnClick();
     deletePostsOnClick();
     btnLikes();

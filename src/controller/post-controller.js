@@ -46,7 +46,7 @@ const deletePostsOnClick = () => {
     iconDelete.forEach((objPosts) => {
       objPosts.addEventListener('click', () => {
         const idPosts = objPosts.getAttribute('idpost');
-        const imgElement = document.querySelector(`.${idPosts}`);
+        const imgElement = document.querySelector(`.img-${idPosts}`);
         deletePosts(idPosts)
           .then(() => {
             readComments(deleteAllComments, idPosts);

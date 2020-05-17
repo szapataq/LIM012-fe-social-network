@@ -8,8 +8,6 @@ import {
   deletePosts,
   readComments,
   deleteCommentsDB,
-  updatePersonalData,
-  readPostProfile,
 } from '../model/posts-firestore-model.js';
 
 import {

@@ -169,8 +169,8 @@ header label {
     margin: 0 0 3%;
 }
 
-.index-img-message h1 {
-    font-size: 2vw;
+.index-img-message p {
+    font-size: 1.8vw;
     text-align: center;
     width: 90%;
 }

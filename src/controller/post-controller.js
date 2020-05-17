@@ -6,24 +6,55 @@ import {
   createPostDB,
   updatePosts,
   deletePosts,
+  readComments,
+  deleteCommentsDB,
 } from '../model/posts-firestore-model.js';
+
+import {
+  delFileStorage,
+} from '../model/storage-firestore-model.js';
 
 import {
   templatePost,
   notYetPost,
 } from '../view/templateHomeProfile.js';
 
+// ELIMINAR COMENTAROS DEL POST ELIMINADO
+const deleteAllComments = (comments, idPost) => {
+  comments.forEach((comment) => {
+    if (idPost === comment.idPost) {
+      deleteCommentsDB(comment.id);
+    }
+  });
+};
 
-// FUNCIÓN PARA BORRAR EL TEXTO DEL POST
+// PARA TRAER EL UID Y EL NOMBRE DE LA FOTO
+export const cutURL = (url) => {
+  const urlDecode = decodeURIComponent(url);
+  const urlA = urlDecode.split('?');
+  const urlB = urlA[0].split('/');
+  return {
+    uid: urlB[8],
+    photoURL: urlB[9],
+  };
+};
+
+// FUNCIÓN PARA BORRAR TEXTO DEL POST
 const deletePostsOnClick = () => {
   const iconDelete = document.querySelectorAll('.delete-post');
   if (iconDelete.length) {
-    // console.log(iconDelete.length);
     iconDelete.forEach((objPosts) => {
       objPosts.addEventListener('click', () => {
         const idPosts = objPosts.getAttribute('idpost');
+        const imgElement = document.querySelector(`.img-${idPosts}`);
         deletePosts(idPosts)
-          .then(() => {})
+          .then(() => {
+            readComments(deleteAllComments, idPosts);
+            if (imgElement) {
+              const objFile = cutURL(imgElement.src);
+              delFileStorage(objFile.photoURL, objFile.uid);
+            }
+          })
           .catch(() => {});
       });
     });
@@ -59,9 +90,7 @@ export const updatePostsOnClick = () => {
           textPost.contentEditable = 'false';
           objPosts.classList.add('hide');
           const post = textPost.innerText.trim();
-          updatePosts(idPosts, post)
-            .then(() => {})
-            .catch(() => {});
+          updatePosts(idPosts, post);
         }
       });
     });
@@ -214,15 +243,3 @@ export const createNewPost = (post, privacyPostArea) => {
       // console.log(error);
     });
 };
-
-
-// EVENTOS DEL MODAL
-const close = document.querySelector('.close');
-const modal = document.querySelector('.modal');
-const cancel = document.querySelector('.cancel');
-const modalFlex = document.querySelector('.modal-flex');
-window.addEventListener('click', (evento) => {
-  if (evento.target === modalFlex || close || cancel) {
-    modal.classList.add('ocultar');
-  }
-});

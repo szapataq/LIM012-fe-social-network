@@ -20,9 +20,9 @@ import {
 
 import {
   createNewPost,
-  // readingPosts,
   publicPosts,
   postProfile,
+  cutURL,
 } from '../controller/post-controller.js';
 
 import {
@@ -37,6 +37,7 @@ import {
 
 import {
   shareImgPost,
+  delFileStorage,
 } from '../model/storage-firestore-model.js';
 
 const changeUserLogged = () => {
@@ -152,6 +153,8 @@ export default () => {
   const btnDeleteImg = sectionMain.querySelector('.deleteImg');
   if (btnDeleteImg) {
     btnDeleteImg.addEventListener('click', () => {
+      const objFile = cutURL(sessionStorage.getItem('imgNewPost'));
+      delFileStorage(objFile.photoURL, objFile.uid);
       sessionStorage.removeItem('imgNewPost');
       btnDeleteImg.parentNode.classList.add('hide');
       btnSharePost.classList.remove('btnShareActive');

@@ -29,7 +29,7 @@ const deleteAllComments = (comments, idPost) => {
 };
 
 // PARA TRAER EL UID Y EL NOMBRE DE LA FOTO
-const cutURL = (url) => {
+export const cutURL = (url) => {
   const urlDecode = decodeURIComponent(url);
   const urlA = urlDecode.split('?');
   const urlB = urlA[0].split('/');

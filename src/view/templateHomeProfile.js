@@ -116,7 +116,7 @@ export const userLoggedIn = () => `
         ${iconEdit('editName', 'saveName')}
       </div>
       <div class="description">
-        <p id="userAbout">&lt;/&gt;${localStorage.getItem('userAbout') || 'Developer'}</p>
+        <p id="userAbout">&lt;/&gt; ${localStorage.getItem('userAbout') || 'Developer'}</p>
         ${iconEdit('editAbout', 'saveAbout')}
       </div>
     </div>

@@ -8,7 +8,7 @@ Inicialmente éste era el prototipo de baja fidelidad para las vistas de registr
 Luego trabajamos en los prototipos de alta fidelidad de las diferentes visats:
 
 ### Mobile
-![Prototipos de alta en Mobile](./src/img/prototipos-de-alta-mobile.png)
+![Prototipos de alta en Mobile](./src/img/Prototipos-de-alta-mobile.png)
 
 ### Desktop
 ![Prototipo de alta Desktop](./src/img/prot-1.png)

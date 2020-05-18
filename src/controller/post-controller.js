@@ -1,25 +1,60 @@
 import {
+  device,
+} from '../utiles/utilitarias.js';
+
+import {
   createPostDB,
   updatePosts,
   deletePosts,
+  readComments,
+  deleteCommentsDB,
 } from '../model/posts-firestore-model.js';
+
+import {
+  delFileStorage,
+} from '../model/storage-firestore-model.js';
 
 import {
   templatePost,
   notYetPost,
 } from '../view/templateHomeProfile.js';
 
+// ELIMINAR COMENTAROS DEL POST ELIMINADO
+const deleteAllComments = (comments, idPost) => {
+  comments.forEach((comment) => {
+    if (idPost === comment.idPost) {
+      deleteCommentsDB(comment.id);
+    }
+  });
+};
 
-// FUNCIÓN PARA BORRAR EL TEXTO DEL POST
+// PARA TRAER EL UID Y EL NOMBRE DE LA FOTO
+export const cutURL = (url) => {
+  const urlDecode = decodeURIComponent(url);
+  const urlA = urlDecode.split('?');
+  const urlB = urlA[0].split('/');
+  return {
+    uid: urlB[8],
+    photoURL: urlB[9],
+  };
+};
+
+// FUNCIÓN PARA BORRAR TEXTO DEL POST
 const deletePostsOnClick = () => {
   const iconDelete = document.querySelectorAll('.delete-post');
   if (iconDelete.length) {
-    // console.log(iconDelete.length);
     iconDelete.forEach((objPosts) => {
       objPosts.addEventListener('click', () => {
         const idPosts = objPosts.getAttribute('idpost');
+        const imgElement = document.querySelector(`.img-${idPosts}`);
         deletePosts(idPosts)
-          .then(() => {})
+          .then(() => {
+            readComments(deleteAllComments, idPosts);
+            if (imgElement) {
+              const objFile = cutURL(imgElement.src);
+              delFileStorage(objFile.photoURL, objFile.uid);
+            }
+          })
           .catch(() => {});
       });
     });
@@ -55,14 +90,13 @@ export const updatePostsOnClick = () => {
           textPost.contentEditable = 'false';
           objPosts.classList.add('hide');
           const post = textPost.innerText.trim();
-          updatePosts(idPosts, post)
-            .then(() => {})
-            .catch(() => {});
+          updatePosts(idPosts, post);
         }
       });
     });
   }
 
+  // FUNCIÓN PARA INHABILITAR EL BTN SI EL CAMPO ESTÁ VACÍO
   const textPost = document.querySelectorAll('.textPost');
   if (textPost.length) {
     textPost.forEach((objTextPost) => {
@@ -110,22 +144,33 @@ const btnLikes = () => {
 
 // SHOW OPTIONS COMMENT
 const showOpt = () => {
-  const containerPost = document.querySelectorAll('.each-post');
-  if (containerPost.length) {
+  const containerPost = document.querySelectorAll('.title-new-post');
+  if (device() === 'Desktop') {
+    if (containerPost.length) {
+      containerPost.forEach((objPosts) => {
+        objPosts.addEventListener('mouseover', () => {
+          const opt = objPosts.querySelector('.comment');
+          if (opt && !opt.classList.contains('active')) {
+            opt.classList.remove('hide');
+          }
+        });
+        objPosts.addEventListener('mouseleave', () => {
+          const opt = objPosts.querySelector('.comment');
+          if (opt && !opt.classList.contains('active')) {
+            opt.classList.add('hide');
+          }
+        });
+      });
+    }
+  } else {
     containerPost.forEach((objPosts) => {
-      objPosts.addEventListener('mouseover', () => {
-        const opt = objPosts.querySelector('.comment');
-        if (opt) opt.classList.remove('hide');
-      });
-      objPosts.addEventListener('mouseleave', () => {
-        const opt = objPosts.querySelector('.comment');
-        if (opt) opt.classList.add('hide');
-      });
+      const opt = objPosts.querySelector('.comment');
+      if (opt) opt.classList.remove('hide');
     });
   }
 };
 
-// FUNCIÓN PARA LEER LOS POSTS PÚBLICOS
+// FUNCIÓN PARA LEER LOS POSTS EN INICIO (PÚBLICOS)
 export const publicPosts = (posts) => {
   const container = document.querySelector('.container-new-post-home');
   if (container) {
@@ -144,6 +189,7 @@ export const publicPosts = (posts) => {
     if (container.innerHTML === '') {
       container.innerHTML = notYetPost;
     }
+
     updatePostsOnClick();
     deletePostsOnClick();
     btnLikes();
@@ -153,6 +199,7 @@ export const publicPosts = (posts) => {
   return container;
 };
 
+// FUNCIÓN PARA LEER LOS POSTS EN EL PERFIL
 export const postProfile = (posts) => {
   const container = document.querySelector('.container-new-post-profile');
   if (container) {
@@ -171,6 +218,7 @@ export const postProfile = (posts) => {
     if (container.innerHTML === '') {
       container.innerHTML = notYetPost;
     }
+
     updatePostsOnClick();
     deletePostsOnClick();
     btnLikes();

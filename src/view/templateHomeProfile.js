@@ -26,7 +26,7 @@ export const optionsMobile = `
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 export const imgProfileUserDefault = `./img/profilePictureRandom/iconUser_${getRandomInt(1, 10)}.png`;
-export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 15)}.png`;
+export const imgCoverUserDefault = `./img/ImgRandom/image_${getRandomInt(1, 17)}.png`;
 
 // PLANTILLA CONTENEDOR COMPARTIR POST
 export const postArea = `
@@ -45,7 +45,7 @@ export const postArea = `
       <label for="photoPost"><img src="./img/camera.png" class="camera"></label>        
         <div class="privacidad">
           <select id="privacyPostArea">
-            <option value="1">🌐 Público</option>
+            <option value="1">🌎 Público</option>
             <option value="2">🔒 Solo yo </option>
           </select>
         </div>
@@ -62,9 +62,9 @@ export const postHomeMobile = () => `
         <h4>${localStorage.getItem('userName')}</h4>
         <img src="${sessionStorage.getItem('privacy') === '2' ? './img/private.png' : './img/public.png'}" alt="privacidad" id="privPost">
       </div>
-      <spam class="comment">
+      <span class="comment">
         <i class="fas fa-ellipsis-v"></i>
-      </spam>
+      </span>
       <div id="privacyPostArea" class="hide tooltip-container">
         <div class="arrow"></div>
         <div class="tooltip">
@@ -116,7 +116,7 @@ export const userLoggedIn = () => `
         ${iconEdit('editName', 'saveName')}
       </div>
       <div class="description">
-        <p id="userAbout">&lt;/&gt;${localStorage.getItem('userAbout') || 'Developer'}</p>
+        <p id="userAbout">&lt;/&gt; ${localStorage.getItem('userAbout') || 'Developer'}</p>
         ${iconEdit('editAbout', 'saveAbout')}
       </div>
     </div>
@@ -131,7 +131,7 @@ const validateImgPost = (imgPost, textPost, id) => {
       <p id="textPost-${id}" class="textPost">${textPost}</p>
       <div class="save hide" idpost="${id}"><i class="far fa-save"></i></div>
     </div>
-    <img src="${imgPost}" alt="Imagen del post" class="imgPost">
+    <img src="${imgPost}" alt="Imagen del post" class="imgPost img-${id}">
     `;
   } else {
     post = `
@@ -172,9 +172,9 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
       </div>
       
       ${uididUser === uidPost ? `
-      <spam class="comment">
+      <span class="hide comment">
         <i id="options-${id}" class="fas fa-ellipsis-v"></i>
-      </spam>
+      </span>
       <div class="tooltip-container hide" id="show-toolTip-${id}">
         <div class="arrow"></div>
         <div class="tooltip">
@@ -226,6 +226,7 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
     `;
 
   eachPost.innerHTML = template;
+
   // EVENTO PARA ABRIR MODAL CON EL BOTON ELIMINAR
   const modalDelet = eachPost.querySelector(`.modal-delet-${id}`);
   const modalId = eachPost.querySelector(`.modal-${id}`);
@@ -257,18 +258,22 @@ export const templatePost = (photoUrl, names, privacy, date, textPost,
     }
   });
 
-
-  // EVENTOS TOGLE PARA EDITAR Y ELIMINAR
+  // EVENTOS PARA EDITAR Y ELIMINAR
   const editDelete = eachPost.querySelector(`#options-${id}`);
   const editComment = eachPost.querySelector(`.edit-${id}`);
+
   if (editDelete || editComment) {
-    editDelete.addEventListener(('click'), () => {
-      const toolContainer = eachPost.querySelector(`#show-toolTip-${id}`);
+    editDelete.addEventListener(('click'), (e) => {
+      const toolContainer = document.querySelector(`#show-toolTip-${id}`);
       toolContainer.classList.toggle('hide');
+      e.currentTarget.parentNode.classList.toggle('active');
     });
+
     editComment.addEventListener(('click'), () => {
       const toolContainer = eachPost.querySelector(`#show-toolTip-${id}`);
       toolContainer.classList.toggle('hide');
+      const opt = toolContainer.parentNode.querySelector('span.comment');
+      opt.classList.toggle('active');
     });
   }
 

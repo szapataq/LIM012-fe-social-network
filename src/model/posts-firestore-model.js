@@ -54,7 +54,7 @@ export const readPostHome = (callback) => {
     });
 };
 
-// READ POSTS HOME
+// READ POSTS PROFILE
 export const readPostProfile = (callback, uid) => {
   firebase.firestore().collection('posts').where('uid', '==', uid)
     .orderBy('orderDate', 'desc')
@@ -66,6 +66,11 @@ export const readPostProfile = (callback, uid) => {
       callback(post);
     });
 };
+
+// UPDATE PERSONAL DATA
+export const updatePersonalData = (idpost, userNames) => firebase.firestore().collection('posts').doc(idpost).update({
+  names: userNames,
+});
 
 // UPDATE POSTS
 export const updatePosts = (idpost, textPost) => firebase.firestore().collection('posts').doc(idpost).update({
@@ -113,7 +118,7 @@ export const addLikeArr = (idPost, uid) => (
     .update({ likes: firebase.firestore.FieldValue.arrayUnion(uid) })
 );
 
-// ELIMINAR LIKE
+// REMOVE LIKE
 export const removeLikeArr = (idPost, uid) => (
   firebase.firestore().collection('posts').doc(idPost)
     .update({ likes: firebase.firestore.FieldValue.arrayRemove(uid) })

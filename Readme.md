@@ -3,7 +3,7 @@
 Es una red social dirigida a Programadores de todo el mundo, donde podrán compartir herramientas, tips, consejos de buenas prácticas, ayuda para errores de código, nuevas tecnologías y lenguajes de programación; así como interactuar entre ellos y fomentar el networking estratégico.
 
 Inicialmente éste era el prototipo de baja fidelidad para las vistas de registro e inicio de sesión.
-![Prototipo de baja](./src/img/prototipos-de-baja1.png)
+![Prototipo de baja](./src/img/prototipos-de-baja.png)
 
 Luego trabajamos en los prototipos de alta fidelidad de las diferentes visats:
 

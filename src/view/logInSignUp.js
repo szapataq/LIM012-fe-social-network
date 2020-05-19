@@ -57,9 +57,9 @@ export default () => {
       const alertLogInSignUp = divCenter.querySelector('#alertLogInSignUp');
       alertLogInSignUp.classList.remove('alertSignUpOk');
       if (emailUser === '') {
-        alertLogInSignUp.innerText = 'Debe ingresar su email';
+        alertLogInSignUp.innerText = '⚠️ Debe ingresar su email';
       } else if (passwordUser === '') {
-        alertLogInSignUp.innerText = 'Debe ingresar su contraseña';
+        alertLogInSignUp.innerText = '⚠️ Debe ingresar su contraseña';
       } else {
         authEmailPass(emailUser, passwordUser);
       }
@@ -79,13 +79,13 @@ export default () => {
       const termConditions = varTermConditions.checked;
       alertLogInSignUp.classList.remove('alertSignUpOk');
       if (nameUser === '') {
-        alertLogInSignUp.innerText = 'Debe ingresar su nombre';
+        alertLogInSignUp.innerText = '⚠️ Debe ingresar su nombre';
       } else if (emailUser === '') {
-        alertLogInSignUp.innerText = 'Debe ingresar su email';
+        alertLogInSignUp.innerText = '⚠️ Debe ingresar su email';
       } else if (passwordUser === '') {
-        alertLogInSignUp.innerText = 'Debe ingresar su contraseña';
+        alertLogInSignUp.innerText = '⚠️ Debe ingresar su contraseña';
       } else if (!termConditions) {
-        alertLogInSignUp.innerText = 'Debe aceptar lo términos y condiciones';
+        alertLogInSignUp.innerText = '⚠️ Debe aceptar lo términos y condiciones';
       } else {
         createUser(emailUser, passwordUser, nameUser);
       }

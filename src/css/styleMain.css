@@ -680,7 +680,11 @@ body::-webkit-scrollbar-track:active {
     max-width: 500px;
     padding: 0 10px;
 }
-
+.back{
+    cursor: pointer;
+    color: rgba(186, 12, 223, 0.5);
+    text-decoration: underline;
+}
 /*--------------------ESTILOS DEL MODAL DEL HOME-------------------*/
 .modal {
     display: block;

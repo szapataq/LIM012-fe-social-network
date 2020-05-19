@@ -12,7 +12,7 @@ export const shareImgPost = (file, uid) => {
 
   const catchError = () => {
     const progress = document.querySelector('.progress');
-    progress.parentNode.innerText = 'Error al cargar foto';
+    progress.parentNode.innerText = '⚠️ Error al cargar foto';
     // console.log(err.message);
   };
 

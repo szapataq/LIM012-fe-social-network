@@ -19,11 +19,11 @@ export const createNewComment = (idPost, comment) => {
   const idCurrentUser = firebase.auth().currentUser.uid;
 
   return createCommentsDB(idPost, idCurrentUser, names, profilePic, comment)
-    .then((res) => {
-      console.log(res.id);
+    .then(() => {
+      // console.log(res.id);
     })
-    .catch((error) => {
-      console.log(error);
+    .catch(() => {
+      // console.log(error);
     });
 };
 

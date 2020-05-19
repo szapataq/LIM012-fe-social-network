@@ -22,7 +22,7 @@ describe('Iniciar sesion', () => {
   it('Debería poder iniciar sesión', (done) => {
     signIn('soyuncacahuate@gmail.com', '12345678').then((user) => {
       expect(user.email).toBe('soyuncacahuate@gmail.com');
-      expect(user.password).toBe('12345678');
+      expect(user.isAnonymous).toBe(false);
       done();
     });
   });
@@ -30,11 +30,13 @@ describe('Iniciar sesion', () => {
 
 // test crear un nuevo usuario
 describe('Crear un usuario', () => {
-  it('Debería poder registrarse con email szapata013@gmail.com y password 12345678', () => createNewUser('szapata013@gmail.com', '12345678')
-    .then((user) => {
+  it('Debería poder registrarse con email szapata013@gmail.com y password 12345678', (done) => {
+    createNewUser('szapata013@gmail.com', '12345678').then((user) => {
       expect(user.email).toBe('szapata013@gmail.com');
       expect(user.password).toBe('12345678');
-    }));
+      done();
+    });
+  });
 });
 
 // funcion de iniciar sesion con google

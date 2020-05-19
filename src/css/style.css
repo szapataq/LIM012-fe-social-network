@@ -66,6 +66,15 @@ header label {
     text-align: center;
 }
 
+.iconSave i {
+    font-size: 18px;
+}
+
+.activeSave>i {
+    color: #c5c5c5;
+    cursor: default !important;
+}
+
 .menu div i {
     margin-left: 10px;
 }
@@ -481,15 +490,6 @@ header label:hover {
 .iconSv {
     margin-right: 0.69em !important;
     margin-top: 0.1em;
-}
-
-.iconSave i {
-    font-size: 18px;
-}
-
-.activeSave>i {
-    color: #c5c5c5;
-    cursor: default !important;
 }
 
 .margin {

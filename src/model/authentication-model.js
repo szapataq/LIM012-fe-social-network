@@ -1,7 +1,8 @@
-/* eslint-disable max-len */
-export const signIn = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
+export const signIn = (email, password) => firebase.auth()
+  .signInWithEmailAndPassword(email, password);
 
-export const createNewUser = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
+export const createNewUser = (email, password) => firebase.auth()
+  .createUserWithEmailAndPassword(email, password);
 
 
 export const signInWithGoogle = () => {

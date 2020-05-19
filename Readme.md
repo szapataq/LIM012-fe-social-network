@@ -19,9 +19,9 @@ Luego trabajamos en los prototipos de alta fidelidad de las diferentes visats:
 
 Siguiendo los estándares de otras RRSS en este proyecto trabajamos en 6 HU que consideramos que le agregan valor a los que interactúen con nuestro producto.
 
-Las primeras HU en las que trabajamos fue en la de Crear cuenta e Iniciar sesión con esa cuenta, utilizando el servicio de firebase para programar la autenticación del usuario. Y luego utilizamos los métodos de inicio de sesión con Google y Facebook para la el inicio de sesión con estas herramientas.
+Las primeras HU en las que trabajamos fueron las de Crear cuenta e Iniciar sesión con esa cuenta, utilizando el servicio de firebase para programar la autenticación del usuario. Y luego utilizamos los métodos de inicio de sesión con Google y Facebook para la el inicio de sesión con estas herramientas.
 
-Desplegamos el proyecto al poder concluir las funciones que le permiten al usuario compartir un post con texto e imagen o solo texto, poder editarlo o eliminarlo por completo. Para lo que utilizamos Firestore y el Cloud Storage.
+Desplegamos el proyecto una vez concluidas las funciones que le permiten al usuario compartir un post con texto e imagen o solo texto, poder editarlo o eliminarlo por completo. Para lo que utilizamos Firestore y el Cloud Storage.
 
 Además tiene la posibilidad de configurar la privacidad del post que vaya a realizar a Público o Solo yo, así como añadir comentaraios, editarlos o eliminarlos.
 También podrá añadir o remover likes a las publicaciones y modificar sus datos en el perfil.
